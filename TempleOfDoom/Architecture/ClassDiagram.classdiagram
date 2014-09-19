@@ -1,0 +1,425 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="8d02fe17-c082-4f14-ac76-1fee2d2012a3" name="ClassDiagram" linkedPackageId="63ab7cf6-7ab7-4971-84e9-8f121a3b3d48" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
+  <profileInstances>
+    <packageHasProfileInstances Id="3dc618be-9277-45c8-a3fc-a7d08bdf1def">
+      <profileInstance Id="bf61c235-986f-4690-9cd0-87b86304c076" name="StandardProfileL2">
+        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+      </profileInstance>
+      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="8cab1541-0a10-4f3a-b3a9-2dfd2739a885">
+      <profileInstance Id="50cbb3a6-fbff-4652-b4c2-e04dc58cba38" name="StandardProfileL3">
+        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+      </profileInstance>
+      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="8832f91b-fd56-4108-9872-b9e8a1361a67" name="Game" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="10f7b6cd-39c0-4f60-9a92-96db2352f098" />
+        <targetEnds>
+          <association Id="8b3217c9-e35b-45c7-98c6-bf45167c140b" isDerived="false" sourceEndRoleName="Game" targetEndRoleName="World" isLeaf="false" isAbstract="false">
+            <classMoniker Id="45b4b5dc-e7ac-4012-8008-5526ad3895b1" LastKnownName="World" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="fa2d6bbd-6700-4b04-8b30-0b4d85253fba" name="Game" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="73c319bb-0e8d-434f-aa75-def645c20047" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="dbdb2b86-8cea-4757-8b7f-f9adb930f39d" name="World" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="568acb34-9306-4d0e-b84d-bb984c900596" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="8ced2bbb-33d3-4c11-8d3d-c1db319274db" />
+          </association>
+          <association Id="6d11fa43-62ce-4766-b226-134b8095c10e" isDerived="false" sourceEndRoleName="Game" targetEndRoleName="GameObject" isLeaf="false" isAbstract="false">
+            <classMoniker Id="e2c5eb99-f825-4a28-9e62-2fc4305e6dc9" LastKnownName="GameObject" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="b7eabc92-ad79-41fd-9658-9853ec6a2d3a" name="Game" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="e04ca4dd-10b7-4042-aecb-35cfec2312eb" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="df5d31c1-6f3f-44ca-aad4-31103a3489e0" name="GameObject" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="ccc4f2d2-dfa9-47e2-a8bd-63984fbe1e06" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="412041d6-bbdd-4186-9612-dd7235d3904f" />
+          </association>
+        </targetEnds>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="e2c5eb99-f825-4a28-9e62-2fc4305e6dc9" name="GameObject" isAbstract="true" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="e0b71401-e74b-472d-81c6-f592fbe5501f" />
+        <ownedAttributesInternal>
+          <property Id="cbf42ec9-6460-4fae-972f-2e79a37350c5" name="name" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="fbd2adb9-baf1-4c4e-b5d6-81dcfabf49b7" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="b64dfb04-d953-47c1-bf91-7ee17c288bc0" LastKnownName="String" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="8dd0531c-07fc-4af5-aa7d-b90e0dbd46f1" name="Room" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="e50ccf68-5038-41ff-9532-d3ed711c0e4f" />
+        <ownedAttributesInternal>
+          <property Id="11ef9eac-7703-4362-8c94-779980a6525a" name="size" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="7b502f52-69d6-4ea0-96bf-6e911554409c" />
+          </property>
+          <property Id="2c030b1c-58c0-4f05-8943-0f43804cca2c" name="gameObjects" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="88cf4bff-521e-4a09-a2ff-275cd5faa3c2" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="41d02493-eea0-4d5b-b090-909b8f0d1058" LastKnownName="List&lt;GameObject&gt;" />
+            </type_NamedElement>
+          </property>
+          <property Id="e431b671-9ec4-4ef9-8282-a24eb56ad524" name="north" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="cb84ebf2-8691-469b-9dcd-86895c558661" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="8ae885a8-a8eb-4f05-ae72-eacfbbff08ed" LastKnownName="Room" />
+            </type_NamedElement>
+          </property>
+          <property Id="555cb14a-d893-430b-8d01-7b68e38e761b" name="east" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="a6c41a61-475e-445f-ac30-3a19c00b903c" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="8ae885a8-a8eb-4f05-ae72-eacfbbff08ed" LastKnownName="Room" />
+            </type_NamedElement>
+          </property>
+          <property Id="90e5c07e-5315-4c91-8df5-cb718be06074" name="west" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="1b3fc31b-68ef-49b3-ac58-eb7a1de67945" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="8ae885a8-a8eb-4f05-ae72-eacfbbff08ed" LastKnownName="Room" />
+            </type_NamedElement>
+          </property>
+          <property Id="acf426d0-edd1-4dc8-a792-80ed7297e072" name="south" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="321f0312-89af-4af3-9560-815ca3eca13f" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="8ae885a8-a8eb-4f05-ae72-eacfbbff08ed" LastKnownName="Room" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="35643171-88c1-4906-ab55-2452b4a27ca5" name="Floor" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="682bdeaf-69d5-4abe-85df-ca2011b871b8" />
+        <targetEnds>
+          <association Id="97d17679-4fcb-4913-919b-48e6d5eaa8af" isDerived="false" sourceEndRoleName="Floor" targetEndRoleName="Room" isLeaf="false" isAbstract="false">
+            <classMoniker Id="8dd0531c-07fc-4af5-aa7d-b90e0dbd46f1" LastKnownName="Room" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="86c0a848-c95d-435f-b25b-9c5d9600a42c" name="Floor" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="e43bdf15-f5b0-4c53-94fe-f996bfb29b00" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="25df97ea-35e4-4cf8-9dca-ec59cd223ced" name="Room" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <lowerValueInternal>
+                    <literalString Id="6891a6cd-9ef9-4b42-bc54-ba5bd12e97eb" name="Lower" value="1">
+                      <elementDefinition Id="7b61c840-14e9-40e1-8a0d-7385d93de96b" />
+                    </literalString>
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString Id="eb4b84c0-41b6-40df-92f7-94ceccd6c54c" name="Upper" value="*">
+                      <elementDefinition Id="cff47d5e-50a0-4930-8c20-a787ee482feb" />
+                    </literalString>
+                  </upperValueInternal>
+                  <elementDefinition Id="0ab986a4-da9a-46c9-ac55-02706bee2b66" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="c664c2e3-d90b-460b-a1fa-947e29fbde19" />
+          </association>
+        </targetEnds>
+        <ownedAttributesInternal>
+          <property Id="202e2adc-62a9-464f-8ed1-640cb9e9919f" name="rooms" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="d8cfd74c-e86e-4853-8af0-24d6a11809a6" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="1cf0e997-1594-4b8e-8bb2-d79305d569de" LastKnownName="Array&lt;Room&gt;" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="45b4b5dc-e7ac-4012-8008-5526ad3895b1" name="World" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="052d1665-d217-4ac8-b669-264a70b1282f" />
+        <targetEnds>
+          <association Id="f025edc9-495d-4af9-a332-74340cc4cbf3" isDerived="false" sourceEndRoleName="World" targetEndRoleName="Floor" isLeaf="false" isAbstract="false">
+            <classMoniker Id="35643171-88c1-4906-ab55-2452b4a27ca5" LastKnownName="Floor" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="dee49ab8-c213-4dbb-b285-c44ad52ca544" name="World" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="153b9022-7f2b-4b48-a79c-94f6dc04a553" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="776b44e3-d816-4e1c-b737-afe398c76e29" name="Floor" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <lowerValueInternal>
+                    <literalString Id="661e8f1a-6709-47f3-8c6a-bc614ffdd5c5" name="Lower" value="1">
+                      <elementDefinition Id="badf1355-16c1-43b0-8593-8e2134cf908d" />
+                    </literalString>
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString Id="40dce979-060c-40b4-908a-2b11565b1c13" name="Upper" value="*">
+                      <elementDefinition Id="44bdc524-0e7c-4955-8bd5-7b1d612cb5ad" />
+                    </literalString>
+                  </upperValueInternal>
+                  <elementDefinition Id="b5e19bd5-0435-4fa9-a741-c55fc8b127ca" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="cfbc7bc4-9de6-4229-a067-52868a034650" />
+          </association>
+        </targetEnds>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="5b635b82-591e-4281-9556-bcaa50853779" name="Trap" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="b7a888fa-a5ad-4b18-a29d-49010da5ff42" />
+        <generalsInternal>
+          <generalization Id="f0e1550f-524b-4532-94af-eee0f20ee1f3" isSubstitutable="false">
+            <classMoniker Id="e2c5eb99-f825-4a28-9e62-2fc4305e6dc9" LastKnownName="GameObject" />
+            <elementDefinition Id="bac28f64-762a-4841-bca3-fddcaa068e18" />
+          </generalization>
+        </generalsInternal>
+        <ownedAttributesInternal>
+          <property Id="6f3f0ad2-e955-41e6-9718-7e4fcb856686" name="damage" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="b79b1b5d-3f9d-428b-b530-377fab083249" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="0533916d-9399-4e97-90d5-d170ac0f39f7" LastKnownName="int" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="ffcb0be6-c20d-431b-a4bd-123d417589f9" name="Item" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="971be68e-0954-41b0-9698-43a28592d6c4" />
+        <generalsInternal>
+          <generalization Id="a05aec50-7dd0-4b34-afc7-a0918b7f5d6c" isSubstitutable="false">
+            <classMoniker Id="e2c5eb99-f825-4a28-9e62-2fc4305e6dc9" LastKnownName="GameObject" />
+            <elementDefinition Id="9862bdb9-fc53-48a3-b567-79e42c54b912" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="0a999f3d-9133-429d-a3ee-cf12f662b069" name="Character" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="293aa9df-9a74-40f3-93f7-21fad732a686" />
+        <generalsInternal>
+          <generalization Id="922a0e7b-3236-43aa-b6ca-272d787584cf" isSubstitutable="false">
+            <classMoniker Id="e2c5eb99-f825-4a28-9e62-2fc4305e6dc9" LastKnownName="GameObject" />
+            <elementDefinition Id="b1afff25-1f31-4760-a060-a0e93e4f6f5a" />
+          </generalization>
+        </generalsInternal>
+        <ownedAttributesInternal>
+          <property Id="6785a386-02a8-4c55-ace9-b94e7c15d55b" name="inventory" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="5fb25f94-2e62-435e-bc9d-051698ad40ab" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="9de08a70-b557-448d-b8fa-8b6751877f7e" LastKnownName="List&lt;Item&gt;" />
+            </type_NamedElement>
+          </property>
+          <property Id="d67e7d90-0c3f-4b3a-805f-eba3becc0b1f" name="level" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="019cd110-11f0-4e91-8d3e-a0bc6db3af25" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="0533916d-9399-4e97-90d5-d170ac0f39f7" LastKnownName="int" />
+            </type_NamedElement>
+          </property>
+          <property Id="2a500b39-cb85-4c53-93a0-fd1857d32e4a" name="hp" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="7690bd3a-fffd-4293-abd2-8ae081b56b7a" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="0533916d-9399-4e97-90d5-d170ac0f39f7" LastKnownName="int" />
+            </type_NamedElement>
+          </property>
+          <property Id="b199ad46-3cd7-4c4a-b8ef-5ae429aa8dc2" name="xp" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="cc39b6f7-919d-47c4-bc38-b2d100ef380f" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="0533916d-9399-4e97-90d5-d170ac0f39f7" LastKnownName="int" />
+            </type_NamedElement>
+          </property>
+          <property Id="d253ae9c-9cdb-4bdb-ae77-0da4138d3ec2" name="attack" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="8541ea03-5a4e-4fb3-8bfa-450502e171e1" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="0533916d-9399-4e97-90d5-d170ac0f39f7" LastKnownName="int" />
+            </type_NamedElement>
+          </property>
+          <property Id="07b3aeb6-f88e-4412-9a02-d88710c53bf5" name="defense" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="15d6aa3e-1b19-432a-94fd-a4ddfbbdeac8" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="0533916d-9399-4e97-90d5-d170ac0f39f7" LastKnownName="int" />
+            </type_NamedElement>
+          </property>
+          <property Id="2d58341a-a9ea-48af-a7c7-6b04a8bb45ab" name="vigilance" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="bd85fd79-d538-429a-87d5-a603c2165cd9" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="0533916d-9399-4e97-90d5-d170ac0f39f7" LastKnownName="int" />
+            </type_NamedElement>
+          </property>
+          <property Id="70a38888-fd0c-44d7-8a88-acf39eea387f" name="accuracy" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="e93a8c93-bbab-4fd3-abfc-16f7cef0fb2e" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="0533916d-9399-4e97-90d5-d170ac0f39f7" LastKnownName="int" />
+            </type_NamedElement>
+          </property>
+          <property Id="5b393fe2-fd79-4941-b257-782dd29f8adb" name="agility" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="a124faf6-0e2c-4dcc-8ce0-b794a159fbf8" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="0533916d-9399-4e97-90d5-d170ac0f39f7" LastKnownName="int" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="7f159b53-03b8-47f8-afcd-7c7ad8f1640d" name="NPC" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="2855ef2a-a127-440e-ac85-b6f365032a3a" />
+        <generalsInternal>
+          <generalization Id="5cd5261a-f57d-4d61-a06c-08cf9b86b28c" isSubstitutable="false">
+            <classMoniker Id="0a999f3d-9133-429d-a3ee-cf12f662b069" LastKnownName="Character" />
+            <elementDefinition Id="1ce4e443-aef7-414e-ba8a-56ddb7f306e7" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="3a935d6b-ae07-4cd2-9701-25bfb40dd6d7" name="Map" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="29ef2944-d0bc-4e73-bb92-de7c20efec7a" />
+        <generalsInternal>
+          <generalization Id="bf5f2140-fe16-478e-9e84-ac244297ffbc" isSubstitutable="false">
+            <classMoniker Id="f4f699c0-bf3a-48b0-bc0d-da97133aee3d" LastKnownName="Usable" />
+            <elementDefinition Id="c702b6a2-6abe-4030-8bc7-6b2e8bbe6624" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="865a886f-c6f1-4fbf-8ca0-417fc3ffcda9" name="Player" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="35d3b1f8-6774-47f7-9da5-06e76ff542de" />
+        <generalsInternal>
+          <generalization Id="7c257850-b73e-46f6-a2e3-6452aad15586" isSubstitutable="false">
+            <classMoniker Id="0a999f3d-9133-429d-a3ee-cf12f662b069" LastKnownName="Character" />
+            <elementDefinition Id="49d81e41-dfd5-42ab-a9c3-76a11dbb138e" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="73ff9187-a748-4f76-86ec-b096a6d80bc9" name="Scenery" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="5efc5a71-f1a3-4078-9f38-5e8bb9a31d37" />
+        <generalsInternal>
+          <generalization Id="99b2f3da-33b6-470b-ae9f-bf9a0c5efdfc" isSubstitutable="false">
+            <classMoniker Id="e2c5eb99-f825-4a28-9e62-2fc4305e6dc9" LastKnownName="GameObject" />
+            <elementDefinition Id="ed5f005d-2575-4500-917d-a8a4602c6736" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="26c45df1-39b0-4e0a-a5f8-188bf36ead0e" name="Weapon" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="d43dc86a-a03f-4484-9df3-a448f6eab60d" />
+        <generalsInternal>
+          <generalization Id="165c3593-c283-4550-bced-c0a1c8355abd" isSubstitutable="false">
+            <classMoniker Id="f977b185-91be-4acd-9042-d6c488e9304a" LastKnownName="Wearable" />
+            <elementDefinition Id="83f0fafe-e995-4e28-a322-771ee6799bfd" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="e9342e45-ba6e-4deb-81a6-8f4c2cc7c822" name="Armor" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="b11cbe9f-7db2-4d8d-b919-6a039f85a74c" />
+        <generalsInternal>
+          <generalization Id="476893cd-d7d9-4bbb-95d4-11d8b5c440c4" isSubstitutable="false">
+            <classMoniker Id="f977b185-91be-4acd-9042-d6c488e9304a" LastKnownName="Wearable" />
+            <elementDefinition Id="94edb2d7-dee3-4f76-8bee-9dba8f4bdd99" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="1aa6a830-6b18-4275-99bc-4d8ef058673b" name="Medkit" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="903665e9-fa70-4e96-af47-392be45e54a9" />
+        <generalsInternal>
+          <generalization Id="6dab10f1-06dc-41ce-a79d-2a7cc9c36458" isSubstitutable="false">
+            <classMoniker Id="f4f699c0-bf3a-48b0-bc0d-da97133aee3d" LastKnownName="Usable" />
+            <elementDefinition Id="ddd2bbbd-89cc-48e1-a0ad-aa60e8f3e344" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <packageHasNamedElement>
+      <referencedType Id="b64dfb04-d953-47c1-bf91-7ee17c288bc0" name="String" isAbstract="false" isLeaf="false" cachedFullName="String">
+        <elementDefinition Id="59259974-6d55-42c6-b7bd-763d77ac8ef9" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="0533916d-9399-4e97-90d5-d170ac0f39f7" name="int" isAbstract="false" isLeaf="false" cachedFullName="int">
+        <elementDefinition Id="4ac7c9d1-985b-47df-b875-0ff304e3031a" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="9de08a70-b557-448d-b8fa-8b6751877f7e" name="List&lt;Item&gt;" isAbstract="false" isLeaf="false" cachedFullName="List&lt;Item&gt;">
+        <elementDefinition Id="b95e3b94-56da-4208-8fc9-4a748cd7b365" />
+      </referencedType>
+    </packageHasNamedElement>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="f977b185-91be-4acd-9042-d6c488e9304a" name="Wearable" isAbstract="true" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="db0e0df9-06ea-445f-8476-cc3463c00106" />
+        <generalsInternal>
+          <generalization Id="63e1ec04-39fa-4ea1-bd4d-7dc16ff590f2" isSubstitutable="false">
+            <classMoniker Id="ffcb0be6-c20d-431b-a4bd-123d417589f9" LastKnownName="Item" />
+            <elementDefinition Id="d9db1801-357b-4e96-a96f-caea841beffc" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="f4f699c0-bf3a-48b0-bc0d-da97133aee3d" name="Usable" isAbstract="true" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="d84ec786-92aa-4504-9403-323e79a242c3" />
+        <generalsInternal>
+          <generalization Id="649fcca8-8eb5-4a95-97c5-4f75d456738f" isSubstitutable="false">
+            <classMoniker Id="ffcb0be6-c20d-431b-a4bd-123d417589f9" LastKnownName="Item" />
+            <elementDefinition Id="842ee8c3-a581-4bba-b23e-a48a04fdf53f" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <packageHasNamedElement>
+      <referencedType Id="41d02493-eea0-4d5b-b090-909b8f0d1058" name="List&lt;GameObject&gt;" isAbstract="false" isLeaf="false" cachedFullName="List&lt;GameObject&gt;">
+        <elementDefinition Id="9ccc7ab5-08a8-4b26-8e03-cc15a6ad157a" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="8ae885a8-a8eb-4f05-ae72-eacfbbff08ed" name="Room" isAbstract="false" isLeaf="false" cachedFullName="Architecture::Room">
+        <elementDefinition Id="e50ccf68-5038-41ff-9532-d3ed711c0e4f" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="1cf0e997-1594-4b8e-8bb2-d79305d569de" name="Array&lt;Room&gt;" isAbstract="false" isLeaf="false" cachedFullName="Array&lt;Room&gt;">
+        <elementDefinition Id="b2aad2fc-f41f-46e4-99ac-fb98cc63fa2b" />
+      </referencedType>
+    </packageHasNamedElement>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="0602cf38-fdd3-48d4-8ad1-f979177f7798" name="NPCType" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="dd642dbf-d740-45b0-ae16-78697fd53961" />
+        <generalsInternal>
+          <generalization Id="2ef76b1a-b052-4f78-939b-f866c3ea74d0" isSubstitutable="false">
+            <classMoniker Id="7f159b53-03b8-47f8-afcd-7c7ad8f1640d" LastKnownName="NPC" />
+            <elementDefinition Id="28fce801-3dd4-463a-a26b-cfca1966540c" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+  </packagedElements>
+  <package Id="63ab7cf6-7ab7-4971-84e9-8f121a3b3d48" name="Architecture">
+    <elementDefinition Id="d96df972-9c16-49fa-9818-4bf2583da520" />
+  </package>
+</logicalClassDesignerModel>

@@ -5,16 +5,38 @@ VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TempleOfDoom", "TempleOfDoom\TempleOfDoom.vcxproj", "{FBF61EB8-4F7E-4665-BBD8-DFA1BE5B50B2}"
 EndProject
+Project("{F088123C-0E9E-452A-89E6-6BA2F21D5CAC}") = "Architecture", "Architecture\Architecture.modelproj", "{6181EB4E-F338-4ED0-B1E3-FFEEAFF8CAAA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|Mixed Platforms = Debug|Mixed Platforms
 		Debug|Win32 = Debug|Win32
+		Release|Any CPU = Release|Any CPU
+		Release|Mixed Platforms = Release|Mixed Platforms
 		Release|Win32 = Release|Win32
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FBF61EB8-4F7E-4665-BBD8-DFA1BE5B50B2}.Debug|Any CPU.ActiveCfg = Debug|Win32
+		{FBF61EB8-4F7E-4665-BBD8-DFA1BE5B50B2}.Debug|Mixed Platforms.ActiveCfg = Debug|Win32
+		{FBF61EB8-4F7E-4665-BBD8-DFA1BE5B50B2}.Debug|Mixed Platforms.Build.0 = Debug|Win32
 		{FBF61EB8-4F7E-4665-BBD8-DFA1BE5B50B2}.Debug|Win32.ActiveCfg = Debug|Win32
 		{FBF61EB8-4F7E-4665-BBD8-DFA1BE5B50B2}.Debug|Win32.Build.0 = Debug|Win32
+		{FBF61EB8-4F7E-4665-BBD8-DFA1BE5B50B2}.Release|Any CPU.ActiveCfg = Release|Win32
+		{FBF61EB8-4F7E-4665-BBD8-DFA1BE5B50B2}.Release|Mixed Platforms.ActiveCfg = Release|Win32
+		{FBF61EB8-4F7E-4665-BBD8-DFA1BE5B50B2}.Release|Mixed Platforms.Build.0 = Release|Win32
 		{FBF61EB8-4F7E-4665-BBD8-DFA1BE5B50B2}.Release|Win32.ActiveCfg = Release|Win32
 		{FBF61EB8-4F7E-4665-BBD8-DFA1BE5B50B2}.Release|Win32.Build.0 = Release|Win32
+		{6181EB4E-F338-4ED0-B1E3-FFEEAFF8CAAA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6181EB4E-F338-4ED0-B1E3-FFEEAFF8CAAA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6181EB4E-F338-4ED0-B1E3-FFEEAFF8CAAA}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{6181EB4E-F338-4ED0-B1E3-FFEEAFF8CAAA}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{6181EB4E-F338-4ED0-B1E3-FFEEAFF8CAAA}.Debug|Win32.ActiveCfg = Debug|Any CPU
+		{6181EB4E-F338-4ED0-B1E3-FFEEAFF8CAAA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6181EB4E-F338-4ED0-B1E3-FFEEAFF8CAAA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6181EB4E-F338-4ED0-B1E3-FFEEAFF8CAAA}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{6181EB4E-F338-4ED0-B1E3-FFEEAFF8CAAA}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{6181EB4E-F338-4ED0-B1E3-FFEEAFF8CAAA}.Release|Win32.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
