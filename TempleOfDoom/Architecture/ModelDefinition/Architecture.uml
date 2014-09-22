@@ -104,6 +104,45 @@
               </associationHasOwnedEnds>
             </relationshipOwnedElementsInternal>
           </association>
+          <association
+            Id="7f52c2e0-1be6-405c-85ab-9e978c34b96b"
+            isDerived="false"
+            sourceEndRoleName="Game"
+            targetEndRoleName="GameStateManager"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="1521c803-2606-466b-a811-3ea2fbc6703b"
+              LastKnownName="GameStateManager"
+              LastKnownLocation="Architecture.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="bc420942-88f8-46f9-adbd-31f8995670e6"
+                  name="Game"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="769bd360-1724-430a-bf3f-9201cabb3bc8"
+                  name="GameStateManager"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
         </targetEnds>
       </class>
     </packageHasNamedElement>
@@ -888,6 +927,102 @@
             <classMoniker
               Id="2855ef2a-a127-440e-ac85-b6f365032a3a"
               LastKnownName="NPC"
+              LastKnownLocation="Architecture.uml" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="1521c803-2606-466b-a811-3ea2fbc6703b"
+        name="GameStateManager"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <targetEnds>
+          <association
+            Id="2eea75c3-4243-495c-a74a-8823fe9f951b"
+            isDerived="false"
+            sourceEndRoleName="GameStateManager"
+            targetEndRoleName="GameState"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="9b2fc571-f261-4810-a82c-9c7093c484b3"
+              LastKnownName="GameState"
+              LastKnownLocation="Architecture.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="a895f813-108c-43b4-b1ad-3dc62c227d65"
+                  name="GameStateManager"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="9e2a3c5a-bb68-4cf9-b500-ad91b5e5a579"
+                  name="GameState"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="9b2fc571-f261-4810-a82c-9c7093c484b3"
+        name="GameState"
+        isAbstract="true"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="49f26800-9fcc-433f-8df4-ad5235c0c44d"
+        name="WalkingState"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <generalsInternal>
+          <generalization
+            Id="cf315b6d-0d5c-4099-a899-a3ed1338433e"
+            isSubstitutable="false">
+            <classMoniker
+              Id="9b2fc571-f261-4810-a82c-9c7093c484b3"
+              LastKnownName="GameState"
+              LastKnownLocation="Architecture.uml" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="65eee737-c646-491f-8842-acf0a23105fd"
+        name="FightingState"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <generalsInternal>
+          <generalization
+            Id="37b8ccc3-0301-4d9a-8370-1989157d81b7"
+            isSubstitutable="false">
+            <classMoniker
+              Id="9b2fc571-f261-4810-a82c-9c7093c484b3"
+              LastKnownName="GameState"
               LastKnownLocation="Architecture.uml" />
           </generalization>
         </generalsInternal>
