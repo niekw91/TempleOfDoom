@@ -1,20 +1,24 @@
 #include "stdafx.h"
+#include <iostream>
 #include "Game.h"
 
 namespace TOD {
-	Game::Game()
-	{
-		running = true;
+	Game::Game() {
+
+	}
+
+	void Game::CreateWorld() {
+		// create world
+		world = new World(4, 10);
 
 		Start();
 	}
 
-
-	Game::~Game()
-	{
+	Game::~Game() {
 	}
 
 	void Game::Start() {
+		running = true;
 
 		while (running) {
 			Update();

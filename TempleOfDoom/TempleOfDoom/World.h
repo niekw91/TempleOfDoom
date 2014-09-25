@@ -1,12 +1,20 @@
 #pragma once
+#include "Floor.h"
 
 namespace TOD {
 	class World
 	{
 
 	public:
-		World();
+		World(int floorCount, int size);
 		virtual ~World();
+		void Generate();
+
+		int floorCount;
+		int size;
+	
+	private:
+		Floor *floor[];
 	};
 }
 

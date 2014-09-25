@@ -449,7 +449,7 @@
       </class>
     </logicalClassDesignerModelHasTypes>
     <logicalClassDesignerModelHasTypes>
-      <class Id="5307e1c3-66ed-42ba-9c70-44c01751cdd7" name="WalkingState" isAbstract="false" isLeaf="false" isActiveClass="false">
+      <class Id="5307e1c3-66ed-42ba-9c70-44c01751cdd7" name="ExploringState" isAbstract="false" isLeaf="false" isActiveClass="false">
         <elementDefinition Id="49f26800-9fcc-433f-8df4-ad5235c0c44d" />
         <generalsInternal>
           <generalization Id="4bce94d9-429b-434f-8f12-0146c37d4a96" isSubstitutable="false">

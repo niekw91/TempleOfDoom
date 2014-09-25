@@ -1,4 +1,5 @@
 #pragma once
+#include "World.h"
 
 namespace TOD {
 	class Game
@@ -7,9 +8,12 @@ namespace TOD {
 	public:
 		Game();
 		virtual ~Game();
+		void CreateWorld();
 
 	private:
 		bool running;
+		World *world;
+
 		void Start();
 		void Stop();
 		void Update();

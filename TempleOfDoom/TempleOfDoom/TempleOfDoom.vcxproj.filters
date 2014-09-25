@@ -87,7 +87,7 @@
     <ClInclude Include="FightingState.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="WalkingState.h">
+    <ClInclude Include="ExploringState.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -161,7 +161,7 @@
     <ClCompile Include="FightingState.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="WalkingState.cpp">
+    <ClCompile Include="ExploringState.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

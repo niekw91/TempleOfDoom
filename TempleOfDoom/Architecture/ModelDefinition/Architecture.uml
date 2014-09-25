@@ -993,7 +993,7 @@
     <packageHasNamedElement>
       <class
         Id="49f26800-9fcc-433f-8df4-ad5235c0c44d"
-        name="WalkingState"
+        name="ExploringState"
         isAbstract="false"
         isLeaf="false"
         isActiveClass="false">

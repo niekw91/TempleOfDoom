@@ -2,10 +2,15 @@
 //
 
 #include "stdafx.h"
+#include "Game.h"
 
 
 int _tmain(int argc, _TCHAR* argv[])
 {
+	// Create game object
+	TOD::Game *game = new TOD::Game();
+	game->CreateWorld();
+
 	return 0;
 }
 
