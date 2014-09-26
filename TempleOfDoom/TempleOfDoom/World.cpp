@@ -18,14 +18,17 @@ namespace TOD {
 	}
 
 	void World::Generate() {
-		default_random_engine dre;
-		uniform_int_distribution<int> dist(1, 6);
+		floors = new std::vector<Floor>;
 
-		for (int i = 0; i < World::size; ++i) {
-			cout << dist(dre) << " ";
-		}
-		cout << endl;
 
-		std::cin.get();
+		//default_random_engine dre;
+		//uniform_int_distribution<int> dist(1, 6);
+
+		//for (int i = 0; i < World::size; ++i) {
+		//	cout << dist(dre) << " ";
+		//}
+		//cout << endl;
+
+		//std::cin.get();
 	}
 }

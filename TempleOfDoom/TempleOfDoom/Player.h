@@ -9,6 +9,10 @@ namespace TOD {
 	public:
 		Player();
 		virtual ~Player();
+
+	private:
+		int vigilance;
+		int xp;
 	};
 }
 

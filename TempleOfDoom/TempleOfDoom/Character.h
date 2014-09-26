@@ -20,8 +20,6 @@ namespace TOD {
 		int defense;
 		Item inventory[20];
 		int level;
-		int vigilance;
-		int xp;
 	};
 }
 
