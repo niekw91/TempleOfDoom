@@ -1,10 +1,21 @@
 #include "stdafx.h"
 #include <iostream>
+#include <fstream>
+#include <string>
 #include "Game.h"
+using namespace std;
 
 namespace TOD {
 	Game::Game() {
+		// Create main menu
+		MainMenu();
+	}
 
+	void Game::Init(){
+		// Create gamestatemanager
+		stateManager = new GameStateManager();
+
+		running = true;
 	}
 
 	void Game::CreateWorld() {
@@ -18,7 +29,6 @@ namespace TOD {
 	}
 
 	void Game::Start() {
-		running = true;
 
 		while (running) {
 			Update();
@@ -37,5 +47,17 @@ namespace TOD {
 
 	void Game::Render() {
 		// render
+	}
+
+	void Game::MainMenu() {
+
+		const string textfile("MainMenuBanner.txt");
+		ifstream input_file(textfile);
+
+		string line;
+		while (getline(input_file, line)) { 
+			cout << line << '\n'; 
+		}
+		std::cin.get();
 	}
 }

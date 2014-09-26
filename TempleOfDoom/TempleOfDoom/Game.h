@@ -1,5 +1,6 @@
 #pragma once
 #include "World.h"
+#include "GameStateManager.h"
 
 namespace TOD {
 	class Game
@@ -9,12 +10,15 @@ namespace TOD {
 		Game();
 		virtual ~Game();
 		void CreateWorld();
+		void Init();
+		void ChangeState(GameState* state);
+		void Start();
 
 	private:
 		bool running;
 		World *world;
-
-		void Start();
+		GameStateManager *stateManager;
+		void MainMenu();
 		void Stop();
 		void Update();
 		void Render();

@@ -14,7 +14,7 @@ namespace TOD {
 		int size;
 	
 	private:
-		Floor *floor[];
+		//Floor *floor[];
 	};
 }
 
