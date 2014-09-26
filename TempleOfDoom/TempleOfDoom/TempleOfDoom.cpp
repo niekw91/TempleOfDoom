@@ -11,6 +11,8 @@ int _tmain(int argc, _TCHAR* argv[])
 	// Initialize game
 	game->Init();
 
+	game->CreateWorld();
+
 	// Start game
 	//game->Start();
 

@@ -14,8 +14,6 @@ namespace TOD {
 	void Game::Init(){
 		// Create gamestatemanager
 		stateManager = new GameStateManager();
-
-		running = true;
 	}
 
 	void Game::CreateWorld() {
@@ -29,7 +27,7 @@ namespace TOD {
 	}
 
 	void Game::Start() {
-
+		running = true;
 		while (running) {
 			Update();
 			Render();

@@ -21,22 +21,6 @@
             </relationshipOwnedElementsInternal>
             <elementDefinition Id="8ced2bbb-33d3-4c11-8d3d-c1db319274db" />
           </association>
-          <association Id="6d11fa43-62ce-4766-b226-134b8095c10e" isDerived="false" sourceEndRoleName="Game" targetEndRoleName="GameObject" isLeaf="false" isAbstract="false">
-            <classMoniker Id="e2c5eb99-f825-4a28-9e62-2fc4305e6dc9" LastKnownName="GameObject" />
-            <relationshipOwnedElementsInternal>
-              <associationHasOwnedEnds>
-                <memberEnd Id="b7eabc92-ad79-41fd-9658-9853ec6a2d3a" name="Game" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
-                  <elementDefinition Id="e04ca4dd-10b7-4042-aecb-35cfec2312eb" />
-                </memberEnd>
-              </associationHasOwnedEnds>
-              <associationHasOwnedEnds>
-                <memberEnd Id="df5d31c1-6f3f-44ca-aad4-31103a3489e0" name="GameObject" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-                  <elementDefinition Id="ccc4f2d2-dfa9-47e2-a8bd-63984fbe1e06" />
-                </memberEnd>
-              </associationHasOwnedEnds>
-            </relationshipOwnedElementsInternal>
-            <elementDefinition Id="412041d6-bbdd-4186-9612-dd7235d3904f" />
-          </association>
           <association Id="8091894c-5aa8-4a02-9103-b76f13d29df5" isDerived="false" sourceEndRoleName="Game" targetEndRoleName="GameStateManager" isLeaf="false" isAbstract="false">
             <classMoniker Id="92309995-9037-4d0e-bdd4-a84011afc8ec" LastKnownName="GameStateManager" />
             <relationshipOwnedElementsInternal>
@@ -52,6 +36,22 @@
               </associationHasOwnedEnds>
             </relationshipOwnedElementsInternal>
             <elementDefinition Id="7f52c2e0-1be6-405c-85ab-9e978c34b96b" />
+          </association>
+          <association Id="a73ac3b0-77e5-4e01-b715-255a34fa718e" isDerived="false" sourceEndRoleName="Game" targetEndRoleName="GameObject" isLeaf="false" isAbstract="false">
+            <classMoniker Id="e2c5eb99-f825-4a28-9e62-2fc4305e6dc9" LastKnownName="GameObject" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="beda6385-3aa1-443c-bb1d-9bbcba83561b" name="Game" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="88c66dcd-f6d1-4618-9d70-1dabf2b4364b" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="042ac316-d314-4167-93ff-3faf3eb2037c" name="GameObject" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="7429595a-36d7-4d24-a8be-63b47672545d" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="bf4fbe19-344f-49a5-a20c-44ffa9cf1702" />
           </association>
         </targetEnds>
       </class>
@@ -72,6 +72,24 @@
     <logicalClassDesignerModelHasTypes>
       <class Id="8dd0531c-07fc-4af5-aa7d-b90e0dbd46f1" name="Room" isAbstract="false" isLeaf="false" isActiveClass="false">
         <elementDefinition Id="e50ccf68-5038-41ff-9532-d3ed711c0e4f" />
+        <targetEnds>
+          <association Id="a0354126-d81c-4ff5-bf78-0edb9c53690b" isDerived="false" sourceEndRoleName="Room" targetEndRoleName="GameObject" isLeaf="false" isAbstract="false">
+            <classMoniker Id="e2c5eb99-f825-4a28-9e62-2fc4305e6dc9" LastKnownName="GameObject" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="75ae2d86-c8eb-4bd4-a8f8-5f3e4300b8c6" name="Room" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="7eba8b1b-4e49-4892-a2e3-248739d73d55" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="a54ceffd-0a76-434a-96aa-1e092f898070" name="GameObject" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="aca1fba2-689e-41c3-ab33-cc4924dd7ee0" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="82c7fa16-7514-40e2-8551-72108ae06386" />
+          </association>
+        </targetEnds>
         <ownedAttributesInternal>
           <property Id="11ef9eac-7703-4362-8c94-779980a6525a" name="size" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <elementDefinition Id="7b502f52-69d6-4ea0-96bf-6e911554409c" />
@@ -241,12 +259,6 @@
               <referencedTypeMoniker Id="0533916d-9399-4e97-90d5-d170ac0f39f7" LastKnownName="int" />
             </type_NamedElement>
           </property>
-          <property Id="b199ad46-3cd7-4c4a-b8ef-5ae429aa8dc2" name="xp" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-            <elementDefinition Id="cc39b6f7-919d-47c4-bc38-b2d100ef380f" />
-            <type_NamedElement>
-              <referencedTypeMoniker Id="0533916d-9399-4e97-90d5-d170ac0f39f7" LastKnownName="int" />
-            </type_NamedElement>
-          </property>
           <property Id="d253ae9c-9cdb-4bdb-ae77-0da4138d3ec2" name="attack" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <elementDefinition Id="8541ea03-5a4e-4fb3-8bfa-450502e171e1" />
             <type_NamedElement>
@@ -255,12 +267,6 @@
           </property>
           <property Id="07b3aeb6-f88e-4412-9a02-d88710c53bf5" name="defense" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <elementDefinition Id="15d6aa3e-1b19-432a-94fd-a4ddfbbdeac8" />
-            <type_NamedElement>
-              <referencedTypeMoniker Id="0533916d-9399-4e97-90d5-d170ac0f39f7" LastKnownName="int" />
-            </type_NamedElement>
-          </property>
-          <property Id="2d58341a-a9ea-48af-a7c7-6b04a8bb45ab" name="vigilance" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-            <elementDefinition Id="bd85fd79-d538-429a-87d5-a603c2165cd9" />
             <type_NamedElement>
               <referencedTypeMoniker Id="0533916d-9399-4e97-90d5-d170ac0f39f7" LastKnownName="int" />
             </type_NamedElement>
@@ -311,6 +317,20 @@
             <elementDefinition Id="49d81e41-dfd5-42ab-a9c3-76a11dbb138e" />
           </generalization>
         </generalsInternal>
+        <ownedAttributesInternal>
+          <property Id="3cda036c-99fa-421c-8cda-d38d36da7140" name="xp" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="d0bd07db-9829-42dc-84b3-396667f9b866" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="0533916d-9399-4e97-90d5-d170ac0f39f7" LastKnownName="int" />
+            </type_NamedElement>
+          </property>
+          <property Id="9ffc754b-aae9-4d1d-89b5-2f8fe6aaf706" name="vigilance" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="99c65ea7-be35-466f-a50b-586a8b09234e" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="0533916d-9399-4e97-90d5-d170ac0f39f7" LastKnownName="int" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
       </class>
     </logicalClassDesignerModelHasTypes>
     <logicalClassDesignerModelHasTypes>
@@ -446,6 +466,14 @@
     <logicalClassDesignerModelHasTypes>
       <class Id="903a96ac-6684-441d-a36b-d47caec3e556" name="GameState" isAbstract="true" isLeaf="false" isActiveClass="false">
         <elementDefinition Id="9b2fc571-f261-4810-a82c-9c7093c484b3" />
+        <ownedAttributesInternal>
+          <property Id="a5af069d-cb27-4217-b46a-ab3ac7872ad3" name="game" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="e8e48a16-442e-4f08-8234-b79a85b1663c" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="77b967f0-0528-4270-9971-18d8a4ab7a4f" LastKnownName="Game" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
       </class>
     </logicalClassDesignerModelHasTypes>
     <logicalClassDesignerModelHasTypes>
@@ -470,6 +498,11 @@
         </generalsInternal>
       </class>
     </logicalClassDesignerModelHasTypes>
+    <packageHasNamedElement>
+      <referencedType Id="77b967f0-0528-4270-9971-18d8a4ab7a4f" name="Game" isAbstract="false" isLeaf="false" cachedFullName="Architecture::Game">
+        <elementDefinition Id="10f7b6cd-39c0-4f60-9a92-96db2352f098" />
+      </referencedType>
+    </packageHasNamedElement>
   </packagedElements>
   <package Id="63ab7cf6-7ab7-4971-84e9-8f121a3b3d48" name="Architecture">
     <elementDefinition Id="d96df972-9c16-49fa-9818-4bf2583da520" />
