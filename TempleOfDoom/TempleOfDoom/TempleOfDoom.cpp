@@ -6,15 +6,16 @@
 
 int _tmain(int argc, _TCHAR* argv[])
 {
-	TOD::Game *game = new TOD::Game();
+	Game *game = new Game();
 	
 	// Initialize game
 	game->Init();
 
-	game->CreateWorld();
+	// Create world
+	//game->NewWorld(3, 5);
 
 	// Start game
-	//game->Start();
+	game->Start();
 
 	return 0;
 }

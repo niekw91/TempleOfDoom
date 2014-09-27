@@ -1,22 +1,21 @@
 #pragma once
 
-namespace TOD {
-	class GameState
-	{
+#include "GameStateManager.h"
 
-	public:
-		GameState();
-		virtual ~GameState();
+class GameState
+{
+public:
+	virtual void Init() = 0;
+	virtual void Cleanup() = 0;
 
-		virtual void Init() = 0;
-		virtual void Cleanup() = 0;
+	virtual void HandleEvents() = 0;
+	virtual void Update() = 0;
+	virtual void Render() = 0;
 
-		//virtual void Update(Game* game) = 0;
-		//virtual void Render(Game* game) = 0;
+	/*void ChangeState(GameStateManager* gameStateManager, GameState* state) {
+		gameStateManager->ChangeState(state);
+	}*/
 
-		//void ChangeState(Game* game, GameState* state) {
-			//game->ChangeState(state);
-		//}
-	};
-}
-
+protected:
+	GameState() { }
+};

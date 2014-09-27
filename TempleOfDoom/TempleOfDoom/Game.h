@@ -1,28 +1,33 @@
 #pragma once
+
 #include "World.h"
 #include "GameStateManager.h"
 
-namespace TOD {
-	class Game
-	{
+class GameStateManager;
 
-	public:
-		Game();
-		virtual ~Game();
-		void CreateWorld();
-		void Init();
-		void ChangeState(GameState* state);
-		void Start();
+class Game
+{
+public:
+	Game();
+	virtual ~Game();
 
-	private:
-		bool running;
-		World *world;
-		GameStateManager *stateManager;
-		void MainMenu();
-		void Stop();
-		void Update();
-		void Render();
-	};
-}
+	void Init();
+	void Cleanup();
 
+	void HandleEvents();
+	void Update();
+	void Render();
 
+	void Start();
+	void Stop();
+
+	void NewWorld(int levels, int size);
+
+private:
+	GameStateManager* stateManager;
+	World *world;
+
+	bool Running;
+
+	void MainMenu();
+};

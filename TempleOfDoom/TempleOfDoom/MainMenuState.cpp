@@ -1,13 +1,45 @@
 #include "stdafx.h"
+#include <iostream>
+#include <fstream>
+#include <string>
+
+#include "GameState.h"
 #include "MainMenuState.h"
 
-namespace TOD {
-	MainMenuState::MainMenuState()
-	{
+MainMenuState MainMenuState::m_MainMenuState;
+
+void MainMenuState::Init(){
+
+}
+
+void MainMenuState::Cleanup(){
+
+}
+
+void MainMenuState::HandleEvents(){
+
+}
+
+void MainMenuState::Update(){
+
+}
+
+void MainMenuState::Render(){
+	//ClearScreen();
+	// Create main menu banner
+	const std::string textfile("MainMenuBanner.txt");
+	std::ifstream input_file(textfile);
+
+	std::string line;
+	while (getline(input_file, line)) {
+		std::cout << line << '\n';
 	}
 
+	// Read input
+	std::cin.get();
+}
 
-	MainMenuState::~MainMenuState()
-	{
-	}
+void MainMenuState::ClearScreen()
+{
+	std::cout << std::string(100, '\n');
 }

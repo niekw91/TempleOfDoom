@@ -1,23 +1,28 @@
 #pragma once
-#include "GameState.h"
 
 #include <vector>
-using namespace std;
 
-namespace TOD {
-	class GameStateManager
-	{
-	public:
-		GameStateManager();
-		virtual ~GameStateManager();
-		void Init();
+#include "GameState.h"
 
-		void ChangeState(GameState* state);
-		void PushState(GameState* state);
-		void PopState();
+class GameState;
 
-	private:
-		vector<GameState*> states;
-	};
-}
+class GameStateManager
+{
+public:
+	GameStateManager();
+	virtual ~GameStateManager();
 
+	void Init();
+	void Cleanup();
+
+	void ChangeState(GameState *state);
+	void PushState(GameState *state);
+	void PopState();
+
+	void HandleEvents();
+	void Update();
+	void Render();
+
+private:
+	std::vector<GameState*> states;
+};

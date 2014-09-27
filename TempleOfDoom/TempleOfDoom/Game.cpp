@@ -2,60 +2,57 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+
 #include "Game.h"
-using namespace std;
+#include "GameStateManager.h"
+#include "MainMenuState.h"
 
-namespace TOD {
-	Game::Game() {
-		// Create main menu
-		MainMenu();
+Game::Game() { 
+}
+
+Game::~Game() {
+}
+
+void Game::Init(){
+	// Create gamestatemanager
+	stateManager = new GameStateManager();
+
+	// Create and change current state 
+	stateManager->ChangeState(MainMenuState::Instance());
+
+	Running = true;
+}
+
+void Game::NewWorld(int levels, int size) {
+	// Create new world
+	world = new World(levels, size);
+
+	Start();
+}
+
+void Game::Start() {
+	while (Running) {
+		HandleEvents();
+		Update();
+		Render();
 	}
+}
 
-	void Game::Init(){
-		// Create gamestatemanager
-		stateManager = new GameStateManager();
-	}
+void Game::Stop() {
+	Running = false;
+}
 
-	void Game::CreateWorld() {
-		// create world
-		world = new World(4, 10);
+void Game::HandleEvents(){
+	// handle events
+	stateManager->HandleEvents();
+}
 
-		Start();
-	}
+void Game::Update() {
+	// update
+	stateManager->Update();
+}
 
-	Game::~Game() {
-	}
-
-	void Game::Start() {
-		running = true;
-		while (running) {
-			Update();
-			Render();
-		}
-
-	}
-
-	void Game::Stop() {
-		running = false;
-	}
-
-	void Game::Update() {
-		// update
-	}
-
-	void Game::Render() {
-		// render
-	}
-
-	void Game::MainMenu() {
-
-		const string textfile("MainMenuBanner.txt");
-		ifstream input_file(textfile);
-
-		string line;
-		while (getline(input_file, line)) { 
-			cout << line << '\n'; 
-		}
-		std::cin.get();
-	}
+void Game::Render() {
+	// render
+	stateManager->Render();
 }
