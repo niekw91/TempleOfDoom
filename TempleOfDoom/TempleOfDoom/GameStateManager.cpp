@@ -5,8 +5,6 @@
 #include "GameStateManager.h"
 #include "GameState.h"
 
-//using namespace std;
-
 GameStateManager::GameStateManager()
 {
 }
@@ -27,7 +25,9 @@ void GameStateManager::Cleanup(){
 	}
 }
 
-void GameStateManager::ChangeState(GameState* state){
+void GameStateManager::ChangeState(Game* game, GameState* state){
+
+	gameEngine = game;
 
 	// cleanup the current state
 	if (!states.empty()) {

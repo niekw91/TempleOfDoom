@@ -2,8 +2,11 @@
 
 #include <vector>
 
+#include "Game.h"
 #include "GameState.h"
 
+// Forward declaration
+class Game;
 class GameState;
 
 class GameStateManager
@@ -15,7 +18,7 @@ public:
 	void Init();
 	void Cleanup();
 
-	void ChangeState(GameState *state);
+	void ChangeState(Game *game, GameState *state);
 	void PushState(GameState *state);
 	void PopState();
 
@@ -25,4 +28,5 @@ public:
 
 private:
 	std::vector<GameState*> states;
+	Game *gameEngine;
 };

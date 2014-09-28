@@ -1,6 +1,6 @@
 #pragma once
 
-#include "GameStateManager.h"
+#include "Game.h"
 
 class GameState
 {
@@ -12,8 +12,8 @@ public:
 	virtual void Update() = 0;
 	virtual void Render() = 0;
 
-	/*void ChangeState(GameStateManager* gameStateManager, GameState* state) {
-		gameStateManager->ChangeState(state);
+	/*void ChangeState(Game* game, GameState* state) {
+		game.gameEngineStateManager->ChangeState(state);
 	}*/
 
 protected:

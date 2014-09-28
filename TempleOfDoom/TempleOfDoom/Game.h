@@ -1,9 +1,11 @@
 #pragma once
 
-#include "World.h"
 #include "GameStateManager.h"
+#include "World.h"
 
+// Forward declaration
 class GameStateManager;
+class World;
 
 class Game
 {
@@ -28,6 +30,4 @@ private:
 	World *world;
 
 	bool Running;
-
-	void MainMenu();
 };

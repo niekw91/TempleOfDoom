@@ -37,6 +37,8 @@ void MainMenuState::Render(){
 
 	// Read input
 	std::cin.get();
+
+	
 }
 
 void MainMenuState::ClearScreen()

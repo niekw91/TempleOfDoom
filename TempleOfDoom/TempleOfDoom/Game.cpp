@@ -18,19 +18,17 @@ void Game::Init(){
 	stateManager = new GameStateManager();
 
 	// Create and change current state 
-	stateManager->ChangeState(MainMenuState::Instance());
+	stateManager->ChangeState(this, MainMenuState::Instance());
 
 	Running = true;
 }
 
-void Game::NewWorld(int levels, int size) {
-	// Create new world
-	world = new World(levels, size);
+void Game::Cleanup(){
 
-	Start();
 }
 
 void Game::Start() {
+	// Start game
 	while (Running) {
 		HandleEvents();
 		Update();
@@ -39,6 +37,7 @@ void Game::Start() {
 }
 
 void Game::Stop() {
+	// Stop game
 	Running = false;
 }
 
@@ -55,4 +54,11 @@ void Game::Update() {
 void Game::Render() {
 	// render
 	stateManager->Render();
+}
+
+void Game::NewWorld(int levels, int size) {
+	// Create new world
+	world = new World(levels, size);
+
+	Start();
 }

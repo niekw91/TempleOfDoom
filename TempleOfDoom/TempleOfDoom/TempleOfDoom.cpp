@@ -6,16 +6,17 @@
 
 int _tmain(int argc, _TCHAR* argv[])
 {
-	Game *game = new Game();
+	// Create game
+	Game game;
 	
 	// Initialize game
-	game->Init();
-
-	// Create world
-	//game->NewWorld(3, 5);
+	game.Init();
 
 	// Start game
-	game->Start();
+	game.Start();
+
+	// Cleanup game
+	game.Cleanup();
 
 	return 0;
 }
