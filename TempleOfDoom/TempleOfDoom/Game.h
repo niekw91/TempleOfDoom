@@ -7,29 +7,31 @@
 class GameStateManager;
 class World;
 
-class Game
-{
-public:
-	Game();
-	virtual ~Game();
+namespace TOD {
+	class Game
+	{
+	public:
+		Game();
+		virtual ~Game();
 
-	void Init();
-	void Cleanup();
+		void Init();
+		void Cleanup();
 
-	void HandleEvents();
-	void Update();
-	void Render();
+		void HandleEvents();
+		void Update();
+		void Render();
 
-	void Start();
-	void Stop();
+		void Start();
+		void Stop();
 
-	GameStateManager* StateManager() { return stateManager; }
+		GameStateManager* StateManager() { return stateManager; }
 
-	void NewWorld(int levels, int size);
+		void CreateWorld(int floorCount, int size);
 
-private:
-	GameStateManager* stateManager;
-	World *world;
+	private:
+		GameStateManager* stateManager;
+		World *world;
 
-	bool Running;
-};
+		bool Running;
+	};
+}

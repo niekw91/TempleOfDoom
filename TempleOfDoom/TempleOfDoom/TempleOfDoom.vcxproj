@@ -81,6 +81,7 @@
   <ItemGroup>
     <ClInclude Include="Armor.h" />
     <ClInclude Include="Character.h" />
+    <ClInclude Include="Direction.h" />
     <ClInclude Include="ExploringState.h" />
     <ClInclude Include="FightingState.h" />
     <ClInclude Include="Floor.h" />

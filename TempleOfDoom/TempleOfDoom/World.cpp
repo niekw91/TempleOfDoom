@@ -6,26 +6,23 @@
 
 #include "World.h"
 
-World::World(int floorCount, int size) {
-	this->floorCount = floorCount;
-	this->size = size;
+namespace TOD {
+	World::World(int floorCount, int size) {
+		this->floorCount = floorCount;
+		this->size = size;
 
-	Generate();
-}
+		Generate();
+	}
 
-World::~World() {
-}
+	World::~World() {
+	}
 
-void World::Generate() {
-	floors = std::vector<TOD::Floor*>();
+	void World::Generate() {
+		floors = std::vector<Floor*>();
 
-	//default_random_engine dre;
-	//uniform_int_distribution<int> dist(1, 6);
-
-	//for (int i = 0; i < World::size; ++i) {
-	//	cout << dist(dre) << " ";
-	//}
-	//cout << endl;
-
-	//std::cin.get();
+		for (int i = 0; i < this->floorCount; i++)
+		{
+			floors.push_back(new Floor(this->size));
+		}
+	}
 }

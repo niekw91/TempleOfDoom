@@ -9,23 +9,25 @@
 class Game;
 class GameState;
 
-class GameStateManager
-{
-public:
-	GameStateManager();
-	virtual ~GameStateManager();
+namespace TOD {
+	class GameStateManager
+	{
+	public:
+		GameStateManager();
+		virtual ~GameStateManager();
 
-	void Init();
-	void Cleanup();
+		void Init();
+		void Cleanup();
 
-	void ChangeState(GameState *state);
-	void PushState(GameState *state);
-	void PopState();
+		void ChangeState(GameState *state);
+		void PushState(GameState *state);
+		void PopState();
 
-	void HandleEvents();
-	void Update();
-	void Render();
+		void HandleEvents();
+		void Update();
+		void Render();
 
-private:
-	std::vector<GameState*> states;
-};
+	private:
+		std::vector<GameState*> states;
+	};
+}

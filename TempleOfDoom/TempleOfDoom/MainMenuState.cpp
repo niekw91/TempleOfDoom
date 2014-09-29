@@ -6,43 +6,44 @@
 #include "GameState.h"
 #include "MainMenuState.h"
 
-MainMenuState MainMenuState::m_MainMenuState;
+TOD::MainMenuState TOD::MainMenuState::m_MainMenuState;
 
-void MainMenuState::Init(){
+namespace TOD {
+	void MainMenuState::Init() {
 
-}
-
-void MainMenuState::Cleanup(){
-
-}
-
-void MainMenuState::HandleEvents(){
-
-}
-
-void MainMenuState::Update(){
-
-}
-
-void MainMenuState::Render(){
-	//ClearScreen();
-	system("CLS");
-	// Create main menu banner
-	const std::string textfile("MainMenuBanner.txt");
-	std::ifstream input_file(textfile);
-
-	std::string line;
-	while (getline(input_file, line)) {
-		std::cout << line << '\n';
 	}
 
-	// Read input
-	std::cin.get();
+	void MainMenuState::Cleanup() {
 
-	
-}
+	}
 
-void MainMenuState::ClearScreen()
-{
-	std::cout << std::string(100, '\n');
+	void MainMenuState::HandleEvents() {
+
+	}
+
+	void MainMenuState::Update() {
+
+	}
+
+	void MainMenuState::Render() {
+		//ClearScreen();
+		system("CLS");
+		// Create main menu banner
+		const std::string textfile("MainMenuBanner.txt");
+		std::ifstream input_file(textfile);
+
+		std::string line;
+		while (getline(input_file, line)) {
+			std::cout << line << '\n';
+		}
+
+		// Read input
+		std::cin.get();
+
+
+	}
+
+	void MainMenuState::ClearScreen() {
+		std::cout << std::string(100, '\n');
+	}
 }

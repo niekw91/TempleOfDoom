@@ -1,4 +1,5 @@
 #pragma once
+#include "Direction.h"
 
 namespace TOD {
 	class Room
@@ -7,6 +8,17 @@ namespace TOD {
 	public:
 		Room();
 		virtual ~Room();
+
+		void SetDirectionPath(Direction dir, Room *room);
+
+		void SetNorth(Room *room);
+		void SetEast(Room *room);
+		void SetSouth(Room *room);
+		void SetWest(Room *room);
+		Room* GetNorth();
+		Room* GetEast();
+		Room* GetSouth();
+		Room* GetWest();
 
 	private:
 		Room *north;

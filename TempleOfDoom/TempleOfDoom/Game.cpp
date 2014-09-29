@@ -7,58 +7,60 @@
 #include "GameStateManager.h"
 #include "MainMenuState.h"
 
-Game::Game() { 
-}
-
-Game::~Game() {
-}
-
-void Game::Init(){
-	// Create gamestatemanager
-	stateManager = new GameStateManager();
-
-	// Create and change current state 
-	stateManager->ChangeState(MainMenuState::Instance());
-
-	Running = true;
-}
-
-void Game::Cleanup(){
-
-}
-
-void Game::Start() {
-	// Start game
-	while (Running) {
-		HandleEvents();
-		Update();
-		Render();
+namespace TOD {
+	Game::Game() {
 	}
-}
 
-void Game::Stop() {
-	// Stop game
-	Running = false;
-}
+	Game::~Game() {
+	}
 
-void Game::HandleEvents(){
-	// handle events
-	this->stateManager->HandleEvents();
-}
+	void Game::Init(){
+		// Create gamestatemanager
+		stateManager = new GameStateManager();
 
-void Game::Update() {
-	// update
-	stateManager->Update();
-}
+		// Create and change current state 
+		stateManager->ChangeState(MainMenuState::Instance());
 
-void Game::Render() {
-	// render
-	stateManager->Render();
-}
+		// Create game world
+		CreateWorld(5, 10);
+	}
 
-void Game::NewWorld(int levels, int size) {
-	// Create new world
-	world = new World(levels, size);
+	void Game::Cleanup(){
 
-	Start();
+	}
+
+	void Game::Start() {
+		Running = true;
+		// Start game
+		while (Running) {
+			HandleEvents();
+			Update();
+			Render();
+		}
+	}
+
+	void Game::Stop() {
+		// Stop game
+		Running = false;
+	}
+
+	void Game::HandleEvents(){
+		// handle events
+		this->stateManager->HandleEvents();
+	}
+
+	void Game::Update() {
+		// update
+		stateManager->Update();
+	}
+
+	void Game::Render() {
+		// render
+		stateManager->Render();
+	}
+
+	void Game::CreateWorld(int floorCount, int size) {
+		// Create new world
+		world = new World(floorCount, size);
+	}
 }
