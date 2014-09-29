@@ -2,6 +2,9 @@
 
 #include "Game.h"
 
+// Forward declaration
+class Game;
+
 class GameState
 {
 public:
@@ -12,9 +15,7 @@ public:
 	virtual void Update() = 0;
 	virtual void Render() = 0;
 
-	/*void ChangeState(Game* game, GameState* state) {
-		game.gameEngineStateManager->ChangeState(state);
-	}*/
+	void ChangeState(Game* game, GameState* state);
 
 protected:
 	GameState() { }

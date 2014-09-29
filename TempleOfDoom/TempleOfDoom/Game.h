@@ -23,6 +23,8 @@ public:
 	void Start();
 	void Stop();
 
+	GameStateManager* StateManager() { return stateManager; }
+
 	void NewWorld(int levels, int size);
 
 private:

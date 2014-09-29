@@ -26,6 +26,7 @@ void MainMenuState::Update(){
 
 void MainMenuState::Render(){
 	//ClearScreen();
+	system("CLS");
 	// Create main menu banner
 	const std::string textfile("MainMenuBanner.txt");
 	std::ifstream input_file(textfile);

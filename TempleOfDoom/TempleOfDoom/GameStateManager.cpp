@@ -25,9 +25,7 @@ void GameStateManager::Cleanup(){
 	}
 }
 
-void GameStateManager::ChangeState(Game* game, GameState* state){
-
-	gameEngine = game;
+void GameStateManager::ChangeState(GameState* state){
 
 	// cleanup the current state
 	if (!states.empty()) {

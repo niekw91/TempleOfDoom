@@ -18,7 +18,7 @@ void Game::Init(){
 	stateManager = new GameStateManager();
 
 	// Create and change current state 
-	stateManager->ChangeState(this, MainMenuState::Instance());
+	stateManager->ChangeState(MainMenuState::Instance());
 
 	Running = true;
 }
@@ -43,7 +43,7 @@ void Game::Stop() {
 
 void Game::HandleEvents(){
 	// handle events
-	stateManager->HandleEvents();
+	this->stateManager->HandleEvents();
 }
 
 void Game::Update() {

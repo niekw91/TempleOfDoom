@@ -7,8 +7,8 @@
 #include "World.h"
 
 World::World(int floorCount, int size) {
-	World::floorCount = floorCount;
-	World::size = size;
+	this->floorCount = floorCount;
+	this->size = size;
 
 	Generate();
 }
@@ -17,7 +17,7 @@ World::~World() {
 }
 
 void World::Generate() {
-	//floors = new std::vector<TOD::Floor*>;
+	floors = std::vector<TOD::Floor*>();
 
 	//default_random_engine dre;
 	//uniform_int_distribution<int> dist(1, 6);

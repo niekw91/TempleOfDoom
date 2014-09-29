@@ -18,7 +18,7 @@ public:
 	void Init();
 	void Cleanup();
 
-	void ChangeState(Game *game, GameState *state);
+	void ChangeState(GameState *state);
 	void PushState(GameState *state);
 	void PopState();
 
@@ -28,5 +28,4 @@ public:
 
 private:
 	std::vector<GameState*> states;
-	Game *gameEngine;
 };
