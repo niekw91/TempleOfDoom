@@ -1,13 +1,10 @@
 #pragma once
 
-#include "GameStateManager.h"
-#include "World.h"
-
-// Forward declaration
-class GameStateManager;
-class World;
-
 namespace TOD {
+	// Forward declaration
+	class GameStateManager;
+	class World;
+
 	class Game
 	{
 	public:
@@ -17,19 +14,18 @@ namespace TOD {
 		void Init();
 		void Cleanup();
 
-		void HandleEvents();
 		void Update();
 		void Render();
 
 		void Start();
 		void Stop();
 
-		GameStateManager* StateManager() { return stateManager; }
+		GameStateManager *StateManager() { return stateManager; }
 
 		void CreateWorld(int floorCount, int size);
 
 	private:
-		GameStateManager* stateManager;
+		GameStateManager *stateManager;
 		World *world;
 
 		bool Running;

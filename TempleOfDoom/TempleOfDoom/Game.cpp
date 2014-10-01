@@ -6,6 +6,7 @@
 #include "Game.h"
 #include "GameStateManager.h"
 #include "MainMenuState.h"
+#include "World.h"
 
 namespace TOD {
 	Game::Game() {
@@ -15,14 +16,8 @@ namespace TOD {
 	}
 
 	void Game::Init(){
-		// Create gamestatemanager
+		// Create statemanager
 		stateManager = new GameStateManager();
-
-		// Create and change current state 
-		stateManager->ChangeState(MainMenuState::Instance());
-
-		// Create game world
-		CreateWorld(5, 10);
 	}
 
 	void Game::Cleanup(){
@@ -33,7 +28,6 @@ namespace TOD {
 		Running = true;
 		// Start game
 		while (Running) {
-			HandleEvents();
 			Update();
 			Render();
 		}
@@ -44,23 +38,18 @@ namespace TOD {
 		Running = false;
 	}
 
-	void Game::HandleEvents(){
-		// handle events
-		this->stateManager->HandleEvents();
-	}
-
 	void Game::Update() {
 		// update
-		stateManager->Update();
+		this->stateManager->Update(this);
 	}
 
 	void Game::Render() {
 		// render
-		stateManager->Render();
+		this->stateManager->Render(this);
 	}
 
 	void Game::CreateWorld(int floorCount, int size) {
 		// Create new world
-		world = new World(floorCount, size);
+		this->world = new World(floorCount, size);
 	}
 }

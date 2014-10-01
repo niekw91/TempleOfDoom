@@ -4,10 +4,12 @@
 #include "Game.h"
 #include "GameStateManager.h"
 #include "GameState.h"
+#include "MainMenuState.h"
 
 namespace TOD {
 	GameStateManager::GameStateManager()
 	{
+		ChangeState(MainMenuState::Instance());
 	}
 
 	GameStateManager::~GameStateManager()
@@ -48,7 +50,7 @@ namespace TOD {
 
 		// cleanup the current state
 		if (!states.empty()) {
-			//states.back()->Cleanup();
+			states.back()->Cleanup();
 			states.pop_back();
 		}
 
@@ -58,18 +60,13 @@ namespace TOD {
 		}
 	}
 
-	void GameStateManager::HandleEvents(){
+	void GameStateManager::Update(Game *game){
 
-		states.back()->HandleEvents();
+		states.back()->Update(game);
 	}
 
-	void GameStateManager::Update(){
+	void GameStateManager::Render(Game *game){
 
-		states.back()->Update();
-	}
-
-	void GameStateManager::Render(){
-
-		states.back()->Render();
+		states.back()->Render(game);
 	}
 }

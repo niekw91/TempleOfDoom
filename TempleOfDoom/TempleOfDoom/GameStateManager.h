@@ -2,14 +2,11 @@
 
 #include <vector>
 
-#include "Game.h"
-#include "GameState.h"
-
-// Forward declaration
-class Game;
-class GameState;
-
 namespace TOD {
+	// Forward declaration
+	class Game;
+	class GameState;
+
 	class GameStateManager
 	{
 	public:
@@ -23,9 +20,8 @@ namespace TOD {
 		void PushState(GameState *state);
 		void PopState();
 
-		void HandleEvents();
-		void Update();
-		void Render();
+		void Update(Game *game);
+		void Render(Game *game);
 
 	private:
 		std::vector<GameState*> states;
