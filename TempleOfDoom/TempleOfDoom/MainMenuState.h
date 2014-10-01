@@ -26,7 +26,9 @@ namespace TOD {
 		void Generate(Game *game);
 		void Do(Game *game);
 
-		enum input { NEWGAME = 1, LOADGAME, CREDITS, INVALID };
+		std::string stateOptions;
+
+		enum input { INVALID, NEWGAME, LOADGAME, CREDITS };
 		input Hash(std::string const& inString);
 
 		void NewGame(Game *game);

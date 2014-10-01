@@ -1,0 +1,5 @@
+{"gamestates":[
+	{"options":["New", "Load", "Credits"]},
+	{"options":["Fight", "Run", "Explore", "Rest", "Inventory", "Quit"]}
+	{"options":["Attack", "Run", "Drink", "Item"]},
+]}

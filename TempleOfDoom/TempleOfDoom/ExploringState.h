@@ -24,5 +24,9 @@ namespace TOD {
 
 		void Generate(Game *game);
 		void Do(Game *game);
+
+		enum input { INVALID, FIGHT, RUN, EXPLORE, REST, INVENTORY, MAP, QUIT };
+
+		void Header();
 	};
 }

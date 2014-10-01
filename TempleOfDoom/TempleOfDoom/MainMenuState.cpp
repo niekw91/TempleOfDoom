@@ -15,7 +15,14 @@ namespace TOD {
 	MainMenuState MainMenuState::instance;
 
 	void MainMenuState::Init() {
+		// Load file
+		const std::string textfile("GameStateOptions.json");
+		std::ifstream input_file(textfile);
 
+		std::string line;
+		while (getline(input_file, line)) {
+			stateOptions += line;
+		}
 	}
 
 	void MainMenuState::Cleanup() {
@@ -57,14 +64,15 @@ namespace TOD {
 			std::transform(action.begin(), action.end(), action.begin(), ::tolower); // to lowercase
 
 			// Determine choice
-			MainMenuState::input choice = INVALID;
-			std::size_t found;
-			found = action.find("new");
-			if (found != std::string::npos || action == "1"){ choice = NEWGAME; }
-			found = action.find("load");
-			if (found != std::string::npos || action == "2"){ choice = LOADGAME; }
-			found = action.find("credits");
-			if (found != std::string::npos || action == "3"){ choice = CREDITS; }
+			input choice = INVALID;
+			std::vector<std::string> *actions = new std::vector<std::string>({ "invalid", "new", "load", "credits"});
+			for (int i = 0; i < actions->size(); i++){
+				std::size_t found = action.find(actions->at(i));
+				if (found != std::string::npos || action == std::to_string(i)){
+					choice = input(i);
+					break;
+				}
+			}
 
 			// Handle choice
 			switch (choice){
@@ -81,7 +89,7 @@ namespace TOD {
 				HandleInput = false;
 				break;
 			default:
-				std::cout << "\t\t\t\t" << "That's not an option, try again..." << std::endl;
+				std::cout << "\t\t\t\t" << "That's not an option..." << std::endl;
 				break;
 			}
 		}
@@ -90,24 +98,20 @@ namespace TOD {
 	void MainMenuState::NewGame(Game* game) {
 		// Generate world
 		//game->CreateWorld(5, 5);
+
 		// Change state
 		game->StateManager()->ChangeState(ExploringState::Instance());
 	}
 
 	void MainMenuState::LoadGame(Game *game) {
-
+		std::cout << "\t\t\t\t" << "Nothing happened..." << std::endl;
+		std::cout << "\t\t\t\t";
+		system("PAUSE");
 	}
 
 	void MainMenuState::Credits(Game *game) {
-
-	}
-	
-	MainMenuState::input MainMenuState::Hash(std::string const& action){
-		// Input to lower
-		std::for_each(action.begin(), action.end(), ::tolower);
-		if (action == "newgame" || action == "1") return NEWGAME;
-		if (action == "loadgame" || action == "2") return LOADGAME;
-		if (action == "credits" || action == "3") return CREDITS;
-		return INVALID;
+		std::cout << "\t\t\t\t" << "Nothing happened..." << std::endl;
+		std::cout << "\t\t\t\t";
+		system("PAUSE");
 	}
 }
