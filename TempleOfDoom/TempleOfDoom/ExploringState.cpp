@@ -43,9 +43,9 @@ namespace TOD {
 		}
 		std::string room;
 		room += "\n";
-		room += "\tDescription: \n\n";
-		room += "\tExits: \n\n";
-		room += "\tPresent: \n\n";
+		room += "\tYou're standing in a room with a table in the middle. \n\tThe table has four chairs. \n\tThere is a box in the corner. \n\n";
+		room += "\tSouth is the exit from the dungeon. \n\tNorth there is a solid door. \n\tEast there is a hallway. \n\n";
+		room += "\tThree rats look at you with their bloodshot eyes. \n\n";
 		room += "\tWhat are you going to do? \n\n";
 		room += "\t[ FIGHT | RUN | EXPLORE | REST | OPEN INVENTORY | CHECK MAP ] \n\n";
 		room += "\tAction: run \n\n";

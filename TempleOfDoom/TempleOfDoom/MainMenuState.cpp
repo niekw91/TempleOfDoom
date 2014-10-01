@@ -56,15 +56,17 @@ namespace TOD {
 			std::getline(std::cin, action);
 			std::transform(action.begin(), action.end(), action.begin(), ::tolower); // to lowercase
 
+			// Determine choice
 			MainMenuState::input choice = INVALID;
-
-			std::size_t found = action.find("new");
+			std::size_t found;
+			found = action.find("new");
 			if (found != std::string::npos || action == "1"){ choice = NEWGAME; }
 			found = action.find("load");
 			if (found != std::string::npos || action == "2"){ choice = LOADGAME; }
 			found = action.find("credits");
 			if (found != std::string::npos || action == "3"){ choice = CREDITS; }
 
+			// Handle choice
 			switch (choice){
 			case NEWGAME:
 				NewGame(game);
