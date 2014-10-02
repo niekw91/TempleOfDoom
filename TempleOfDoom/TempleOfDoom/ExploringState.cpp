@@ -112,7 +112,7 @@ namespace TOD {
 				HandleInput = false;
 				break;
 			case QUIT:
-				std::cout << "\tTsk tsk.. Quiting already? What would Indiana Jones say!!";
+				std::cout << "\tTsk tsk.. Quiting already? What would Indiana Jones say!!" << std::endl;
 				system("PAUSE");
 				game->StateManager()->ChangeState(MainMenuState::Instance());
 				HandleInput = false;
