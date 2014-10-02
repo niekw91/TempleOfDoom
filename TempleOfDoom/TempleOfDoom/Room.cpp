@@ -3,10 +3,17 @@
 
 namespace TOD {
 	Room::Room() {
+		scenery = new std::vector<Scenery*>();
+		items = new std::vector<Item*>();
+		traps = new std::vector<Trap*>();
+		npcs = new std::vector<NPC*>();
 	}
 
-
 	Room::~Room() {
+	}
+
+	void Room::Populate() {
+
 	}
 
 	void Room::SetDirectionPath(Direction dir, Room *room) {

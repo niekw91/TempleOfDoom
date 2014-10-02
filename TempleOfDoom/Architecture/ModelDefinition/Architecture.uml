@@ -332,6 +332,37 @@
                 LastKnownLocation="Architecture.uml" />
             </type_NamedElement>
           </property>
+          <property
+            Id="1f15bbf2-b26f-4acb-a6f9-ebfd4d997423"
+            name="clean"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="8a0784cb-a315-44b1-bde5-81e9ec8d5629"
+                LastKnownName="bool"
+                LastKnownLocation="Architecture.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="810ccae7-148e-4f0d-b0df-b63552732fa4"
+            name="lighting"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
         </ownedAttributesInternal>
       </class>
     </packageHasNamedElement>
@@ -1089,6 +1120,11 @@
           </generalization>
         </generalsInternal>
       </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="8a0784cb-a315-44b1-bde5-81e9ec8d5629"
+        name="bool" />
     </packageHasNamedElement>
   </packagedElements>
   <primitiveType

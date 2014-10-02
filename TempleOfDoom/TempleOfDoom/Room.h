@@ -1,5 +1,11 @@
 #pragma once
 #include "Direction.h"
+#include <vector>
+
+class Scenery;
+class Item;
+class Trap;
+class NPC;
 
 namespace TOD {
 	class Room
@@ -20,12 +26,19 @@ namespace TOD {
 		Room* GetSouth();
 		Room* GetWest();
 
+		void Populate();
+
 	private:
 		Room *north;
 		Room *east;
 		Room *south;
 		Room *west;
 		int size;
+
+		std::vector<Scenery*> *scenery;
+		std::vector<Item*> *items;
+		std::vector<Trap*> *traps;
+		std::vector<NPC*> *npcs;
 	};
 }
 

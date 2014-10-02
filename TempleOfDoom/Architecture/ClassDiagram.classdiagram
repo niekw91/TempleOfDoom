@@ -124,6 +124,15 @@
               <referencedTypeMoniker Id="8ae885a8-a8eb-4f05-ae72-eacfbbff08ed" LastKnownName="Room" />
             </type_NamedElement>
           </property>
+          <property Id="a1c4f0d7-9e61-4091-859e-2ca65d056e44" name="clean" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="1f15bbf2-b26f-4acb-a6f9-ebfd4d997423" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="47e443d7-dc63-4194-a84c-6fb6462b1bb0" LastKnownName="bool" />
+            </type_NamedElement>
+          </property>
+          <property Id="fc88ca05-4d0a-4f7f-89b3-8eec20e13c33" name="lighting" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="810ccae7-148e-4f0d-b0df-b63552732fa4" />
+          </property>
         </ownedAttributesInternal>
       </class>
     </logicalClassDesignerModelHasTypes>
@@ -501,6 +510,11 @@
     <packageHasNamedElement>
       <referencedType Id="77b967f0-0528-4270-9971-18d8a4ab7a4f" name="Game" isAbstract="false" isLeaf="false" cachedFullName="Architecture::Game">
         <elementDefinition Id="10f7b6cd-39c0-4f60-9a92-96db2352f098" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="47e443d7-dc63-4194-a84c-6fb6462b1bb0" name="bool" isAbstract="false" isLeaf="false" cachedFullName="bool">
+        <elementDefinition Id="8a0784cb-a315-44b1-bde5-81e9ec8d5629" />
       </referencedType>
     </packageHasNamedElement>
   </packagedElements>

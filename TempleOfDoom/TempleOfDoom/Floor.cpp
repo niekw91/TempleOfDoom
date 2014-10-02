@@ -49,26 +49,14 @@ namespace TOD {
 		directions.push_back(SOUTH);
 		directions.push_back(WEST);
 		// Delete direction from vector if not possible
-		if (rowIndex == 0) {
-			//std::vector<Direction>::iterator it = GetPosition(directions, NORTH);
-			std::vector<Direction>::iterator it = std::find(directions.begin(), directions.end(), NORTH);
-			directions.erase(it);
-		}
-		if (columnIndex == 0) {
-			std::vector<Direction>::iterator it = std::find(directions.begin(), directions.end(), WEST);
-			directions.erase(it);
-			//directions.erase(GetPosition(directions, WEST));
-		}
-		if (rowIndex == size - 1) {
-			std::vector<Direction>::iterator it = std::find(directions.begin(), directions.end(), SOUTH);
-			directions.erase(it);
-			//directions.erase(GetPosition(directions, SOUTH));
-		}
-		if (columnIndex == size - 1) {
-			std::vector<Direction>::iterator it = std::find(directions.begin(), directions.end(), EAST);
-			directions.erase(it);
-			//directions.erase(GetPosition(directions, EAST));
-		}
+		if (rowIndex == 0)
+			directions.erase(GetPosition(directions, NORTH));
+		if (columnIndex == 0)
+			directions.erase(GetPosition(directions, WEST));
+		if (rowIndex == size - 1)
+			directions.erase(GetPosition(directions, SOUTH));
+		if (columnIndex == size - 1)
+			directions.erase(GetPosition(directions, EAST));
 		// Return possible directions
 		return directions;
 	}
@@ -84,7 +72,7 @@ namespace TOD {
 		return possibleDirections.at(random);
 	}
 
-	std::vector<Direction>::iterator Floor::GetPosition(std::vector<Direction> vector, Direction direction) {
+	std::vector<Direction>::iterator Floor::GetPosition(std::vector<Direction> &vector, Direction direction) {
 		return std::find(vector.begin(), vector.end(), direction);
 	}
 
