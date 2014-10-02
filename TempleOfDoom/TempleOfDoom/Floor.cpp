@@ -25,7 +25,7 @@ namespace TOD {
 				// Retrieve room
 				Room *room = rooms.at(currentIndex);
 				// Retrieve index from direction
-				int index = Floor::GetRoomIndexByDirection(dir, currentIndex);
+				int index = Floor::GetRoomIndexByDirection(dir, currentIndex, size);
 				// Retrieve room to connect to
 				Room *connect = rooms.at(index);
 				// Link rooms
@@ -76,18 +76,18 @@ namespace TOD {
 		return std::find(vector.begin(), vector.end(), direction);
 	}
 
-	int Floor::GetRoomIndexByDirection(Direction direction, int currentIndex) {
+	int Floor::GetRoomIndexByDirection(Direction direction, int currentIndex, int size) {
 		int index = 0;
 
 		switch (direction) {
 		case NORTH:
-			index = currentIndex - 10;
+			index = currentIndex - size;
 			break;
 		case EAST:
 			index = currentIndex + 1;
 			break;
 		case SOUTH:
-			index = currentIndex + 10;
+			index = currentIndex + size;
 			break;
 		case WEST:
 			index = currentIndex - 1;

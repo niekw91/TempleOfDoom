@@ -97,7 +97,7 @@ namespace TOD {
 
 	void MainMenuState::NewGame(Game* game) {
 		// Generate world
-		//game->CreateWorld(5, 5);
+		game->CreateWorld(5, 5);
 
 		// Change state
 		game->StateManager()->ChangeState(ExploringState::Instance());

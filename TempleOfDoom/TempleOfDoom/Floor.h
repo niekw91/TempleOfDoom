@@ -17,7 +17,7 @@ namespace TOD {
 		std::vector<Direction> Floor::GetPossibleDirections(int rowIndex, int columnIndex, int size);
 		Direction GetRandomDirection(std::vector<Direction> possibleDirections);
 		Direction GetOppositeDirection(Direction direction);
-		int GetRoomIndexByDirection(Direction direction, int currentIndex);
+		int GetRoomIndexByDirection(Direction direction, int currentIndex, int size);
 	};
 }
 
