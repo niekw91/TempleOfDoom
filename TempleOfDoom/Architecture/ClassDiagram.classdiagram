@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="8d02fe17-c082-4f14-ac76-1fee2d2012a3" name="ClassDiagram" linkedPackageId="63ab7cf6-7ab7-4971-84e9-8f121a3b3d48" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
+<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="8d02fe17-c082-4f14-ac76-1fee2d2012a3" name="ClassDiagram" linkedPackageId="63ab7cf6-7ab7-4971-84e9-8f121a3b3d48" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
   <packagedElements>
     <logicalClassDesignerModelHasTypes>
       <class Id="8832f91b-fd56-4108-9872-b9e8a1361a67" name="Game" isAbstract="false" isLeaf="false" isActiveClass="false">
@@ -441,12 +441,6 @@
     <logicalClassDesignerModelHasTypes>
       <class Id="0602cf38-fdd3-48d4-8ad1-f979177f7798" name="NPCType" isAbstract="false" isLeaf="false" isActiveClass="false">
         <elementDefinition Id="dd642dbf-d740-45b0-ae16-78697fd53961" />
-        <generalsInternal>
-          <generalization Id="2ef76b1a-b052-4f78-939b-f866c3ea74d0" isSubstitutable="false">
-            <classMoniker Id="7f159b53-03b8-47f8-afcd-7c7ad8f1640d" LastKnownName="NPC" />
-            <elementDefinition Id="28fce801-3dd4-463a-a26b-cfca1966540c" />
-          </generalization>
-        </generalsInternal>
       </class>
     </logicalClassDesignerModelHasTypes>
     <logicalClassDesignerModelHasTypes>

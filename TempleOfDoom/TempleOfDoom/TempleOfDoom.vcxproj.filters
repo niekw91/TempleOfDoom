@@ -156,6 +156,9 @@
     <ClInclude Include="Direction.h">
       <Filter>Header Files\Model\Enums</Filter>
     </ClInclude>
+    <ClInclude Include="Size.h">
+      <Filter>Header Files\Model\Enums</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="TempleOfDoom.cpp">
