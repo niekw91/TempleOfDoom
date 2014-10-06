@@ -4,7 +4,6 @@
 #include <fstream>
 #include <iostream>
 #include <algorithm>
-#include <Windows.h>
 
 #include "Game.h"
 #include "GameStateManager.h"
@@ -113,6 +112,7 @@ namespace TOD {
 				break;
 			case QUIT:
 				std::cout << "\tTsk tsk.. Quiting already? What would Indiana Jones say!!" << std::endl;
+				std::cout << "\t";
 				system("PAUSE");
 				game->StateManager()->ChangeState(MainMenuState::Instance());
 				HandleInput = false;
