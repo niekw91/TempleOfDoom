@@ -1,252 +1,69 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Source Files">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
-    <Filter Include="Header Files">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
-    </Filter>
-    <Filter Include="Resource Files">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
-    </Filter>
-    <Filter Include="Source Files\Model">
-      <UniqueIdentifier>{1204d33d-e1e6-41e5-bfd0-2e797192ca45}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Model\GameObjects">
-      <UniqueIdentifier>{ca8af5b9-78dd-497b-9188-a349a703aca5}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Model\GameObjects\Items">
-      <UniqueIdentifier>{828b97c3-8aca-4a65-89cd-01fc282aa94f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Model\GameObjects\Traps">
-      <UniqueIdentifier>{ed8f44d0-5b78-4fea-9a7c-e935d95a7cba}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Model\GameObjects\Characters">
-      <UniqueIdentifier>{e7dbc657-9a28-41c0-89e9-2a2a781c537c}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Model\GameObjects\Scenery">
-      <UniqueIdentifier>{4e231a09-85ee-499d-b4fb-6e5dd4a3a9ec}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\States">
-      <UniqueIdentifier>{94a9f01b-99b1-47f5-8451-0387d7655ec4}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Model\World">
-      <UniqueIdentifier>{b813fdbc-4604-417c-be68-bb7ce75bba55}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\Model">
-      <UniqueIdentifier>{c21a95dd-51a1-45c6-b99f-2e086eeddf7a}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\Model\GameObjects">
-      <UniqueIdentifier>{61691133-5698-4a9c-a502-958f48f061d5}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\Model\World">
-      <UniqueIdentifier>{ee3cf42b-da34-4933-b061-6bed0664a1b2}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\States">
-      <UniqueIdentifier>{dfab8bd2-635c-4664-bfeb-bead824d95fe}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\Model\GameObjects\Items">
-      <UniqueIdentifier>{54511dd5-9c52-404d-b953-95ed0dd8a1b6}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\Model\GameObjects\Traps">
-      <UniqueIdentifier>{4b5b4d02-6ed6-48c8-a820-b1188bb34a00}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\Model\GameObjects\Characters">
-      <UniqueIdentifier>{cf9af14e-7fea-4663-a888-34f17ae9cf24}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\Model\GameObjects\Scenery">
-      <UniqueIdentifier>{8f0b55b5-ef1f-400d-989a-2e3f4379fdbc}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\Bin">
-      <UniqueIdentifier>{6ac67572-b53d-4d94-8672-4cb491d93b3c}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Bin">
-      <UniqueIdentifier>{64c7f9c9-6c98-4176-b5b4-cdcf6e24094c}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Model\Enums">
-      <UniqueIdentifier>{d6748d6a-2235-4600-b39b-e1f556003c9f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\Model\Enums">
-      <UniqueIdentifier>{1d0edcca-5c46-4b31-8cd7-905e2fd0d409}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Helpers">
-      <UniqueIdentifier>{7c150f3c-dcfe-4dd9-a05a-818aa77a202f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\Helpers">
-      <UniqueIdentifier>{9c95137b-4771-47ba-95c7-a71b0b5771c3}</UniqueIdentifier>
-    </Filter>
+    <ClCompile Include="..\..\..\..\..\Desktop\tinyxml2-master\tinyxml2-master\tinyxml2.cpp" />
+    <ClCompile Include="Armor.cpp" />
+    <ClCompile Include="Character.cpp" />
+    <ClCompile Include="ExploringState.cpp" />
+    <ClCompile Include="FightingState.cpp" />
+    <ClCompile Include="Floor.cpp" />
+    <ClCompile Include="Game.cpp" />
+    <ClCompile Include="GameObject.cpp" />
+    <ClCompile Include="GameState.cpp" />
+    <ClCompile Include="GameStateManager.cpp" />
+    <ClCompile Include="Item.cpp" />
+    <ClCompile Include="MainMenuState.cpp" />
+    <ClCompile Include="Map.cpp" />
+    <ClCompile Include="Medkit.cpp" />
+    <ClCompile Include="NPC.cpp" />
+    <ClCompile Include="NPCType.cpp" />
+    <ClCompile Include="Player.cpp" />
+    <ClCompile Include="Room.cpp" />
+    <ClCompile Include="Scenery.cpp" />
+    <ClCompile Include="stdafx.cpp" />
+    <ClCompile Include="TempleOfDoom.cpp" />
+    <ClCompile Include="Trap.cpp" />
+    <ClCompile Include="Usable.cpp" />
+    <ClCompile Include="Weapon.cpp" />
+    <ClCompile Include="Wearable.cpp" />
+    <ClCompile Include="World.cpp" />
+    <ClCompile Include="GameObjectFactory.cpp" />
+    <ClCompile Include="ItemType.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\..\..\Desktop\tinyxml2-master\tinyxml2-master\tinyxml2.h" />
+    <ClInclude Include="Armor.h" />
+    <ClInclude Include="Character.h" />
+    <ClInclude Include="Direction.h" />
+    <ClInclude Include="ExploringState.h" />
+    <ClInclude Include="FightingState.h" />
+    <ClInclude Include="Floor.h" />
+    <ClInclude Include="Game.h" />
+    <ClInclude Include="GameObject.h" />
+    <ClInclude Include="GameState.h" />
+    <ClInclude Include="GameStateManager.h" />
+    <ClInclude Include="Item.h" />
+    <ClInclude Include="MainMenuState.h" />
+    <ClInclude Include="Map.h" />
+    <ClInclude Include="Medkit.h" />
+    <ClInclude Include="NPC.h" />
+    <ClInclude Include="NPCType.h" />
+    <ClInclude Include="Player.h" />
+    <ClInclude Include="Room.h" />
+    <ClInclude Include="Scenery.h" />
+    <ClInclude Include="Size.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="targetver.h" />
+    <ClInclude Include="Trap.h" />
+    <ClInclude Include="Usable.h" />
+    <ClInclude Include="Weapon.h" />
+    <ClInclude Include="Wearable.h" />
+    <ClInclude Include="World.h" />
+    <ClInclude Include="GameObjectFactory.h" />
+    <ClInclude Include="ItemType.h" />
+    <ClInclude Include="ItemKind.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="Floor.h">
-      <Filter>Header Files\Model\World</Filter>
-    </ClInclude>
-    <ClInclude Include="Room.h">
-      <Filter>Header Files\Model\World</Filter>
-    </ClInclude>
-    <ClInclude Include="World.h">
-      <Filter>Header Files\Model\World</Filter>
-    </ClInclude>
-    <ClInclude Include="Armor.h">
-      <Filter>Header Files\Model\GameObjects\Items</Filter>
-    </ClInclude>
-    <ClInclude Include="Item.h">
-      <Filter>Header Files\Model\GameObjects\Items</Filter>
-    </ClInclude>
-    <ClInclude Include="Map.h">
-      <Filter>Header Files\Model\GameObjects\Items</Filter>
-    </ClInclude>
-    <ClInclude Include="Medkit.h">
-      <Filter>Header Files\Model\GameObjects\Items</Filter>
-    </ClInclude>
-    <ClInclude Include="Usable.h">
-      <Filter>Header Files\Model\GameObjects\Items</Filter>
-    </ClInclude>
-    <ClInclude Include="Weapon.h">
-      <Filter>Header Files\Model\GameObjects\Items</Filter>
-    </ClInclude>
-    <ClInclude Include="Wearable.h">
-      <Filter>Header Files\Model\GameObjects\Items</Filter>
-    </ClInclude>
-    <ClInclude Include="Trap.h">
-      <Filter>Header Files\Model\GameObjects\Traps</Filter>
-    </ClInclude>
-    <ClInclude Include="Character.h">
-      <Filter>Header Files\Model\GameObjects\Characters</Filter>
-    </ClInclude>
-    <ClInclude Include="NPC.h">
-      <Filter>Header Files\Model\GameObjects\Characters</Filter>
-    </ClInclude>
-    <ClInclude Include="NPCType.h">
-      <Filter>Header Files\Model\GameObjects\Characters</Filter>
-    </ClInclude>
-    <ClInclude Include="Player.h">
-      <Filter>Header Files\Model\GameObjects\Characters</Filter>
-    </ClInclude>
-    <ClInclude Include="Scenery.h">
-      <Filter>Header Files\Model\GameObjects\Scenery</Filter>
-    </ClInclude>
-    <ClInclude Include="ExploringState.h">
-      <Filter>Header Files\States</Filter>
-    </ClInclude>
-    <ClInclude Include="FightingState.h">
-      <Filter>Header Files\States</Filter>
-    </ClInclude>
-    <ClInclude Include="GameState.h">
-      <Filter>Header Files\States</Filter>
-    </ClInclude>
-    <ClInclude Include="GameStateManager.h">
-      <Filter>Header Files\States</Filter>
-    </ClInclude>
-    <ClInclude Include="MainMenuState.h">
-      <Filter>Header Files\States</Filter>
-    </ClInclude>
-    <ClInclude Include="GameObject.h">
-      <Filter>Header Files\Model\GameObjects</Filter>
-    </ClInclude>
-    <ClInclude Include="stdafx.h">
-      <Filter>Header Files\Bin</Filter>
-    </ClInclude>
-    <ClInclude Include="targetver.h">
-      <Filter>Header Files\Bin</Filter>
-    </ClInclude>
-    <ClInclude Include="Game.h">
-      <Filter>Header Files\Model</Filter>
-    </ClInclude>
-    <ClInclude Include="Direction.h">
-      <Filter>Header Files\Model\Enums</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\..\Desktop\tinyxml2-master\tinyxml2-master\tinyxml2.h">
-      <Filter>Header Files\Helpers</Filter>
-	</ClInclude>
-    <ClInclude Include="Size.h">
-      <Filter>Header Files\Model\Enums</Filter>
-    </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="TempleOfDoom.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="GameObject.cpp">
-      <Filter>Source Files\Model\GameObjects</Filter>
-    </ClCompile>
-    <ClCompile Include="Scenery.cpp">
-      <Filter>Source Files\Model\GameObjects\Scenery</Filter>
-    </ClCompile>
-    <ClCompile Include="Trap.cpp">
-      <Filter>Source Files\Model\GameObjects\Traps</Filter>
-    </ClCompile>
-    <ClCompile Include="Character.cpp">
-      <Filter>Source Files\Model\GameObjects\Characters</Filter>
-    </ClCompile>
-    <ClCompile Include="NPC.cpp">
-      <Filter>Source Files\Model\GameObjects\Characters</Filter>
-    </ClCompile>
-    <ClCompile Include="NPCType.cpp">
-      <Filter>Source Files\Model\GameObjects\Characters</Filter>
-    </ClCompile>
-    <ClCompile Include="Player.cpp">
-      <Filter>Source Files\Model\GameObjects\Characters</Filter>
-    </ClCompile>
-    <ClCompile Include="Armor.cpp">
-      <Filter>Source Files\Model\GameObjects\Items</Filter>
-    </ClCompile>
-    <ClCompile Include="Item.cpp">
-      <Filter>Source Files\Model\GameObjects\Items</Filter>
-    </ClCompile>
-    <ClCompile Include="Map.cpp">
-      <Filter>Source Files\Model\GameObjects\Items</Filter>
-    </ClCompile>
-    <ClCompile Include="Medkit.cpp">
-      <Filter>Source Files\Model\GameObjects\Items</Filter>
-    </ClCompile>
-    <ClCompile Include="Usable.cpp">
-      <Filter>Source Files\Model\GameObjects\Items</Filter>
-    </ClCompile>
-    <ClCompile Include="Weapon.cpp">
-      <Filter>Source Files\Model\GameObjects\Items</Filter>
-    </ClCompile>
-    <ClCompile Include="Wearable.cpp">
-      <Filter>Source Files\Model\GameObjects\Items</Filter>
-    </ClCompile>
-    <ClCompile Include="MainMenuState.cpp">
-      <Filter>Source Files\States</Filter>
-    </ClCompile>
-    <ClCompile Include="GameStateManager.cpp">
-      <Filter>Source Files\States</Filter>
-    </ClCompile>
-    <ClCompile Include="ExploringState.cpp">
-      <Filter>Source Files\States</Filter>
-    </ClCompile>
-    <ClCompile Include="FightingState.cpp">
-      <Filter>Source Files\States</Filter>
-    </ClCompile>
-    <ClCompile Include="Floor.cpp">
-      <Filter>Source Files\Model\World</Filter>
-    </ClCompile>
-    <ClCompile Include="Room.cpp">
-      <Filter>Source Files\Model\World</Filter>
-    </ClCompile>
-    <ClCompile Include="World.cpp">
-      <Filter>Source Files\Model\World</Filter>
-    </ClCompile>
-    <ClCompile Include="stdafx.cpp">
-      <Filter>Source Files\Bin</Filter>
-    </ClCompile>
-    <ClCompile Include="Game.cpp">
-      <Filter>Source Files\Model</Filter>
-    </ClCompile>
-    <ClCompile Include="GameState.cpp">
-      <Filter>Source Files\States</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\..\Desktop\tinyxml2-master\tinyxml2-master\tinyxml2.cpp">
-      <Filter>Source Files\Helpers</Filter>
-    </ClCompile>
   </ItemGroup>
 </Project>

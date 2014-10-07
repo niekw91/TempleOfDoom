@@ -6,30 +6,21 @@
 
 #include "tinyxml2.h"
 #include <string>
+using namespace tinyxml2;
 
 int _tmain(int argc, _TCHAR* argv[])
 {
-	// Open XML
-	tinyxml2::XMLDocument doc;
-	doc.Parse("npc.xml");
+	// Create game
+	TOD::Game game;
+	
+	// Initialize game
+	game.Init();
 
-	tinyxml2::XMLElement *npc = doc.FirstChildElement("name");
-	std::string text = npc->GetText();
-	printf(text.c_str());
+	// Start game
+	game.Start();
 
-	//// Create game
-	//TOD::Game game;
-	//
-	//// Initialize game
-	//game.Init();
-
-	//// Start game
-	//game.Start();
-
-	//// Cleanup game
-	//game.Cleanup();
-
-
+	// Cleanup game
+	game.Cleanup();
 
 
 	return 0;

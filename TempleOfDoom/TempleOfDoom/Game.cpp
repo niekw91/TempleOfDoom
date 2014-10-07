@@ -5,6 +5,7 @@
 
 #include "Game.h"
 #include "GameStateManager.h"
+#include "GameObjectFactory.h"
 #include "MainMenuState.h"
 #include "World.h"
 
@@ -18,6 +19,12 @@ namespace TOD {
 	void Game::Init(){
 		// Create statemanager
 		stateManager = new GameStateManager();
+
+		// Create game object factory
+		factory = new GameObjectFactory();
+
+		// Load xml files
+		factory->LoadNPCFromFile("C:/Users/Niek Willems/Documents/GitHub/TempleOfDoom/TempleOfDoom/TempleOfDoom/Debug/npc.xml");
 	}
 
 	void Game::Cleanup(){
@@ -50,6 +57,6 @@ namespace TOD {
 
 	void Game::CreateWorld(int floorCount, int size) {
 		// Create new world
-		this->world = new World(floorCount, size);
+		this->world = new World(floorCount, size, factory);
 	}
 }

@@ -1,5 +1,5 @@
 #include "stdafx.h"
-#include "tinyxml2.h"
+#include "GameObjectFactory.h"
 #include "Room.h"
 #include "Size.h"
 
@@ -9,7 +9,9 @@
 #include <string>
 
 namespace TOD {
-	Room::Room() {
+	Room::Room(GameObjectFactory *factory) {
+		this->factory = factory;
+
 		scenery = new std::vector<Scenery*>();
 		items = new std::vector<Item*>();
 		traps = new std::vector<Trap*>();
@@ -30,21 +32,19 @@ namespace TOD {
 		SetCleanRandom();
 		// Set random room scenery
 		SetScenery();
+		// Set random npc's
+		SetNPC();
+	}
+
+	void Room::SetNPC() {
+		if (HasObjectType()) {
+			npcs->push_back(factory->GetRandomNPC());
+		}
 	}
 
 	void Room::SetScenery() {
 		if (HasObjectType()) {
-			const std::string npcFile("npc.txt");
-			std::string npc;
-			// (2a) Tekst inlezen uit een file met de klasse std::ifstream (input file stream)
-			std::ifstream input_file(npcFile); // stack-based file object; deze constructie opent de file voor lezen
-			std::string line;
 
-			// getline() leest een regel die eindigt in een \n
-			// (je kunt ook een 3e param meegeven als je een ander 'regeleinde' wil gebruiken)
-			while (getline(input_file, line)) { // getline() geeft false zodra end-of-file is bereikt
-				npc.append(line); // getline() haalt de \n wel uit de stream, maar voegt die niet toe
-			}
 		}
 	}
 

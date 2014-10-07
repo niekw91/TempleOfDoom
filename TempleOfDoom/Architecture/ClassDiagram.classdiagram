@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="8d02fe17-c082-4f14-ac76-1fee2d2012a3" name="ClassDiagram" linkedPackageId="63ab7cf6-7ab7-4971-84e9-8f121a3b3d48" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
+<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="8d02fe17-c082-4f14-ac76-1fee2d2012a3" name="ClassDiagram" linkedPackageId="63ab7cf6-7ab7-4971-84e9-8f121a3b3d48" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
   <packagedElements>
     <logicalClassDesignerModelHasTypes>
       <class Id="8832f91b-fd56-4108-9872-b9e8a1361a67" name="Game" isAbstract="false" isLeaf="false" isActiveClass="false">
@@ -37,21 +37,21 @@
             </relationshipOwnedElementsInternal>
             <elementDefinition Id="7f52c2e0-1be6-405c-85ab-9e978c34b96b" />
           </association>
-          <association Id="a73ac3b0-77e5-4e01-b715-255a34fa718e" isDerived="false" sourceEndRoleName="Game" targetEndRoleName="GameObject" isLeaf="false" isAbstract="false">
-            <classMoniker Id="e2c5eb99-f825-4a28-9e62-2fc4305e6dc9" LastKnownName="GameObject" />
+          <association Id="01de5203-02e8-444e-9888-5f7a8c7d0e54" isDerived="false" sourceEndRoleName="Game" targetEndRoleName="GameObjectFactory" isLeaf="false" isAbstract="false">
+            <classMoniker Id="cd717168-ad83-4235-9a11-b6f82a5b2802" LastKnownName="GameObjectFactory" />
             <relationshipOwnedElementsInternal>
               <associationHasOwnedEnds>
-                <memberEnd Id="beda6385-3aa1-443c-bb1d-9bbcba83561b" name="Game" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
-                  <elementDefinition Id="88c66dcd-f6d1-4618-9d70-1dabf2b4364b" />
+                <memberEnd Id="b3903adb-23be-42ae-b016-c8ec93d0a11f" name="Game" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="4967bb31-7ae1-42ac-9635-95b41f09246e" />
                 </memberEnd>
               </associationHasOwnedEnds>
               <associationHasOwnedEnds>
-                <memberEnd Id="042ac316-d314-4167-93ff-3faf3eb2037c" name="GameObject" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-                  <elementDefinition Id="7429595a-36d7-4d24-a8be-63b47672545d" />
+                <memberEnd Id="a82c6ad7-124f-4fe7-95ad-4515e7436a9a" name="GameObjectFactory" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="e7c352aa-de00-41b8-b640-953ff30f0d9c" />
                 </memberEnd>
               </associationHasOwnedEnds>
             </relationshipOwnedElementsInternal>
-            <elementDefinition Id="bf4fbe19-344f-49a5-a20c-44ffa9cf1702" />
+            <elementDefinition Id="48c86a72-ff8f-48a8-90b2-86bc55994f18" />
           </association>
         </targetEnds>
       </class>
@@ -511,6 +511,34 @@
         <elementDefinition Id="8a0784cb-a315-44b1-bde5-81e9ec8d5629" />
       </referencedType>
     </packageHasNamedElement>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="cd717168-ad83-4235-9a11-b6f82a5b2802" name="GameObjectFactory" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="60837fc3-4280-462c-b067-11b13f0e5f13" />
+        <targetEnds>
+          <association Id="ee9d220b-9120-43b7-908b-cfef36f63611" isDerived="false" sourceEndRoleName="GameObjectFactory" targetEndRoleName="GameObject" isLeaf="false" isAbstract="false">
+            <classMoniker Id="e2c5eb99-f825-4a28-9e62-2fc4305e6dc9" LastKnownName="GameObject" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="d0875678-0035-4e56-8c08-02b94c3a6e50" name="GameObjectFactory" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="eeaefd65-6e1f-43c5-8e64-5caafb9b3389" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="3de9289c-edbf-438d-a94a-418a56a79960" name="GameObject" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="5e07ac6b-77f1-4321-8e16-5287dd81d517" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="082035d5-5835-4e10-a4cc-1823aa4622a7" />
+          </association>
+        </targetEnds>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="819655e3-5809-45c7-8d52-8a439cc059f6" name="ItemType" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="31e4431e-c377-46b7-9c22-05024974d3b6" />
+      </class>
+    </logicalClassDesignerModelHasTypes>
   </packagedElements>
   <package Id="63ab7cf6-7ab7-4971-84e9-8f121a3b3d48" name="Architecture">
     <elementDefinition Id="d96df972-9c16-49fa-9818-4bf2583da520" />

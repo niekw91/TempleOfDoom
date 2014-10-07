@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<modelStoreModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+<modelStoreModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
   dslVersion="1.0.0.0"
   Id="d96df972-9c16-49fa-9818-4bf2583da520"
   name="Architecture" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
@@ -105,20 +105,20 @@
             </relationshipOwnedElementsInternal>
           </association>
           <association
-            Id="bf4fbe19-344f-49a5-a20c-44ffa9cf1702"
+            Id="48c86a72-ff8f-48a8-90b2-86bc55994f18"
             isDerived="false"
             sourceEndRoleName="Game"
-            targetEndRoleName="GameObject"
+            targetEndRoleName="GameObjectFactory"
             isLeaf="false"
             isAbstract="false">
             <classMoniker
-              Id="e0b71401-e74b-472d-81c6-f592fbe5501f"
-              LastKnownName="GameObject"
+              Id="60837fc3-4280-462c-b067-11b13f0e5f13"
+              LastKnownName="GameObjectFactory"
               LastKnownLocation="Architecture.uml" />
             <relationshipOwnedElementsInternal>
               <associationHasOwnedEnds>
                 <memberEnd
-                  Id="88c66dcd-f6d1-4618-9d70-1dabf2b4364b"
+                  Id="4967bb31-7ae1-42ac-9635-95b41f09246e"
                   name="Game"
                   isLeaf="false"
                   isStatic="false"
@@ -131,8 +131,8 @@
               </associationHasOwnedEnds>
               <associationHasOwnedEnds>
                 <memberEnd
-                  Id="7429595a-36d7-4d24-a8be-63b47672545d"
-                  name="GameObject"
+                  Id="e7c352aa-de00-41b8-b640-953ff30f0d9c"
+                  name="GameObjectFactory"
                   isLeaf="false"
                   isStatic="false"
                   isReadOnly="false"
@@ -1114,6 +1114,64 @@
       <undefinedType
         Id="8a0784cb-a315-44b1-bde5-81e9ec8d5629"
         name="bool" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="60837fc3-4280-462c-b067-11b13f0e5f13"
+        name="GameObjectFactory"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <targetEnds>
+          <association
+            Id="082035d5-5835-4e10-a4cc-1823aa4622a7"
+            isDerived="false"
+            sourceEndRoleName="GameObjectFactory"
+            targetEndRoleName="GameObject"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="e0b71401-e74b-472d-81c6-f592fbe5501f"
+              LastKnownName="GameObject"
+              LastKnownLocation="Architecture.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="eeaefd65-6e1f-43c5-8e64-5caafb9b3389"
+                  name="GameObjectFactory"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="5e07ac6b-77f1-4321-8e16-5287dd81d517"
+                  name="GameObject"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="31e4431e-c377-46b7-9c22-05024974d3b6"
+        name="ItemType"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
     </packageHasNamedElement>
   </packagedElements>
   <primitiveType

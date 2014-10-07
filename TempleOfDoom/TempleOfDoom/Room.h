@@ -4,6 +4,7 @@
 #include "Size.h"
 
 namespace TOD {
+	class GameObjectFactory;
 	class Scenery;
 	class Item;
 	class Trap;
@@ -13,7 +14,7 @@ namespace TOD {
 	{
 
 	public:
-		Room();
+		Room(GameObjectFactory *factory);
 		virtual ~Room();
 
 		void SetDirectionPath(Direction dir, Room *room);
@@ -32,6 +33,7 @@ namespace TOD {
 		bool HasObjectType();
 
 		void SetScenery();
+		void SetNPC();
 		void SetSizeRandom();
 		void SetCleanRandom();
 		void SetDarkRandom();
@@ -40,6 +42,8 @@ namespace TOD {
 		bool GetDark();
 
 	private:
+		GameObjectFactory *factory;
+
 		Room *north;
 		Room *east;
 		Room *south;
