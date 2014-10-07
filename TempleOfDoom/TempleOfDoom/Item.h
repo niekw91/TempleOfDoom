@@ -2,13 +2,17 @@
 #include "GameObject.h"
 
 namespace TOD {
+	class ItemType;
+
 	class Item :
 		public GameObject
 	{
 
 	public:
-		Item();
+		Item(ItemType *type);
 		virtual ~Item();
+	private:
+		bool rare;
 	};
 }
 

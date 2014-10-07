@@ -6,11 +6,21 @@
 #include <random>
 
 namespace TOD {
-	Floor::Floor(int size) {
+	Floor::Floor(int size, GameObjectFactory *factory) {
+		this->size = size;
+		this->factory = factory;
+
+		CreateRooms();
+	}
+
+	Floor::~Floor() {
+	}
+
+	void Floor::CreateRooms() {
 		rooms = std::vector<Room*>();
 		// Create all empty rooms
 		for (int z = 0; z < size * size; z++)
-			rooms.push_back(new Room());
+			rooms.push_back(new Room(factory));
 		// Keep track of current index
 		int currentIndex = 0;
 
@@ -35,9 +45,6 @@ namespace TOD {
 				currentIndex++;
 			}
 		}
-	}
-
-	Floor::~Floor() {
 	}
 
 	std::vector<Direction> Floor::GetPossibleDirections(int rowIndex, int columnIndex, int size) {

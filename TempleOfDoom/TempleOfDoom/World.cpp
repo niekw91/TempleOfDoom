@@ -5,11 +5,13 @@
 #include <vector>
 
 #include "World.h"
+#include "GameObjectFactory.h"
 
 namespace TOD {
-	World::World(int floorCount, int size) {
+	World::World(int floorCount, int size, GameObjectFactory *factory) {
 		this->floorCount = floorCount;
 		this->size = size;
+		this->factory = factory;
 
 		Generate();
 	}
@@ -22,7 +24,7 @@ namespace TOD {
 
 		for (int i = 0; i < this->floorCount; i++)
 		{
-			floors.push_back(new Floor(this->size));
+			floors.push_back(new Floor(size, factory));
 		}
 	}
 }

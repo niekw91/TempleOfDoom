@@ -4,7 +4,7 @@
 
 namespace TOD {
 	TOD::NPC* NPCType::createNPC() {
-		return new NPC(*this);
+		return new NPC(this);
 	}
 
 	NPCType::~NPCType()

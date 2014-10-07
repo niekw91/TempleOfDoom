@@ -9,19 +9,12 @@ namespace TOD {
 	{
 
 	public:
-		NPC(NPCType& type) : type(type)
-		{
-			//hp = type.getHP();
-			//name = type.getName();
-			//attack = type.getAttack();
-			//defense = type.getDefense();
-			//level = type.getLevel();
-		}
+		NPC(NPCType *type);
 		virtual ~NPC();
 
 
 	private:
-		NPCType& type;
+
 	};
 }
 

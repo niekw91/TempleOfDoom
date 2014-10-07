@@ -2,6 +2,7 @@
 
 namespace TOD {
 	// Forward declaration
+	class GameObjectFactory;
 	class GameStateManager;
 	class World;
 
@@ -26,6 +27,7 @@ namespace TOD {
 
 	private:
 		GameStateManager *stateManager;
+		GameObjectFactory *factory;
 		World *world;
 
 		bool Running;

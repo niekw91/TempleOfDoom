@@ -4,13 +4,19 @@
 #include <vector>
 
 namespace TOD {
+	class GameObjectFactory;
+
 	class Floor
 	{
 
 	public:
-		Floor(int size);
+		Floor(int size, GameObjectFactory *factory);
 		virtual ~Floor();
+
+		void CreateRooms();
 	private:
+		int size;
+		GameObjectFactory *factory;
 		std::vector<Room*> rooms;
 
 		std::vector<Direction>::iterator GetPosition(std::vector<Direction> &vector, Direction direction);
