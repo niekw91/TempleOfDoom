@@ -1,4 +1,5 @@
 #include "stdafx.h"
+#include "tinyxml2.h"
 #include "Room.h"
 
 namespace TOD {

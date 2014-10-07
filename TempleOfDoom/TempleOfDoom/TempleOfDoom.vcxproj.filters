@@ -73,6 +73,12 @@
     <Filter Include="Header Files\Model\Enums">
       <UniqueIdentifier>{1d0edcca-5c46-4b31-8cd7-905e2fd0d409}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Helpers">
+      <UniqueIdentifier>{7c150f3c-dcfe-4dd9-a05a-818aa77a202f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Helpers">
+      <UniqueIdentifier>{9c95137b-4771-47ba-95c7-a71b0b5771c3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -156,6 +162,9 @@
     <ClInclude Include="Direction.h">
       <Filter>Header Files\Model\Enums</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\..\..\Desktop\tinyxml2-master\tinyxml2-master\tinyxml2.h">
+      <Filter>Header Files\Helpers</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="TempleOfDoom.cpp">
@@ -232,6 +241,9 @@
     </ClCompile>
     <ClCompile Include="GameState.cpp">
       <Filter>Source Files\States</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\Desktop\tinyxml2-master\tinyxml2-master\tinyxml2.cpp">
+      <Filter>Source Files\Helpers</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
