@@ -1,5 +1,7 @@
 #pragma once
 
+#include <string>
+
 namespace TOD {
 	class GameObject
 	{
@@ -8,8 +10,8 @@ namespace TOD {
 		GameObject();
 		virtual ~GameObject();
 
-	private:
-
+	protected:
+		std::string name;
 	};
 }
 

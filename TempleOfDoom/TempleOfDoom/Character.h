@@ -11,8 +11,12 @@ namespace TOD {
 		Character();
 		virtual ~Character();
 
+		int getHP();
+		int getAttack();
+		int getDefense();
+		int getLevel();
 
-	private:
+	protected:
 		int hp;
 		int accuracy;
 		int agility;
