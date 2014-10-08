@@ -2,8 +2,7 @@
 #include "Usable.h"
 
 namespace TOD {
-	Usable::Usable()
-	{
+	Usable::Usable(ItemType *type) : Item(type) {
 	}
 
 

@@ -3,6 +3,7 @@
 #include <vector>
 #include "NPC.h"
 #include "Item.h"
+#include "ItemKind.h"
 
 namespace TOD {
 	class GameObjectFactory
@@ -11,8 +12,11 @@ namespace TOD {
 		GameObjectFactory();
 		virtual ~GameObjectFactory();
 		
+		ItemKind GetItemKind(std::string str);
+
 		void LoadNPCFromFile(std::string fileName);
 		void LoadItemsFromFile(std::string fileName);
+		Item* GameObjectFactory::GetRandomItem();
 		NPC* GetRandomNPC();
 
 	private:

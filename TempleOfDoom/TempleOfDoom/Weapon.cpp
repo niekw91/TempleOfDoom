@@ -3,7 +3,7 @@
 #include "ItemType.h"
 
 namespace TOD {
-	Weapon::Weapon(ItemType *type) {
+	Weapon::Weapon(ItemType *type) : Wearable(type) {
 		damage = type->GetRating();
 	}
 

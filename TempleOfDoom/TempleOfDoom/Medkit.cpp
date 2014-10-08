@@ -2,8 +2,7 @@
 #include "Medkit.h"
 
 namespace TOD {
-	Medkit::Medkit()
-	{
+	Medkit::Medkit(ItemType *type) : Usable(type) {
 	}
 
 

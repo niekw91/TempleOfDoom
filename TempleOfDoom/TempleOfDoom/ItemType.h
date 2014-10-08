@@ -1,15 +1,15 @@
 #pragma once
 
 #include <string>
+#include "ItemKind.h"
 
 namespace TOD {
 	class Item;
-	class ItemKind;
 
 	class ItemType
 	{
 	public:
-		ItemType(std::string name, int rating, bool rare, ItemKind *kind)
+		ItemType(std::string name, int rating, bool rare, ItemKind kind)
 			: name(name), rating(rating), rare(rare), kind(kind)
 		{}
 		virtual ~ItemType();
@@ -20,7 +20,7 @@ namespace TOD {
 
 		TOD::Item* CreateItem();
 	private:
-		ItemKind *kind;
+		ItemKind kind;
 		std::string name;
 		int rating;
 		bool rare;

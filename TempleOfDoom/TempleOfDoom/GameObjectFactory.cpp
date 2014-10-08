@@ -2,6 +2,7 @@
 #include "GameObjectFactory.h"
 #include "tinyxml2.h"
 #include "NPCType.h"
+#include "ItemType.h"
 
 #include <string>
 #include <random>
@@ -32,6 +33,10 @@ namespace TOD {
 		}
 	/*******************************************************************************/
 
+	Item* GameObjectFactory::GetRandomItem() {
+		return *select_randomly(itemVector.begin(), itemVector.end());
+	}
+
 	NPC* GameObjectFactory::GetRandomNPC() {
 		return *select_randomly(npcVector.begin(), npcVector.end());
 	}
@@ -51,15 +56,17 @@ namespace TOD {
 				XMLElement *item = itemType->FirstChildElement();
 				while (item != NULL) 
 				{
-					XMLElement *element = itemType->FirstChildElement("name");
+					XMLElement *element = item->FirstChildElement("name");
 					std::string name = element->GetText();
 					element = element->NextSiblingElement();
 					int rating = atoi(element->GetText());
 					element = element->NextSiblingElement();
 					bool rare = element->GetText() == "true" ? true : false;
-
+					std::string iType = itemType->Name();
+					ItemKind kind = GetItemKind(iType);
 					// Create itemType
-					// itemTpye.CreateItem
+					ItemType *type = new ItemType(name, rating, rare, kind);
+					itemVector.push_back(type->CreateItem());
 
 					item = item->NextSiblingElement();
 				}
@@ -96,6 +103,18 @@ namespace TOD {
 
 				npc = npc->NextSiblingElement();
 			}
+		}
+	}
+
+	ItemKind GameObjectFactory::GetItemKind(std::string str) {
+		if (str == "weapons") {
+			return WEAPON;
+		}
+		else if (str == "armor") {
+			return ARMOR;
+		}
+		else if (str == "medkit") {
+			return MEDKIT;
 		}
 	}
 

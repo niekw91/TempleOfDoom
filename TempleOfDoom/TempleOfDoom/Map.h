@@ -2,12 +2,14 @@
 #include "Usable.h"
 
 namespace TOD {
+	class ItemType;
+
 	class Map :
 		public Usable
 	{
 
 	public:
-		Map();
+		Map(ItemType *type);
 		virtual ~Map();
 	};
 }

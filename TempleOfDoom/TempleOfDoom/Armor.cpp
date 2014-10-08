@@ -2,8 +2,7 @@
 #include "Armor.h"
 
 namespace TOD {
-	Armor::Armor()
-	{
+	Armor::Armor(ItemType *type) : Wearable(type) {
 	}
 
 

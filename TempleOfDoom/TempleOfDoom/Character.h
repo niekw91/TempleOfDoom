@@ -1,8 +1,11 @@
 #pragma once
 #include "GameObject.h"
-#include "Item.h"
+
+#include <vector>
 
 namespace TOD {
+	class Item;
+
 	class Character :
 		public GameObject
 	{
@@ -22,7 +25,7 @@ namespace TOD {
 		int agility;
 		int attack;
 		int defense;
-		Item inventory[20];
+		std::vector<Item*> inventory;
 		int level;
 	};
 }

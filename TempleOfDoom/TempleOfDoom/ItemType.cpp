@@ -3,6 +3,8 @@
 #include "Item.h"
 #include "ItemKind.h"
 #include "Weapon.h"
+#include "Armor.h"
+#include "Medkit.h"
 
 namespace TOD {
 	Item* ItemType::CreateItem() {
@@ -11,10 +13,15 @@ namespace TOD {
 		case WEAPON:
 			return new Weapon(this);
 			break;
+		case ARMOR:
+			return new Armor(this);
+			break;
+		case MEDKIT:
+			return new Medkit(this);
+			break;
 		default:
 			break;
-		}
-		return new Item(this);
+		};
 	}
 
 	ItemType::~ItemType()

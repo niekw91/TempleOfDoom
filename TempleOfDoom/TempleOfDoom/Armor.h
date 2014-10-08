@@ -2,12 +2,14 @@
 #include "Wearable.h"
 
 namespace TOD {
+	class ItemType;
+
 	class Armor :
 		public Wearable
 	{
 
 	public:
-		Armor();
+		Armor(ItemType *type);
 		virtual ~Armor();
 	};
 }

@@ -25,6 +25,7 @@ namespace TOD {
 
 		// Load xml files
 		factory->LoadNPCFromFile("C:/Users/Niek Willems/Documents/GitHub/TempleOfDoom/TempleOfDoom/TempleOfDoom/Debug/npc.xml");
+		factory->LoadItemsFromFile("C:/Users/Niek Willems/Documents/GitHub/TempleOfDoom/TempleOfDoom/TempleOfDoom/Debug/items.xml");
 	}
 
 	void Game::Cleanup(){

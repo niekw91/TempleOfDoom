@@ -34,6 +34,14 @@ namespace TOD {
 		SetScenery();
 		// Set random npc's
 		SetNPC();
+		// Set random Items
+		SetItems();
+	}
+
+	void Room::SetItems() {
+		if (HasObjectType()) {
+			items->push_back(factory->GetRandomItem());
+		}
 	}
 
 	void Room::SetNPC() {

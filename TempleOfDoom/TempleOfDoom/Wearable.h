@@ -2,12 +2,15 @@
 #include "Item.h"
 
 namespace TOD {
+	class ItemType;
+	class Item;
+
 	class Wearable :
 		public Item
 	{
 
 	public:
-		Wearable();
+		Wearable(ItemType *type);
 		virtual ~Wearable();
 	};
 }

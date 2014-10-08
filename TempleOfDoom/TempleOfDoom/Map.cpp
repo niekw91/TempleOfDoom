@@ -2,8 +2,7 @@
 #include "Map.h"
 
 namespace TOD {
-	Map::Map()
-	{
+	Map::Map(ItemType *type) : Usable(type)	{
 	}
 
 

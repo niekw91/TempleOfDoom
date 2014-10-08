@@ -2,8 +2,8 @@
 #include "Wearable.h"
 
 namespace TOD {
-	Wearable::Wearable()
-	{
+	Wearable::Wearable(ItemType *type) : Item(type) {
+		
 	}
 
 
