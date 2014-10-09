@@ -24,8 +24,10 @@ namespace TOD {
 		factory = new GameObjectFactory();
 
 		// Load xml files
-		factory->LoadNPCFromFile("C:/Users/Niek Willems/Documents/GitHub/TempleOfDoom/TempleOfDoom/TempleOfDoom/Debug/npc.xml");
-		factory->LoadItemsFromFile("C:/Users/Niek Willems/Documents/GitHub/TempleOfDoom/TempleOfDoom/TempleOfDoom/Debug/items.xml");
+		factory->LoadNPCFromFile("XML/npc.xml");
+		factory->LoadItemsFromFile("XML/items.xml");
+		factory->LoadSceneryFromFile("XML/scenery.xml");
+		factory->LoadTrapsFromFile("XML/traps.xml");
 	}
 
 	void Game::Cleanup(){

@@ -7,7 +7,7 @@ namespace TOD {
 	{
 
 	public:
-		GameObject();
+		GameObject(std::string name);
 		virtual ~GameObject();
 
 	protected:

@@ -3,8 +3,7 @@
 #include "NPCType.h"
 
 namespace TOD {
-	NPC::NPC(NPCType *type) {
-		name = type->getName();
+	NPC::NPC(NPCType *type) : Character(type->getName()) {
 		hp = type->getHP();
 		attack = type->getAttack();
 		defense = type->getDefense();

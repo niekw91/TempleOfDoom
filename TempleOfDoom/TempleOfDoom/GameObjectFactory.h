@@ -4,6 +4,8 @@
 #include "NPC.h"
 #include "Item.h"
 #include "ItemKind.h"
+#include "Scenery.h"
+#include "Trap.h"
 
 namespace TOD {
 	class GameObjectFactory
@@ -16,12 +18,18 @@ namespace TOD {
 
 		void LoadNPCFromFile(std::string fileName);
 		void LoadItemsFromFile(std::string fileName);
-		Item* GameObjectFactory::GetRandomItem();
+		void LoadSceneryFromFile(std::string fileName);
+		void LoadTrapsFromFile(std::string fileName);
+		Item* GetRandomItem();
+		Scenery* GetRandomScenery();
 		NPC* GetRandomNPC();
+		Trap* GetRandomTrap();
 
 	private:
 		std::vector<NPC*> npcVector;
 		std::vector<Item*> itemVector;
+		std::vector<Scenery*> sceneryVector;
+		std::vector<Trap*> trapVector;
 	};
 }
 

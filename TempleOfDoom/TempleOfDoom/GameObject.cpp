@@ -2,8 +2,8 @@
 #include "GameObject.h"
 
 namespace TOD {
-	GameObject::GameObject()
-	{
+	GameObject::GameObject(std::string name) {
+		this->name = name;
 	}
 
 

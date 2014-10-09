@@ -3,8 +3,7 @@
 #include "ItemType.h"
 
 namespace TOD {
-	Item::Item(ItemType *type) {
-		name = type->GetName();
+	Item::Item(ItemType *type) : GameObject(type->GetName()) {
 		rare = type->GetRare();
 	}
 

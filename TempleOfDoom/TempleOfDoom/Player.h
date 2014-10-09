@@ -7,7 +7,7 @@ namespace TOD {
 	{
 
 	public:
-		Player();
+		Player(std::string name);
 		virtual ~Player();
 
 	private:

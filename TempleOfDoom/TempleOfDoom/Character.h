@@ -11,7 +11,7 @@ namespace TOD {
 	{
 
 	public:
-		Character();
+		Character(std::string name);
 		virtual ~Character();
 
 		int getHP();

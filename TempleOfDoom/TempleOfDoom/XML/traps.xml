@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<TOD>
+	<trap>
+		<name>Bear Trap</name>
+		<damage>15</damage>
+	</trap>
+</TOD>

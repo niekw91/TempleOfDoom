@@ -2,10 +2,9 @@
 #include "Trap.h"
 
 namespace TOD {
-	Trap::Trap()
-	{
+	Trap::Trap(std::string name, int damage) : GameObject(name) {
+		this->damage = damage;
 	}
-
 
 	Trap::~Trap()
 	{

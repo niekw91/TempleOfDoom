@@ -35,6 +35,7 @@ namespace TOD {
 		void SetScenery();
 		void SetNPC();
 		void SetItems();
+		void SetTrap();
 		void SetSizeRandom();
 		void SetCleanRandom();
 		void SetDarkRandom();

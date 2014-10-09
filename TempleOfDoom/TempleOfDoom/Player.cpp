@@ -2,8 +2,7 @@
 #include "Player.h"
 
 namespace TOD {
-	Player::Player()
-	{
+	Player::Player(std::string name) : Character(name) {
 	}
 
 

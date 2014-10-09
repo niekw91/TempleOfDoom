@@ -41,6 +41,62 @@ namespace TOD {
 		return *select_randomly(npcVector.begin(), npcVector.end());
 	}
 
+	Scenery* GameObjectFactory::GetRandomScenery() {
+		return *select_randomly(sceneryVector.begin(), sceneryVector.end());
+	}
+
+	Trap* GameObjectFactory::GetRandomTrap() {
+		return *select_randomly(trapVector.begin(), trapVector.end());
+	}
+
+	void GameObjectFactory::LoadTrapsFromFile(std::string fileName) {
+		trapVector = std::vector<Trap*>();
+
+		tinyxml2::XMLDocument doc;
+		doc.LoadFile(fileName.c_str());
+		if (doc.ErrorID() == 0)
+		{
+			XMLElement *tod = doc.FirstChildElement("TOD");
+			XMLElement *trap = tod->FirstChildElement();
+
+			while (trap != NULL)
+			{
+				XMLElement *element = trap->FirstChildElement("name");
+				std::string name = element->GetText();
+				element = element->NextSiblingElement();
+				int damage = atoi(element->GetText());
+				// Create scenery object
+				Trap *t = new Trap(name, damage);
+				trapVector.push_back(t);
+
+				trap = trap->NextSiblingElement();
+			}
+		}
+	}
+
+	void GameObjectFactory::LoadSceneryFromFile(std::string fileName) {
+		sceneryVector = std::vector<Scenery*>();
+
+		tinyxml2::XMLDocument doc;
+		doc.LoadFile(fileName.c_str());
+		if (doc.ErrorID() == 0)
+		{
+			XMLElement *tod = doc.FirstChildElement("TOD");
+			XMLElement *item = tod->FirstChildElement();
+
+			while (item != NULL)
+			{
+				XMLElement *element = item->FirstChildElement("name");
+				std::string name = element->GetText();
+				// Create scenery object
+				Scenery *scenery = new Scenery(name);
+				sceneryVector.push_back(scenery);
+
+				item = item->NextSiblingElement();
+			}
+		}
+	}
+
 	void GameObjectFactory::LoadItemsFromFile(std::string fileName) {
 		itemVector = std::vector<Item*>();
 

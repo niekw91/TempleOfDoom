@@ -36,6 +36,14 @@ namespace TOD {
 		SetNPC();
 		// Set random Items
 		SetItems();
+		// Set random trap
+		SetTrap();
+	}
+
+	void Room::SetTrap() {
+		if (HasObjectType()) {
+			traps->push_back(factory->GetRandomTrap());
+		}
 	}
 
 	void Room::SetItems() {
@@ -52,7 +60,7 @@ namespace TOD {
 
 	void Room::SetScenery() {
 		if (HasObjectType()) {
-
+			scenery->push_back(factory->GetRandomScenery());
 		}
 	}
 

@@ -7,8 +7,10 @@ namespace TOD {
 	{
 
 	public:
-		Trap();
+		Trap(std::string name, int damage);
 		virtual ~Trap();
+	private:
+		int damage;
 	};
 }
 

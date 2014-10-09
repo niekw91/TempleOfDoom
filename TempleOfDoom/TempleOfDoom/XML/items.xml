@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<TOD>
+	<weapons>
+		<item>
+			<name>Iron Sword</name>
+			<damage>10</damage>
+			<rare>false</rare>
+		</item>
+		<item>
+			<name>Bazooka</name>
+			<damage>1000</damage>
+			<rare>true</rare>
+		</item>
+	</weapons>
+	<armor>
+		<item>
+			<name>Iron Armor</name>
+			<rating>5</rating>
+			<rare>false</rare>
+		</item>
+	</armor>
+	<medkit>
+		<item>
+			<name>Medkit</name>
+			<hp>50</hp>
+			<rare>false</rare>
+		</item>
+	</medkit>
+</TOD>

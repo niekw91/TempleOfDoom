@@ -5,7 +5,7 @@
 #include <vector>
 
 namespace TOD {
-	Character::Character() {
+	Character::Character(std::string name) : GameObject(name) {
 		inventory = std::vector<Item*>();
 	}
 
