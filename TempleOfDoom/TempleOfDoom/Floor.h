@@ -14,6 +14,7 @@ namespace TOD {
 		virtual ~Floor();
 
 		void CreateRooms();
+		std::vector<Room*> GetRooms();
 	private:
 		int size;
 		GameObjectFactory *factory;

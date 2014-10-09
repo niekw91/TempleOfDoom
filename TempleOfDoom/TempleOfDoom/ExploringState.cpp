@@ -8,6 +8,7 @@
 #include "Game.h"
 #include "GameStateManager.h"
 #include "ExploringState.h"
+#include "MapState.h"
 #include "MainMenuState.h"
 
 namespace TOD {
@@ -105,9 +106,12 @@ namespace TOD {
 				HandleInput = false;
 				break;
 			case MAP:
-				std::cout << "\tNothing happened..." << std::endl;
+				/*std::cout << "\tNothing happened..." << std::endl;
 				std::cout << "\t";
-				system("PAUSE");
+				system("PAUSE");*/
+
+				// Change to map state
+				game->StateManager()->ChangeState(MapState::Instance());
 				HandleInput = false;
 				break;
 			case QUIT:

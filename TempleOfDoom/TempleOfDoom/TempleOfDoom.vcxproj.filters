@@ -85,6 +85,9 @@
     <ClCompile Include="TempleOfDoom.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="MapState.cpp">
+      <Filter>Source Files\States</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h">
@@ -179,6 +182,9 @@
     </ClInclude>
     <ClInclude Include="World.h">
       <Filter>Header Files\Model\World</Filter>
+    </ClInclude>
+    <ClInclude Include="MapState.h">
+      <Filter>Header Files\States</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

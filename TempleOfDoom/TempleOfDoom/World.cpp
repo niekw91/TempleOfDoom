@@ -27,4 +27,16 @@ namespace TOD {
 			floors.push_back(new Floor(size, factory));
 		}
 	}
+
+	Floor* World::GetCurrentFloor() {
+		return floors[0];
+	}
+
+	int World::GetWorldSize() {
+		return size;
+	}
+
+	int World::GetFloorCount() {
+		return floorCount;
+	}
 }

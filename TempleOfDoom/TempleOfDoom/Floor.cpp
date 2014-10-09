@@ -121,4 +121,8 @@ namespace TOD {
 		}
 		return dir;
 	}
+
+	std::vector<Room*> Floor::GetRooms() {
+		return rooms;
+	}
 }

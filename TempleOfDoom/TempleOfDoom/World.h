@@ -15,12 +15,14 @@ namespace TOD {
 		virtual ~World();
 		void Generate();
 
+		Floor* GetCurrentFloor();
+		int GetWorldSize();
+		int GetFloorCount();
+	private:
+		std::vector<Floor*> floors;
 		GameObjectFactory *factory;
 		int floorCount;
 		int size;
-
-	private:
-		std::vector<Floor*> floors;
 	};
 }
 

@@ -24,6 +24,7 @@ namespace TOD {
 		GameStateManager *StateManager() { return stateManager; }
 
 		void CreateWorld(int floorCount, int size);
+		World* GetWorld();
 
 	private:
 		GameStateManager *stateManager;

@@ -62,4 +62,8 @@ namespace TOD {
 		// Create new world
 		this->world = new World(floorCount, size, factory);
 	}
+
+	World* Game::GetWorld() {
+		return world;
+	}
 }
