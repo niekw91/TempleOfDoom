@@ -76,9 +76,6 @@
     <ClCompile Include="stdafx.cpp">
       <Filter>Source Files\Bin</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\..\Desktop\tinyxml2-master\tinyxml2-master\tinyxml2.cpp">
-      <Filter>Source Files\Helpers</Filter>
-    </ClCompile>
     <ClCompile Include="NPCType.cpp">
       <Filter>Source Files\Model\GameObjects\Characters</Filter>
     </ClCompile>
@@ -87,6 +84,9 @@
     </ClCompile>
     <ClCompile Include="MapState.cpp">
       <Filter>Source Files\States</Filter>
+    </ClCompile>
+    <ClCompile Include="tinyxml2.cpp">
+      <Filter>Source Files\Helpers</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -165,9 +165,6 @@
     <ClInclude Include="stdafx.h">
       <Filter>Header Files\Bin</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\..\Desktop\tinyxml2-master\tinyxml2-master\tinyxml2.h">
-      <Filter>Header Files\Helpers</Filter>
-    </ClInclude>
     <ClInclude Include="Trap.h">
       <Filter>Header Files\Model\GameObjects\Items</Filter>
     </ClInclude>
@@ -185,6 +182,12 @@
     </ClInclude>
     <ClInclude Include="MapState.h">
       <Filter>Header Files\States</Filter>
+    </ClInclude>
+    <ClInclude Include="tinyxml2.h">
+      <Filter>Header Files\Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="RoomType.h">
+      <Filter>Header Files\Model\Enums</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

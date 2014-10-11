@@ -23,6 +23,8 @@ namespace TOD {
 		GameObjectFactory *factory;
 		int floorCount;
 		int size;
+
+		int Random(int start, int end);
 	};
 }
 

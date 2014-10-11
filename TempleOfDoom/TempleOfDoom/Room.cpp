@@ -162,4 +162,12 @@ namespace TOD {
 	Room* Room::GetWest() {
 		return west;
 	}
+
+	void Room::SetRoomType(RoomType type) {
+		this->type = type;
+	}
+
+	RoomType Room::GetRoomType() {
+		return type;
+	}
 }

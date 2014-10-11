@@ -41,6 +41,8 @@ namespace TOD {
 				// Link rooms
 				room->SetDirectionPath(dir, connect);
 				connect->SetDirectionPath(GetOppositeDirection(dir), room);
+				// Set room type to normal
+				room->SetRoomType(NORMAL);
 				// Increment current index
 				currentIndex++;
 			}

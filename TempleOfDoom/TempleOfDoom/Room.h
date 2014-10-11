@@ -2,6 +2,7 @@
 #include "Direction.h"
 #include <vector>
 #include "Size.h"
+#include "RoomType.h"
 
 namespace TOD {
 	class GameObjectFactory;
@@ -28,6 +29,9 @@ namespace TOD {
 		Room* GetSouth();
 		Room* GetWest();
 
+		void SetRoomType(RoomType type);
+		RoomType GetRoomType();
+
 		int Random(int from, int top);
 		void Populate();
 		bool HasObjectType();
@@ -45,6 +49,8 @@ namespace TOD {
 
 	private:
 		GameObjectFactory *factory;
+
+		RoomType type;
 
 		Room *north;
 		Room *east;

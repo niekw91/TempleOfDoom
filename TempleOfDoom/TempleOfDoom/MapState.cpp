@@ -47,16 +47,42 @@ namespace TOD {
 		int size = game->GetWorld()->GetWorldSize();
 
 		int index = 0;
+		int step = 2; // One step is 2 chars
+		int length = size + size; // Length is size * 2
 
 		for (auto r : rooms) {
-			if (index == 0) map.append("\t. ");
-			else map.append(". ");
-			index++;
-			if (index == size) {
+			//if (index == 0) map.append("\t");
+			//map.append(". ");
+
+			std::string append;
+			if (r->GetRoomType() == NORMAL) append = "N ";
+			else if (r->GetRoomType() == START) append = "S ";
+			else if (r->GetRoomType() == END) append = "E ";
+			else if (r->GetRoomType() == ST_DOWN) append = "L ";
+			else if (r->GetRoomType() == ST_UP) append = "H ";
+			map.append(append);
+
+			index += step;
+			if (index == length) {
+				map.append("\n");
+				for (int i = 0; i < length; i++)
+					map.append(" ");
 				map.append("\n");
 				index = 0;
 			}
-		}	
+		}
+		
+		index = 0;
+
+		for (auto r : rooms) {
+			if (r->GetNorth() != nullptr) map.replace(index - (length + 1), 1, "|");
+			if (r->GetEast() != nullptr) 
+				map.replace((index + 1), 1, "-"); 
+			if (r->GetSouth() != nullptr) map.replace(index + (length + 1), 1, "|");
+			if (r->GetWest() != nullptr) map.replace((index - 1), 1, "-");
+			index+=2;
+			if (map.at(index) == '\n') index += (length + 2);
+		}
 
 	}
 

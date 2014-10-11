@@ -81,7 +81,8 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\..\..\Desktop\tinyxml2-master\tinyxml2-master\tinyxml2.h" />
+    <ClInclude Include="RoomType.h" />
+    <ClInclude Include="tinyxml2.h" />
     <ClInclude Include="Armor.h" />
     <ClInclude Include="Character.h" />
     <ClInclude Include="Direction.h" />
@@ -115,7 +116,7 @@
     <ClInclude Include="World.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\..\..\Desktop\tinyxml2-master\tinyxml2-master\tinyxml2.cpp" />
+    <ClCompile Include="tinyxml2.cpp" />
     <ClCompile Include="Armor.cpp" />
     <ClCompile Include="Character.cpp" />
     <ClCompile Include="ExploringState.cpp" />
