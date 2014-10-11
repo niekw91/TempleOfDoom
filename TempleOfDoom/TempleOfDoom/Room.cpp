@@ -131,6 +131,26 @@ namespace TOD {
 		}
 	}
 
+	bool Room::HasDirectionPath(Direction dir) {
+		bool hasDir = false;
+		switch (dir)
+		{
+		case NORTH:
+			if (GetNorth() != nullptr) hasDir = true;
+			break;
+		case EAST:
+			if (GetEast() != nullptr) hasDir = true;
+			break;
+		case SOUTH:
+			if (GetSouth() != nullptr) hasDir = true;
+			break;
+		case WEST:
+			if (GetWest() != nullptr) hasDir = true;
+			break;
+		}
+		return hasDir;
+	}
+
 	void Room::SetNorth(Room *room) {
 		this->north = room;
 	}

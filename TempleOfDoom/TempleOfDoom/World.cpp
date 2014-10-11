@@ -20,10 +20,14 @@ namespace TOD {
 	}
 
 	int World::Random(int start, int end) {
-		std::default_random_engine dre;
-		std::uniform_int_distribution<int> dist(start, end);
 
-		return dist(dre);
+		int size = end;
+		int low = start;
+
+		//generate random number
+		int random = (rand() % (size - low + 1) + low);
+
+		return random;
 	}
 
 	void World::Generate() {

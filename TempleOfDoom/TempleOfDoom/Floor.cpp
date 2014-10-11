@@ -34,6 +34,13 @@ namespace TOD {
 				Direction dir = Floor::GetRandomDirection(possibleDirections);
 				// Retrieve room
 				Room *room = rooms.at(currentIndex);
+				// Check if room already has the given direction, if so get new direction
+				//while (room->HasDirectionPath(dir) && possibleDirections.size() > 1) {
+				//	dir = Floor::GetRandomDirection(possibleDirections);
+				//}
+
+
+
 				// Retrieve index from direction
 				int index = Floor::GetRoomIndexByDirection(dir, currentIndex, size);
 				// Retrieve room to connect to
@@ -72,11 +79,14 @@ namespace TOD {
 
 	Direction Floor::GetRandomDirection(std::vector<Direction> possibleDirections) {
 		int size = possibleDirections.size() - 1;
+		int low = 0;
+		//std::default_random_engine dre;
+		//std::uniform_int_distribution<int> dist(0, size);
 
-		std::default_random_engine dre;
-		std::uniform_int_distribution<int> dist(0, size);
+		//int random = dist(dre);
 
-		int random = dist(dre);
+		//generate random number
+		int random = (rand() % (size - low + 1) + low);
 
 		return possibleDirections.at(random);
 	}

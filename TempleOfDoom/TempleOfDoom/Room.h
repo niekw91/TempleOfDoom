@@ -19,6 +19,7 @@ namespace TOD {
 		virtual ~Room();
 
 		void SetDirectionPath(Direction dir, Room *room);
+		bool HasDirectionPath(Direction dir);
 
 		void SetNorth(Room *room);
 		void SetEast(Room *room);
