@@ -16,6 +16,7 @@ namespace TOD {
 		void ChangeState(Game* game, GameState* state);
 
 		void ClearScreen();
+		void PauseScreen();
 
 	protected:
 		GameState() { }

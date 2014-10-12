@@ -13,4 +13,8 @@ namespace TOD {
 		system("CLS");
 		//std::cout << std::string(100, '\n');
 	}
+
+	void GameState::PauseScreen() {
+		system("PAUSE");
+	}
 }

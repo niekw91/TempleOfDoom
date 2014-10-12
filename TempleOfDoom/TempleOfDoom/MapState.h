@@ -2,6 +2,7 @@
 #include "GameState.h"
 
 #include <string>
+#include <vector>
 
 namespace TOD {
 	class MapState :
@@ -28,6 +29,10 @@ namespace TOD {
 		void Generate(Game *game);
 		void Do(Game *game);
 
-		enum input { BACK, INVALID };
+		enum input { INVALID, BACK };
+
+		void Header();
+		std::string StringMerger(std::string leftstring, std::string rightstring);
+		std::vector<std::string> MapState::SplitIntoLines(std::string text);
 	};
 }

@@ -6,6 +6,7 @@
 #include "GameStateManager.h"
 
 #include <string>
+#include <sstream>
 #include <iostream>
 #include <fstream>
 #include <algorithm>
@@ -14,7 +15,7 @@ namespace TOD {
 	MapState MapState::instance;
 
 	void MapState::Init() {
-		
+
 	}
 
 	void MapState::Cleanup() {
@@ -31,13 +32,11 @@ namespace TOD {
 	void MapState::Render(Game *game) {
 		// Clear screen
 		ClearScreen();
+		// Create header
+		Header();
 		// Render map
-		std::cout << "\tTemple Of Doom Map: \n\n";
 		std::cout << map;
-		// Render choices
-		std::cout << "\n\n \tWhat are you going to do? \n\n";
-		std::cout << "\t[ BACK ] \n\n";
-		
+
 		Do(game);
 	}
 
@@ -71,54 +70,87 @@ namespace TOD {
 				index = 0;
 			}
 		}
-		
+
 		index = 0;
 
 		for (auto r : rooms) {
 			if (r->GetNorth() != nullptr) map.replace(index - (length + 1), 1, "|");
-			if (r->GetEast() != nullptr) 
-				map.replace((index + 1), 1, "-"); 
+			if (r->GetEast() != nullptr)
+				map.replace((index + 1), 1, "-");
 			if (r->GetSouth() != nullptr) map.replace(index + (length + 1), 1, "|");
 			if (r->GetWest() != nullptr) map.replace((index - 1), 1, "-");
-			index+=2;
+			index += 2;
 			if (map.at(index) == '\n') index += (length + 2);
 		}
 
+		// Insert tabs
+		int countdown = 0;
+		std::string tmp;
+		std::string tab;
+		for (auto c : map){
+			if (countdown == 0){
+				tab = "\t";
+				countdown = 20;
+			}
+			else {
+				tab = "";
+				countdown--;
+			}
+			tmp.append(tab + c);
+		}
+		map = tmp;
+
+		// Create legend
+		std::string legend = "";
+		legend += "\t\tLEGEND\n";
+		legend += "\t\t|-\tHallways\n";
+		legend += "\t\tS\tStartposition\n";
+		legend += "\t\tE\tEnd Boss\n";
+		legend += "\t\tN\tNormal Room\n";
+		legend += "\t\tL\tStairs Down\n";
+		legend += "\t\tH\tStairs Up\n";
+		legend += "\t\t.\tUnexplored\n";
+
+		// Merge map and legend
+		map = StringMerger(map, legend);
 	}
 
 	void MapState::Do(Game *game) {
-		// Handle input
-		bool HandleInput = true;
-		while (HandleInput){
-			// Read input
-			std::cout << "\t";
-			std::string action;
-			std::getline(std::cin, action);
-			std::transform(action.begin(), action.end(), action.begin(), ::tolower); // to lowercase
+		std::cout << "\t";
+		PauseScreen();
+		// Change to map state
+		game->StateManager()->ChangeState(ExploringState::Instance());
+	}
 
-			// Determine choice
-			input choice = INVALID;
-			std::vector<std::string> *actions = new std::vector<std::string>({ "invalid", "back" });
+	void MapState::Header(){
+		std::cout << "\n\n";
+		std::cout << "\tTEMPLE OF DOOM > MAP \n";
+		std::cout << "\t----------------------------------------------------------------\n\n";
+	}
 
-			for (int i = 0; i < actions->size(); i++){
-				std::size_t found = action.find(actions->at(i));
-				if (found != std::string::npos || action == std::to_string(i)){
-					choice = input(i);
-					break;
-				}
-			}
+	std::string MapState::StringMerger(std::string leftstring, std::string rightstring){
+		std::string mergedString;
+		std::vector<std::string> leftlines = SplitIntoLines(leftstring);
+		std::vector<std::string> rightlines = SplitIntoLines(rightstring);
 
-			// Handle choice
-			switch (choice){
-			case BACK:
-				// Change to map state
-				game->StateManager()->ChangeState(ExploringState::Instance());
-				HandleInput = false;
-				break;
-			default:
-				std::cout << "\tThat's not an option..." << std::endl;
-				break;
+		for (auto i = 0; i < leftlines.size(); i++){
+			mergedString += leftlines[i] + (i < rightlines.size() ? rightlines[i] : "") + "\n";
+		}
+
+		return mergedString;
+	}
+
+	std::vector<std::string> MapState::SplitIntoLines(std::string text){
+		std::stringstream ss(text);
+		std::string to;
+		std::vector<std::string> lines;
+
+		if (!text.empty())
+		{
+			while (std::getline(ss, to, '\n')){
+				lines.push_back(to);
 			}
 		}
+		return lines;
 	}
 }
