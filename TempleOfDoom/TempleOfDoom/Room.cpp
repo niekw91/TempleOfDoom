@@ -17,6 +17,8 @@ namespace TOD {
 		traps = new std::vector<Trap*>();
 		npcs = new std::vector<NPC*>();
 
+		player = nullptr;
+
 		Populate();
 	}
 

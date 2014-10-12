@@ -10,6 +10,7 @@ namespace TOD {
 	class Item;
 	class Trap;
 	class NPC;
+	class Player;
 
 	class Room
 	{
@@ -48,6 +49,14 @@ namespace TOD {
 		bool GetClean();
 		bool GetDark();
 
+		std::vector<Scenery*> *GetScenery() { return scenery; }
+		std::vector<Item*> *GetItems() { return items; }
+		std::vector<Trap*> *GetTraps() { return traps; }
+		std::vector<NPC*> *GetNPC() { return npcs; }
+
+		Player *GetPlayer() { return player; }
+		void SetPlayer(Player *newPlayer) { player = newPlayer; }
+
 	private:
 		GameObjectFactory *factory;
 
@@ -68,6 +77,7 @@ namespace TOD {
 		std::vector<Item*> *items;
 		std::vector<Trap*> *traps;
 		std::vector<NPC*> *npcs;
+		Player *player;
 	};
 }
 

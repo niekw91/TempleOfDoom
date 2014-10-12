@@ -1,5 +1,7 @@
 #pragma once
 
+#include "World.h"
+
 namespace TOD {
 	// Forward declaration
 	class GameObjectFactory;
@@ -24,7 +26,8 @@ namespace TOD {
 		GameStateManager *StateManager() { return stateManager; }
 
 		void CreateWorld(int floorCount, int size);
-		World* GetWorld();
+
+		World* Game::GetWorld() { return world; }
 
 	private:
 		GameStateManager *stateManager;

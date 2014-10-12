@@ -10,6 +10,8 @@ namespace TOD {
 		GameObject(std::string name);
 		virtual ~GameObject();
 
+		std::string GetName() { return name; }
+
 	protected:
 		std::string name;
 	};

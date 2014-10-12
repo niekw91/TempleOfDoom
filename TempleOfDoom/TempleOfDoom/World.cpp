@@ -65,7 +65,9 @@ namespace TOD {
 	}
 
 	Floor* World::GetCurrentFloor() {
-		return floors[0];
+		for (auto currentFloor : floors)
+			if (currentFloor->GetCurrentRoom()->GetPlayer() != nullptr)
+				return currentFloor;
 	}
 
 	int World::GetWorldSize() {

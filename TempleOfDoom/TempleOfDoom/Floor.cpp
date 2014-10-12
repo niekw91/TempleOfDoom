@@ -137,4 +137,12 @@ namespace TOD {
 	std::vector<Room*> Floor::GetRooms() {
 		return rooms;
 	}
+
+	Room* Floor::GetCurrentRoom() {
+		for (auto currentRoom : rooms) {
+			if (currentRoom->GetPlayer() != nullptr) {
+				return currentRoom;
+			}
+		}
+	}
 }

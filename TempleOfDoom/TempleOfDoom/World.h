@@ -15,9 +15,12 @@ namespace TOD {
 		virtual ~World();
 		void Generate();
 
-		Floor* GetCurrentFloor();
 		int GetWorldSize();
 		int GetFloorCount();
+
+		Floor* World::GetFloor(int number) { return floors[number]; }
+		Floor* GetCurrentFloor();
+
 	private:
 		std::vector<Floor*> floors;
 		GameObjectFactory *factory;

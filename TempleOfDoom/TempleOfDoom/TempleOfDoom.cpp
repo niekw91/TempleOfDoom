@@ -4,10 +4,6 @@
 #include "stdafx.h"
 #include "Game.h"
 
-#include "tinyxml2.h"
-#include <string>
-using namespace tinyxml2;
-
 int _tmain(int argc, _TCHAR* argv[])
 {
 	// Create game
@@ -21,7 +17,6 @@ int _tmain(int argc, _TCHAR* argv[])
 
 	// Cleanup game
 	game.Cleanup();
-
 
 	return 0;
 }

@@ -10,6 +10,11 @@
 #include "ExploringState.h"
 #include "MapState.h"
 #include "MainMenuState.h"
+#include "Floor.h"
+#include "Room.h"
+#include "Player.h"
+#include "Scenery.h"
+#include "NPC.h"
 
 namespace TOD {
 	ExploringState ExploringState::instance;
@@ -36,12 +41,36 @@ namespace TOD {
 	}
 
 	void ExploringState::Generate(Game *game){
+		Room *currRoom = game->GetWorld()->GetCurrentFloor()->GetCurrentRoom();
 		Header();
 		std::string room;
+
+		// Show scenery
 		room += "\n";
-		room += "\tYou're standing in a room with a table in the middle. \n\tThe table has four chairs. \n\tThere is a box in the corner. \n\n";
-		room += "\tSouth is the temple exit, you can almost taste the outdoor air. \n\tNorth there is a solid door. \n\tEast there is a hallway. \n\n";
-		room += "\tThree rats look at you with their bloodshot eyes. \n\n";
+		room += "\tYou're standing in a room. There is a";// with a table in the middle. \n\tThe table has four chairs. \n\tThere is a box in the corner. \n\n";
+		for (auto i : *currRoom->GetScenery()) {
+			room += " " + i->GetName();
+		}
+		room += "\n\n";
+		
+		// Show exits
+		//room += "\tSouth is the temple exit, you can almost taste the outdoor air. \n\tNorth there is a solid door. \n\tEast there is a hallway. \n\n";
+		room += "\tThere is an exit to the";
+		if (currRoom->GetNorth() != nullptr) { room += " North"; }
+		if (currRoom->GetSouth() != nullptr) { room += " South"; }
+		if (currRoom->GetEast() != nullptr) { room += " East"; }
+		if (currRoom->GetWest() != nullptr) { room += " West"; }
+		room += "\n\n";
+
+		// Show npcs
+		//room += "\tThree rats look at you with their bloodshot eyes. \n\n";
+		room += "\tThere is a";
+		for (auto i : *currRoom->GetNPC()) {
+			room += " " + i->GetName();
+		}
+		room += " in the room\n\n";
+
+		// Show options
 		room += "\tWhat are you going to do? \n\n";
 		room += "\t[ FIGHT | RUN | EXPLORE | REST | OPEN INVENTORY | CHECK MAP ] \n\n";
 		/*room += "\tAction: run \n\n";
@@ -82,9 +111,10 @@ namespace TOD {
 				HandleInput = false;
 				break;
 			case RUN:
-				std::cout << "\tNothing happened..." << std::endl;
+				/*std::cout << "\tNothing happened..." << std::endl;
 				std::cout << "\t";
-				system("PAUSE");
+				system("PAUSE");*/
+				std::cout << "\tWhere to?";
 				HandleInput = false;
 				break;
 			case EXPLORE:
@@ -106,10 +136,6 @@ namespace TOD {
 				HandleInput = false;
 				break;
 			case MAP:
-				/*std::cout << "\tNothing happened..." << std::endl;
-				std::cout << "\t";
-				system("PAUSE");*/
-
 				// Change to map state
 				game->StateManager()->ChangeState(MapState::Instance());
 				HandleInput = false;
@@ -128,7 +154,7 @@ namespace TOD {
 		}
 	}
 
-	void ExploringState::Header(){
+	void ExploringState::Header() {
 		const std::string textfile("Header.txt");
 		std::ifstream input_file(textfile);
 
