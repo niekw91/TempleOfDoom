@@ -15,14 +15,7 @@ namespace TOD {
 	MainMenuState MainMenuState::instance;
 
 	void MainMenuState::Init() {
-		// Load file
-		const std::string textfile("GameStateOptions.json");
-		std::ifstream input_file(textfile);
-
-		std::string line;
-		while (getline(input_file, line)) {
-			stateOptions += line;
-		}
+		
 	}
 
 	void MainMenuState::Cleanup() {

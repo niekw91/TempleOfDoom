@@ -114,7 +114,7 @@ namespace TOD {
 				/*std::cout << "\tNothing happened..." << std::endl;
 				std::cout << "\t";
 				system("PAUSE");*/
-				std::cout << "\tWhere to?";
+				ActionRun(game);
 				HandleInput = false;
 				break;
 			case EXPLORE:
@@ -162,6 +162,14 @@ namespace TOD {
 		while (getline(input_file, line)) {
 			std::cout << line << '\n';
 		}
+	}
+
+	void ExploringState::ActionRun(Game *game){
+		std::cout << "\tWhere to?";
+		// Read input
+		std::cout << "\t";
+		std::string action;
+		std::getline(std::cin, action);
 	}
 }
 

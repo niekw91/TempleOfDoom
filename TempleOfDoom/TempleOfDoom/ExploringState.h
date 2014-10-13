@@ -28,5 +28,6 @@ namespace TOD {
 		enum input { INVALID, FIGHT, RUN, EXPLORE, REST, INVENTORY, MAP, QUIT };
 
 		void Header();
+		void ActionRun(Game *game);
 	};
 }
