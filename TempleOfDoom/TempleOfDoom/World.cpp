@@ -14,13 +14,13 @@ namespace TOD {
 		this->factory = factory;
 
 		Generate();
+		SetRoomTypes();
 	}
 
 	World::~World() {
 	}
 
 	int World::Random(int start, int end) {
-
 		int size = end;
 		int low = start;
 
@@ -37,31 +37,45 @@ namespace TOD {
 		{
 			floors.push_back(new Floor(size, factory));
 		}
-		// Set roomtypes
+	}
+
+	void World::SetRoomTypes() {
 		int index = 0;
+		int size = floors.size() - 1;
+
 		for (auto *f : floors)
 		{
 			std::vector<Room*> rooms = f->GetRooms();
 			int size = rooms.size() - 1;
-			
-			Room* r = rooms.at(Random(0, size));
+
+			Room* r = GetRandomRoom(rooms, nullptr);
 			if (index == 0) {
 				r->SetRoomType(START);
-				r = rooms.at(Random(0, size));
+				r = GetRandomRoom(rooms, r);
 				r->SetRoomType(ST_UP);
 			}
-			else if (index == floors.size() - 1) {
+			else if (index == size) {
 				r->SetRoomType(END);
-				r = rooms.at(Random(0, size));
+				r = GetRandomRoom(rooms, r);
 				r->SetRoomType(ST_DOWN);
 			}
 			else {
 				r->SetRoomType(ST_UP);
-				r = rooms.at(Random(0, size));
+				r = GetRandomRoom(rooms, r);
 				r->SetRoomType(ST_DOWN);
 			}
 			index++;
 		}
+	}
+
+	Room* World::GetRandomRoom(std::vector<Room*> rooms, Room* room) {
+		Room* r;
+		do
+		{
+			r = rooms.at(Random(0, rooms.size() - 1));
+		} while (room == r);
+		return r;
+
 	}
 
 	Floor* World::GetCurrentFloor() {

@@ -11,6 +11,8 @@ namespace TOD {
 		this->size = size;
 		this->factory = factory;
 
+		srand(time(NULL));
+
 		CreateRooms();
 	}
 
@@ -27,35 +29,49 @@ namespace TOD {
 
 		for (int i = 0; i < size; i++)
 		{
-			srand(time(NULL));
 			for (int j = 0; j < size; j++)
 			{
 				// Get possible directions
 				std::vector<Direction> possibleDirections = Floor::GetPossibleDirections(i, j, size);
-				// Get random direction from possible values
-				Direction dir = Floor::GetRandomDirection(possibleDirections);
-				// Retrieve room
-				Room *room = rooms.at(currentIndex);
-				// Check if room already has the given direction, if so get new direction
-				//while (room->HasDirectionPath(dir) && possibleDirections.size() > 1) {
-				//	dir = Floor::GetRandomDirection(possibleDirections);
-				//}
+				
+				int handled = 0;
 
+				while (possibleDirections.size() != 0 && handled < 2) {
+					Direction dir = SetDirection(possibleDirections, currentIndex);
+					// Delete handled direction
+					possibleDirections.erase(GetPosition(possibleDirections, dir));
 
-
-				// Retrieve index from direction
-				int index = Floor::GetRoomIndexByDirection(dir, currentIndex, size);
-				// Retrieve room to connect to
-				Room *connect = rooms.at(index);
-				// Link rooms
-				room->SetDirectionPath(dir, connect);
-				connect->SetDirectionPath(GetOppositeDirection(dir), room);
-				// Set room type to normal
-				room->SetRoomType(NORMAL);
+					handled++;
+				}
 				// Increment current index
 				currentIndex++;
 			}
 		}
+	}
+
+	Direction Floor::SetDirection(std::vector<Direction> possibleDirections, int currentIndex) {
+		// Get random direction from possible values
+		Direction dir = Floor::GetRandomDirection(possibleDirections);
+		// Retrieve room
+		Room *room = rooms.at(currentIndex);
+		// Check if room already has the given direction, if so get new direction
+		//while (room->HasDirectionPath(dir) && possibleDirections.size() > 1) {
+		//	// Delete current direction
+		//	possibleDirections.erase(GetPosition(possibleDirections, dir));
+		//	// Retrieve new direction
+		//	dir = Floor::GetRandomDirection(possibleDirections);
+		//}
+		// Retrieve index from direction
+		int index = Floor::GetRoomIndexByDirection(dir, currentIndex, size);
+		// Retrieve room to connect to
+		Room *connect = rooms.at(index);
+		// Link rooms
+		room->SetDirectionPath(dir, connect);
+		connect->SetDirectionPath(GetOppositeDirection(dir), room);
+		// Set room type to normal
+		room->SetRoomType(NORMAL);
+
+		return dir;
 	}
 
 	std::vector<Direction> Floor::GetPossibleDirections(int rowIndex, int columnIndex, int size) {
@@ -82,10 +98,7 @@ namespace TOD {
 	Direction Floor::GetRandomDirection(std::vector<Direction> possibleDirections) {
 		int size = possibleDirections.size() - 1;
 		int low = 0;
-		//std::default_random_engine dre;
-		//std::uniform_int_distribution<int> dist(0, size);
 
-		//int random = dist(dre);
 		//generate random number
 		int random = (rand() % (size - low + 1) + low);
 

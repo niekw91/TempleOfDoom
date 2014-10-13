@@ -7,6 +7,7 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <ctime>
 
 namespace TOD {
 	Room::Room(GameObjectFactory *factory) {
@@ -18,6 +19,8 @@ namespace TOD {
 		npcs = new std::vector<NPC*>();
 
 		player = nullptr;
+		// Randomize
+		srand(time(NULL));
 
 		Populate();
 	}
@@ -67,31 +70,35 @@ namespace TOD {
 	}
 
 	int Room::Random(int from, int top) {
-		std::default_random_engine dre;
-		std::uniform_int_distribution<int> dist(from, top);
+		//generate random number
+		int random = (rand() % (top - from + 1) + from);
 
-		return dist(dre);
+		return random;
+	}
+
+	bool Room::RandomBool() {
+		//return rand() % 2 == 1;
+		std::random_device device;
+		std::mt19937 gen(device());
+		std::bernoulli_distribution coin_flip(0.5);
+		return coin_flip(gen);
 	}
 
 	bool Room::HasObjectType() {
-		int r = Random(1, 2);
-		if (r = 1)
-			return true;
-		else
-			return false;
+		return RandomBool();
 	}
 
 	void Room::SetCleanRandom() {
-		int r = Random(1, 2);
-		if (r = 1)
+		bool r = RandomBool();
+		if (r)
 			this->isClean = true;
 		else
 			this->isClean = false;
 	}
 
 	void Room::SetDarkRandom() {
-		int r = Random(1, 2);
-		if (r = 1)
+		bool r = RandomBool();
+		if (r)
 			this->isDark = true;
 		else
 			this->isDark = false;

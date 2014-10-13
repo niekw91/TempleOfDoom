@@ -34,7 +34,6 @@ namespace TOD {
 		void SetRoomType(RoomType type);
 		RoomType GetRoomType();
 
-		int Random(int from, int top);
 		void Populate();
 		bool HasObjectType();
 
@@ -66,6 +65,9 @@ namespace TOD {
 		Room *east;
 		Room *south;
 		Room *west;
+
+		bool RandomBool();
+		int Random(int from, int top);
 
 		// Room properties
 		Size size;
