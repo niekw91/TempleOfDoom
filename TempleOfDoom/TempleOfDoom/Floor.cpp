@@ -4,6 +4,7 @@
 
 #include <vector>
 #include <random>
+#include <ctime>
 
 namespace TOD {
 	Floor::Floor(int size, GameObjectFactory *factory) {
@@ -26,6 +27,7 @@ namespace TOD {
 
 		for (int i = 0; i < size; i++)
 		{
+			srand(time(NULL));
 			for (int j = 0; j < size; j++)
 			{
 				// Get possible directions
@@ -84,7 +86,6 @@ namespace TOD {
 		//std::uniform_int_distribution<int> dist(0, size);
 
 		//int random = dist(dre);
-
 		//generate random number
 		int random = (rand() % (size - low + 1) + low);
 
