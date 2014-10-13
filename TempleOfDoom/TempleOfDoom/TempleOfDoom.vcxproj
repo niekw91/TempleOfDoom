@@ -81,6 +81,7 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Options.h" />
     <ClInclude Include="RoomType.h" />
     <ClInclude Include="tinyxml2.h" />
     <ClInclude Include="Armor.h" />
@@ -116,6 +117,7 @@
     <ClInclude Include="World.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Options.cpp" />
     <ClCompile Include="tinyxml2.cpp" />
     <ClCompile Include="Armor.cpp" />
     <ClCompile Include="Character.cpp" />

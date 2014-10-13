@@ -59,7 +59,7 @@ namespace TOD {
 			// Determine choice
 			input choice = INVALID;
 			std::vector<std::string> *actions = new std::vector<std::string>({ "invalid", "new", "load", "credits"});
-			for (int i = 0; i < actions->size(); i++){
+			for (size_t i = 0, size = actions->size(); i < size; i++){
 				std::size_t found = action.find(actions->at(i));
 				if (found != std::string::npos || action == std::to_string(i)){
 					choice = input(i);

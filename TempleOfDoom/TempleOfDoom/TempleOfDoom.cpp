@@ -6,6 +6,9 @@
 
 int _tmain(int argc, _TCHAR* argv[])
 {
+	// Set window size
+	system("MODE CON: COLS=80 LINES=40");
+
 	// Create game
 	TOD::Game game;
 	

@@ -15,6 +15,7 @@
 #include "Player.h"
 #include "Scenery.h"
 #include "NPC.h"
+#include "Options.h"
 
 namespace TOD {
 	ExploringState ExploringState::instance;
@@ -72,7 +73,6 @@ namespace TOD {
 
 		// Show options
 		room += "\tWhat are you going to do? \n\n";
-		room += "\t[ FIGHT | RUN | EXPLORE | REST | OPEN INVENTORY | CHECK MAP ] \n\n";
 		/*room += "\tAction: run \n\n";
 		room += "\tWhat direction? \n\n";
 		room += "\t[ NORTH | EAST | SOUTH ] \n\n";*/
@@ -83,27 +83,13 @@ namespace TOD {
 	void ExploringState::Do(Game* game){
 		// Handle input
 		bool HandleInput = true;
-		while (HandleInput){
-			// Read input
-			std::cout << "\t";
-			std::string action;
-			std::getline(std::cin, action);
-			std::transform(action.begin(), action.end(), action.begin(), ::tolower); // to lowercase
-
-			// Determine choice
-			input choice = INVALID;
-			std::vector<std::string> *actions = new std::vector<std::string>({ "invalid", "fight", "run", "explore", "rest", "inventory", "map", "quit" });
-
-			for (int i = 0; i < actions->size(); i++){
-				std::size_t found = action.find(actions->at(i));
-				if (found != std::string::npos || action == std::to_string(i)){ 
-					choice = input(i); 
-					break;
-				}
-			}
+		while (HandleInput) {
+			// Create options
+			Options *options = new Options("fight;run;explore;rest;inventory;map;quit", true);
+			enum optionsenum { FIGHT, RUN, EXPLORE, REST, INVENTORY, MAP, QUIT };
 
 			// Handle choice
-			switch (choice){
+			switch (options->GetChoice()) {
 			case FIGHT:
 				std::cout << "\tNothing happened..." << std::endl;
 				std::cout << "\t";
@@ -111,9 +97,6 @@ namespace TOD {
 				HandleInput = false;
 				break;
 			case RUN:
-				/*std::cout << "\tNothing happened..." << std::endl;
-				std::cout << "\t";
-				system("PAUSE");*/
 				ActionRun(game);
 				HandleInput = false;
 				break;
@@ -165,11 +148,65 @@ namespace TOD {
 	}
 
 	void ExploringState::ActionRun(Game *game){
-		std::cout << "\tWhere to?";
-		// Read input
-		std::cout << "\t";
-		std::string action;
-		std::getline(std::cin, action);
+		// Get current room
+		Room *currRoom = game->GetWorld()->GetCurrentFloor()->GetCurrentRoom();
+
+		std::cout << "\n\tWhere to?\n\n";
+
+		// Handle input
+		bool HandleInput = true;
+		while (HandleInput) {
+			// Create options
+			Options *options = new Options("north;east;south;west", false);
+			enum optionsenum { NORTH, EAST, SOUTH, WEST };
+
+			// Handle choice
+			switch (options->GetChoice()) {
+			case NORTH:
+				if (currRoom->GetNorth() != nullptr) {
+					currRoom->GetNorth()->SetPlayer(currRoom->GetPlayer());
+					currRoom->SetPlayer(nullptr);
+					HandleInput = false;
+				}
+				else {
+					std::cout << "\tYou can't go there, that's not an exit.\n";
+				}
+				break;
+			case EAST:
+				if (currRoom->GetEast() != nullptr) {
+					currRoom->GetEast()->SetPlayer(currRoom->GetPlayer());
+					currRoom->SetPlayer(nullptr);
+					HandleInput = false;
+				}
+				else {
+					std::cout << "\tYou can't go there, that's not an exit.\n";
+				}
+				break;
+			case SOUTH:
+				if (currRoom->GetSouth() != nullptr) {
+					currRoom->GetSouth()->SetPlayer(currRoom->GetPlayer());
+					currRoom->SetPlayer(nullptr);
+					HandleInput = false;
+				}
+				else {
+					std::cout << "\tYou can't go there, that's not an exit.\n";
+				}
+				break;
+			case WEST:
+				if (currRoom->GetWest() != nullptr) {
+					currRoom->GetWest()->SetPlayer(currRoom->GetPlayer());
+					currRoom->SetPlayer(nullptr);
+					HandleInput = false;
+				}
+				else {
+					std::cout << "\tYou can't go there, that's not an exit.\n";
+				}
+				break;
+			default:
+				std::cout << "\tThat's not an option..." << std::endl;
+				break;
+			}
+		}
 	}
 }
 

@@ -133,7 +133,7 @@ namespace TOD {
 		std::vector<std::string> leftlines = SplitIntoLines(leftstring);
 		std::vector<std::string> rightlines = SplitIntoLines(rightstring);
 
-		for (auto i = 0; i < leftlines.size(); i++){
+		for (size_t i = 0, size = leftlines.size(); i < size; i++){
 			mergedString += leftlines[i] + (i < rightlines.size() ? rightlines[i] : "") + "\n";
 		}
 
