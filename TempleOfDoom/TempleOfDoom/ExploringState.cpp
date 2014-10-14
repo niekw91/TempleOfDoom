@@ -4,10 +4,13 @@
 #include <fstream>
 #include <iostream>
 #include <algorithm>
+#include <map>
+#include <ctime>
 
 #include "Game.h"
 #include "GameStateManager.h"
 #include "ExploringState.h"
+#include "InventoryState.h"
 #include "MapState.h"
 #include "MainMenuState.h"
 #include "Floor.h"
@@ -21,7 +24,7 @@ namespace TOD {
 	ExploringState ExploringState::instance;
 
 	void ExploringState::Init() {
-
+		srand(time(NULL));
 	}
 
 	void ExploringState::Cleanup() {
@@ -44,40 +47,83 @@ namespace TOD {
 	void ExploringState::Generate(Game *game){
 		Room *currRoom = game->GetWorld()->GetCurrentFloor()->GetCurrentRoom();
 		Header();
-		std::string room;
+		std::string room = "\n\tYou're standing in a room. ";
 
-		// Show scenery
-		room += "\n";
-		room += "\tYou're standing in a room. There is a";// with a table in the middle. \n\tThe table has four chairs. \n\tThere is a box in the corner. \n\n";
-		for (auto i : *currRoom->GetScenery()) {
-			room += " " + i->GetName();
-		}
-		room += "\n\n";
-		
-		// Show exits
-		//room += "\tSouth is the temple exit, you can almost taste the outdoor air. \n\tNorth there is a solid door. \n\tEast there is a hallway. \n\n";
-		room += "\tThere is an exit to the";
-		if (currRoom->GetNorth() != nullptr) { room += " North"; }
-		if (currRoom->GetSouth() != nullptr) { room += " South"; }
-		if (currRoom->GetEast() != nullptr) { room += " East"; }
-		if (currRoom->GetWest() != nullptr) { room += " West"; }
-		room += "\n\n";
+		room += RenderScenery(currRoom);
+		room += RenderExits(currRoom);
+		room += RenderNPCs(currRoom);
 
-		// Show npcs
-		//room += "\tThree rats look at you with their bloodshot eyes. \n\n";
-		room += "\tThere is a";
-		for (auto i : *currRoom->GetNPC()) {
-			room += " " + i->GetName();
-		}
-		room += " in the room\n\n";
-
-		// Show options
 		room += "\tWhat are you going to do? \n\n";
-		/*room += "\tAction: run \n\n";
-		room += "\tWhat direction? \n\n";
-		room += "\t[ NORTH | EAST | SOUTH ] \n\n";*/
 
 		std::cout << room;
+	}
+
+	std::string ExploringState::RenderNPCs(Room* currRoom) {
+		std::string npc;
+		std::vector<NPC*> *npcs = currRoom->GetNPC();
+		int size = currRoom->GetNPC()->size();
+
+		// If no scenery return empty string
+		if (size == 0) { return npc; }
+		npc += "\tThere is a ";
+		if (size > 1) {
+			for (auto n : *npcs) {
+				npc += n->GetName();
+				npc += " and a ";
+			}
+			npc = npc.substr(0, npc.size() - 7); // Cut ' and a ' off string
+		}
+		else {
+			npc += npcs->at(0)->GetName();
+		}
+		npc += " in the room\n\n";
+		return npc;
+	}
+
+	std::string ExploringState::RenderExits(Room* currRoom) {
+		std::string exits;
+		std::map<Direction, std::string> dirs;
+
+		if (currRoom->GetNorth()) { dirs[NORTH] = "North"; }
+		if (currRoom->GetSouth()) { dirs[SOUTH] = "South"; }
+		if (currRoom->GetEast()) { dirs[EAST] = "East"; }
+		if (currRoom->GetWest()) { dirs[WEST] = "West"; }
+
+		if (dirs.size() == 1) {
+			exits += "\tThere is a hallway to the " + (dirs.begin())->second;
+		}
+		else {
+			for (auto d : dirs) {
+				exits += "\t";
+				exits += d.second;
+				exits += " there is " + RandomExitString();
+				exits += "\n";
+			}
+			//exits = exits.substr(0, exits.size() - 1); // Cut ', ' off string
+		}
+		return exits.append("\n");
+	}
+
+	std::string ExploringState::RenderScenery(Room* currRoom) {
+		std::string scenery;
+		std::vector<Scenery*> *items = currRoom->GetScenery();
+		int size = currRoom->GetScenery()->size();
+
+		// If no scenery return empty string
+		if (size == 0) { return scenery.append("\n\n"); } 
+		scenery += "There is a ";
+		if (size > 1) {
+			for (auto i : *items) {
+				scenery += i->GetName();
+				scenery += " and a ";
+			}
+			scenery = scenery.substr(0, scenery.size() - 7); // Cut ' and a ' off string
+		}
+		else {
+			scenery += items->at(0)->GetName();
+		}
+		scenery += " in the room\n\n";
+		return scenery;
 	}
 
 	void ExploringState::Do(Game* game){
@@ -113,9 +159,8 @@ namespace TOD {
 				HandleInput = false;
 				break;
 			case INVENTORY:
-				std::cout << "\tNothing happened..." << std::endl; 
-				std::cout << "\t";
-				system("PAUSE");
+				// Change to inventory state
+				game->StateManager()->ChangeState(InventoryState::Instance());
 				HandleInput = false;
 				break;
 			case MAP:
@@ -208,5 +253,25 @@ namespace TOD {
 			}
 		}
 	}
+
+	std::string ExploringState::RandomExitString() {
+		int random = (rand() % (6 - 1 + 1) + 1);
+
+		switch (random) {
+		case 1:
+			return "a fragile locked door that could be opened";
+		case 2:
+			return "a dark hallway";
+		case 3:
+			return "a window that could be climbed through";
+		case 4:
+			return "a door";
+		case 5:
+			return "a small path";
+		case 6:
+			return "a cracked wall";
+		}
+	}
+
 }
 

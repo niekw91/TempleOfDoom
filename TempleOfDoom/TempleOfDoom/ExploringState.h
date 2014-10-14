@@ -1,6 +1,8 @@
 #pragma once
 #include "GameState.h"
 
+#include "Room.h"
+
 namespace TOD {
 	// Forward declaration
 	class Game;
@@ -27,5 +29,11 @@ namespace TOD {
 
 		void Header();
 		void ActionRun(Game *game);
+
+		std::string RenderScenery(Room* currRoom);
+		std::string RenderExits(Room* currRoom);
+		std::string RenderNPCs(Room* currRoom);
+
+		std::string RandomExitString();
 	};
 }

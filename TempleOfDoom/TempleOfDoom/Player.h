@@ -10,24 +10,24 @@ namespace TOD {
 		Player(std::string name);
 		virtual ~Player();
 
-		std::string GetName(){ return _name; }
-		int GetLevel() { return _level; }
-		int GetHP() { return _hp; }
-		int GetXP() { return _xp; }
-		int GetStr() { return _str; }
-		int GetDef() { return _def; }
-		int GetVigilance() { return _vigilance; }
-		std::vector<GameObject> GetInventory() {return _inventory; }
+		std::string GetName(){ return name; }
+		int GetLevel() { return level; }
+		int GetHP() { return hp; }
+		int GetXP() { return xp; }
+		int GetStr() { return str; }
+		int GetDef() { return def; }
+		int GetVigilance() { return vigilance; }
+		std::vector<Item*> GetInventory() {return inventory; }
 
 	private:
-		std::string _name;
-		int _level;
-		int _hp;
-		int _xp;
-		int _str;
-		int _def;
-		int _vigilance;
-		std::vector<GameObject> _inventory;
+		std::string name;
+		int level;
+		int hp;
+		int xp;
+		int str;
+		int def;
+		int vigilance;
+		std::vector<Item*> inventory;
 	};
 }
 

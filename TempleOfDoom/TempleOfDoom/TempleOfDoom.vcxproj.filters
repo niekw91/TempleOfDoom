@@ -91,6 +91,7 @@
     <ClCompile Include="Options.cpp">
       <Filter>Source Files\Helpers</Filter>
     </ClCompile>
+    <ClCompile Include="InventoryState.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h">
@@ -195,6 +196,7 @@
     <ClInclude Include="Options.h">
       <Filter>Header Files\Helpers</Filter>
     </ClInclude>
+    <ClInclude Include="InventoryState.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Header Files">

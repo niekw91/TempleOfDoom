@@ -1,14 +1,14 @@
 <?xml version="1.0"?>
 <TOD>
 	<NPC>
-		<name>Bandit</name>
+		<name>angry bandit</name>
 		<hp>25</hp>
 		<level>1</level>
 		<attack>5</attack>
 		<defense>5</defense>
 	</NPC>
 	<NPC>
-		<name>Rat</name>
+		<name>rat</name>
 		<hp>25</hp>
 		<level>1</level>
 		<attack>5</attack>

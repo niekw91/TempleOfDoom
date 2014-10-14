@@ -1,9 +1,18 @@
 <?xml version="1.0"?>
 <TOD>
 	<item>
-		<name>Chair</name>
+		<name>chair</name>
 	</item>
 	<item>
-		<name>Table</name>
+		<name>table</name>
+	</item>
+	<item>
+		<name>skeleton</name>
+	</item>
+	<item>
+		<name>statue</name>
+	</item>
+	<item>
+		<name>dead guy</name>
 	</item>
 </TOD>

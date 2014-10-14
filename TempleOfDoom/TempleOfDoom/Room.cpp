@@ -35,8 +35,12 @@ namespace TOD {
 		SetDarkRandom();
 		// Set random room tidiness
 		SetCleanRandom();
-		// Set random room scenery
-		SetScenery();
+		
+		// Set random room scenery, with a maximum of 2 items
+		for (int i = 0; i < 2; i++) {
+			SetScenery();
+		}
+
 		// Set random npc's
 		SetNPC();
 		// Set random Items
@@ -65,7 +69,11 @@ namespace TOD {
 
 	void Room::SetScenery() {
 		if (HasObjectType()) {
-			scenery->push_back(factory->GetRandomScenery());
+			Scenery *item = factory->GetRandomScenery();
+			// Only add scenery item if not already contains
+			if (std::find(scenery->begin(), scenery->end(), item) == scenery->end()) {
+				scenery->push_back(item);
+			}
 		}
 	}
 
