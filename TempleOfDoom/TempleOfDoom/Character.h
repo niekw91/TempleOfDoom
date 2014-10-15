@@ -14,10 +14,10 @@ namespace TOD {
 		Character(std::string name);
 		virtual ~Character();
 
-		int getHP();
-		int getAttack();
-		int getDefense();
-		int getLevel();
+		int getHP() { return hp; }
+		int getAttack() { return attack; }
+		int getDefense() { return defense; }
+		int getLevel() { return level; }
 
 	protected:
 		int hp;

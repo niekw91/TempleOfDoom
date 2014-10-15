@@ -11,6 +11,7 @@
 #include "GameStateManager.h"
 #include "ExploringState.h"
 #include "InventoryState.h"
+#include "FightingState.h"
 #include "MapState.h"
 #include "MainMenuState.h"
 #include "Floor.h"
@@ -127,7 +128,7 @@ namespace TOD {
 		return scenery;
 	}
 
-	void ExploringState::Do(Game* game){
+	void ExploringState::Do(Game* game) {
 		// Handle input
 		bool HandleInput = true;
 		while (HandleInput) {
@@ -142,9 +143,15 @@ namespace TOD {
 			// Handle choice
 			switch (options->GetChoice()) {
 			case FIGHT:
-				std::cout << "\tNothing happened..." << std::endl;
-				std::cout << "\t";
-				system("PAUSE");
+				// Change to fight state
+				if (!game->GetWorld()->GetCurrentFloor()->GetCurrentRoom()->GetNPC()->empty()) {
+					game->StateManager()->ChangeState(FightingState::Instance());
+				}
+				else {
+					std::cout << "\tYou start to shadowbox, but feel lame while doing it..." << std::endl;
+					std::cout << "\t";
+				}
+
 				HandleInput = false;
 				break;
 			case MOVE:
@@ -154,13 +161,13 @@ namespace TOD {
 			case EXPLORE:
 				std::cout << "\tNothing happened..." << std::endl;
 				std::cout << "\t";
-				system("PAUSE");
+				PauseScreen();
 				HandleInput = false;
 				break;
 			case REST:
 				std::cout << "\tNothing happened..." << std::endl;
 				std::cout << "\t";
-				system("PAUSE");
+				PauseScreen();
 				HandleInput = false;
 				break;
 			case INVENTORY:
@@ -176,7 +183,7 @@ namespace TOD {
 			case QUIT:
 				std::cout << "\tTsk tsk.. Quiting already? What would Indiana Jones say!!" << std::endl;
 				std::cout << "\t";
-				system("PAUSE");
+				PauseScreen();
 				game->StateManager()->ChangeState(MainMenuState::Instance());
 				HandleInput = false;
 				break;

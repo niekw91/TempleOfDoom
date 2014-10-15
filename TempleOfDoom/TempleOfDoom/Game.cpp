@@ -8,6 +8,8 @@
 #include "GameObjectFactory.h"
 #include "MainMenuState.h"
 #include "World.h"
+#include "Floor.h"
+#include "Room.h"
 #include "Player.h"
 
 namespace TOD {
@@ -74,5 +76,17 @@ namespace TOD {
 				room->GetPlayer()->PickUp(factory->GetRandomItem());
 			}
 		}
+	}
+
+	Floor *Game::GetCurrentFloor() {
+		return this->GetWorld()->GetCurrentFloor();
+	}
+
+	Room *Game::GetCurrentRoom() {
+		return this->GetCurrentFloor()->GetCurrentRoom();
+	}
+
+	Player *Game::GetPlayer() {
+		return this->GetCurrentRoom()->GetPlayer();
 	}
 }

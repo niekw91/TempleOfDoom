@@ -7,6 +7,9 @@ namespace TOD {
 	class GameObjectFactory;
 	class GameStateManager;
 	class World;
+	class Floor;
+	class Room;
+	class Player;
 
 	class Game
 	{
@@ -27,7 +30,10 @@ namespace TOD {
 
 		void CreateWorld(int floorCount, int size);
 
-		World* Game::GetWorld() { return world; }
+		World *GetWorld() { return world; }
+		Floor *GetCurrentFloor();
+		Room *GetCurrentRoom();
+		Player *GetPlayer();
 
 	private:
 		GameStateManager *stateManager;

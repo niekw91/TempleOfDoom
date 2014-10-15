@@ -118,7 +118,7 @@ namespace TOD {
 	void MapState::Do(Game *game) {
 		std::cout << "\t";
 		PauseScreen();
-		// Change to map state
+		// Change to exploring state
 		game->StateManager()->ChangeState(ExploringState::Instance());
 	}
 

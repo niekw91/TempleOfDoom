@@ -23,8 +23,10 @@ namespace TOD {
 	private:
 		static FightingState instance;
 
-		void Generate();
+		void Generate(Game *game);
 		void Do(Game *game);
+
+		void Header();
 	};
 }
 
