@@ -66,7 +66,7 @@ namespace TOD {
 			index++;
 		}
 
-		for (int i = 0; i < floors.size() - 1; i++)
+		for (size_t i = 0, size = floors.size(); i < size - 1; i++)
 		{
 			std::vector<Room*> rooms = floors.at(i)->GetRooms();
 			for (auto r : rooms) {
@@ -97,6 +97,7 @@ namespace TOD {
 		for (auto currentFloor : floors)
 			if (currentFloor->GetCurrentRoom() != nullptr)
 				return currentFloor;
+		return nullptr;
 	}
 
 	int World::GetWorldSize() {

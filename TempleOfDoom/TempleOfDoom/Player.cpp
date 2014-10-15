@@ -15,7 +15,7 @@ namespace TOD {
 		bool pickedUp = false;
 		if (item) {
 			// Check if inventory not full
-			if (inventory.size() < invSize) {
+			if (inventory.size() < (size_t)invSize) {
 				inventory.push_back(item);
 				pickedUp = true;
 			}

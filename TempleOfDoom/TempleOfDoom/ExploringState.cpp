@@ -132,8 +132,8 @@ namespace TOD {
 		bool HandleInput = true;
 		while (HandleInput) {
 			// Create options
-			Options *options = new Options("fight;run;explore;rest;inventory;map;quit;cheat", true);
-			enum optionsenum { FIGHT, RUN, EXPLORE, REST, INVENTORY, MAP, QUIT, CHEAT };
+			Options *options = new Options("fight;move;explore;rest;inventory;map;quit;cheat", true);
+			enum optionsenum { FIGHT, MOVE, EXPLORE, REST, INVENTORY, MAP, QUIT, CHEAT };
 
 			//temp 
 			std::vector<Room*> rms = game->GetWorld()->GetCurrentFloor()->GetRooms();
@@ -147,7 +147,7 @@ namespace TOD {
 				system("PAUSE");
 				HandleInput = false;
 				break;
-			case RUN:
+			case MOVE:
 				ActionRun(game);
 				HandleInput = false;
 				break;
