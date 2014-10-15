@@ -2,6 +2,11 @@
 <TOD>
 	<weapons>
 		<item>
+			<name>Stick</name>
+			<damage>2</damage>
+			<rare>false</rare>
+		</item>
+		<item>
 			<name>Iron Sword</name>
 			<damage>10</damage>
 			<rare>false</rare>

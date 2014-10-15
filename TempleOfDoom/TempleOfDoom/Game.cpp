@@ -71,6 +71,7 @@ namespace TOD {
 				std::string name;
 				std::getline(std::cin, name);
 				room->SetPlayer(new Player(name));
+				room->GetPlayer()->PickUp(factory->GetRandomItem());
 			}
 		}
 	}

@@ -1,6 +1,8 @@
 #pragma once
 #include "Usable.h"
 
+#include <string>
+
 namespace TOD {
 	class ItemType;
 
@@ -11,6 +13,8 @@ namespace TOD {
 	public:
 		Medkit(ItemType *type);
 		virtual ~Medkit();
+
+		std::string ToString();
 	};
 }
 

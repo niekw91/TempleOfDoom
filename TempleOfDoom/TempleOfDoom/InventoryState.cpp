@@ -36,11 +36,12 @@ namespace TOD {
 	}
 
 	void InventoryState::Generate(Game *game){
-		//std::vector<Item*> items = game->GetWorld()->GetCurrentFloor()->GetCurrentRoom()->GetPlayer()->GetInventory();
+		std::vector<Item*> items = game->GetWorld()->GetCurrentFloor()->GetCurrentRoom()->GetPlayer()->GetInventory();
 
-		//for (auto i : items) {
-		//	inventory.append(i->GetName() + "\n");
-		//}
+		for (auto i : items) {
+			inventory.append("\t" + i->ToString() + "\n");
+		}
+		inventory.append("\n");
 	}
 
 	void InventoryState::Do(Game* game){

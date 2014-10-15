@@ -26,10 +26,14 @@ namespace TOD {
 		void SetEast(Room *room);
 		void SetSouth(Room *room);
 		void SetWest(Room *room);
+		void SetUp(Room *room);
+		void SetDown(Room *room);
 		Room* GetNorth();
 		Room* GetEast();
 		Room* GetSouth();
 		Room* GetWest();
+		Room* GetUp();
+		Room* GetDown();
 
 		void SetRoomType(RoomType type);
 		RoomType GetRoomType();
@@ -65,6 +69,8 @@ namespace TOD {
 		Room *east;
 		Room *south;
 		Room *west;
+		Room *down;
+		Room *up;
 
 		bool RandomBool();
 		int Random(int from, int top);

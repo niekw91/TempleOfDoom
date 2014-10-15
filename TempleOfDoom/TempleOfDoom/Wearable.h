@@ -1,6 +1,8 @@
 #pragma once
 #include "Item.h"
 
+#include <string>
+
 namespace TOD {
 	class ItemType;
 	class Item;
@@ -12,6 +14,8 @@ namespace TOD {
 	public:
 		Wearable(ItemType *type);
 		virtual ~Wearable();
+
+		std::string ToString();
 	};
 }
 

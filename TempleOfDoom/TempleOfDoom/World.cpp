@@ -46,7 +46,6 @@ namespace TOD {
 		for (auto *f : floors)
 		{
 			std::vector<Room*> rooms = f->GetRooms();
-			int size = rooms.size() - 1;
 
 			Room* r = GetRandomRoom(rooms, nullptr);
 			if (index == 0) {
@@ -66,6 +65,22 @@ namespace TOD {
 			}
 			index++;
 		}
+
+		for (int i = 0; i < floors.size() - 1; i++)
+		{
+			std::vector<Room*> rooms = floors.at(i)->GetRooms();
+			for (auto r : rooms) {
+				if (r->GetRoomType() == ST_UP) {
+					std::vector<Room*> nextFloor = floors.at(i + 1)->GetRooms();
+					for (auto down : nextFloor) {
+						if (down->GetRoomType() == ST_DOWN) {
+							r->SetUp(down);
+							down->SetDown(r);
+						}
+					}
+				}
+			}
+		}
 	}
 
 	Room* World::GetRandomRoom(std::vector<Room*> rooms, Room* room) {
@@ -80,7 +95,7 @@ namespace TOD {
 
 	Floor* World::GetCurrentFloor() {
 		for (auto currentFloor : floors)
-			if (currentFloor->GetCurrentRoom()->GetPlayer() != nullptr)
+			if (currentFloor->GetCurrentRoom() != nullptr)
 				return currentFloor;
 	}
 

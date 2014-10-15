@@ -9,4 +9,8 @@ namespace TOD {
 	Trap::~Trap()
 	{
 	}
+
+	std::string Trap::ToString() {
+		return name;
+	}
 }

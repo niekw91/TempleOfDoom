@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <TOD>
 	<NPC>
-		<name>angry bandit</name>
+		<name>bandit</name>
 		<hp>25</hp>
 		<level>1</level>
 		<attack>5</attack>

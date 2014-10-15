@@ -1,6 +1,8 @@
 #pragma once
 #include "Usable.h"
 
+#include <string>
+
 namespace TOD {
 	class ItemType;
 
@@ -11,6 +13,8 @@ namespace TOD {
 	public:
 		Map(ItemType *type);
 		virtual ~Map();
+
+		std::string ToString();
 	};
 }
 

@@ -88,6 +88,8 @@ namespace TOD {
 		if (currRoom->GetSouth()) { dirs[SOUTH] = "South"; }
 		if (currRoom->GetEast()) { dirs[EAST] = "East"; }
 		if (currRoom->GetWest()) { dirs[WEST] = "West"; }
+		if (currRoom->GetUp()) { dirs[UP] = "Up"; }
+		if (currRoom->GetDown()) { dirs[DOWN] = "Down"; }
 
 		if (dirs.size() == 1) {
 			exits += "\tThere is a hallway to the " + (dirs.begin())->second;
@@ -99,7 +101,6 @@ namespace TOD {
 				exits += " there is " + RandomExitString();
 				exits += "\n";
 			}
-			//exits = exits.substr(0, exits.size() - 1); // Cut ', ' off string
 		}
 		return exits.append("\n");
 	}
@@ -131,8 +132,12 @@ namespace TOD {
 		bool HandleInput = true;
 		while (HandleInput) {
 			// Create options
-			Options *options = new Options("fight;run;explore;rest;inventory;map;quit", true);
-			enum optionsenum { FIGHT, RUN, EXPLORE, REST, INVENTORY, MAP, QUIT };
+			Options *options = new Options("fight;run;explore;rest;inventory;map;quit;cheat", true);
+			enum optionsenum { FIGHT, RUN, EXPLORE, REST, INVENTORY, MAP, QUIT, CHEAT };
+
+			//temp 
+			std::vector<Room*> rms = game->GetWorld()->GetCurrentFloor()->GetRooms();
+			Room *currRoom = game->GetWorld()->GetCurrentFloor()->GetCurrentRoom();
 
 			// Handle choice
 			switch (options->GetChoice()) {
@@ -175,6 +180,18 @@ namespace TOD {
 				game->StateManager()->ChangeState(MainMenuState::Instance());
 				HandleInput = false;
 				break;
+			case CHEAT:
+				for (auto r : rms) {
+					if (r->GetRoomType() == ST_UP) {
+						r->SetPlayer(currRoom->GetPlayer());
+						currRoom->SetPlayer(nullptr);
+						Room *uproom = r->GetUp();
+
+						break;
+					}
+				}
+				HandleInput = false;
+				break;
 			default:
 				std::cout << "\tThat's not an option..." << std::endl;
 				break;
@@ -202,13 +219,13 @@ namespace TOD {
 		bool HandleInput = true;
 		while (HandleInput) {
 			// Create options
-			Options *options = new Options("north;east;south;west", false);
-			enum optionsenum { NORTH, EAST, SOUTH, WEST };
+			Options *options = new Options("north;east;south;west;up;down", false);
+			enum optionsenum { NORTH, EAST, SOUTH, WEST, UP, DOWN };
 
 			// Handle choice
 			switch (options->GetChoice()) {
 			case NORTH:
-				if (currRoom->GetNorth() != nullptr) {
+				if (currRoom->GetNorth()) {
 					currRoom->GetNorth()->SetPlayer(currRoom->GetPlayer());
 					currRoom->SetPlayer(nullptr);
 					HandleInput = false;
@@ -218,7 +235,7 @@ namespace TOD {
 				}
 				break;
 			case EAST:
-				if (currRoom->GetEast() != nullptr) {
+				if (currRoom->GetEast()) {
 					currRoom->GetEast()->SetPlayer(currRoom->GetPlayer());
 					currRoom->SetPlayer(nullptr);
 					HandleInput = false;
@@ -228,7 +245,7 @@ namespace TOD {
 				}
 				break;
 			case SOUTH:
-				if (currRoom->GetSouth() != nullptr) {
+				if (currRoom->GetSouth()) {
 					currRoom->GetSouth()->SetPlayer(currRoom->GetPlayer());
 					currRoom->SetPlayer(nullptr);
 					HandleInput = false;
@@ -238,8 +255,28 @@ namespace TOD {
 				}
 				break;
 			case WEST:
-				if (currRoom->GetWest() != nullptr) {
+				if (currRoom->GetWest()) {
 					currRoom->GetWest()->SetPlayer(currRoom->GetPlayer());
+					currRoom->SetPlayer(nullptr);
+					HandleInput = false;
+				}
+				else {
+					std::cout << "\tYou can't go there, that's not an exit.\n";
+				}
+				break;
+			case UP:
+				if (currRoom->GetUp()) {
+					currRoom->GetUp()->SetPlayer(currRoom->GetPlayer());
+					currRoom->SetPlayer(nullptr);
+					HandleInput = false;
+				}
+				else {
+					std::cout << "\tYou can't go there, that's not an exit.\n";
+				}
+				break;
+			case DOWN:
+				if (currRoom->GetDown()) {
+					currRoom->GetDown()->SetPlayer(currRoom->GetPlayer());
 					currRoom->SetPlayer(nullptr);
 					HandleInput = false;
 				}

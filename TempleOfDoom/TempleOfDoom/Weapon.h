@@ -1,6 +1,8 @@
 #pragma once
 #include "Wearable.h"
 
+#include <string>
+
 namespace TOD {
 	class ItemType;
 
@@ -11,6 +13,9 @@ namespace TOD {
 	public:
 		Weapon(ItemType *type);
 		virtual ~Weapon();
+
+		int GetDamage();
+		std::string ToString();
 	private:
 		int damage;
 	};

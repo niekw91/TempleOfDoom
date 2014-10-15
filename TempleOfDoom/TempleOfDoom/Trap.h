@@ -1,6 +1,8 @@
 #pragma once
 #include "GameObject.h"
 
+#include <string>
+
 namespace TOD {
 	class Trap :
 		public GameObject
@@ -9,6 +11,8 @@ namespace TOD {
 	public:
 		Trap(std::string name, int damage);
 		virtual ~Trap();
+
+		std::string ToString();
 	private:
 		int damage;
 	};

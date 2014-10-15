@@ -10,4 +10,8 @@ namespace TOD {
 	Wearable::~Wearable()
 	{
 	}
+
+	std::string Wearable::ToString() {
+		return name;
+	}
 }

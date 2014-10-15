@@ -23,10 +23,10 @@ namespace TOD {
 	}
 
 	void MapState::Update(Game *game) {
-		if (map.empty()) {
-			// Generate map
-			Generate(game);
-		}
+		// Clear map
+		map.clear();
+		// Generate map
+		Generate(game);
 	}
 
 	void MapState::Render(Game *game) {

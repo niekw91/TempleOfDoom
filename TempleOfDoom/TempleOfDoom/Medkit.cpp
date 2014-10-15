@@ -9,4 +9,8 @@ namespace TOD {
 	Medkit::~Medkit()
 	{
 	}
+
+	std::string Medkit::ToString() {
+		return name;
+	}
 }

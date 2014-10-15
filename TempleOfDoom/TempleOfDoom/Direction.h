@@ -1,6 +1,6 @@
 #pragma once
 
 namespace TOD {
-	enum Direction { NORTH, EAST, SOUTH, WEST };
+	enum Direction { NORTH, EAST, SOUTH, WEST, UP, DOWN };
 }
 

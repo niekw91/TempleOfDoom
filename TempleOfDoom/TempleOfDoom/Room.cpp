@@ -41,8 +41,11 @@ namespace TOD {
 			SetScenery();
 		}
 
-		// Set random npc's
-		SetNPC();
+		// Set random npc's, with a maximum of 3
+		for (int i = 0; i < 3; i++) {
+			SetNPC();
+		}
+
 		// Set random Items
 		SetItems();
 		// Set random trap
@@ -184,6 +187,14 @@ namespace TOD {
 		this->west = room;
 	}
 
+	void Room::SetDown(Room *room) {
+		this->down = room;
+	}
+
+	void Room::SetUp(Room *room) {
+		this->up = room;
+	}
+
 	Room* Room::GetNorth() {
 		return north;
 	}
@@ -199,6 +210,14 @@ namespace TOD {
 	Room* Room::GetWest() {
 		return west;
 	}
+	
+	Room* Room::GetUp() {
+		return up;
+	}
+
+	Room* Room::GetDown() {
+		return down;
+	}
 
 	void Room::SetRoomType(RoomType type) {
 		this->type = type;
@@ -206,5 +225,17 @@ namespace TOD {
 
 	RoomType Room::GetRoomType() {
 		return type;
+	}
+
+	bool Room::GetDark() {
+		return isDark;
+	}
+
+	bool Room::GetClean() {
+		return isClean;
+	}
+
+	Size Room::GetSize() {
+		return size;
 	}
 }

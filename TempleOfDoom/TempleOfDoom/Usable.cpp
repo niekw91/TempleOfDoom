@@ -9,4 +9,8 @@ namespace TOD {
 	Usable::~Usable()
 	{
 	}
+
+	std::string Usable::ToString() {
+		return name;
+	}
 }

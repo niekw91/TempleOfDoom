@@ -1,6 +1,8 @@
 #pragma once
 #include "GameObject.h"
 
+#include <string>
+
 namespace TOD {
 	class ItemType;
 
@@ -11,6 +13,8 @@ namespace TOD {
 	public:
 		Item(ItemType *type);
 		virtual ~Item();
+
+		virtual std::string ToString() = 0;
 	private:
 		bool rare;
 	};

@@ -9,4 +9,8 @@ namespace TOD {
 	Map::~Map()
 	{
 	}
+
+	std::string Map::ToString() {
+		return name;
+	}
 }
