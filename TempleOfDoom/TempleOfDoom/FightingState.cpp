@@ -41,8 +41,9 @@ namespace TOD {
 
 		// Get npcs
 		auto npcs = *game->GetCurrentRoom()->GetNPC();
+		int id = 1;
 		for (auto npc : npcs) {
-			std::cout << "\tThe " + npc->GetName() + " has " + std::to_string(npc->getHP()) + " hp left.\n";
+			std::cout << "\t" + std::to_string(id++) + "The " + npc->GetName() + " has " + std::to_string(npc->getHP()) + " hp left.\n";
 		}
 		std::cout << "\n";
 
@@ -59,6 +60,7 @@ namespace TOD {
 				std::cout << "\tNothing happened..." << std::endl;
 				std::cout << "\t";
 				PauseScreen();
+
 				HandleInput = false;
 				break;
 			case RUN:

@@ -11,11 +11,11 @@ namespace TOD
 {
 	Options::Options(std::string optionsstring, bool showmenu = true) {
 		// Process options
-		std::vector<std::string> options = ProcessOptions(optionsstring);
+		ProcessOptions(optionsstring);
 
 		// Generate options menu
 		if (showmenu)
-			GenerateMenu(options);
+			GenerateMenu();
 
 		// Handle input
 		HandleInput(options);
@@ -25,23 +25,21 @@ namespace TOD
 	{
 	}
 
-	std::vector<std::string> Options::ProcessOptions(std::string optionsstring) {
+	void Options::ProcessOptions(std::string optionsstring) {
 		std::stringstream ss(optionsstring);
 		std::string to;
-		std::vector<std::string> options;
 
 		if (!optionsstring.empty()) {
 			while (std::getline(ss, to, ';')) {
 				std::transform(to.begin(), to.end(), to.begin(), ::toupper);
-				options.push_back(to);
+				this->options.push_back(to);
 			}
 		}
-		return options;
 	}
 
-	void Options::GenerateMenu(std::vector<std::string> options) {
+	void Options::GenerateMenu() {
 		std::string menu = "\t[ ";
-		for (auto option : options) {
+		for (auto option : this->options) {
 			menu += option + " | ";
 		}
 		menu.erase(menu.size() - 3);
@@ -55,7 +53,7 @@ namespace TOD
 		std::string input;
 		std::getline(std::cin, input);
 		std::transform(input.begin(), input.end(), input.begin(), ::toupper);
-
+		
 		for (size_t i = 0, size = options.size(); i < size; i++) {
 			if (options[i] == input) {
 				this->choice = i;

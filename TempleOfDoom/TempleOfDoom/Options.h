@@ -12,12 +12,14 @@ namespace TOD {
 		virtual ~Options();
 
 		int GetChoice() { return choice; }
+		std::vector<std::string> GetOptions() { return options; }
 
 	private:
 		int choice;
+		std::vector<std::string> options;
 
-		std::vector<std::string> ProcessOptions(std::string optionsstring);
-		void GenerateMenu(std::vector<std::string> options);
+		void ProcessOptions(std::string optionsstring);
+		void GenerateMenu();
 		void HandleInput(std::vector<std::string> options);
 	};
 }
