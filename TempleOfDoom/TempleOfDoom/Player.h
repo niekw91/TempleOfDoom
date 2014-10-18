@@ -1,12 +1,12 @@
 #pragma once
 #include "Character.h"
 #include "Weapon.h"
+#include "Armor.h"
 
 namespace TOD {
 	class Player :
 		public Character
 	{
-		class Armor;
 	public:
 		Player(std::string name);
 		virtual ~Player();
@@ -23,6 +23,8 @@ namespace TOD {
 		bool PickUp(Item *item);
 		void Equip(Weapon *weapon);
 		void Equip(Armor *armor);
+		Weapon* GetWeapon() { return weapon; }
+		Armor* GetAmor() { return armor;  }
 	private:
 		std::string name;
 		int level;

@@ -28,6 +28,7 @@ namespace TOD {
 		void Do(Game *game);
 
 		void Header();
+		void ActionEquip(Game *game);
 
 		std::string inventory;
 	};
