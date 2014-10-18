@@ -50,8 +50,6 @@ namespace TOD {
 		int length = size + size; // Length is size * 2
 
 		for (auto r : rooms) {
-			//if (index == 0) map.append("\t");
-			//map.append(". ");
 
 			std::string append;
 			if (r->GetRoomType() == NORMAL) append = "N ";
@@ -119,12 +117,11 @@ namespace TOD {
 		std::cout << "\t";
 		PauseScreen();
 		// Change to exploring state
-		game->StateManager()->ChangeState(ExploringState::Instance());
+		game->StateManager()->PopState();
 	}
 
 	void MapState::Header(){
-		std::cout << "\n\n";
-		std::cout << "\tTEMPLE OF DOOM > MAP \n";
+		std::cout << "\n\n\tTEMPLE OF DOOM > MAP \n";
 		std::cout << "\t----------------------------------------------------------------\n\n";
 	}
 

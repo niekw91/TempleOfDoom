@@ -35,6 +35,8 @@ namespace TOD {
 		Room *GetCurrentRoom();
 		Player *GetPlayer();
 
+		GameObjectFactory *GetFactory() { return factory; }
+
 	private:
 		GameStateManager *stateManager;
 		GameObjectFactory *factory;

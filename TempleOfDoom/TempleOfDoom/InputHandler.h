@@ -1,7 +1,7 @@
 #pragma once
 
-#include <string>
 #include <vector>
+#include <string>
 
 namespace TOD {
 	class InputHandler
@@ -10,10 +10,8 @@ namespace TOD {
 		InputHandler();
 		virtual ~InputHandler();
 
-		void Read(std::string);
-		std::vector<std::string> GetCommands() { return commands; }
-
+		std::vector<std::string> GetCommands();
 	private:
-		std::vector<std::string> commands;
+		std::string input;
 	};
 }

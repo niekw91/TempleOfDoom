@@ -81,7 +81,7 @@ namespace TOD {
 				HandleInput = false;
 				break;
 			case BACK:
-				game->StateManager()->ChangeState(ExploringState::Instance());
+				game->StateManager()->PopState();
 				HandleInput = false;
 				break;
 			default:

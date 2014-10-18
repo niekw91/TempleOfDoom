@@ -48,7 +48,7 @@ namespace TOD {
 	void ExploringState::Generate(Game *game){
 		Room *currRoom = game->GetWorld()->GetCurrentFloor()->GetCurrentRoom();
 		Header();
-		std::string room = "\n\tYou're standing in a room. ";
+		std::string room = "\tYou're standing in a room. ";
 
 		room += RenderScenery(currRoom);
 		room += RenderExits(currRoom);
@@ -136,7 +136,7 @@ namespace TOD {
 			Options *options = new Options("fight;move;explore;rest;inventory;map;quit;cheat", true);
 			enum optionsenum { FIGHT, MOVE, EXPLORE, REST, INVENTORY, MAP, QUIT, CHEAT };
 
-			//temp 
+			//TODO: remove cheat code 
 			std::vector<Room*> rms = game->GetWorld()->GetCurrentFloor()->GetRooms();
 			Room *currRoom = game->GetWorld()->GetCurrentFloor()->GetCurrentRoom();
 
@@ -145,13 +145,12 @@ namespace TOD {
 			case FIGHT:
 				// Change to fight state
 				if (!game->GetWorld()->GetCurrentFloor()->GetCurrentRoom()->GetNPC()->empty()) {
-					game->StateManager()->ChangeState(FightingState::Instance());
+					game->StateManager()->PushState(FightingState::Instance());
 				}
 				else {
-					std::cout << "\tYou start to shadowbox, but feel lame while doing it..." << std::endl;
-					std::cout << "\t";
+					std::cout << "\tYou start to shadowbox, but feel lame while doing it...\n\t";
+					PauseScreen();
 				}
-
 				HandleInput = false;
 				break;
 			case MOVE:
@@ -159,30 +158,25 @@ namespace TOD {
 				HandleInput = false;
 				break;
 			case EXPLORE:
-				std::cout << "\tNothing happened..." << std::endl;
-				std::cout << "\t";
+				std::cout << "\tNothing happened...\n\t";
 				PauseScreen();
 				HandleInput = false;
 				break;
 			case REST:
-				std::cout << "\tNothing happened..." << std::endl;
-				std::cout << "\t";
+				std::cout << "\tNothing happened...\n\t";
 				PauseScreen();
 				HandleInput = false;
 				break;
 			case INVENTORY:
-				// Change to inventory state
-				game->StateManager()->ChangeState(InventoryState::Instance());
+				game->StateManager()->PushState(InventoryState::Instance());
 				HandleInput = false;
 				break;
 			case MAP:
-				// Change to map state
-				game->StateManager()->ChangeState(MapState::Instance());
+				game->StateManager()->PushState(MapState::Instance());
 				HandleInput = false;
 				break;
 			case QUIT:
-				std::cout << "\tTsk tsk.. Quiting already? What would Indiana Jones say!!" << std::endl;
-				std::cout << "\t";
+				std::cout << "\tTsk tsk.. Quiting already? What would Indiana Jones say!!\n\t";
 				PauseScreen();
 				game->StateManager()->ChangeState(MainMenuState::Instance());
 				HandleInput = false;
@@ -200,20 +194,15 @@ namespace TOD {
 				HandleInput = false;
 				break;
 			default:
-				std::cout << "\tThat's not an option..." << std::endl;
+				std::cout << "\tThat's not an option...\n";
 				break;
 			}
 		}
 	}
 
 	void ExploringState::Header() {
-		const std::string textfile("Header.txt");
-		std::ifstream input_file(textfile);
-
-		std::string line;
-		while (getline(input_file, line)) {
-			std::cout << line << '\n';
-		}
+		std::cout << "\n\n\tTEMPLE OF DOOM\n";
+		std::cout << "\t----------------------------------------------------------------\n\n";
 	}
 
 	void ExploringState::ActionRun(Game *game){

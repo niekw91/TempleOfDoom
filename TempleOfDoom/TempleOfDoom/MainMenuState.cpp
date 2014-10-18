@@ -9,6 +9,10 @@
 #include "GameState.h"
 #include "MainMenuState.h"
 #include "ExploringState.h"
+#include "Floor.h"
+#include "Room.h"
+#include "Player.h"
+#include "GameObjectFactory.h"
 
 namespace TOD {
 
@@ -59,9 +63,9 @@ namespace TOD {
 			// Determine choice
 			input choice = INVALID;
 			std::vector<std::string> *actions = new std::vector<std::string>({ "invalid", "new", "load", "credits"});
-			for (size_t i = 0, size = actions->size(); i < size; i++){
+			for (size_t i = 0, size = actions->size(); i < size; i++) {
 				std::size_t found = action.find(actions->at(i));
-				if (found != std::string::npos || action == std::to_string(i)){
+				if (found != std::string::npos || action == std::to_string(i)) {
 					choice = input(i);
 					break;
 				}
@@ -91,6 +95,24 @@ namespace TOD {
 	void MainMenuState::NewGame(Game* game) {
 		// Generate world
 		game->CreateWorld(5, 10);
+
+		// Add player to world
+		Floor *firstFloor = game->GetWorld()->GetFloor(0);
+		for (auto room : firstFloor->GetRooms()) {
+			// Search for startposition
+			if (room->GetRoomType() == 1) {
+				// Create new player
+				std::cout << "\t\t\t\tWhat is your name?\n\t\t\t\t";
+				std::string name;
+				std::getline(std::cin, name);
+				room->SetPlayer(new Player(name));
+
+				// Give random items to player
+				room->GetPlayer()->PickUp(game->GetFactory()->GetRandomItem());
+				room->GetPlayer()->PickUp(game->GetFactory()->GetRandomItem());
+				room->GetPlayer()->PickUp(game->GetFactory()->GetRandomItem());
+			}
+		}
 
 		// Change state
 		game->StateManager()->ChangeState(ExploringState::Instance());

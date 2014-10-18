@@ -18,6 +18,7 @@ namespace TOD {
 		int getAttack() { return attack; }
 		int getDefense() { return defense; }
 		int getLevel() { return level; }
+		void hit(int damage) { hp -= damage; }
 
 	protected:
 		int hp;
