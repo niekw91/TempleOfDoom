@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "Floor.h"
 #include "Direction.h"
+#include "Random.h"
 
 #include <vector>
 #include <random>
@@ -10,8 +11,6 @@ namespace TOD {
 	Floor::Floor(int size, GameObjectFactory *factory) {
 		this->size = size;
 		this->factory = factory;
-
-		srand(time(NULL));
 
 		CreateRooms();
 	}
@@ -99,8 +98,7 @@ namespace TOD {
 		int size = possibleDirections.size() - 1;
 		int low = 0;
 
-		//generate random number
-		int random = (rand() % (size - low + 1) + low);
+		int random = Random::Next(low, size);
 
 		return possibleDirections.at(random);
 	}

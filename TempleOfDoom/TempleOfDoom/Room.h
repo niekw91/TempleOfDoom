@@ -73,7 +73,6 @@ namespace TOD {
 		Room *up;
 
 		bool RandomBool();
-		int Random(int from, int top);
 
 		// Room properties
 		Size size;

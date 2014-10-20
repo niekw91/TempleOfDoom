@@ -4,6 +4,7 @@
 #include <random>
 #include <vector>
 
+#include "Random.h"
 #include "World.h"
 #include "GameObjectFactory.h"
 
@@ -18,16 +19,6 @@ namespace TOD {
 	}
 
 	World::~World() {
-	}
-
-	int World::Random(int start, int end) {
-		int size = end;
-		int low = start;
-
-		//generate random number
-		int random = (rand() % (size - low + 1) + low);
-
-		return random;
 	}
 
 	void World::Generate() {
@@ -87,7 +78,7 @@ namespace TOD {
 		Room* r;
 		do
 		{
-			r = rooms.at(Random(0, rooms.size() - 1));
+			r = rooms.at(Random::Next(0, rooms.size() - 1));
 		} while (room == r);
 		return r;
 

@@ -2,12 +2,11 @@
 #include "GameObjectFactory.h"
 #include "Room.h"
 #include "Size.h"
+#include "Random.h"
 
-#include <random>
 #include <iostream>
 #include <fstream>
 #include <string>
-#include <ctime>
 
 namespace TOD {
 	Room::Room(GameObjectFactory *factory) {
@@ -19,8 +18,6 @@ namespace TOD {
 		npcs = new std::vector<NPC*>();
 
 		player = nullptr;
-		// Randomize
-		srand(time(NULL));
 
 		Populate();
 	}
@@ -80,15 +77,7 @@ namespace TOD {
 		}
 	}
 
-	int Room::Random(int from, int top) {
-		//generate random number
-		int random = (rand() % (top - from + 1) + from);
-
-		return random;
-	}
-
 	bool Room::RandomBool() {
-		//return rand() % 2 == 1;
 		std::random_device device;
 		std::mt19937 gen(device());
 		std::bernoulli_distribution coin_flip(0.5);
@@ -116,7 +105,7 @@ namespace TOD {
 	}
 
 	void Room::SetSizeRandom() {
-		int r = Random(1, 3);
+		int r = Random::Next(1, 3);
 		switch (r)
 		{
 		case 1:

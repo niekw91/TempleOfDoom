@@ -27,8 +27,6 @@ namespace TOD {
 		int floorCount;
 		int size;
 
-		int Random(int start, int end);
-
 		void SetRoomTypes();
 		Room* World::GetRandomRoom(std::vector<Room*> rooms, Room* room);
 	};

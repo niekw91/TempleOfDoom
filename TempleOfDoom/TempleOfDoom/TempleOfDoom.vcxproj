@@ -84,6 +84,7 @@
     <ClInclude Include="InputHandler.h" />
     <ClInclude Include="InventoryState.h" />
     <ClInclude Include="Options.h" />
+    <ClInclude Include="Random.h" />
     <ClInclude Include="RoomType.h" />
     <ClInclude Include="tinyxml2.h" />
     <ClInclude Include="Armor.h" />
@@ -122,6 +123,7 @@
     <ClCompile Include="InputHandler.cpp" />
     <ClCompile Include="InventoryState.cpp" />
     <ClCompile Include="Options.cpp" />
+    <ClCompile Include="Random.cpp" />
     <ClCompile Include="tinyxml2.cpp" />
     <ClCompile Include="Armor.cpp" />
     <ClCompile Include="Character.cpp" />
