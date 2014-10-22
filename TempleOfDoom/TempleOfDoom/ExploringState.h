@@ -29,6 +29,7 @@ namespace TOD {
 
 		void Header();
 		void ActionRun(Game *game);
+		void MoveTo(Room *currRoom, Room *room);
 
 		std::string RenderScenery(Room* currRoom);
 		std::string RenderExits(Room* currRoom);

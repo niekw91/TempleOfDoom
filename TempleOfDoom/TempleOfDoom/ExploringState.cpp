@@ -205,6 +205,12 @@ namespace TOD {
 		std::cout << "\t----------------------------------------------------------------\n\n";
 	}
 
+	void ExploringState::MoveTo(Room *currRoom, Room *room) {
+		room->SetPlayer(currRoom->GetPlayer());
+		room->SetIsExplored(true);
+		currRoom->SetPlayer(nullptr);
+	}
+
 	void ExploringState::ActionRun(Game *game){
 		// Get current room
 		Room *currRoom = game->GetWorld()->GetCurrentFloor()->GetCurrentRoom();
@@ -222,8 +228,7 @@ namespace TOD {
 			switch (options->GetChoice()) {
 			case NORTH:
 				if (currRoom->GetNorth()) {
-					currRoom->GetNorth()->SetPlayer(currRoom->GetPlayer());
-					currRoom->SetPlayer(nullptr);
+					MoveTo(currRoom, currRoom->GetNorth());
 					HandleInput = false;
 				}
 				else {
@@ -232,8 +237,7 @@ namespace TOD {
 				break;
 			case EAST:
 				if (currRoom->GetEast()) {
-					currRoom->GetEast()->SetPlayer(currRoom->GetPlayer());
-					currRoom->SetPlayer(nullptr);
+					MoveTo(currRoom, currRoom->GetEast());
 					HandleInput = false;
 				}
 				else {
@@ -242,8 +246,7 @@ namespace TOD {
 				break;
 			case SOUTH:
 				if (currRoom->GetSouth()) {
-					currRoom->GetSouth()->SetPlayer(currRoom->GetPlayer());
-					currRoom->SetPlayer(nullptr);
+					MoveTo(currRoom, currRoom->GetSouth());
 					HandleInput = false;
 				}
 				else {
@@ -252,8 +255,7 @@ namespace TOD {
 				break;
 			case WEST:
 				if (currRoom->GetWest()) {
-					currRoom->GetWest()->SetPlayer(currRoom->GetPlayer());
-					currRoom->SetPlayer(nullptr);
+					MoveTo(currRoom, currRoom->GetWest());
 					HandleInput = false;
 				}
 				else {
@@ -262,8 +264,7 @@ namespace TOD {
 				break;
 			case UP:
 				if (currRoom->GetUp()) {
-					currRoom->GetUp()->SetPlayer(currRoom->GetPlayer());
-					currRoom->SetPlayer(nullptr);
+					MoveTo(currRoom, currRoom->GetUp());
 					HandleInput = false;
 				}
 				else {
@@ -272,8 +273,7 @@ namespace TOD {
 				break;
 			case DOWN:
 				if (currRoom->GetDown()) {
-					currRoom->GetDown()->SetPlayer(currRoom->GetPlayer());
-					currRoom->SetPlayer(nullptr);
+					MoveTo(currRoom, currRoom->GetDown());
 					HandleInput = false;
 				}
 				else {

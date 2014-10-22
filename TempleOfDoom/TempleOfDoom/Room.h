@@ -60,6 +60,9 @@ namespace TOD {
 		Player *GetPlayer() { return player; }
 		void SetPlayer(Player *newPlayer) { player = newPlayer; }
 
+		void SetIsExplored(bool ex) { explored = ex; }
+		bool GetIsExplored() { return explored; }
+
 	private:
 		GameObjectFactory *factory;
 
@@ -73,6 +76,8 @@ namespace TOD {
 		Room *up;
 
 		bool RandomBool();
+
+		bool explored;
 
 		// Room properties
 		Size size;

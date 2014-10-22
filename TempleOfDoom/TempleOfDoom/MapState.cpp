@@ -19,12 +19,11 @@ namespace TOD {
 	}
 
 	void MapState::Cleanup() {
-
+		// Clear map
+		map.clear();
 	}
 
 	void MapState::Update(Game *game) {
-		// Clear map
-		map.clear();
 		// Generate map
 		Generate(game);
 	}
@@ -52,8 +51,9 @@ namespace TOD {
 		for (auto r : rooms) {
 
 			std::string append;
-			if (r->GetRoomType() == NORMAL) append = "N ";
-			else if (r->GetRoomType() == START) append = "S ";
+			if (r->GetRoomType() == START) append = "S ";
+			else if (!r->GetIsExplored()) append = ". ";
+			else if (r->GetRoomType() == NORMAL) append = "N ";
 			else if (r->GetRoomType() == END) append = "E ";
 			else if (r->GetRoomType() == ST_DOWN) append = "L ";
 			else if (r->GetRoomType() == ST_UP) append = "H ";
@@ -116,6 +116,8 @@ namespace TOD {
 	void MapState::Do(Game *game) {
 		std::cout << "\t";
 		PauseScreen();
+		// Clean up state
+		Cleanup();
 		// Change to exploring state
 		game->StateManager()->PopState();
 	}
