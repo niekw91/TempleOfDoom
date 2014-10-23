@@ -32,6 +32,9 @@ namespace TOD {
 
 	void Game::Cleanup(){
 		this->stateManager->Cleanup(this);
+		delete world;
+		delete factory;
+		delete stateManager;
 	}
 
 	void Game::Start() {

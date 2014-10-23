@@ -176,5 +176,20 @@ namespace TOD {
 
 	GameObjectFactory::~GameObjectFactory()
 	{
+		// Delete traps
+		for (auto trap : trapVector) 
+			delete trap;
+		
+		// Delete scenery
+		for (auto scenery : sceneryVector) 
+			delete scenery;
+		
+		// Delete items
+		for (auto item : itemVector) 
+			delete item;
+		
+		// Delete npcs
+		for (auto npc : npcVector)
+			delete npc;
 	}
 }
