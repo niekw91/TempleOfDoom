@@ -62,9 +62,9 @@ namespace TOD {
 
 			// Determine choice
 			input choice = INVALID;
-			std::vector<std::string> *actions = new std::vector<std::string>({ "invalid", "new", "load", "credits"});
-			for (size_t i = 0, size = actions->size(); i < size; i++) {
-				std::size_t found = action.find(actions->at(i));
+			std::vector<std::string> actions({ "invalid", "new", "load", "credits", "quit"});
+			for (size_t i = 0, size = actions.size(); i < size; i++) {
+				std::size_t found = action.find(actions.at(i));
 				if (found != std::string::npos || action == std::to_string(i)) {
 					choice = input(i);
 					break;
@@ -83,6 +83,10 @@ namespace TOD {
 				break;
 			case CREDITS:
 				Credits(game);
+				HandleInput = false;
+				break;
+			case QUIT:
+				game->Stop();
 				HandleInput = false;
 				break;
 			default:

@@ -22,7 +22,7 @@ int _tmain(int argc, _TCHAR* argv[])
 	game.Init();
 
 	// Start game
-	//game.Start();
+	game.Start();
 
 	// Cleanup game
 	game.Cleanup();
