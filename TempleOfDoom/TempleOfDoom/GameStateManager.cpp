@@ -7,20 +7,19 @@
 #include "MainMenuState.h"
 
 namespace TOD {
-	GameStateManager::GameStateManager()
+	GameStateManager::GameStateManager(Game *game)
 	{
-		ChangeState(MainMenuState::Instance());
+		ChangeState(game, MainMenuState::Instance());
 	}
 
 	GameStateManager::~GameStateManager()
 	{
 	}
 
-	void GameStateManager::Init(){
+	void GameStateManager::Init(Game *game){
 	}
 
-	void GameStateManager::Cleanup(){
-
+	void GameStateManager::Cleanup(Game *game){
 		// Cleanup states
 		while (!states.empty()){
 			states.back()->~GameState();
@@ -28,7 +27,7 @@ namespace TOD {
 		}
 	}
 
-	void GameStateManager::ChangeState(GameState* state){
+	void GameStateManager::ChangeState(Game *game, GameState* state){
 
 		// cleanup the current state
 		if (!states.empty()) {
@@ -38,19 +37,19 @@ namespace TOD {
 
 		// store and init the new state
 		states.push_back(state);
-		states.back()->Init();
+		states.back()->Init(game);
 	}
 
-	void GameStateManager::PushState(GameState* state){
+	void GameStateManager::PushState(Game *game, GameState* state){
 
 		states.push_back(state);
 	}
 
-	void GameStateManager::PopState(){
+	void GameStateManager::PopState(Game *game){
 
 		// cleanup the current state
 		if (!states.empty()) {
-			states.back()->Cleanup();
+			states.back()->Cleanup(game);
 			states.pop_back();
 		}
 

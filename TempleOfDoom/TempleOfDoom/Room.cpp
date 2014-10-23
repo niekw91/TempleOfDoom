@@ -23,6 +23,13 @@ namespace TOD {
 	}
 
 	Room::~Room() {
+		for (Scenery *scen : *scenery) delete scen;
+		for (Item *item : *items) delete item;
+		for (Trap *trap : *traps) delete trap;
+		for (NPC *npc : *npcs) delete npc;
+
+		delete player;
+		delete factory;
 	}
 
 	void Room::Populate() {

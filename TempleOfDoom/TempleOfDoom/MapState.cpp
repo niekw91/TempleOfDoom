@@ -14,11 +14,11 @@
 namespace TOD {
 	MapState MapState::instance;
 
-	void MapState::Init() {
+	void MapState::Init(Game *game) {
 
 	}
 
-	void MapState::Cleanup() {
+	void MapState::Cleanup(Game *game) {
 		// Clear map
 		map.clear();
 	}
@@ -117,9 +117,9 @@ namespace TOD {
 		std::cout << "\t";
 		PauseScreen();
 		// Clean up state
-		Cleanup();
+		Cleanup(game);
 		// Change to exploring state
-		game->StateManager()->PopState();
+		game->StateManager()->PopState(game);
 	}
 
 	void MapState::Header(){

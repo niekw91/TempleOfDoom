@@ -16,11 +16,11 @@
 namespace TOD {
 	InventoryState InventoryState::instance;
 
-	void InventoryState::Init() {
+	void InventoryState::Init(Game *game) {
 
 	}
 
-	void InventoryState::Cleanup() {
+	void InventoryState::Cleanup(Game *game) {
 
 	}
 
@@ -81,7 +81,7 @@ namespace TOD {
 				HandleInput = false;
 				break;
 			case BACK:
-				game->StateManager()->PopState();
+				game->StateManager()->PopState(game);
 				HandleInput = false;
 				break;
 			default:

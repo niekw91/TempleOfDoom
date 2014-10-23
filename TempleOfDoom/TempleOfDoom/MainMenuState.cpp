@@ -18,11 +18,11 @@ namespace TOD {
 
 	MainMenuState MainMenuState::instance;
 
-	void MainMenuState::Init() {
+	void MainMenuState::Init(Game *game) {
 		
 	}
 
-	void MainMenuState::Cleanup() {
+	void MainMenuState::Cleanup(Game *game) {
 
 	}
 
@@ -115,7 +115,7 @@ namespace TOD {
 		}
 
 		// Change state
-		game->StateManager()->ChangeState(ExploringState::Instance());
+		game->StateManager()->ChangeState(game, ExploringState::Instance());
 	}
 
 	void MainMenuState::LoadGame(Game *game) {

@@ -18,11 +18,11 @@
 namespace TOD {
 	FightingState FightingState::instance;
 
-	void FightingState::Init() {
-		srand(time(NULL));
+	void FightingState::Init(Game *game) {
+
 	}
 
-	void FightingState::Cleanup() {
+	void FightingState::Cleanup(Game *game) {
 
 	}
 
@@ -139,12 +139,12 @@ namespace TOD {
 			}
 			// Run
 			else if (commands[0] == options[1]) {
-				game->StateManager()->PopState();
+				game->StateManager()->PopState(game);
 				HandleInput = false;
 			}
 			// Inventory
 			else if (commands[0] == options[2]) {
-				game->StateManager()->PushState(InventoryState::Instance());
+				game->StateManager()->PushState(game, InventoryState::Instance());
 				HandleInput = false;
 			}
 			else {

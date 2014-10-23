@@ -18,7 +18,7 @@ namespace TOD {
 
 	void Game::Init(){
 		// Create statemanager
-		stateManager = new GameStateManager();
+		stateManager = new GameStateManager(this);
 
 		// Create game object factory
 		factory = new GameObjectFactory();
@@ -31,7 +31,7 @@ namespace TOD {
 	}
 
 	void Game::Cleanup(){
-
+		this->stateManager->Cleanup(this);
 	}
 
 	void Game::Start() {

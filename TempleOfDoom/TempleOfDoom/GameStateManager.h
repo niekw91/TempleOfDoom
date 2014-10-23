@@ -10,15 +10,15 @@ namespace TOD {
 	class GameStateManager
 	{
 	public:
-		GameStateManager();
+		GameStateManager(Game *game);
 		virtual ~GameStateManager();
 
-		void Init();
-		void Cleanup();
+		void Init(Game *game);
+		void Cleanup(Game *game);
 
-		void ChangeState(GameState *state);
-		void PushState(GameState *state);
-		void PopState();
+		void ChangeState(Game *game, GameState *state);
+		void PushState(Game *game, GameState *state);
+		void PopState(Game *game);
 
 		void Update(Game *game);
 		void Render(Game *game);

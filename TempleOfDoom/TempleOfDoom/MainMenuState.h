@@ -9,8 +9,8 @@ namespace TOD {
 	class MainMenuState : public GameState
 	{
 	public:
-		void Init();
-		void Cleanup();
+		void Init(Game *game);
+		void Cleanup(Game *game);
 
 		void Update(Game *game);
 		void Render(Game *game);

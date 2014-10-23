@@ -19,6 +19,7 @@ namespace TOD {
 		int GetFloorCount();
 
 		Floor* World::GetFloor(int number) { return floors[number]; }
+		std::vector<Floor*> GetFloors() { return floors; }
 		Floor* GetCurrentFloor();
 
 	private:

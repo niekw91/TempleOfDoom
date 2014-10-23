@@ -24,12 +24,16 @@
 namespace TOD {
 	ExploringState ExploringState::instance;
 
-	void ExploringState::Init() {
-		srand(time(NULL));
+	void ExploringState::Init(Game *game) {
+
 	}
 
-	void ExploringState::Cleanup() {
-
+	void ExploringState::Cleanup(Game *game) {
+		for (Floor *f : game->GetWorld()->GetFloors()) {
+			for (Room *r : f->GetRooms()) {
+				delete r;
+			}
+		}
 	}
 
 	void ExploringState::Update(Game *game) {
@@ -145,7 +149,7 @@ namespace TOD {
 			case FIGHT:
 				// Change to fight state
 				if (!game->GetWorld()->GetCurrentFloor()->GetCurrentRoom()->GetNPC()->empty()) {
-					game->StateManager()->PushState(FightingState::Instance());
+					game->StateManager()->PushState(game, FightingState::Instance());
 				}
 				else {
 					std::cout << "\tYou start to shadowbox, but feel lame while doing it...\n\t";
@@ -168,17 +172,17 @@ namespace TOD {
 				HandleInput = false;
 				break;
 			case INVENTORY:
-				game->StateManager()->PushState(InventoryState::Instance());
+				game->StateManager()->PushState(game, InventoryState::Instance());
 				HandleInput = false;
 				break;
 			case MAP:
-				game->StateManager()->PushState(MapState::Instance());
+				game->StateManager()->PushState(game, MapState::Instance());
 				HandleInput = false;
 				break;
 			case QUIT:
 				std::cout << "\tTsk tsk.. Quiting already? What would Indiana Jones say!!\n\t";
 				PauseScreen();
-				game->StateManager()->ChangeState(MainMenuState::Instance());
+				game->StateManager()->ChangeState(game, MainMenuState::Instance());
 				HandleInput = false;
 				break;
 			case CHEAT:

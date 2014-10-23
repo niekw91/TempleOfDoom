@@ -7,8 +7,8 @@ namespace TOD {
 	class GameState
 	{
 	public:
-		virtual void Init() = 0;
-		virtual void Cleanup() = 0;
+		virtual void Init(Game *game) = 0;
+		virtual void Cleanup(Game *game) = 0;
 
 		virtual void Update(Game *game) = 0;
 		virtual void Render(Game *game) = 0;
