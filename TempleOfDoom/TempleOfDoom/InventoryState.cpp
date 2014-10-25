@@ -63,7 +63,6 @@ namespace TOD {
 		inventory.append("\tEquiped weapon: " + weaponEquiped + "\n");
 		inventory.append("\tEquiped armor: " + armorEquiped);
 		inventory.append("\n\n");
-
 	}
 
 	void InventoryState::Do(Game* game) {

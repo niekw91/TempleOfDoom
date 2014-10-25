@@ -28,12 +28,14 @@ namespace TOD {
 		void Do(Game *game);
 
 		void Header();
+		void ActionExplore(Game *game);
 		void ActionRun(Game *game);
 		void MoveTo(Room *currRoom, Room *room);
 
 		std::string RenderScenery(Room* currRoom);
 		std::string RenderExits(Room* currRoom);
 		std::string RenderNPCs(Room* currRoom);
+		std::string RenderItems(Room* currRoom);
 
 		std::string RandomExitString();
 	};

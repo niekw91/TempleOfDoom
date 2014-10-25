@@ -133,6 +133,22 @@ namespace TOD {
 		return scenery;
 	}
 
+	std::string ExploringState::RenderItems(Room* currRoom) {
+		std::string items;
+		std::vector<Item*> *it = currRoom->GetItems();
+		int size = it->size();
+
+		// If no items return empty string
+		if (size == 0) { return items.append("\tYou find nothing of interest\n"); }
+		items += "\tItems found: ";
+		for (auto i : *it) {
+			items += "[";
+			items += i->GetName();
+			items += "] ";
+		}
+		return items.append("\n");
+	}
+
 	void ExploringState::Do(Game* game) {
 		// Handle input
 		bool HandleInput = true;
@@ -163,9 +179,8 @@ namespace TOD {
 				HandleInput = false;
 				break;
 			case EXPLORE:
-				std::cout << "\tNothing happened...\n\t";
-				PauseScreen();
-				HandleInput = false;
+				ActionExplore(game);
+				HandleInput = true;
 				break;
 			case REST:
 				std::cout << "\tNothing happened...\n\t";
@@ -214,6 +229,51 @@ namespace TOD {
 		room->SetPlayer(currRoom->GetPlayer());
 		room->SetIsExplored(true);
 		currRoom->SetPlayer(nullptr);
+	}
+
+	void ExploringState::ActionExplore(Game *game) {
+		// Get current room
+		Room *currRoom = game->GetWorld()->GetCurrentFloor()->GetCurrentRoom();
+
+		std::string items = "\n\tYou search the room...\n\n";
+
+		items += RenderItems(currRoom);
+
+		std::cout << items << std::endl;
+
+		if (currRoom->GetItems()->size() > 0) {
+			std::cout << "\tWhat do you want to do? (pickup/pass)\n\n";
+			// Handle input
+			bool HandleInput = true;
+			while (HandleInput) {
+				// Create options
+				Options *options = new Options("pickup;pass", false);
+				enum optionsenum { PICKUP, PASS };
+
+				std::string input;
+				// Handle choice
+				switch (options->GetChoice()) {
+				case PICKUP: {
+					std::cout << "\n\tWhich item do you want to pick-up? (index)\n\n\t";
+
+					std::getline(std::cin, input);
+					int index = std::atoi(input.c_str());
+					Item *item = currRoom->GetItems()->at(index);
+					currRoom->GetPlayer()->PickUp(item);
+					currRoom->GetItems()->erase(currRoom->GetItems()->begin() + index);
+
+					HandleInput = false;
+					break;
+				}
+				case PASS:
+					HandleInput = false;
+					break;
+				default:
+					std::cout << "\tThat's not an option...\n";
+					break;
+				}
+			}
+		}
 	}
 
 	void ExploringState::ActionRun(Game *game){
