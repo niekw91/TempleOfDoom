@@ -33,6 +33,7 @@ namespace TOD {
 			for (Room *r : f->GetRooms()) {
 				delete r;
 			}
+			delete f;
 		}
 	}
 

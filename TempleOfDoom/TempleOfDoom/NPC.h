@@ -9,6 +9,7 @@ namespace TOD {
 	{
 
 	public:
+		NPC(std::string name, int hp, int attack, int defense, int level);
 		NPC(NPCType *type);
 		virtual ~NPC();
 

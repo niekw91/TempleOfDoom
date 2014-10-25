@@ -10,6 +10,10 @@ namespace TOD {
 	{
 	}
 
+	int Trap::GetDamage() {
+		return damage;
+	}
+
 	std::string Trap::ToString() {
 		return name;
 	}

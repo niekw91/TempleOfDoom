@@ -14,7 +14,11 @@ namespace TOD {
 		Medkit(ItemType *type);
 		virtual ~Medkit();
 
+		int GetHp();
+
 		std::string ToString();
+	private:
+		int hp;
 	};
 }
 

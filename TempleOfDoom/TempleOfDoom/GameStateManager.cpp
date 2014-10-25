@@ -31,7 +31,7 @@ namespace TOD {
 
 		// cleanup the current state
 		if (!states.empty()) {
-			states.back()->~GameState();
+			states.back()->Cleanup(game);
 			states.pop_back();
 		}
 

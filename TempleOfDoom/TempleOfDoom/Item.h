@@ -11,8 +11,11 @@ namespace TOD {
 	{
 
 	public:
+		Item(std::string name, bool rare);
 		Item(ItemType *type);
 		virtual ~Item();
+
+		bool GetRare();
 
 		virtual std::string ToString() = 0;
 	private:

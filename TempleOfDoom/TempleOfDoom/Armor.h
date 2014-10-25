@@ -14,6 +14,8 @@ namespace TOD {
 		Armor(ItemType *type);
 		virtual ~Armor();
 
+		int GetDefense();
+
 		std::string ToString();
 	private:
 		int defense;

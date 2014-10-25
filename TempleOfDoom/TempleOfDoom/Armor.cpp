@@ -12,6 +12,10 @@ namespace TOD {
 	{
 	}
 
+	int Armor::GetDefense() {
+		return defense;
+	}
+
 	std::string Armor::ToString() {
 		return name + " - defense [" + std::to_string(defense) + "]";
 	}

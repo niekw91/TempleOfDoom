@@ -12,6 +12,7 @@ namespace TOD {
 		Trap(std::string name, int damage);
 		virtual ~Trap();
 
+		int GetDamage();
 		std::string ToString();
 	private:
 		int damage;

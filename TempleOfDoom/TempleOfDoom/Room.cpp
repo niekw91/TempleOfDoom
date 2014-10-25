@@ -29,7 +29,7 @@ namespace TOD {
 		for (NPC *npc : *npcs) delete npc;
 
 		delete player;
-		delete factory;
+		//delete factory;
 	}
 
 	void Room::Populate() {
@@ -64,7 +64,21 @@ namespace TOD {
 
 	void Room::SetItems() {
 		if (HasObjectType()) {
-			items->push_back(factory->GetRandomItem());
+			int r = Random::Next(1, 3);
+			switch (r)
+			{
+			case 1:
+				items->push_back(factory->GetRandomArmor());
+				break;
+			case 2:
+				items->push_back(factory->GetRandomWeapon());
+				break;
+			case 3:
+				items->push_back(factory->GetRandomMedkit());
+				break;
+			default:
+				break;
+			}
 		}
 	}
 

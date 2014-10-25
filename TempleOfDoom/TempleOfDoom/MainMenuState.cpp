@@ -112,9 +112,7 @@ namespace TOD {
 				room->SetPlayer(new Player(name));
 
 				// Give random items to player
-				room->GetPlayer()->PickUp(game->GetFactory()->GetRandomItem());
-				room->GetPlayer()->PickUp(game->GetFactory()->GetRandomItem());
-				room->GetPlayer()->PickUp(game->GetFactory()->GetRandomItem());
+				room->GetPlayer()->PickUp(game->GetFactory()->GetRandomWeapon());
 			}
 		}
 

@@ -2,6 +2,9 @@
 
 #include <string>
 #include "ItemKind.h"
+#include "Weapon.h"
+#include "Armor.h"
+#include "Medkit.h"
 
 namespace TOD {
 	class Item;
@@ -18,7 +21,9 @@ namespace TOD {
 		int GetRating();
 		std::string GetName();
 
-		TOD::Item* CreateItem();
+		Weapon* CreateWeapon();
+		Armor* CreateArmor();
+		Medkit* CreateMedkit();
 	private:
 		ItemKind kind;
 		std::string name;

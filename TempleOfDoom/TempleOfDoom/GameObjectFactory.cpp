@@ -3,6 +3,9 @@
 #include "tinyxml2.h"
 #include "NPCType.h"
 #include "ItemType.h"
+#include "Weapon.h"
+#include "Armor.h"
+#include "Medkit.h"
 
 #include <string>
 #include <random>
@@ -33,20 +36,37 @@ namespace TOD {
 		}
 	/*******************************************************************************/
 
-	Item* GameObjectFactory::GetRandomItem() {
-		return *select_randomly(itemVector.begin(), itemVector.end());
+	Weapon* GameObjectFactory::GetRandomWeapon() {
+		Weapon *wep = *select_randomly(weaponVector.begin(), weaponVector.end());
+		ItemType *type = new ItemType(wep->GetName(), wep->GetDamage(), wep->GetRare(), WEAPON);
+		return type->CreateWeapon();
+	}
+
+	Armor* GameObjectFactory::GetRandomArmor() {
+		Armor *ar = *select_randomly(armorVector.begin(), armorVector.end());
+		ItemType *type = new ItemType(ar->GetName(), ar->GetDefense(), ar->GetRare(), ARMOR);
+		return type->CreateArmor();
+	}
+
+	Medkit* GameObjectFactory::GetRandomMedkit() {
+		Medkit *med = *select_randomly(medkitVector.begin(), medkitVector.end());
+		ItemType *type = new ItemType(med->GetName(), med->GetHp(), med->GetRare(), MEDKIT);
+		return type->CreateMedkit();
 	}
 
 	NPC* GameObjectFactory::GetRandomNPC() {
-		return *select_randomly(npcVector.begin(), npcVector.end());
+		NPC *npc = *select_randomly(npcVector.begin(), npcVector.end());
+		return new NPC(npc->GetName(), npc->getHP(), npc->getAttack(), npc->getDefense(), npc->getLevel());
 	}
 
 	Scenery* GameObjectFactory::GetRandomScenery() {
-		return *select_randomly(sceneryVector.begin(), sceneryVector.end());
+		Scenery *scen = *select_randomly(sceneryVector.begin(), sceneryVector.end());
+		return new Scenery(scen->GetName());
 	}
 
 	Trap* GameObjectFactory::GetRandomTrap() {
-		return *select_randomly(trapVector.begin(), trapVector.end());
+		Trap *trap = *select_randomly(trapVector.begin(), trapVector.end());
+		return new Trap(trap->GetName(), trap->GetDamage());
 	}
 
 	void GameObjectFactory::LoadTrapsFromFile(std::string fileName) {
@@ -98,7 +118,9 @@ namespace TOD {
 	}
 
 	void GameObjectFactory::LoadItemsFromFile(std::string fileName) {
-		itemVector = std::vector<Item*>();
+		weaponVector = std::vector<Weapon*>();
+		armorVector = std::vector<Armor*>();
+		medkitVector = std::vector<Medkit*>();
 
 		tinyxml2::XMLDocument doc;
 		doc.LoadFile(fileName.c_str());
@@ -120,10 +142,16 @@ namespace TOD {
 					bool rare = element->GetText() == "true" ? true : false;
 					std::string iType = itemType->Name();
 					ItemKind kind = GetItemKind(iType);
-					// Create itemType
 					ItemType *type = new ItemType(name, rating, rare, kind);
-					itemVector.push_back(type->CreateItem());
-
+					if (kind == WEAPON) {
+						weaponVector.push_back(type->CreateWeapon());
+					}
+					else if (kind == ARMOR) {
+						armorVector.push_back(type->CreateArmor());
+					}
+					else if (kind == MEDKIT) {
+						medkitVector.push_back(type->CreateMedkit());
+					}
 					item = item->NextSiblingElement();
 				}
 				itemType = itemType->NextSiblingElement();
@@ -176,20 +204,20 @@ namespace TOD {
 
 	GameObjectFactory::~GameObjectFactory()
 	{
-		// Delete traps
-		for (auto trap : trapVector) 
-			delete trap;
-		
-		// Delete scenery
-		for (auto scenery : sceneryVector) 
-			delete scenery;
-		
-		// Delete items
-		for (auto item : itemVector) 
-			delete item;
-		
-		// Delete npcs
-		for (auto npc : npcVector)
-			delete npc;
+		//// Delete traps
+		//for (auto trap : trapVector) 
+		//	delete trap;
+		//
+		//// Delete scenery
+		//for (auto scenery : sceneryVector) 
+		//	delete scenery;
+		//
+		//// Delete items
+		//for (auto item : itemVector) 
+		//	delete item;
+		//
+		//// Delete npcs
+		//for (auto npc : npcVector)
+		//	delete npc;
 	}
 }

@@ -7,21 +7,16 @@
 #include "Medkit.h"
 
 namespace TOD {
-	Item* ItemType::CreateItem() {
-		switch (kind)
-		{
-		case WEAPON:
-			return new Weapon(this);
-			break;
-		case ARMOR:
-			return new Armor(this);
-			break;
-		case MEDKIT:
-			return new Medkit(this);
-			break;
-		default:
-			break;
-		};
+	Weapon* ItemType::CreateWeapon() {
+		return new Weapon(this);
+	}
+
+	Armor* ItemType::CreateArmor() {
+		return new Armor(this);
+	}
+
+	Medkit* ItemType::CreateMedkit() {
+		return new Medkit(this);
 	}
 
 	ItemType::~ItemType()
