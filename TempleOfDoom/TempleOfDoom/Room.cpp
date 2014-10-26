@@ -23,13 +23,35 @@ namespace TOD {
 	}
 
 	Room::~Room() {
-		for (Scenery *scen : *scenery) delete scen;
-		for (Item *item : *items) delete item;
-		for (Trap *trap : *traps) delete trap;
-		for (NPC *npc : *npcs) delete npc;
+		vector<Scenery*>::iterator sIt;
+		for (sIt = scenery->begin(); sIt != scenery->end();) {
+			delete *sIt;
+			sIt = scenery->erase(sIt);
+		}
 
+		vector<Item*>::iterator iIt;
+		for (iIt = items->begin(); iIt != items->end();) {
+			delete *iIt;
+			iIt = items->erase(iIt);
+		}
+
+		vector<NPC*>::iterator nIt;
+		for (nIt = npcs->begin(); nIt != npcs->end();) {
+			delete *nIt;
+			nIt = npcs->erase(nIt);
+		}
+
+		vector<Trap*>::iterator tIt;
+		for (tIt = traps->begin(); tIt != traps->end();) {
+			delete *tIt;
+			tIt = traps->erase(tIt);
+		}
+
+		delete scenery;
+		delete items;
+		delete npcs;
+		delete traps;
 		delete player;
-		//delete factory;
 	}
 
 	void Room::Populate() {
@@ -166,16 +188,16 @@ namespace TOD {
 		switch (dir)
 		{
 		case NORTH:
-			if (GetNorth() != nullptr) hasDir = true;
+			if (GetNorth()) hasDir = true;
 			break;
 		case EAST:
-			if (GetEast() != nullptr) hasDir = true;
+			if (GetEast()) hasDir = true;
 			break;
 		case SOUTH:
-			if (GetSouth() != nullptr) hasDir = true;
+			if (GetSouth()) hasDir = true;
 			break;
 		case WEST:
-			if (GetWest() != nullptr) hasDir = true;
+			if (GetWest()) hasDir = true;
 			break;
 		}
 		return hasDir;

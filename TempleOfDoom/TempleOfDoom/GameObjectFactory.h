@@ -23,6 +23,7 @@ namespace TOD {
 		void LoadItemsFromFile(std::string fileName);
 		void LoadSceneryFromFile(std::string fileName);
 		void LoadTrapsFromFile(std::string fileName);
+
 		Weapon* GetRandomWeapon();
 		Armor* GetRandomArmor();
 		Medkit* GetRandomMedkit();

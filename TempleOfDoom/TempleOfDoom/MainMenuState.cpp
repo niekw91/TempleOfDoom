@@ -97,8 +97,17 @@ namespace TOD {
 	}
 
 	void MainMenuState::NewGame(Game* game) {
+		// Set player name
+		std::cout << "\n\t\t\t\tWhat is your name?\n\t\t\t\t";
+		std::string name;
+		std::getline(std::cin, name);
+		// Set world size
+		std::cout << "\n\t\t\t\tChoose world size: [5, 10, 15]\n\t\t\t\t";
+		std::string sizeStr;
+		std::getline(std::cin, sizeStr);
+
 		// Generate world
-		game->CreateWorld(5, 10);
+		game->CreateWorld(5, atoi(sizeStr.c_str()));
 
 		// Add player to world
 		Floor *firstFloor = game->GetWorld()->GetFloor(0);
@@ -106,9 +115,7 @@ namespace TOD {
 			// Search for startposition
 			if (room->GetRoomType() == 1) {
 				// Create new player
-				std::cout << "\t\t\t\tWhat is your name?\n\t\t\t\t";
-				std::string name;
-				std::getline(std::cin, name);
+
 				room->SetPlayer(new Player(name));
 
 				// Give random items to player

@@ -204,20 +204,41 @@ namespace TOD {
 
 	GameObjectFactory::~GameObjectFactory()
 	{
-		//// Delete traps
-		//for (auto trap : trapVector) 
-		//	delete trap;
-		//
-		//// Delete scenery
-		//for (auto scenery : sceneryVector) 
-		//	delete scenery;
-		//
-		//// Delete items
-		//for (auto item : itemVector) 
-		//	delete item;
-		//
-		//// Delete npcs
-		//for (auto npc : npcVector)
-		//	delete npc;
+		std::vector<Trap*>::iterator tIt;
+		for (tIt = trapVector.begin(); tIt != trapVector.end();) {
+			delete *tIt;
+			tIt = trapVector.erase(tIt);
+		}
+
+		std::vector<Scenery*>::iterator sIt;
+		for (sIt = sceneryVector.begin(); sIt != sceneryVector.end();) {
+			delete *sIt;
+			sIt = sceneryVector.erase(sIt);
+		}
+
+		std::vector<NPC*>::iterator nIt;
+		for (nIt = npcVector.begin(); nIt != npcVector.end();) {
+			delete *nIt;
+			nIt = npcVector.erase(nIt);
+		}
+
+		std::vector<Weapon*>::iterator wIt;
+		for (wIt = weaponVector.begin(); wIt != weaponVector.end();) {
+			delete *wIt;
+			wIt = weaponVector.erase(wIt);
+		}
+
+		std::vector<Armor*>::iterator aIt;
+		for (aIt = armorVector.begin(); aIt != armorVector.end();) {
+			delete *aIt;
+			aIt = armorVector.erase(aIt);
+		}
+
+		std::vector<Medkit*>::iterator mIt;
+		for (mIt = medkitVector.begin(); mIt != medkitVector.end();) {
+			delete *mIt;
+			mIt = medkitVector.erase(mIt);
+		}
+
 	}
 }

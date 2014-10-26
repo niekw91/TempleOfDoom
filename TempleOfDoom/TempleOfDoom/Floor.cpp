@@ -16,6 +16,11 @@ namespace TOD {
 	}
 
 	Floor::~Floor() {
+		vector<Room*>::iterator rIt;
+		for (rIt = rooms.begin(); rIt != rooms.end();) {
+			delete *rIt;
+			rIt = rooms.erase(rIt);
+		}
 	}
 
 	void Floor::CreateRooms() {
@@ -53,13 +58,6 @@ namespace TOD {
 		Direction dir = Floor::GetRandomDirection(possibleDirections);
 		// Retrieve room
 		Room *room = rooms.at(currentIndex);
-		// Check if room already has the given direction, if so get new direction
-		//while (room->HasDirectionPath(dir) && possibleDirections.size() > 1) {
-		//	// Delete current direction
-		//	possibleDirections.erase(GetPosition(possibleDirections, dir));
-		//	// Retrieve new direction
-		//	dir = Floor::GetRandomDirection(possibleDirections);
-		//}
 		// Retrieve index from direction
 		int index = Floor::GetRoomIndexByDirection(dir, currentIndex, size);
 		// Retrieve room to connect to

@@ -29,12 +29,7 @@ namespace TOD {
 	}
 
 	void ExploringState::Cleanup(Game *game) {
-		for (Floor *f : game->GetWorld()->GetFloors()) {
-			for (Room *r : f->GetRooms()) {
-				delete r;
-			}
-			delete f;
-		}
+
 	}
 
 	void ExploringState::Update(Game *game) {

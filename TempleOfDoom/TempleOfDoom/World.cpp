@@ -19,6 +19,11 @@ namespace TOD {
 	}
 
 	World::~World() {
+		vector<Floor*>::iterator fIt;
+		for (fIt = floors.begin(); fIt != floors.end();) {
+			delete *fIt;
+			fIt = floors.erase(fIt);
+		}
 	}
 
 	void World::Generate() {
