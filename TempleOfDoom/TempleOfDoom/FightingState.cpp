@@ -67,8 +67,11 @@ namespace TOD {
 
 		// Player damage
 		player->TakeDamage(counterdamage);
-		if (player->isDead())
-			std::cout << "You died!";
+		if (player->isDead()) {
+			std::cout << "\tYou died!\n";
+			PauseScreen();
+			//game->StateManager()->ChangeState(game, GameOverState::Instance());
+		}
 		std::cout << "\tYou have " << game->GetPlayer()->getHP() << " out of " << game->GetPlayer()->getMaxHP() << " health points.\n\n";
 	}
 
