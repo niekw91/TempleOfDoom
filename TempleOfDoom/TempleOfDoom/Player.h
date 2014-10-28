@@ -2,6 +2,8 @@
 #include "Character.h"
 #include "Weapon.h"
 #include "Armor.h"
+#include "NPC.h"
+#include "Room.h"
 
 namespace TOD {
 	class Player :
@@ -17,11 +19,12 @@ namespace TOD {
 		bool PickUp(Item *item);
 		void Equip(Weapon *weapon);
 		void Equip(Armor *armor);
+		int Attack(Character *c);
+		bool SearchTrap(Room *room);
+
 		Weapon* GetWeapon() { return weapon; }
 		Armor* GetAmor() { return armor;  }
 
-		void TakeDamage(int attack);
-		void Attack(Character* c){ c->TakeDamage(getAttack()); }
 	private:
 		int vigilance;
 		

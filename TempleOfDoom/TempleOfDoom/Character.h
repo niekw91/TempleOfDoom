@@ -5,6 +5,7 @@
 
 namespace TOD {
 	class Item;
+	class Player;
 
 	class Character :
 		public GameObject
@@ -15,8 +16,8 @@ namespace TOD {
 		virtual ~Character();
 
 		int getLevel() { return level; }
-		int getMaxHP() { return maxhp; }
-		int getHP() { return hp * level; }
+		int getMaxHP() { return maxhp * level; }
+		int getHP() { return hp; }
 		int getXp() { return xp; }
 		int getAttack() { return attack * level; }
 		int getDefense() { return defense * level; }
@@ -27,7 +28,7 @@ namespace TOD {
 			this->_isDead = hp > 0 ? false : true; 
 		}
 
-		void Attack(Character* c);
+		int Attack(Player* c);
 		
 	protected:
 		int level;

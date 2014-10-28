@@ -16,6 +16,7 @@
 #include "MainMenuState.h"
 #include "Floor.h"
 #include "Room.h"
+#include "Trap.h"
 #include "Player.h"
 #include "Scenery.h"
 #include "NPC.h"
@@ -149,8 +150,8 @@ namespace TOD {
 		bool HandleInput = true;
 		while (HandleInput) {
 			// Create options
-			Options *options = new Options("fight;move;explore;rest;inventory;map;quit;cheat", true);
-			enum optionsenum { FIGHT, MOVE, EXPLORE, REST, INVENTORY, MAP, QUIT, CHEAT };
+			Options *options = new Options("fight;move;search;rest;inventory;map;quit;cheat", true);
+			enum optionsenum { FIGHT, MOVE, SEARCH, REST, INVENTORY, MAP, QUIT, CHEAT };
 
 			//TODO: remove cheat code 
 			std::vector<Room*> rms = game->GetWorld()->GetCurrentFloor()->GetRooms();
@@ -173,8 +174,8 @@ namespace TOD {
 				ActionRun(game);
 				HandleInput = false;
 				break;
-			case EXPLORE:
-				ActionExplore(game);
+			case SEARCH:
+				ActionSearch(game);
 				HandleInput = true;
 				break;
 			case REST:
@@ -221,16 +222,44 @@ namespace TOD {
 	}
 
 	void ExploringState::MoveTo(Room *currRoom, Room *room) {
+		// Check for traps
+		if (currRoom->GetTraps()->size() > 0) {
+
+			// PLAYER -> TAKEDAMAGE();
+
+			std::cout << "\n\tA trap went off and did ";
+			std::cout << currRoom->GetTraps()->at(0)->GetDamage();
+			std::cout << " hp damage\n\n";
+			PauseScreen();
+		}
+
 		room->SetPlayer(currRoom->GetPlayer());
 		room->SetIsExplored(true);
 		currRoom->SetPlayer(nullptr);
 	}
 
-	void ExploringState::ActionExplore(Game *game) {
+	std::string ExploringState::SearchTrap(Game *game) {
+		Player *player = game->GetPlayer();
+		Room *room = game->GetCurrentRoom();
+
+		std::string traps;
+		std::vector<Trap*> *tr = room->GetTraps();
+
+		bool trapFound = player->SearchTrap(room);
+		if (trapFound)
+			traps.append("\tA trap was found and successfully disarmed!\n");
+		else
+			traps.append("\tThe exits seem to be safe..\n");
+		return traps.append("\n");
+	}
+
+	void ExploringState::ActionSearch(Game *game) {
 		// Get current room
 		Room *currRoom = game->GetWorld()->GetCurrentFloor()->GetCurrentRoom();
 
 		std::string items = "\n\tYou search the room...\n\n";
+
+		items += SearchTrap(game);
 
 		items += RenderItems(currRoom);
 

@@ -88,7 +88,7 @@ namespace TOD {
 		for (auto c : map){
 			if (countdown == 0){
 				tab = "\t";
-				countdown = 20;
+				countdown = length;
 			}
 			else {
 				tab = "";

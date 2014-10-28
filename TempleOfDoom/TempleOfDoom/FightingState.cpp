@@ -59,8 +59,9 @@ namespace TOD {
 		auto player = game->GetPlayer();
 		int counterdamage = 0;
 		for (auto npc : *room->GetNPC()) {
-			counterdamage += npc->getAttack();
-			std::cout << "\tThe " << npc->GetName() << " did " << counterdamage << " health points of damage.\n";
+			int damage = npc->Attack(player);
+			counterdamage += damage;
+			std::cout << "\tThe " << npc->GetName() << " did " << damage << " health points of damage.\n";
 		}
 		std::cout << "\n";
 
@@ -105,11 +106,14 @@ namespace TOD {
 				// Attack target
 				auto room = game->GetCurrentRoom();
 				auto player = game->GetPlayer();
+
 				auto npcs = room->GetNPC();
 				auto npc = npcs->at(target - 1);
-				int damage = npc->getDefense() - player->getAttack() < 0 ? 0 : npc->getDefense() - player->getAttack();
+
+				int damage = player->Attack(npc);
+
 				npc->TakeDamage(damage);
-				std::cout << "\tYou've hurt the " << npc->GetName() << " and did " << damage << " health points of damage.\n\n";
+				std::cout << "\tYou attack the " << npc->GetName() << " and do " << damage << " health points of damage.\n\n";
 
 				if (npc->isDead())
 					npcs->erase(npcs->begin() + (target - 1));
