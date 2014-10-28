@@ -4,9 +4,16 @@
 #include "Armor.h"
 
 namespace TOD {
-	Player::Player(std::string name) : Character(name) {
+	Player::Player(std::string name) : Character(name) 
+	{
+		this->level = 1;
+		this->maxhp = 10;
+		this->hp = maxhp;
+		this->xp = 0;
+		this->attack = 4;
+		this->defense = 5;
+		this->vigilance = 6;
 	}
-
 
 	Player::~Player() {
 	}
@@ -58,5 +65,21 @@ namespace TOD {
 				index++;
 		}
 		if (equiped) inventory.erase(inventory.begin() + index);
+	}
+
+	void Player::TakeDamage(int attack) {
+		// Calculate total defense
+		int totaldefense = defense;
+		if (armor != nullptr)
+			totaldefense += armor->GetDefense();
+
+		// Calculate damage
+		int damage = totaldefense - attack < 0 ? (totaldefense - attack) * -1 : 0;
+
+		// Calculate new hp
+		hp = hp - damage > 0 ? hp - damage : 0;
+
+		// Check if player is dead
+		this->_isDead = hp > 0 ? false : true;
 	}
 }

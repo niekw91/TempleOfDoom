@@ -59,43 +59,22 @@ namespace TOD {
 		auto player = game->GetPlayer();
 		int counterdamage = 0;
 		for (auto npc : *room->GetNPC()) {
-			counterdamage += player->getDefense() - npc->getAttack() < 0 ? 0 : player->getDefense() - npc->getAttack();
+			counterdamage += npc->getAttack();
 			std::cout << "\tThe " << npc->GetName() << " did " << counterdamage << " health points of damage.\n";
 		}
 		std::cout << "\n";
 
 		// Player damage
-		player->hit(counterdamage);
-		std::cout << "\tYou have " << game->GetPlayer()->getHP() << " out of 30 health points.\n\n";
+		player->TakeDamage(counterdamage);
+		if (player->isDead())
+			std::cout << "You died!";
+		std::cout << "\tYou have " << game->GetPlayer()->getHP() << " out of " << game->GetPlayer()->getMaxHP() << " health points.\n\n";
 	}
 
 	void FightingState::Do(Game *game) {
 		// Handle input
 		bool HandleInput = true;
 		while (HandleInput) {
-			//// Create options
-			//Options *options = new Options("attack;run;item", true);
-			//enum optionsenum { ATTACK, RUN, ITEM };
-
-			//// Handle choice
-			//switch (options->GetChoice()) {
-			//case ATTACK:
-			//	std::cout << "\tNothing happened...\n\t";
-			//	PauseScreen();
-			//	HandleInput = false;
-			//	break;
-			//case RUN:
-			//	game->StateManager()->PopState();
-			//	HandleInput = false;
-			//	break;
-			//case ITEM:
-			//	game->StateManager()->PushState(InventoryState::Instance());
-			//	HandleInput = false;
-			//	break;
-			//default:
-			//	std::cout << "\tThat's not an option...\n";
-			//	break;
-			//}
 
 			std::cout << "\tWhat are you going to do?\n\n";
 
@@ -126,13 +105,17 @@ namespace TOD {
 				// Attack target
 				auto room = game->GetCurrentRoom();
 				auto player = game->GetPlayer();
-				auto npc = room->GetNPC()->at(target - 1);
+				auto npcs = room->GetNPC();
+				auto npc = npcs->at(target - 1);
 				int damage = npc->getDefense() - player->getAttack() < 0 ? 0 : npc->getDefense() - player->getAttack();
-				npc->hit(damage);
+				npc->TakeDamage(damage);
 				std::cout << "\tYou've hurt the " << npc->GetName() << " and did " << damage << " health points of damage.\n\n";
 
-				/*if (counterdamage > 0)
-					std::cout << "\tYou're hp dropped to " << player->getHP() << "\n\n";*/
+				if (npc->isDead())
+					npcs->erase(npcs->begin() + (target - 1));
+				if (npcs->empty())
+					game->StateManager()->PopState(game);
+
 				std::cout << "\t";
 				PauseScreen();
 				HandleInput = false;

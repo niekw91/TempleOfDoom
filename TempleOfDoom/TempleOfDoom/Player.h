@@ -19,6 +19,9 @@ namespace TOD {
 		void Equip(Armor *armor);
 		Weapon* GetWeapon() { return weapon; }
 		Armor* GetAmor() { return armor;  }
+
+		void TakeDamage(int attack);
+		void Attack(Character* c){ c->TakeDamage(getAttack()); }
 	private:
 		int vigilance;
 		

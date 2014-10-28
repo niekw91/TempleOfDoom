@@ -13,4 +13,8 @@ namespace TOD {
 	Character::~Character()
 	{
 	}
+
+	void Character::Attack(Character* c) { 
+		c->TakeDamage(this->getAttack()); 
+	}
 }
