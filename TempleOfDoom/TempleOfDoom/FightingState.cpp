@@ -127,6 +127,9 @@ namespace TOD {
 				auto room = game->GetCurrentRoom();
 				auto player = game->GetPlayer();
 				auto npc = room->GetNPC()->at(target - 1);
+
+				int dmg = player->Attack(npc);
+
 				int damage = npc->getDefense() - player->getAttack() < 0 ? 0 : npc->getDefense() - player->getAttack();
 				npc->hit(damage);
 				std::cout << "\tYou've hurt the " << npc->GetName() << " and did " << damage << " health points of damage.\n\n";

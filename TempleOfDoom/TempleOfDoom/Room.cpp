@@ -270,4 +270,12 @@ namespace TOD {
 	Size Room::GetSize() {
 		return size;
 	}
+
+	void Room::DisarmTrap() {
+		vector<Trap*>::iterator tIt;
+		for (tIt = traps->begin(); tIt != traps->end();) {
+			delete *tIt;
+			tIt = traps->erase(tIt);
+		}
+	}
 }

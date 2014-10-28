@@ -28,7 +28,7 @@ namespace TOD {
 		void Do(Game *game);
 
 		void Header();
-		void ActionExplore(Game *game);
+		void ActionSearch(Game *game);
 		void ActionRun(Game *game);
 		void MoveTo(Room *currRoom, Room *room);
 
@@ -36,6 +36,8 @@ namespace TOD {
 		std::string RenderExits(Room* currRoom);
 		std::string RenderNPCs(Room* currRoom);
 		std::string RenderItems(Room* currRoom);
+
+		std::string SearchTrap(Game *game);
 
 		std::string RandomExitString();
 	};

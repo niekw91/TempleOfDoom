@@ -22,6 +22,8 @@ namespace TOD {
 		void SetDirectionPath(Direction dir, Room *room);
 		bool HasDirectionPath(Direction dir);
 
+		void DisarmTrap();
+
 		void SetNorth(Room *room);
 		void SetEast(Room *room);
 		void SetSouth(Room *room);
