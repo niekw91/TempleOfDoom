@@ -70,13 +70,17 @@ namespace TOD {
 		bool HandleInput = true;
 		while (HandleInput) {
 			// Create options
-			Options *options = new Options("equip;back", true);
-			enum optionsenum { EQUIP, BACK };
+			Options *options = new Options("equip;delete;back", true);
+			enum optionsenum { EQUIP, DELETE, BACK };
 
 			// Handle choice
 			switch (options->GetChoice()) {
 			case EQUIP:
 				ActionEquip(game);
+				HandleInput = false;
+				break;
+			case DELETE:
+				ActionDelete(game);
 				HandleInput = false;
 				break;
 			case BACK:
@@ -88,6 +92,26 @@ namespace TOD {
 				break;
 			}
 		}
+	}
+
+	void InventoryState::ActionDelete(Game *game) {
+		Player *player = game->GetWorld()->GetCurrentFloor()->GetCurrentRoom()->GetPlayer();
+
+		std::cout << "\n\tWhat item do you want to delete? (index)\n\n\t";
+
+		std::string input;
+
+		std::getline(std::cin, input);
+		int index = std::atoi(input.c_str());
+
+		// Erase item from inventory
+		if (player->GetInventory().size() > 0) {
+			if (player->GetInventory().size() == 1)
+				player->GetInventory().pop_back();
+			else
+				player->GetInventory().erase(player->GetInventory().begin() + index);
+		}
+			
 	}
 
 	void InventoryState::ActionEquip(Game *game) {
