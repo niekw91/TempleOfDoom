@@ -14,7 +14,7 @@ namespace TOD {
 		virtual ~Player();
 
 		int GetVigilance() { return vigilance; }
-		std::vector<Item*> *GetInventory() {return inventory; }
+		std::vector<Item*> *GetInventory() { return inventory; }
 
 		bool PickUp(Item *item);
 		void Equip(Weapon *weapon);

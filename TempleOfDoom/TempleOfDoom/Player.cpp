@@ -19,6 +19,11 @@ namespace TOD {
 	}
 
 	Player::~Player() {
+		vector<Item*>::iterator it;
+		for (it = inventory->begin(); it != inventory->end();) {
+			delete *it;
+			it = inventory->erase(it);
+		}
 		delete inventory;
 	}
 
