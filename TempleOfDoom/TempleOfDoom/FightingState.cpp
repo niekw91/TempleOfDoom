@@ -38,8 +38,10 @@ namespace TOD {
 		Init(game);
 		// Create main menu banner
 		Generate(game);
-		// Handle input
-		Do(game);
+		if (!game->GetPlayer()->isDead()) {
+			// Handle input
+			Do(game);
+		}
 	}
 
 	void FightingState::Generate(Game *game) {
@@ -80,7 +82,8 @@ namespace TOD {
 			game->StateManager()->PopState(game);
 			//game->StateManager()->ChangeState(game, GameOverState::Instance());
 		}
-		std::cout << "\tYou have " << game->GetPlayer()->getHP() << " out of " << game->GetPlayer()->getMaxHP() << " health points.\n\n";
+		else 
+			std::cout << "\tYou have " << game->GetPlayer()->getHP() << " out of " << game->GetPlayer()->getMaxHP() << " health points.\n\n";
 	}
 
 	void FightingState::Do(Game *game) {
