@@ -14,12 +14,13 @@
 #include "Character.h"
 #include "InputHandler.h"
 #include "Player.h"
+#include "Random.h"
 
 namespace TOD {
 	FightingState FightingState::instance;
 
 	void FightingState::Init(Game *game) {
-
+		juststarted = Random::Next(1, 10) == 1 ? true : false;
 	}
 
 	void FightingState::Cleanup(Game *game) {
@@ -33,6 +34,8 @@ namespace TOD {
 	void FightingState::Render(Game *game) {
 		// Clear screen
 		ClearScreen();
+		// Initialize state
+		Init(game);
 		// Create main menu banner
 		Generate(game);
 		// Handle input
@@ -53,23 +56,28 @@ namespace TOD {
 			std::cout << "\t" + std::to_string(id++) + ". An " + npcGetMindstate + " " + npc->GetName() + " and it's " + npcGetStatus + "(" + std::to_string(npc->getHP()) + " HP).\n";
 		}
 		std::cout << "\n";
-
-		// NPC attack
 		auto room = game->GetCurrentRoom();
 		auto player = game->GetPlayer();
 		int counterdamage = 0;
-		for (auto npc : npcs) {
-			int damage = npc->Attack(player);
-			counterdamage += damage;
-			std::cout << "\tThe " << npc->GetName() << " did " << damage << " health points of damage.\n";
-		}
-		std::cout << "\n";
 
-		// Player damage
-		player->TakeDamage(counterdamage);
+		if (!juststarted) {
+			// NPC attack
+			for (auto npc : npcs) {
+				int damage = npc->Attack(player);
+				counterdamage += damage;
+				std::cout << "\tThe " << npc->GetName() << " did " << damage << " health points of damage.\n";
+			}
+			std::cout << "\n";
+
+			// Player damage
+			player->TakeDamage(counterdamage);
+		}
+		juststarted = false;
+
 		if (player->isDead()) {
-			std::cout << "\tYou died!\n";
+			std::cout << "\tYou died! [ POPPING STATE BECAUSE THERE IS NO GAMEOVERSTATE ]\n\n\t";
 			PauseScreen();
+			game->StateManager()->PopState(game);
 			//game->StateManager()->ChangeState(game, GameOverState::Instance());
 		}
 		std::cout << "\tYou have " << game->GetPlayer()->getHP() << " out of " << game->GetPlayer()->getMaxHP() << " health points.\n\n";
@@ -115,7 +123,7 @@ namespace TOD {
 
 				int damage = player->Attack(npc);
 
-				// Show damage
+				// Show inflicted damage
 				npc->TakeDamage(damage);
 				std::cout << "\tYou attack the " << npc->GetName() << " and do " << damage << " health points of damage.\n\n";
 
@@ -132,9 +140,10 @@ namespace TOD {
 					PauseScreen();
 					game->StateManager()->PopState(game);
 				}
-
-				std::cout << "\t";
-				PauseScreen();
+				else {
+					std::cout << "\t";
+					PauseScreen();
+				}
 				HandleInput = false;
 			}
 			// Run

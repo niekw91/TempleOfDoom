@@ -43,7 +43,7 @@ namespace TOD {
 		// Clear inventory string
 		inventory.clear();
 
-		std::vector<Item*> items = game->GetWorld()->GetCurrentFloor()->GetCurrentRoom()->GetPlayer()->GetInventory();
+		std::vector<Item*> items = *game->GetWorld()->GetCurrentFloor()->GetCurrentRoom()->GetPlayer()->GetInventory();
 		
 		int ind = 0;
 		for (auto i : items) {
@@ -105,11 +105,11 @@ namespace TOD {
 		int index = std::atoi(input.c_str());
 
 		// Erase item from inventory
-		if (player->GetInventory().size() > 0) {
-			if (player->GetInventory().size() == 1)
-				player->GetInventory().pop_back();
+		if (player->GetInventory()->size() > 0) {
+			if (player->GetInventory()->size() == 1)
+				player->GetInventory()->pop_back();
 			else
-				player->GetInventory().erase(player->GetInventory().begin() + index);
+				player->GetInventory()->erase(player->GetInventory()->begin() + index);
 		}
 			
 	}
@@ -133,7 +133,7 @@ namespace TOD {
 
 				std::getline(std::cin, input);
 				int index = std::atoi(input.c_str());
-				Weapon *weapon = dynamic_cast<Weapon*>(player->GetInventory().at(index));
+				Weapon *weapon = dynamic_cast<Weapon*>(player->GetInventory()->at(index));
 				player->Equip(weapon);
 				HandleInput = false;
 				break;
@@ -143,7 +143,7 @@ namespace TOD {
 
 				std::getline(std::cin, input);
 				int index = std::atoi(input.c_str());
-				Armor *armor = dynamic_cast<Armor*>(player->GetInventory().at(index));
+				Armor *armor = dynamic_cast<Armor*>(player->GetInventory()->at(index));
 				player->Equip(armor);
 				HandleInput = false;
 				break;

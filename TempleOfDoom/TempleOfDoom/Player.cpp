@@ -15,17 +15,19 @@ namespace TOD {
 		this->attack = 24;
 		this->defense = 4;
 		this->vigilance = 26;
+		inventory = new std::vector<Item*>();
 	}
 
 	Player::~Player() {
+		delete inventory;
 	}
 
 	bool Player::PickUp(Item *item) {
 		bool pickedUp = false;
 		if (item) {
 			// Check if inventory not full
-			if (inventory.size() < (size_t)invSize) {
-				inventory.push_back(item);
+			if (inventory->size() < (size_t)invSize) {
+				inventory->push_back(item);
 				pickedUp = true;
 			}
 		}
@@ -35,10 +37,10 @@ namespace TOD {
 	void Player::Equip(Weapon *weapon) {
 		bool equiped = false;
 		int index = 0;
-		for (auto i : inventory) {
+		for (auto i : *inventory) {
 			if (i->GetName() == weapon->GetName()) {
 				if (this->weapon) {
-					inventory.push_back(this->weapon);
+					inventory->push_back(this->weapon);
 					this->weapon = nullptr;
 				}
 				this->weapon = weapon;
@@ -48,16 +50,16 @@ namespace TOD {
 			if (!equiped)
 				index++;
 		}
-		if (equiped) inventory.erase(inventory.begin() + index);
+		if (equiped) inventory->erase(inventory->begin() + index);
 	}
 
 	void Player::Equip(Armor *armor) {
 		bool equiped = false;
 		int index = 0;
-		for (auto i : inventory) {
+		for (auto i : *inventory) {
 			if (i->GetName() == armor->GetName()) {
 				if (this->armor) {
-					inventory.push_back(this->armor);
+					inventory->push_back(this->armor);
 					this->armor = nullptr;
 				}
 				this->armor = armor;
@@ -66,7 +68,7 @@ namespace TOD {
 			if (!equiped)
 				index++;
 		}
-		if (equiped) inventory.erase(inventory.begin() + index);
+		if (equiped) inventory->erase(inventory->begin() + index);
 	}
 
 	/* Returns integer with the amount of damage done, if 0 attack missed */

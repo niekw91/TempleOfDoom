@@ -14,7 +14,7 @@ namespace TOD {
 		virtual ~Player();
 
 		int GetVigilance() { return vigilance; }
-		std::vector<Item*> GetInventory() {return inventory; }
+		std::vector<Item*> *GetInventory() {return inventory; }
 
 		bool PickUp(Item *item);
 		void Equip(Weapon *weapon);
@@ -32,7 +32,7 @@ namespace TOD {
 		
 		Weapon *weapon;
 		Armor *armor;
-		std::vector<Item*> inventory;
+		std::vector<Item*> *inventory;
 
 		// Inventory size
 		const int invSize = 20;
