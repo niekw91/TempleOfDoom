@@ -33,7 +33,7 @@ namespace TOD {
 	}
 
 	void GameOverState::Generate(Game *game) {
-		const std::string textfile("Assets\GameOver.txt");
+		const std::string textfile("GameOver.txt");
 		std::ifstream input_file(textfile);
 
 		std::string line;
@@ -43,7 +43,8 @@ namespace TOD {
 	}
 
 	void GameOverState::Do(Game *game) {
-		PauseScreen();
+		std::cout << "\n\t";
+			PauseScreen();
 
 		game->StateManager()->ChangeState(game, MainMenuState::Instance());
 	}

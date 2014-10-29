@@ -14,6 +14,7 @@
 #include "FightingState.h"
 #include "MapState.h"
 #include "MainMenuState.h"
+#include "GameOverState.h"
 #include "Floor.h"
 #include "Room.h"
 #include "Trap.h"
@@ -48,7 +49,7 @@ namespace TOD {
 			Do(game);
 		}
 		else {
-			game->StateManager()->ChangeState(game, MainMenuState::Instance());
+			game->StateManager()->ChangeState(game, GameOverState::Instance());
 		}
 
 	}

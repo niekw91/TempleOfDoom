@@ -81,6 +81,7 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CreditsState.h" />
     <ClInclude Include="EndBoss.h" />
     <ClInclude Include="GameOverState.h" />
     <ClInclude Include="InputHandler.h" />
@@ -122,6 +123,7 @@
     <ClInclude Include="World.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="CreditsState.cpp" />
     <ClCompile Include="EndBoss.cpp" />
     <ClCompile Include="GameOverState.cpp" />
     <ClCompile Include="InputHandler.cpp" />

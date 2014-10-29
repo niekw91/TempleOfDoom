@@ -78,7 +78,7 @@ namespace TOD {
 
 	/* Returns integer with the amount of damage done, if 0 attack missed */
 	int Player::Attack(Character *c) {
-		int multiplier = (level - c->getLevel()) * 0.4; // Damage multiplier
+		int multiplier = (int)(level - c->getLevel()) * 0.4; // Damage multiplier
 		int damage = 1; // Damage default
 
 		int left = attack - c->getDefense();

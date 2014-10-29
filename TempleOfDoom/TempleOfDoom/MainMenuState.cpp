@@ -9,6 +9,7 @@
 #include "GameState.h"
 #include "MainMenuState.h"
 #include "ExploringState.h"
+#include "CreditsState.h"
 #include "Floor.h"
 #include "Room.h"
 #include "Player.h"
@@ -124,8 +125,6 @@ namespace TOD {
 	}
 
 	void MainMenuState::Credits(Game *game) {
-		std::cout << "\t\t\t\t" << "Nothing happened..." << std::endl;
-		std::cout << "\t\t\t\t";
-		system("PAUSE");
+		game->StateManager()->PushState(game, CreditsState::Instance());
 	}
 }

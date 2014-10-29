@@ -36,8 +36,14 @@ namespace TOD {
 		ClearScreen();
 		// Create main menu banner
 		Generate(game);
-		// Handle input
-		Do(game);
+		if (!game->GetPlayer()->isDead()) {
+			// Handle input
+			Do(game);
+		}
+		else {
+			// If player is dead go to GameOverstate
+			game->StateManager()->ChangeState(game, GameOverState::Instance());
+		}
 	}
 
 	void FightingState::Generate(Game *game) {
@@ -69,9 +75,8 @@ namespace TOD {
 		// Player damage
 		player->TakeDamage(counterdamage);
 		if (player->isDead()) {
-			std::cout << "\tYou died!\n";
+			std::cout << "\tYou died!\n\n\t";
 			PauseScreen();
-			game->StateManager()->ChangeState(game, GameOverState::Instance());
 		}
 		std::cout << "\tYou have " << game->GetPlayer()->getHP() << " out of " << game->GetPlayer()->getMaxHP() << " health points.\n\n";
 	}

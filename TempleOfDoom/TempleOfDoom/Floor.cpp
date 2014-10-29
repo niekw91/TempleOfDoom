@@ -154,5 +154,6 @@ namespace TOD {
 				return currentRoom;
 			}
 		}
+		return nullptr;
 	}
 }
