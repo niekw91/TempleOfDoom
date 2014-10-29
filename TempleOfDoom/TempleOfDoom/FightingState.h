@@ -27,6 +27,8 @@ namespace TOD {
 		void Do(Game *game);
 
 		void Header();
+
+		bool juststarted;
 	};
 }
 
