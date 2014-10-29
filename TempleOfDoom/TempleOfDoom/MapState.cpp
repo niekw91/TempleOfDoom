@@ -72,11 +72,13 @@ namespace TOD {
 		index = 0;
 
 		for (auto r : rooms) {
-			if (r->GetNorth() != nullptr) map.replace(index - (length + 1), 1, "|");
-			if (r->GetEast() != nullptr)
-				map.replace((index + 1), 1, "-");
-			if (r->GetSouth() != nullptr) map.replace(index + (length + 1), 1, "|");
-			if (r->GetWest() != nullptr) map.replace((index - 1), 1, "-");
+			if (r->GetIsExplored()) {
+				if (r->GetNorth() != nullptr) map.replace(index - (length + 1), 1, "|");
+				if (r->GetEast() != nullptr)
+					map.replace((index + 1), 1, "-");
+				if (r->GetSouth() != nullptr) map.replace(index + (length + 1), 1, "|");
+				if (r->GetWest() != nullptr) map.replace((index - 1), 1, "-");
+			}
 			index += 2;
 			if (map.at(index) == '\n') index += (length + 2);
 		}
