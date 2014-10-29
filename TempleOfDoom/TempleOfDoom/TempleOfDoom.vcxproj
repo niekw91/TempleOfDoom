@@ -82,6 +82,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="EndBoss.h" />
+    <ClInclude Include="GameOverState.h" />
     <ClInclude Include="InputHandler.h" />
     <ClInclude Include="InventoryState.h" />
     <ClInclude Include="Options.h" />
@@ -122,6 +123,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="EndBoss.cpp" />
+    <ClCompile Include="GameOverState.cpp" />
     <ClCompile Include="InputHandler.cpp" />
     <ClCompile Include="InventoryState.cpp" />
     <ClCompile Include="Options.cpp" />

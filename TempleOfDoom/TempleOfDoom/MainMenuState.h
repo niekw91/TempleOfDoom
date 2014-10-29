@@ -32,7 +32,6 @@ namespace TOD {
 		input Hash(std::string const& inString);
 
 		void NewGame(Game *game);
-		void LoadGame(Game *game);
 		void Credits(Game *game);
 	};
 }

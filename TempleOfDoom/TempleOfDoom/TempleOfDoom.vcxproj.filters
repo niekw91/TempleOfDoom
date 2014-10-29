@@ -103,6 +103,9 @@
     <ClCompile Include="EndBoss.cpp">
       <Filter>Source Files\Model\GameObjects\Characters</Filter>
     </ClCompile>
+    <ClCompile Include="GameOverState.cpp">
+      <Filter>Source Files\States</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h">
@@ -218,6 +221,9 @@
     </ClInclude>
     <ClInclude Include="EndBoss.h">
       <Filter>Header Files\Model\GameObjects\Characters</Filter>
+    </ClInclude>
+    <ClInclude Include="GameOverState.h">
+      <Filter>Header Files\States</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

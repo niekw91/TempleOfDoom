@@ -123,12 +123,6 @@ namespace TOD {
 		game->StateManager()->ChangeState(game, ExploringState::Instance());
 	}
 
-	void MainMenuState::LoadGame(Game *game) {
-		std::cout << "\t\t\t\t" << "Nothing happened..." << std::endl;
-		std::cout << "\t\t\t\t";
-		system("PAUSE");
-	}
-
 	void MainMenuState::Credits(Game *game) {
 		std::cout << "\t\t\t\t" << "Nothing happened..." << std::endl;
 		std::cout << "\t\t\t\t";

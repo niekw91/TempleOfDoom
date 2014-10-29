@@ -8,6 +8,7 @@
 #include "FightingState.h"
 #include "ExploringState.h"
 #include "InventoryState.h"
+#include "GameOverState.h"
 #include "Game.h"
 #include "Options.h"
 #include "NPC.h"
@@ -70,7 +71,7 @@ namespace TOD {
 		if (player->isDead()) {
 			std::cout << "\tYou died!\n";
 			PauseScreen();
-			//game->StateManager()->ChangeState(game, GameOverState::Instance());
+			game->StateManager()->ChangeState(game, GameOverState::Instance());
 		}
 		std::cout << "\tYou have " << game->GetPlayer()->getHP() << " out of " << game->GetPlayer()->getMaxHP() << " health points.\n\n";
 	}
