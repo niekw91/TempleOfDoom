@@ -15,7 +15,7 @@ using namespace tinyxml2;
 
 namespace TOD {
 	GameObjectFactory::GameObjectFactory() {
-
+		tempTypes = std::vector<ItemType*>();
 	}
 
 	/*
@@ -39,18 +39,21 @@ namespace TOD {
 	Weapon* GameObjectFactory::GetRandomWeapon() {
 		Weapon *wep = *select_randomly(weaponVector.begin(), weaponVector.end());
 		ItemType *type = new ItemType(wep->GetName(), wep->GetDamage(), wep->GetRare(), WEAPON);
+		tempTypes.push_back(type);
 		return type->CreateWeapon();
 	}
 
 	Armor* GameObjectFactory::GetRandomArmor() {
 		Armor *ar = *select_randomly(armorVector.begin(), armorVector.end());
 		ItemType *type = new ItemType(ar->GetName(), ar->GetDefense(), ar->GetRare(), ARMOR);
+		tempTypes.push_back(type);
 		return type->CreateArmor();
 	}
 
 	Medkit* GameObjectFactory::GetRandomMedkit() {
 		Medkit *med = *select_randomly(medkitVector.begin(), medkitVector.end());
 		ItemType *type = new ItemType(med->GetName(), med->GetHp(), med->GetRare(), MEDKIT);
+		tempTypes.push_back(type);
 		return type->CreateMedkit();
 	}
 
@@ -158,6 +161,7 @@ namespace TOD {
 					else if (kind == MEDKIT) {
 						medkitVector.push_back(type->CreateMedkit());
 					}
+					delete type;
 					item = item->NextSiblingElement();
 				}
 				itemType = itemType->NextSiblingElement();
@@ -190,7 +194,7 @@ namespace TOD {
 
 				NPCType *type = new NPCType(name, hp, attack, defense, level);
 				npcVector.push_back(type->createNPC());
-
+				delete type;
 				npc = npc->NextSiblingElement();
 			}
 		}
@@ -221,7 +225,7 @@ namespace TOD {
 
 				NPCType *type = new NPCType(name, hp, attack, defense, level);
 				bossVector.push_back(type->createBoss());
-
+				delete type;
 				npc = npc->NextSiblingElement();
 			}
 		}
@@ -277,5 +281,10 @@ namespace TOD {
 			mIt = medkitVector.erase(mIt);
 		}
 
+		std::vector<ItemType*>::iterator itIt;
+		for (itIt = tempTypes.begin(); itIt != tempTypes.end();) {
+			delete *itIt;
+			itIt = tempTypes.erase(itIt);
+		}
 	}
 }
