@@ -65,7 +65,7 @@ namespace TOD {
 		std::vector<NPC*> *npcs = currRoom->GetNPC();
 		int size = currRoom->GetNPC()->size();
 
-		// If no scenery return empty string
+		// If no npc return empty string
 		if (size == 0) { return npc; }
 		npc += "\tThere is a ";
 		if (size > 1) {
@@ -76,7 +76,12 @@ namespace TOD {
 			npc = npc.substr(0, npc.size() - 7); // Cut ' and a ' off string
 		}
 		else {
-			npc += npcs->at(0)->GetName();
+			if (npcs->at(0)->getLevel() > 10) { // If npc is boss
+				npc.clear();
+				return npc.append("\t!!! FINAL BOSS REACHED !!!\n\n\tName: " + npcs->at(0)->GetName() + "\n\n");
+			}
+			else
+				npc += npcs->at(0)->GetName();
 		}
 		npc += " in the room\n\n";
 		return npc;
@@ -202,8 +207,11 @@ namespace TOD {
 					if (r->GetRoomType() == ST_UP) {
 						r->SetPlayer(currRoom->GetPlayer());
 						currRoom->SetPlayer(nullptr);
-						Room *uproom = r->GetUp();
-
+						break;
+					}
+					if (r->GetRoomType() == END) {
+						r->SetPlayer(currRoom->GetPlayer());
+						currRoom->SetPlayer(nullptr);
 						break;
 					}
 				}
@@ -225,11 +233,11 @@ namespace TOD {
 		// Check for traps
 		if (currRoom->GetTraps()->size() > 0) {
 
-			// PLAYER -> TAKEDAMAGE();
+			currRoom->GetPlayer()->TakeDamage(currRoom->GetTraps()->at(0)->GetDamage());
 
 			std::cout << "\n\tA trap went off and did ";
 			std::cout << currRoom->GetTraps()->at(0)->GetDamage();
-			std::cout << " hp damage\n\n";
+			std::cout << " hp damage\n\n\t";
 			PauseScreen();
 		}
 

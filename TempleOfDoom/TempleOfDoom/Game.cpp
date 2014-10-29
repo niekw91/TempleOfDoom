@@ -28,6 +28,7 @@ namespace TOD {
 		factory->LoadItemsFromFile("XML/items.xml");
 		factory->LoadSceneryFromFile("XML/scenery.xml");
 		factory->LoadTrapsFromFile("XML/traps.xml");
+		factory->LoadBossFromFile("XML/boss.xml");
 	}
 
 	void Game::Cleanup(){

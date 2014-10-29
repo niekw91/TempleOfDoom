@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<TOD>
+	<Boss>
+		<name>Hitler</name>
+		<hp>1000</hp>
+		<level>11</level>
+		<attack>50</attack>
+		<defense>50</defense>
+	</Boss>
+</TOD>

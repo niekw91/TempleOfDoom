@@ -278,4 +278,17 @@ namespace TOD {
 			tIt = traps->erase(tIt);
 		}
 	}
+
+	void Room::SetEndBoss() {
+		// Delete any npc's if present
+		vector<NPC*>::iterator nIt;
+		for (nIt = npcs->begin(); nIt != npcs->end();) {
+			delete *nIt;
+			nIt = npcs->erase(nIt);
+		}
+
+		// Get random end boss
+		npcs->push_back(factory->GetRandomBoss());
+
+	}
 }

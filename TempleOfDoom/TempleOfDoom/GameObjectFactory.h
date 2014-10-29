@@ -9,6 +9,7 @@
 #include "Weapon.h"
 #include "Armor.h"
 #include "Medkit.h"
+#include "EndBoss.h"
 
 namespace TOD {
 	class GameObjectFactory
@@ -23,6 +24,7 @@ namespace TOD {
 		void LoadItemsFromFile(std::string fileName);
 		void LoadSceneryFromFile(std::string fileName);
 		void LoadTrapsFromFile(std::string fileName);
+		void LoadBossFromFile(std::string fileName);
 
 		Weapon* GetRandomWeapon();
 		Armor* GetRandomArmor();
@@ -30,11 +32,13 @@ namespace TOD {
 		Scenery* GetRandomScenery();
 		NPC* GetRandomNPC();
 		Trap* GetRandomTrap();
+		EndBoss* GetRandomBoss();
 
 	private:
 		std::vector<NPC*> npcVector;
 		std::vector<Scenery*> sceneryVector;
 		std::vector<Trap*> trapVector;
+		std::vector<EndBoss*> bossVector;
 
 		// Item vectors
 		std::vector<Weapon*> weaponVector;

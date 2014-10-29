@@ -51,6 +51,8 @@ namespace TOD {
 			}
 			else if (index == size) {
 				r->SetRoomType(END);
+				// End room has final boss fight
+				r->SetEndBoss();
 				r = GetRandomRoom(rooms, r);
 				r->SetRoomType(ST_DOWN);
 			}

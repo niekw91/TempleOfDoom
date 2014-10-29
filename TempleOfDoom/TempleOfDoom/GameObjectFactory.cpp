@@ -54,6 +54,12 @@ namespace TOD {
 		return type->CreateMedkit();
 	}
 
+	EndBoss* GameObjectFactory::GetRandomBoss() {
+		EndBoss *boss = *select_randomly(bossVector.begin(), bossVector.end());
+		NPCType *type = new NPCType(boss->GetName(), boss->getHP(), boss->getAttack(), boss->getDefense(), boss->getLevel());
+		return new EndBoss(type);
+	}
+
 	NPC* GameObjectFactory::GetRandomNPC() {
 		NPC *npc = *select_randomly(npcVector.begin(), npcVector.end());
 		return new NPC(npc->GetName(), npc->getHP(), npc->getAttack(), npc->getDefense(), npc->getLevel());
@@ -184,6 +190,37 @@ namespace TOD {
 
 				NPCType *type = new NPCType(name, hp, attack, defense, level);
 				npcVector.push_back(type->createNPC());
+
+				npc = npc->NextSiblingElement();
+			}
+		}
+	}
+
+	void GameObjectFactory::LoadBossFromFile(std::string fileName) {
+		bossVector = std::vector<EndBoss*>();
+
+		tinyxml2::XMLDocument doc;
+		doc.LoadFile(fileName.c_str());
+		if (doc.ErrorID() == 0)
+		{
+			XMLElement *tod = doc.FirstChildElement("TOD");
+			XMLElement *npc = tod->FirstChildElement("Boss");
+
+			while (npc != NULL)
+			{
+				XMLElement *element = npc->FirstChildElement("name");
+				std::string name = element->GetText();
+				element = element->NextSiblingElement("hp");
+				int hp = atoi(element->GetText());
+				element = element->NextSiblingElement("level");
+				int level = atoi(element->GetText());
+				element = element->NextSiblingElement("attack");
+				int attack = atoi(element->GetText());
+				element = element->NextSiblingElement("defense");
+				int defense = atoi(element->GetText());
+
+				NPCType *type = new NPCType(name, hp, attack, defense, level);
+				bossVector.push_back(type->createBoss());
 
 				npc = npc->NextSiblingElement();
 			}

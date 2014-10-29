@@ -100,6 +100,9 @@
     <ClCompile Include="Random.cpp">
       <Filter>Source Files\Helpers</Filter>
     </ClCompile>
+    <ClCompile Include="EndBoss.cpp">
+      <Filter>Source Files\Model\GameObjects\Characters</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h">
@@ -212,6 +215,9 @@
     </ClInclude>
     <ClInclude Include="Trap.h">
       <Filter>Header Files\Model\GameObjects\Traps</Filter>
+    </ClInclude>
+    <ClInclude Include="EndBoss.h">
+      <Filter>Header Files\Model\GameObjects\Characters</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

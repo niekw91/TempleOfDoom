@@ -4,6 +4,7 @@
 
 namespace TOD {
 	class NPC;
+	class EndBoss;
 
 	class NPCType
 	{
@@ -21,6 +22,7 @@ namespace TOD {
 		std::string getName();
 
 		TOD::NPC* createNPC();
+		TOD::EndBoss* createBoss();
 	private:
 		std::string name;
 		int hp;

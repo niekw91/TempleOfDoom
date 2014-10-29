@@ -1,10 +1,15 @@
 #include "stdafx.h"
 #include "NPCType.h"
 #include "NPC.h"
+#include "EndBoss.h"
 
 namespace TOD {
 	TOD::NPC* NPCType::createNPC() {
 		return new NPC(this);
+	}
+
+	TOD::EndBoss* NPCType::createBoss() {
+		return new EndBoss(this);
 	}
 
 	NPCType::~NPCType()

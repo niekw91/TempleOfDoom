@@ -65,6 +65,8 @@ namespace TOD {
 		void SetIsExplored(bool ex) { explored = ex; }
 		bool GetIsExplored() { return explored; }
 
+		void SetEndBoss();
+
 	private:
 		GameObjectFactory *factory;
 
