@@ -25,6 +25,8 @@ namespace TOD {
 		Weapon* GetWeapon() { return weapon; }
 		Armor* GetAmor() { return armor;  }
 
+		void ReceiveXp(int givenxp);
+
 	private:
 		int vigilance;
 		
@@ -34,6 +36,8 @@ namespace TOD {
 
 		// Inventory size
 		const int invSize = 20;
+
+		int NextLevel();
 	};
 }
 

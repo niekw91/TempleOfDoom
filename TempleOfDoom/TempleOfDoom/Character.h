@@ -29,6 +29,7 @@ namespace TOD {
 		}
 
 		int Attack(Player* c);
+		int GiveXp();
 		
 	protected:
 		int level;

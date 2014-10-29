@@ -30,4 +30,10 @@ namespace TOD {
 		
 		return damage + (damage * multiplier);
 	}
+
+	int Character::GiveXp() {
+		// Set base xp
+		int basexp = 7;
+		return basexp * level;
+	}
 }

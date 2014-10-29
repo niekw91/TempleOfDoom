@@ -58,7 +58,7 @@ namespace TOD {
 		auto room = game->GetCurrentRoom();
 		auto player = game->GetPlayer();
 		int counterdamage = 0;
-		for (auto npc : *room->GetNPC()) {
+		for (auto npc : npcs) {
 			int damage = npc->Attack(player);
 			counterdamage += damage;
 			std::cout << "\tThe " << npc->GetName() << " did " << damage << " health points of damage.\n";
@@ -115,13 +115,23 @@ namespace TOD {
 
 				int damage = player->Attack(npc);
 
+				// Show damage
 				npc->TakeDamage(damage);
 				std::cout << "\tYou attack the " << npc->GetName() << " and do " << damage << " health points of damage.\n\n";
 
-				if (npc->isDead())
+				// Check if enemy is defeated
+				if (npc->isDead()) {
+					std::cout << "\tThe " << npc->GetName() << " is dead. You receive " << npc->GiveXp() << " experience points.\n\n";
+					player->ReceiveXp(npc->GiveXp());
 					npcs->erase(npcs->begin() + (target - 1));
-				if (npcs->empty())
+				}
+
+				// Check if all enemies are defeated
+				if (npcs->empty()) {
+					std::cout << "\tAll the enemies in the room have been defeated.\n\n\t";
+					PauseScreen();
 					game->StateManager()->PopState(game);
+				}
 
 				std::cout << "\t";
 				PauseScreen();

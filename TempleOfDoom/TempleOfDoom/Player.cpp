@@ -102,4 +102,19 @@ namespace TOD {
 		}
 		return false;		
 	}
+
+	void Player::ReceiveXp(int givenxp){ 
+		// Raise xp
+		this->xp += givenxp; 
+		// Raise level
+		if (xp > NextLevel())
+			this->level++;
+	}
+
+	int Player::NextLevel() {
+		// Set base xp
+		int basenextlevelxp = 24;
+		// Return xp needed to level up
+		return basenextlevelxp * level + basenextlevelxp;
+	}
 }
