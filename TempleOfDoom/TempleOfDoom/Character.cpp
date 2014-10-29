@@ -36,4 +36,10 @@ namespace TOD {
 		int basexp = 7;
 		return basexp * level;
 	}
+
+	bool Character::TakeDamage(int attack) {
+		hp = hp - attack > 0 ? hp - attack : 0;
+		this->_isDead = hp > 0 ? false : true;
+		return _isDead;
+	}
 }

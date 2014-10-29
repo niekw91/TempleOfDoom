@@ -42,8 +42,15 @@ namespace TOD {
 		ClearScreen();
 		// Create main menu banner
 		Generate(game);
-		// Handle input
-		Do(game);
+		// Check if player is alive
+		if (!game->GetPlayer()->isDead()) {
+			// Handle input
+			Do(game);
+		}
+		else {
+			game->StateManager()->ChangeState(game, MainMenuState::Instance());
+		}
+
 	}
 
 	void ExploringState::Generate(Game *game){
@@ -238,6 +245,12 @@ namespace TOD {
 			std::cout << "\n\tA trap went off and did ";
 			std::cout << currRoom->GetTraps()->at(0)->GetDamage();
 			std::cout << " hp damage\n\n\t";
+
+			if (currRoom->GetPlayer()->isDead()) {
+				std::cout << "You died!\n\n\t";
+				
+			}
+
 			PauseScreen();
 		}
 

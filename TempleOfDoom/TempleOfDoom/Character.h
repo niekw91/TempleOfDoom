@@ -23,10 +23,7 @@ namespace TOD {
 		int getDefense() { return defense * level; }
 		
 		bool isDead() { return _isDead; }
-		void TakeDamage(int attack) { 
-			hp = hp - attack > 0 ? hp - attack : 0;
-			this->_isDead = hp > 0 ? false : true; 
-		}
+		bool TakeDamage(int attack);
 
 		int Attack(Player* c);
 		int GiveXp();
