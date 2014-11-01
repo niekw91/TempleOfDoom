@@ -10,7 +10,7 @@ namespace TOD {
 	{
 
 	public:
-		Floor(int size, GameObjectFactory *factory);
+		Floor(int level, int size, GameObjectFactory *factory);
 		virtual ~Floor();
 
 		void CreateRooms();
@@ -18,6 +18,7 @@ namespace TOD {
 		Room* Floor::GetCurrentRoom();
 	private:
 		int size;
+		int level;
 		GameObjectFactory *factory;
 		std::vector<Room*> rooms;
 

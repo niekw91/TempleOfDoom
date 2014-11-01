@@ -63,8 +63,12 @@ namespace TOD {
 		return new EndBoss(type);
 	}
 
-	NPC* GameObjectFactory::GetRandomNPC() {
-		NPC *npc = *select_randomly(npcVector.begin(), npcVector.end());
+	NPC* GameObjectFactory::GetRandomNPC(int minLevel, int maxLevel) {
+		NPC *npc;
+		do
+		{
+			npc = *select_randomly(npcVector.begin(), npcVector.end());
+		} while (npc->getLevel() > maxLevel || npc->getLevel() < minLevel);
 		return new NPC(npc->GetName(), npc->getHP(), npc->getAttack(), npc->getDefense(), npc->getLevel());
 	}
 

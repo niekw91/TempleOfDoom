@@ -8,8 +8,9 @@
 #include <ctime>
 
 namespace TOD {
-	Floor::Floor(int size, GameObjectFactory *factory) {
+	Floor::Floor(int level, int size, GameObjectFactory *factory) {
 		this->size = size;
+		this->level = level;
 		this->factory = factory;
 
 		CreateRooms();
@@ -27,7 +28,7 @@ namespace TOD {
 		rooms = std::vector<Room*>();
 		// Create all empty rooms
 		for (int z = 0; z < size * size; z++)
-			rooms.push_back(new Room(factory));
+			rooms.push_back(new Room(level, size, factory));
 		// Keep track of current index
 		int currentIndex = 0;
 

@@ -31,7 +31,7 @@ namespace TOD {
 
 		for (int i = 0; i < this->floorCount; i++)
 		{
-			floors.push_back(new Floor(size, factory));
+			floors.push_back(new Floor(i + 1, size, factory));
 		}
 	}
 

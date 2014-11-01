@@ -30,7 +30,7 @@ namespace TOD {
 		Armor* GetRandomArmor();
 		Medkit* GetRandomMedkit();
 		Scenery* GetRandomScenery();
-		NPC* GetRandomNPC();
+		NPC* GetRandomNPC(int minLevel, int maxLevel);
 		Trap* GetRandomTrap();
 		EndBoss* GetRandomBoss();
 

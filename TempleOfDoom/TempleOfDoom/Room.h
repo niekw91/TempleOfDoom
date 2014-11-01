@@ -16,7 +16,7 @@ namespace TOD {
 	{
 
 	public:
-		Room(GameObjectFactory *factory);
+		Room(int floor, int floorCount, GameObjectFactory *factory);
 		virtual ~Room();
 
 		void SetDirectionPath(Direction dir, Room *room);
@@ -66,6 +66,7 @@ namespace TOD {
 		bool GetIsExplored() { return explored; }
 
 		void SetEndBoss();
+		int GetFloorLevel();
 
 	private:
 		GameObjectFactory *factory;
@@ -82,6 +83,9 @@ namespace TOD {
 		bool RandomBool();
 
 		bool explored;
+
+		int floorLevel;
+		int floorCount;
 
 		// Room properties
 		Size size;

@@ -16,16 +16,18 @@ int _tmain(int argc, _TCHAR* argv[])
 	system("MODE CON: COLS=80 LINES=40");
 
 	// Create game
-	TOD::Game game;
+	TOD::Game *game = new TOD::Game();
 	
 	// Initialize game
-	game.Init();
+	game->Init();
 
 	// Start game
-	game.Start();
+	game->Start();
 
 	// Cleanup game
-	game.Cleanup();
+	game->Cleanup();
+	delete game;
+
 	//_CrtDumpMemoryLeaks();
 	return 0;
 }

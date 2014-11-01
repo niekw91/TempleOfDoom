@@ -43,7 +43,9 @@ namespace TOD {
 		// Clear inventory string
 		inventory.clear();
 
-		std::vector<Item*> items = *game->GetWorld()->GetCurrentFloor()->GetCurrentRoom()->GetPlayer()->GetInventory();
+		Player *player = game->GetWorld()->GetCurrentFloor()->GetCurrentRoom()->GetPlayer();
+
+		std::vector<Item*> items = *player->GetInventory();
 		
 		int ind = 0;
 		for (auto i : items) {
@@ -53,15 +55,22 @@ namespace TOD {
 		}
 		inventory.append("\n");
 
-		Weapon *w = game->GetWorld()->GetCurrentFloor()->GetCurrentRoom()->GetPlayer()->GetWeapon();
-		Armor *a = game->GetWorld()->GetCurrentFloor()->GetCurrentRoom()->GetPlayer()->GetAmor();
+		Weapon *w = player->GetWeapon();
+		Armor *a = player->GetAmor();
 
 		std::string weaponEquiped = w == nullptr ? "none" : w->GetName();
 		std::string armorEquiped = a == nullptr ? "none" : a->GetName();
 
 		inventory.append("\t---------------------------------------------\n");
+		inventory.append("\tPLAYER STATS\n");
+		inventory.append("\t---------------------------------------------\n");
 		inventory.append("\tEquiped weapon: " + weaponEquiped + "\n");
-		inventory.append("\tEquiped armor: " + armorEquiped);
+		inventory.append("\tEquiped armor: " + armorEquiped + "\n\n");
+		inventory.append("\tLevel: " + std::to_string(player->getLevel()) + "\n");
+		inventory.append("\tHP: " + std::to_string(player->getHP()) + " of " + std::to_string(player->getMaxHP()) + "\n");
+		inventory.append("\tAttack: " + std::to_string(player->getAttack()) + "\n");
+		inventory.append("\tDefense: " + std::to_string(player->getDefense()) + "\n");
+		inventory.append("\tXP: " + std::to_string(player->getXp()) + "\n");
 		inventory.append("\n\n");
 	}
 

@@ -112,11 +112,11 @@ namespace TOD {
 			// Search for startposition
 			if (room->GetRoomType() == 1) {
 				// Create new player
-
 				room->SetPlayer(new Player(name));
 
 				// Give random items to player
 				room->GetPlayer()->PickUp(game->GetFactory()->GetRandomWeapon());
+				room->GetPlayer()->PickUp(game->GetFactory()->GetRandomMedkit());
 			}
 		}
 

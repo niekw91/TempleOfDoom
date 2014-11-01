@@ -9,8 +9,10 @@
 #include <string>
 
 namespace TOD {
-	Room::Room(GameObjectFactory *factory) {
+	Room::Room(int floor, int floorCount, GameObjectFactory *factory) {
 		this->factory = factory;
+		this->floorCount = floorCount;
+		this->floorLevel = floor;
 
 		scenery = new std::vector<Scenery*>();
 		items = new std::vector<Item*>();
@@ -106,7 +108,20 @@ namespace TOD {
 
 	void Room::SetNPC() {
 		if (HasObjectType()) {
-			npcs->push_back(factory->GetRandomNPC());
+			int count = floorCount;
+
+			switch (floorLevel) {
+			case 1:
+				npcs->push_back(factory->GetRandomNPC(1, 3));
+				break;
+			case 5:
+				npcs->push_back(factory->GetRandomNPC(9, 10));
+				break;
+			default:
+				npcs->push_back(factory->GetRandomNPC(3, 8));
+				break;
+			}
+			
 		}
 	}
 
@@ -290,5 +305,9 @@ namespace TOD {
 		// Get random end boss
 		npcs->push_back(factory->GetRandomBoss());
 
+	}
+
+	int Room::GetFloorLevel() {
+		return floorLevel;
 	}
 }

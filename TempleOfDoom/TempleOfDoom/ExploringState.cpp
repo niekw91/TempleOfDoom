@@ -60,6 +60,12 @@ namespace TOD {
 		std::string room = "\tYou're standing in a room. ";
 
 		room += RenderScenery(currRoom);
+
+		room += "\tThe room seems to be ";
+		room += currRoom->GetClean() == true ? "clean\n\n" : "dirty\n\n";
+
+		room += currRoom->GetDark() == true ? "\tIt's hard to see anything in the darkness\n\n" : "\tA burning torch makes the room visible\n\n";
+
 		room += RenderExits(currRoom);
 		room += RenderNPCs(currRoom);
 
