@@ -24,12 +24,12 @@ namespace TOD {
 		factory = new GameObjectFactory();
 
 		// Load xml files
-		factory->LoadNPCFromFile("XML/npc.xml");
-		factory->LoadItemsFromFile("XML/items.xml");
-		factory->LoadSceneryFromFile("XML/scenery.xml");
-		factory->LoadTrapsFromFile("XML/traps.xml");
-		factory->LoadBossFromFile("XML/boss.xml");
-		factory->LoadExitsFromFile("XML/exits.xml");
+		factory->LoadNPCFromFile("assets/objects/npc.xml");
+		factory->LoadItemsFromFile("assets/objects/items.xml");
+		factory->LoadSceneryFromFile("assets/objects/scenery.xml");
+		factory->LoadTrapsFromFile("assets/objects/traps.xml");
+		factory->LoadBossFromFile("assets/objects/boss.xml");
+		factory->LoadExitsFromFile("assets/objects/exits.xml");
 	}
 
 	void Game::Cleanup(){
@@ -78,5 +78,9 @@ namespace TOD {
 
 	Player *Game::GetPlayer() {
 		return this->GetCurrentRoom()->GetPlayer();
+	}
+
+	bool Game::SaveGame(Player *player) {
+		return this->factory->SavePlayerToFile(player);
 	}
 }

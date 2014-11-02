@@ -28,9 +28,10 @@ namespace TOD {
 
 		std::string stateOptions;
 
-		enum input { INVALID, NEWGAME, CREDITS, QUIT };
+		enum input { INVALID, NEWGAME, LOADGAME, CREDITS, QUIT };
 		input Hash(std::string const& inString);
 
+		void LoadGame(Game *game);
 		void NewGame(Game *game);
 		void Credits(Game *game);
 	};

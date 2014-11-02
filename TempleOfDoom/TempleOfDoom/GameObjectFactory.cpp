@@ -263,6 +263,47 @@ namespace TOD {
 		}
 	}
 
+	bool GameObjectFactory::SavePlayerToFile(Player *player) {
+		tinyxml2::XMLDocument doc;
+		std::string fileName = "assets/save/savegame.xml";
+
+		XMLElement *tod = doc.NewElement("TOD");
+		XMLElement *p = doc.NewElement("Player");
+		XMLElement *pName = doc.NewElement("name");
+		XMLElement *pLevel = doc.NewElement("level");
+		XMLElement *pAttack = doc.NewElement("attack");
+		XMLElement *pDefense = doc.NewElement("defense");
+		XMLElement *pXp = doc.NewElement("xp");
+		XMLElement *pHp = doc.NewElement("hp");
+		XMLElement *pMaxHp = doc.NewElement("maxhp");
+		XMLElement *pVigilance = doc.NewElement("vigilance");
+
+		pName->SetText(player->GetName().c_str());
+		pLevel->SetText(player->GetLevel());
+		pAttack->SetText(player->GetAttack());
+		pDefense->SetText(player->GetDefense());
+		pXp->SetText(player->GetXp());
+		pHp->SetText(player->GetHP());
+		pMaxHp->SetText(player->GetMaxHP());
+		pVigilance->SetText(player->GetVigilance());
+
+		doc.InsertFirstChild(tod);
+		tod->InsertFirstChild(p);
+		p->InsertFirstChild(pName);
+		p->InsertAfterChild(pName, pLevel);
+		p->InsertAfterChild(pLevel, pAttack);
+		p->InsertAfterChild(pAttack, pDefense);
+		p->InsertAfterChild(pDefense, pXp);
+		p->InsertAfterChild(pXp, pHp);
+		p->InsertAfterChild(pHp, pMaxHp);
+		p->InsertAfterChild(pMaxHp, pVigilance);
+
+		doc.SaveFile(fileName.c_str());
+		if (doc.ErrorID() != 0)
+			return false;
+		return true;
+	}
+
 	ItemKind GameObjectFactory::GetItemKind(std::string str) {
 		if (str == "weapons") {
 			return WEAPON;

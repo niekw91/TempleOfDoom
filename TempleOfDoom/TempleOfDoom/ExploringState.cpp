@@ -222,12 +222,19 @@ namespace TOD {
 				game->StateManager()->PushState(game, MapState::Instance());
 				HandleInput = false;
 				break;
-			case QUIT:
-				std::cout << "\tTsk tsk.. Quiting already? What would Indiana Jones say!!\n\t";
+			case QUIT: {
+				std::cout << "\n\tTsk tsk.. Quiting already? What would Indiana Jones say!!\n\n\t";
+				// Save game
+				bool saved = game->SaveGame(game->GetPlayer());
+				if (saved)
+					std::cout << "Your game has been saved\n\n\t";
+				else
+					std::cout << "Error while saving your game!\n\n\t";
 				PauseScreen();
 				game->StateManager()->ChangeState(game, MainMenuState::Instance());
 				HandleInput = false;
 				break;
+			}
 			case CHEAT:
 				for (auto r : rms) {
 					if (r->GetRoomType() == ST_UP) {

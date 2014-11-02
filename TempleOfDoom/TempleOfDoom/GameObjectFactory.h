@@ -10,6 +10,7 @@
 #include "Armor.h"
 #include "Medkit.h"
 #include "EndBoss.h"
+#include "Player.h"
 
 namespace TOD {
 	class GameObjectFactory
@@ -26,6 +27,8 @@ namespace TOD {
 		void LoadTrapsFromFile(std::string fileName);
 		void LoadBossFromFile(std::string fileName);
 		void LoadExitsFromFile(std::string fileName);
+
+		bool SavePlayerToFile(Player *player);
 
 		Weapon* GetRandomWeapon();
 		Armor* GetRandomArmor();

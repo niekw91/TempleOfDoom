@@ -3,6 +3,7 @@
 #include <fstream>
 #include <string>
 #include <algorithm>
+#include <sys/stat.h>
 
 #include "Game.h"
 #include "GameStateManager.h"
@@ -63,7 +64,7 @@ namespace TOD {
 
 			// Determine choice
 			input choice = INVALID;
-			std::vector<std::string> actions({ "invalid", "new", "credits", "quit"});
+			std::vector<std::string> actions({ "invalid", "new", "load", "credits", "quit"});
 			for (size_t i = 0, size = actions.size(); i < size; i++) {
 				std::size_t found = action.find(actions.at(i));
 				if (found != std::string::npos || action == std::to_string(i)) {
@@ -78,6 +79,10 @@ namespace TOD {
 				NewGame(game);
 				HandleInput = false;
 				break;
+			case LOADGAME:
+				LoadGame(game);
+				HandleInput = false;
+				break;
 			case CREDITS:
 				Credits(game);
 				HandleInput = false;
@@ -90,6 +95,19 @@ namespace TOD {
 				std::cout << "\t\t\t\t" << "That's not an option..." << std::endl;
 				break;
 			}
+		}
+	}
+
+	void MainMenuState::LoadGame(Game *game) {
+		std::string save = "assets/save/savegame.xml";
+		// Check if save file exitst
+		struct stat buffer;
+		if (stat(save.c_str(), &buffer) == 0) {
+			std::cout << "\n\t\t\t\tLoading game..\n\t\t\t\t";
+		}
+		else {
+			std::cout << "\n\t\t\t\tError: no save game found\n\t\t\t\t";
+			PauseScreen();
 		}
 	}
 

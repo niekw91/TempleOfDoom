@@ -34,6 +34,8 @@ namespace TOD {
 		Floor *GetCurrentFloor();
 		Room *GetCurrentRoom();
 		Player *GetPlayer();
+		
+		bool SaveGame(Player *player);
 
 		GameObjectFactory *GetFactory() { return factory; }
 
