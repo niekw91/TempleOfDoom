@@ -126,8 +126,17 @@ namespace TOD {
 	}
 
 	int Player::Rest() {
-		int gainHp = 15;
-		hp += gainHp;
+		int gain = 15;
+		return GainHp(gain);
+	}
+
+	void Player::Heal(Medkit *medkit) {
+		int gain = medkit->GetHp();
+		GainHp(gain);
+	}
+
+	int Player::GainHp(int gain) {
+		hp += gain;
 		if (hp > maxhp)
 			hp = maxhp;
 		return hp;

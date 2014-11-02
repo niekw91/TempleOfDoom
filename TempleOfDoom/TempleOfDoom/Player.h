@@ -4,6 +4,7 @@
 #include "Armor.h"
 #include "NPC.h"
 #include "Room.h"
+#include "Medkit.h"
 
 namespace TOD {
 	class Player :
@@ -21,6 +22,7 @@ namespace TOD {
 		void Equip(Armor *armor);
 		int Attack(Character *c);
 		bool SearchTrap(Room *room);
+		void Heal(Medkit *medkit);
 		int Rest();
 
 		Weapon* GetWeapon() { return weapon; }
@@ -39,6 +41,7 @@ namespace TOD {
 		const int invSize = 20;
 
 		int NextLevel();
+		int GainHp(int hp);
 	};
 }
 

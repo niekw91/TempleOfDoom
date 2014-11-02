@@ -16,6 +16,7 @@ using namespace tinyxml2;
 namespace TOD {
 	GameObjectFactory::GameObjectFactory() {
 		tempTypes = std::vector<ItemType*>();
+		tempNPC = std::vector<NPCType*>();
 	}
 
 	/*
@@ -60,6 +61,7 @@ namespace TOD {
 	EndBoss* GameObjectFactory::GetRandomBoss() {
 		EndBoss *boss = *select_randomly(bossVector.begin(), bossVector.end());
 		NPCType *type = new NPCType(boss->GetName(), boss->GetHP(), boss->GetAttack(), boss->GetDefense(), boss->GetLevel());
+		tempNPC.push_back(type);
 		return new EndBoss(type);
 	}
 
@@ -289,6 +291,12 @@ namespace TOD {
 		for (itIt = tempTypes.begin(); itIt != tempTypes.end();) {
 			delete *itIt;
 			itIt = tempTypes.erase(itIt);
+		}
+
+		std::vector<NPCType*>::iterator tnIt;
+		for (tnIt = tempNPC.begin(); tnIt != tempNPC.end();) {
+			delete *tnIt;
+			tnIt = tempNPC.erase(tnIt);
 		}
 	}
 }

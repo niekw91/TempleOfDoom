@@ -36,6 +36,8 @@ namespace TOD {
 
 	private:
 		std::vector<ItemType*> tempTypes;
+		std::vector<NPCType*> tempNPC;
+
 		std::vector<NPC*> npcVector;
 		std::vector<Scenery*> sceneryVector;
 		std::vector<Trap*> trapVector;

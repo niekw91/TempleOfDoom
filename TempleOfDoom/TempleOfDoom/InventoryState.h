@@ -5,6 +5,7 @@
 
 namespace TOD {
 	class Game;
+	class Player;
 
 	class InventoryState :
 		public GameState
@@ -30,6 +31,9 @@ namespace TOD {
 		void Header();
 		void ActionEquip(Game *game);
 		void ActionDelete(Game *game);
+		void ActionUse(Game *game);
+
+		void RemoveItem(Player *player, int index);
 
 		std::string inventory;
 	};
