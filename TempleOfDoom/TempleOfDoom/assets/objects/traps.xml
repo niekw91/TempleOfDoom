@@ -2,6 +2,14 @@
 <TOD>
 	<trap>
 		<name>Bear Trap</name>
+		<damage>5</damage>
+	</trap>
+	<trap>
+		<name>Landmine</name>
 		<damage>15</damage>
+	</trap>
+	<trap>
+		<name>Mouse trap</name>
+		<damage>1</damage>
 	</trap>
 </TOD>

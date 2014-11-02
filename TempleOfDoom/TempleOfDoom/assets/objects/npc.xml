@@ -8,6 +8,13 @@
 		<defense>5</defense>
 	</NPC>
 	<NPC>
+		<name>vegeta</name>
+		<hp>28</hp>
+		<level>1</level>
+		<attack>5</attack>
+		<defense>5</defense>
+	</NPC>
+	<NPC>
 		<name>rat</name>
 		<hp>25</hp>
 		<level>1</level>

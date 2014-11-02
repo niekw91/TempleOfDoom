@@ -8,26 +8,116 @@
 		</item>
 		<item>
 			<name>Iron Sword</name>
+			<damage>4</damage>
+			<rare>false</rare>
+		</item>
+		<item>
+			<name>Shotgun</name>
+			<damage>12</damage>
+			<rare>false</rare>
+		</item>
+		<item>
+			<name>AK-47</name>
 			<damage>10</damage>
 			<rare>false</rare>
 		</item>
 		<item>
-			<name>Bazooka</name>
+			<name>Whip</name>
+			<damage>4</damage>
+			<rare>false</rare>
+		</item>
+		<item>
+			<name>Atomic bomb</name>
 			<damage>1000</damage>
 			<rare>true</rare>
+		</item>
+		<item>
+			<name>9mm</name>
+			<damage>6</damage>
+			<rare>false</rare>
+		</item>
+		<item>
+			<name>Sniper Rifle</name>
+			<damage>15</damage>
+			<rare>false</rare>
+		</item>
+		<item>
+			<name>Samurai Sword</name>
+			<damage>9</damage>
+			<rare>false</rare>
+		</item>
+		<item>
+			<name>Revolver</name>
+			<damage>7</damage>
+			<rare>false</rare>
+		</item>
+		<item>
+			<name>Desert Eagle</name>
+			<damage>10</damage>
+			<rare>false</rare>
 		</item>
 	</weapons>
 	<armor>
 		<item>
 			<name>Iron Armor</name>
+			<rating>8</rating>
+			<rare>false</rare>
+		</item>
+		<item>
+			<name>Steel Armor</name>
+			<rating>10</rating>
+			<rare>false</rare>
+		</item>
+		<item>
+			<name>Leather Armor</name>
 			<rating>5</rating>
 			<rare>false</rare>
+		</item>
+		<item>
+			<name>Bronze Armor</name>
+			<rating>15</rating>
+			<rare>false</rare>
+		</item>
+		<item>
+			<name>Silver Armor</name>
+			<rating>20</rating>
+			<rare>true</rare>
+		</item>
+		<item>
+			<name>Golden Armor</name>
+			<rating>25</rating>
+			<rare>true</rare>
+		</item>
+		<item>
+			<name>Platinum Armor</name>
+			<rating>30</rating>
+			<rare>true</rare>
+		</item>
+		<item>
+			<name>Super Saiyan Armor</name>
+			<rating>50</rating>
+			<rare>true</rare>
 		</item>
 	</armor>
 	<medkit>
 		<item>
 			<name>Medkit</name>
 			<hp>50</hp>
+			<rare>false</rare>
+		</item>
+		<item>
+			<name>First aid kit</name>
+			<hp>40</hp>
+			<rare>false</rare>
+		</item>
+		<item>
+			<name>Bandaid</name>
+			<hp>25</hp>
+			<rare>false</rare>
+		</item>
+		<item>
+			<name>Medicine</name>
+			<hp>30</hp>
 			<rare>false</rare>
 		</item>
 	</medkit>
