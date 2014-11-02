@@ -36,7 +36,7 @@ namespace TOD {
 		ClearScreen();
 		// Create main menu banner
 		Generate(game);
-		if (!game->GetPlayer()->isDead()) {
+		if (!game->GetPlayer()->IsDead()) {
 			// Handle input
 			Do(game);
 		}
@@ -57,7 +57,7 @@ namespace TOD {
 		std::string npcGetStatus = "unscathed";
 		std::string npcGetMindstate = "aggressive";
 		for (auto npc : npcs) {
-			std::cout << "\t" + std::to_string(id++) + ". An " + npcGetMindstate + " " + npc->GetName() + " and it's " + npcGetStatus + "(" + std::to_string(npc->getHP()) + " HP).\n";
+			std::cout << "\t" + std::to_string(id++) + ". An " + npcGetMindstate + " " + npc->GetName() + " and it's " + npcGetStatus + "(" + std::to_string(npc->GetHP()) + " HP).\n";
 		}
 		std::cout << "\n";
 
@@ -74,11 +74,11 @@ namespace TOD {
 
 		// Player damage
 		player->TakeDamage(counterdamage);
-		if (player->isDead()) {
+		if (player->IsDead()) {
 			std::cout << "\tYou died!\n\n\t";
 			PauseScreen();
 		}
-		std::cout << "\tYou have " << game->GetPlayer()->getHP() << " out of " << game->GetPlayer()->getMaxHP() << " health points.\n\n";
+		std::cout << "\tYou have " << game->GetPlayer()->GetHP() << " out of " << game->GetPlayer()->GetMaxHP() << " health points.\n\n";
 	}
 
 	void FightingState::Do(Game *game) {
@@ -126,7 +126,7 @@ namespace TOD {
 				std::cout << "\tYou attack the " << npc->GetName() << " and do " << damage << " health points of damage.\n\n";
 
 				// Check if enemy is defeated
-				if (npc->isDead()) {
+				if (npc->IsDead()) {
 					std::cout << "\tThe " << npc->GetName() << " is dead. You receive " << npc->GiveXp() << " experience points.\n\n";
 					player->ReceiveXp(npc->GiveXp());
 					npcs->erase(npcs->begin() + (target - 1));

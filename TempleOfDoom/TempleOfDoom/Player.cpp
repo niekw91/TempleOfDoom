@@ -78,10 +78,10 @@ namespace TOD {
 
 	/* Returns integer with the amount of damage done, if 0 attack missed */
 	int Player::Attack(Character *c) {
-		int multiplier = (int)(level - c->getLevel()) * 0.4; // Damage multiplier
+		int multiplier = (int)(level - c->GetLevel()) * 0.4; // Damage multiplier
 		int damage = 1; // Damage default
 
-		int left = attack - c->getDefense();
+		int left = attack - c->GetDefense();
 		if (left <= 0)
 		{
 			// NPC defense is higher than player attack
@@ -123,5 +123,13 @@ namespace TOD {
 		int basenextlevelxp = 24;
 		// Return xp needed to level up
 		return basenextlevelxp * level + basenextlevelxp;
+	}
+
+	int Player::Rest() {
+		int gainHp = 15;
+		hp += gainHp;
+		if (hp > maxhp)
+			hp = maxhp;
+		return hp;
 	}
 }

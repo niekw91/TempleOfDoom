@@ -54,6 +54,8 @@ namespace TOD {
 		bool GetClean();
 		bool GetDark();
 
+		void InjectNPC();
+
 		std::vector<Scenery*> *GetScenery() { return scenery; }
 		std::vector<Item*> *GetItems() { return items; }
 		std::vector<Trap*> *GetTraps() { return traps; }

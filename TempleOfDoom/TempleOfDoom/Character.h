@@ -15,14 +15,14 @@ namespace TOD {
 		Character(std::string name);
 		virtual ~Character();
 
-		int getLevel() { return level; }
-		int getMaxHP() { return maxhp * level; }
-		int getHP() { return hp; }
-		int getXp() { return xp; }
-		int getAttack() { return attack * level; }
-		int getDefense() { return defense * level; }
+		int GetLevel() { return level; }
+		int GetMaxHP() { return maxhp * level; }
+		int GetHP() { return hp; }
+		int GetXp() { return xp; }
+		int GetAttack() { return attack * level; }
+		int GetDefense() { return defense * level; }
 		
-		bool isDead() { return _isDead; }
+		bool IsDead() { return _isDead; }
 		bool TakeDamage(int attack);
 
 		int Attack(Player* c);

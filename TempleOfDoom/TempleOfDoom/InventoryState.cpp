@@ -66,11 +66,11 @@ namespace TOD {
 		inventory.append("\t---------------------------------------------\n");
 		inventory.append("\tEquiped weapon: " + weaponEquiped + "\n");
 		inventory.append("\tEquiped armor: " + armorEquiped + "\n\n");
-		inventory.append("\tLevel: " + std::to_string(player->getLevel()) + "\n");
-		inventory.append("\tHP: " + std::to_string(player->getHP()) + " of " + std::to_string(player->getMaxHP()) + "\n");
-		inventory.append("\tAttack: " + std::to_string(player->getAttack()) + "\n");
-		inventory.append("\tDefense: " + std::to_string(player->getDefense()) + "\n");
-		inventory.append("\tXP: " + std::to_string(player->getXp()) + "\n");
+		inventory.append("\tLevel: " + std::to_string(player->GetLevel()) + "\n");
+		inventory.append("\tHP: " + std::to_string(player->GetHP()) + " of " + std::to_string(player->GetMaxHP()) + "\n");
+		inventory.append("\tAttack: " + std::to_string(player->GetAttack()) + "\n");
+		inventory.append("\tDefense: " + std::to_string(player->GetDefense()) + "\n");
+		inventory.append("\tXP: " + std::to_string(player->GetXp()) + "\n");
 		inventory.append("\n\n");
 	}
 

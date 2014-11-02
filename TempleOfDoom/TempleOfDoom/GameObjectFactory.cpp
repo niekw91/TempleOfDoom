@@ -59,7 +59,7 @@ namespace TOD {
 
 	EndBoss* GameObjectFactory::GetRandomBoss() {
 		EndBoss *boss = *select_randomly(bossVector.begin(), bossVector.end());
-		NPCType *type = new NPCType(boss->GetName(), boss->getHP(), boss->getAttack(), boss->getDefense(), boss->getLevel());
+		NPCType *type = new NPCType(boss->GetName(), boss->GetHP(), boss->GetAttack(), boss->GetDefense(), boss->GetLevel());
 		return new EndBoss(type);
 	}
 
@@ -68,8 +68,8 @@ namespace TOD {
 		do
 		{
 			npc = *select_randomly(npcVector.begin(), npcVector.end());
-		} while (npc->getLevel() > maxLevel || npc->getLevel() < minLevel);
-		return new NPC(npc->GetName(), npc->getHP(), npc->getAttack(), npc->getDefense(), npc->getLevel());
+		} while (npc->GetLevel() > maxLevel || npc->GetLevel() < minLevel);
+		return new NPC(npc->GetName(), npc->GetHP(), npc->GetAttack(), npc->GetDefense(), npc->GetLevel());
 	}
 
 	Scenery* GameObjectFactory::GetRandomScenery() {

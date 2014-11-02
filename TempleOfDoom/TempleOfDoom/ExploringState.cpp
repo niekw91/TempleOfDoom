@@ -22,6 +22,7 @@
 #include "Scenery.h"
 #include "NPC.h"
 #include "Options.h"
+#include "Random.h"
 
 namespace TOD {
 	ExploringState ExploringState::instance;
@@ -44,7 +45,7 @@ namespace TOD {
 		// Create main menu banner
 		Generate(game);
 		// Check if player is alive
-		if (!game->GetPlayer()->isDead()) {
+		if (!game->GetPlayer()->IsDead()) {
 			// Handle input
 			Do(game);
 		}
@@ -90,7 +91,7 @@ namespace TOD {
 			npc = npc.substr(0, npc.size() - 7); // Cut ' and a ' off string
 		}
 		else {
-			if (npcs->at(0)->getLevel() > 10) { // If npc is boss
+			if (npcs->at(0)->GetLevel() > 10) { // If npc is boss
 				npc.clear();
 				return npc.append("\t!!! FINAL BOSS REACHED !!!\n\n\tName: " + npcs->at(0)->GetName() + "\n\n");
 			}
@@ -198,8 +199,7 @@ namespace TOD {
 				HandleInput = true;
 				break;
 			case REST:
-				std::cout << "\tNothing happened...\n\t";
-				PauseScreen();
+				ActionRest(game);
 				HandleInput = false;
 				break;
 			case INVENTORY:
@@ -253,7 +253,7 @@ namespace TOD {
 			std::cout << currRoom->GetTraps()->at(0)->GetDamage();
 			std::cout << " hp damage\n\n\t";
 
-			if (currRoom->GetPlayer()->isDead()) {
+			if (currRoom->GetPlayer()->IsDead()) {
 				std::cout << "You died!\n\n\t";
 				
 			}
@@ -279,6 +279,31 @@ namespace TOD {
 		else
 			traps.append("\tThe exits seem to be safe..\n");
 		return traps.append("\n");
+	}
+
+	void ExploringState::ActionRest(Game *game) {
+		// Get current room
+		Room *currRoom = game->GetWorld()->GetCurrentFloor()->GetCurrentRoom();
+
+		std::string rest;
+
+		int attackChance = Random::Next(1, 4);
+
+		if (!currRoom->GetNPC()->empty() || attackChance == 4) {
+			if (currRoom->GetNPC()->empty()) currRoom->InjectNPC();
+			cout << "\n\tYou are being attacked by an enemy!\n\n\t";
+			PauseScreen();
+			game->StateManager()->PushState(game, FightingState::Instance());
+		}
+		else
+		{
+			int hp = currRoom->GetPlayer()->Rest();
+			rest += "\n\tYou have rested for a while and gained some hp, total hp is now ";
+			rest += std::to_string(hp) + "\n\n\t";
+			cout << rest;
+			PauseScreen();
+		}
+
 	}
 
 	void ExploringState::ActionSearch(Game *game) {

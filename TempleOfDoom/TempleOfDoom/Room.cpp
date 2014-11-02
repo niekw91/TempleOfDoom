@@ -108,20 +108,21 @@ namespace TOD {
 
 	void Room::SetNPC() {
 		if (HasObjectType()) {
-			int count = floorCount;
+			InjectNPC();
+		}
+	}
 
-			switch (floorLevel) {
-			case 1:
-				npcs->push_back(factory->GetRandomNPC(1, 3));
-				break;
-			case 5:
-				npcs->push_back(factory->GetRandomNPC(9, 10));
-				break;
-			default:
-				npcs->push_back(factory->GetRandomNPC(3, 8));
-				break;
-			}
-			
+	void Room::InjectNPC() {
+		switch (floorLevel) {
+		case 1:
+			npcs->push_back(factory->GetRandomNPC(1, 3));
+			break;
+		case 5:
+			npcs->push_back(factory->GetRandomNPC(9, 10));
+			break;
+		default:
+			npcs->push_back(factory->GetRandomNPC(3, 8));
+			break;
 		}
 	}
 

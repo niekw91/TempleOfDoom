@@ -21,6 +21,7 @@ namespace TOD {
 		void Equip(Armor *armor);
 		int Attack(Character *c);
 		bool SearchTrap(Room *room);
+		int Rest();
 
 		Weapon* GetWeapon() { return weapon; }
 		Armor* GetAmor() { return armor;  }

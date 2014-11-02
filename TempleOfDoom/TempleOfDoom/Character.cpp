@@ -24,9 +24,9 @@ namespace TOD {
 		//// Calculate damage
 		//int damage = totaldefense - attack < 0 ? (totaldefense - attack) * -1 : 0;
 
-		int multiplier = (int)(level - c->getLevel()) * 0.4; // Damage multiplier
+		int multiplier = (int)(level - c->GetLevel()) * 0.4; // Damage multiplier
 		int damage = 1;
-		damage += (c->getDefense() - attack) * -1;
+		damage += (c->GetDefense() - attack) * -1;
 		
 		return damage + (damage * multiplier);
 	}
