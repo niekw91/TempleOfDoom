@@ -37,6 +37,11 @@ namespace TOD {
 		}
 	/*******************************************************************************/
 
+	std::string GameObjectFactory::GetRandomExitString() {
+		std::string exit = *select_randomly(exitVector.begin(), exitVector.end());
+		return exit;
+	}
+
 	Weapon* GameObjectFactory::GetRandomWeapon() {
 		Weapon *wep = *select_randomly(weaponVector.begin(), weaponVector.end());
 		ItemType *type = new ItemType(wep->GetName(), wep->GetDamage(), wep->GetRare(), WEAPON);
@@ -233,6 +238,27 @@ namespace TOD {
 				bossVector.push_back(type->createBoss());
 				delete type;
 				npc = npc->NextSiblingElement();
+			}
+		}
+	}
+
+	void GameObjectFactory::LoadExitsFromFile(std::string fileName) {
+		exitVector = std::vector<std::string>();
+
+		tinyxml2::XMLDocument doc;
+		doc.LoadFile(fileName.c_str());
+		if (doc.ErrorID() == 0)
+		{
+			XMLElement *tod = doc.FirstChildElement("TOD");
+			XMLElement *exit = tod->FirstChildElement("Exit");
+
+			while (exit != NULL)
+			{
+				XMLElement *element = exit->FirstChildElement("description");
+				std::string name = element->GetText();
+
+				exitVector.push_back(name);
+				exit = exit->NextSiblingElement();
 			}
 		}
 	}

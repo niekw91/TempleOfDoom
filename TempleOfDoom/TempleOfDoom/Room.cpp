@@ -14,6 +14,8 @@ namespace TOD {
 		this->floorCount = floorCount;
 		this->floorLevel = floor;
 
+		directionStrings = std::map<Direction, std::string>();
+
 		scenery = new std::vector<Scenery*>();
 		items = new std::vector<Item*>();
 		traps = new std::vector<Trap*>();
@@ -186,15 +188,19 @@ namespace TOD {
 		{
 		case NORTH:
 			this->SetNorth(room);
+			this->directionStrings.insert(std::make_pair(NORTH, factory->GetRandomExitString()));
 			break;
 		case EAST:
 			this->SetEast(room);
+			this->directionStrings.insert(std::make_pair(EAST, factory->GetRandomExitString()));
 			break;
 		case SOUTH:
 			this->SetSouth(room);
+			this->directionStrings.insert(std::make_pair(SOUTH, factory->GetRandomExitString()));
 			break;
 		case WEST:
 			this->SetWest(room);
+			this->directionStrings.insert(std::make_pair(WEST, factory->GetRandomExitString()));
 			break;
 		}
 	}
@@ -310,5 +316,13 @@ namespace TOD {
 
 	int Room::GetFloorLevel() {
 		return floorLevel;
+	}
+
+	std::string Room::GetDirectionExitString(Direction dir) {
+		map<Direction, std::string>::iterator it = directionStrings.find(dir);
+		if (it != directionStrings.end())
+		{
+			return it->second;
+		}
 	}
 }

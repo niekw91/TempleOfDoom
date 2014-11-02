@@ -132,7 +132,7 @@ namespace TOD {
 			for (auto d : dirs) {
 				exits += "\t";
 				exits += d.second;
-				exits += " there is " + RandomExitString();
+				exits += " there is " + currRoom->GetDirectionExitString(d.first);
 				exits += "\n";
 			}
 		}
@@ -440,25 +440,5 @@ namespace TOD {
 			}
 		}
 	}
-
-	std::string ExploringState::RandomExitString() {
-		int random = (rand() % (6 - 1 + 1) + 1);
-
-		switch (random) {
-		case 1:
-			return "a fragile locked door that could be opened";
-		case 2:
-			return "a dark hallway";
-		case 3:
-			return "a window that could be climbed through";
-		case 4:
-			return "a door";
-		case 5:
-			return "a small path";
-		case 6:
-			return "a cracked wall";
-		}
-	}
-
 }
 

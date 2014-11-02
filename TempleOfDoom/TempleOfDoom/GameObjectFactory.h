@@ -25,6 +25,7 @@ namespace TOD {
 		void LoadSceneryFromFile(std::string fileName);
 		void LoadTrapsFromFile(std::string fileName);
 		void LoadBossFromFile(std::string fileName);
+		void LoadExitsFromFile(std::string fileName);
 
 		Weapon* GetRandomWeapon();
 		Armor* GetRandomArmor();
@@ -33,10 +34,13 @@ namespace TOD {
 		NPC* GetRandomNPC(int minLevel, int maxLevel);
 		Trap* GetRandomTrap();
 		EndBoss* GetRandomBoss();
+		std::string GetRandomExitString();
 
 	private:
 		std::vector<ItemType*> tempTypes;
 		std::vector<NPCType*> tempNPC;
+
+		std::vector<std::string> exitVector;
 
 		std::vector<NPC*> npcVector;
 		std::vector<Scenery*> sceneryVector;

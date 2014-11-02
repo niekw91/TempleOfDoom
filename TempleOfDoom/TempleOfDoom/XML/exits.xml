@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<TOD>
+	<Exit>
+		<description>a fragile locked door that could be opened</description>
+	</Exit>
+	<Exit>
+		<description>a dark hallway</description>
+	</Exit>
+	<Exit>
+		<description>a window that could be climbed through</description>
+	</Exit>
+	<Exit>
+		<description>a door</description>
+	</Exit>
+	<Exit>
+		<description>a small path</description>
+	</Exit>
+	<Exit>
+		<description>a cracked wall</description>
+	</Exit>
+</TOD>

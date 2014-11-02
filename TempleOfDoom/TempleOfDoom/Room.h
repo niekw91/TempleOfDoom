@@ -1,6 +1,7 @@
 #pragma once
 #include "Direction.h"
 #include <vector>
+#include <map>
 #include "Size.h"
 #include "RoomType.h"
 
@@ -61,6 +62,8 @@ namespace TOD {
 		std::vector<Trap*> *GetTraps() { return traps; }
 		std::vector<NPC*> *GetNPC() { return npcs; }
 
+		std::string GetDirectionExitString(Direction dir);
+
 		Player *GetPlayer() { return player; }
 		void SetPlayer(Player *newPlayer) { player = newPlayer; }
 
@@ -100,6 +103,10 @@ namespace TOD {
 		std::vector<Trap*> *traps;
 		std::vector<NPC*> *npcs;
 		Player *player;
+
+		std::map<Direction, std::string> directionStrings;
+
+		std::string RandomExitString();
 	};
 }
 
