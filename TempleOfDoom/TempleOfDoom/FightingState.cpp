@@ -15,12 +15,13 @@
 #include "Character.h"
 #include "InputHandler.h"
 #include "Player.h"
+#include "Random.h"
 
 namespace TOD {
 	FightingState FightingState::instance;
 
 	void FightingState::Init(Game *game) {
-
+		juststarted = Random::Next(1, 10) == 1 ? true : false;
 	}
 
 	void FightingState::Cleanup(Game *game) {
@@ -34,16 +35,14 @@ namespace TOD {
 	void FightingState::Render(Game *game) {
 		// Clear screen
 		ClearScreen();
+		// Initialize state
+		Init(game);
 		// Create main menu banner
 		Generate(game);
-		if (!game->GetPlayer()->IsDead()) {
-			// Handle input
+		if (!game->GetPlayer()->IsDead())
 			Do(game);
-		}
-		else {
-			// If player is dead go to GameOverstate
+		else
 			game->StateManager()->ChangeState(game, GameOverState::Instance());
-		}
 	}
 
 	void FightingState::Generate(Game *game) {
@@ -65,20 +64,25 @@ namespace TOD {
 		auto room = game->GetCurrentRoom();
 		auto player = game->GetPlayer();
 		int counterdamage = 0;
-		for (auto npc : npcs) {
-			int damage = npc->Attack(player);
-			counterdamage += damage;
-			std::cout << "\tThe " << npc->GetName() << " did " << damage << " health points of damage.\n";
-		}
-		std::cout << "\n";
+		if (!juststarted) {
+			// NPC attack
+			for (auto npc : npcs) {
+				int damage = npc->Attack(player);
+				counterdamage += damage;
+				std::cout << "\tThe " << npc->GetName() << " did " << damage << " health points of damage.\n";
+			}
+			std::cout << "\n";
 
-		// Player damage
-		player->TakeDamage(counterdamage);
-		if (player->IsDead()) {
-			std::cout << "\tYou died!\n\n\t";
-			PauseScreen();
+			// Player damage
+			player->TakeDamage(counterdamage);
+			std::cout << "\n";
 		}
-		std::cout << "\tYou have " << game->GetPlayer()->GetHP() << " out of " << game->GetPlayer()->GetMaxHP() << " health points.\n\n";
+		juststarted = false;
+
+		if (player->IsDead())
+			std::cout << "\tYou died!\n\n\t";
+		else
+			std::cout << "\tYou have " << game->GetPlayer()->GetHP() << " out of " << game->GetPlayer()->GetMaxHP() << " health points.\n\n";
 	}
 
 	void FightingState::Do(Game *game) {
