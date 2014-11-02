@@ -37,9 +37,6 @@
     <ClCompile Include="ItemType.cpp">
       <Filter>Source Files\Model\GameObjects\Items</Filter>
     </ClCompile>
-    <ClCompile Include="Map.cpp">
-      <Filter>Source Files\Model\GameObjects\Items</Filter>
-    </ClCompile>
     <ClCompile Include="Medkit.cpp">
       <Filter>Source Files\Model\GameObjects\Items</Filter>
     </ClCompile>
@@ -155,9 +152,6 @@
     </ClInclude>
     <ClInclude Include="MainMenuState.h">
       <Filter>Header Files\States</Filter>
-    </ClInclude>
-    <ClInclude Include="Map.h">
-      <Filter>Header Files\Model\GameObjects\Items</Filter>
     </ClInclude>
     <ClInclude Include="Medkit.h">
       <Filter>Header Files\Model\GameObjects\Items</Filter>

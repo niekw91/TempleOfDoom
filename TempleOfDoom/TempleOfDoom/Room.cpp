@@ -132,9 +132,10 @@ namespace TOD {
 		if (HasObjectType()) {
 			Scenery *item = factory->GetRandomScenery();
 			// Only add scenery item if not already contains
-			if (std::find(scenery->begin(), scenery->end(), item) == scenery->end()) {
+			if (std::find(scenery->begin(), scenery->end(), item) == scenery->end())
 				scenery->push_back(item);
-			}
+			else 
+				delete item;
 		}
 	}
 
