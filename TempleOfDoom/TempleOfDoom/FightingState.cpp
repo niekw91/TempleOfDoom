@@ -35,14 +35,15 @@ namespace TOD {
 	void FightingState::Render(Game *game) {
 		// Clear screen
 		ClearScreen();
-		// Initialize state
-		Init(game);
 		// Create main menu banner
 		Generate(game);
 		if (!game->GetPlayer()->IsDead())
 			Do(game);
-		else
+		else {
+			// If player is dead go to GameOverstate
+			PauseScreen();
 			game->StateManager()->ChangeState(game, GameOverState::Instance());
+		}
 	}
 
 	void FightingState::Generate(Game *game) {
@@ -75,7 +76,6 @@ namespace TOD {
 
 			// Player damage
 			player->TakeDamage(counterdamage);
-			std::cout << "\n";
 		}
 		juststarted = false;
 
@@ -104,45 +104,58 @@ namespace TOD {
 			// Get commands
 			std::vector<std::string> commands = input->GetCommands();
 
-			int target;
+			auto room = game->GetCurrentRoom();
+			auto player = game->GetPlayer();
+
+			auto npcs = room->GetNPC();
+
+			int target = 0;
 			// Fight
 			if (commands[0] == options[0]) {
-				if (commands.size() > 1) {
+				if (commands.size() > 1 && std::atoi(commands[1].c_str()) > 0) {
 					target = std::stoi(commands[1]);
+				}
+				else if (commands.size() > 1) {
+					int i = 0;
+					for (auto npc : *npcs) {
+						if (commands[1] == npc->GetName()) {
+							target = i + 1;
+							break;
+						}
+						i++;
+					}
 				}
 				else {
 					std::cout << "\tWho are you going to attack?\n\n\t";
 					std::string targetString;
 					std::getline(std::cin, targetString);
-					target = std::stoi(targetString);
+					if (std::atoi(targetString.c_str()) > 0)
+						target = std::stoi(targetString);
 				}
-				// Attack target
-				auto room = game->GetCurrentRoom();
-				auto player = game->GetPlayer();
+				if (target > 0) {
+					// Attack target
+					auto npc = npcs->at(target - 1);
 
-				auto npcs = room->GetNPC();
-				auto npc = npcs->at(target - 1);
+					int damage = player->Attack(npc);
 
-				int damage = player->Attack(npc);
+					// Show damage
+					npc->TakeDamage(damage);
+					std::cout << "\tYou attack the " << npc->GetName() << " and do " << damage << " health points of damage.\n\n";
 
-				// Show damage
-				npc->TakeDamage(damage);
-				std::cout << "\tYou attack the " << npc->GetName() << " and do " << damage << " health points of damage.\n\n";
+					// Check if enemy is defeated
+					if (npc->IsDead()) {
+						std::cout << "\tThe " << npc->GetName() << " is dead. You receive " << npc->GiveXp() << " experience points.\n\n";
+						player->ReceiveXp(npc->GiveXp());
+						npcs->erase(npcs->begin() + (target - 1));
+					}
 
-				// Check if enemy is defeated
-				if (npc->IsDead()) {
-					std::cout << "\tThe " << npc->GetName() << " is dead. You receive " << npc->GiveXp() << " experience points.\n\n";
-					player->ReceiveXp(npc->GiveXp());
-					npcs->erase(npcs->begin() + (target - 1));
+					// Check if all enemies are defeated
+					if (npcs->empty()) {
+						std::cout << "\tAll the enemies in the room have been defeated.\n\n\t";
+						PauseScreen();
+						game->StateManager()->PopState(game);
+					}
 				}
-
-				// Check if all enemies are defeated
-				if (npcs->empty()) {
-					std::cout << "\tAll the enemies in the room have been defeated.\n\n\t";
-					PauseScreen();
-					game->StateManager()->PopState(game);
-				}
-
 				std::cout << "\t";
 				PauseScreen();
 				HandleInput = false;

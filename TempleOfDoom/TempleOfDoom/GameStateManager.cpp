@@ -41,8 +41,8 @@ namespace TOD {
 	}
 
 	void GameStateManager::PushState(Game *game, GameState* state){
-
 		states.push_back(state);
+		states.back()->Init(game);
 	}
 
 	void GameStateManager::PopState(Game *game){
