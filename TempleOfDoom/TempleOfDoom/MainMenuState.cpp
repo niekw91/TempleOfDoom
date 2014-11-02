@@ -103,7 +103,11 @@ namespace TOD {
 		// Check if save file exitst
 		struct stat buffer;
 		if (stat(save.c_str(), &buffer) == 0) {
-			std::cout << "\n\t\t\t\tLoading game..\n\t\t\t\t";
+			Player *player = game->GetFactory()->LoadPlayerFromFile(save);
+			if (player) {
+				std::cout << "\n\t\t\t\tSuccessfully loaded player: " + player->GetName() + "\n\t\t\t\t";
+				NewGame(game, player, true);
+			}
 		}
 		else {
 			std::cout << "\n\t\t\t\tError: no save game found\n\t\t\t\t";
@@ -111,11 +115,14 @@ namespace TOD {
 		}
 	}
 
-	void MainMenuState::NewGame(Game* game) {
-		// Set player name
-		std::cout << "\n\t\t\t\tWhat is your name?\n\t\t\t\t";
-		std::string name;
-		std::getline(std::cin, name);
+	void MainMenuState::NewGame(Game* game, Player *player, bool skipName) {
+		if (!skipName) {
+			// Set player name
+			std::cout << "\n\t\t\t\tWhat is your name?\n\t\t\t\t";
+			std::string name;
+			std::getline(std::cin, name);
+			player = new Player(name);
+		}
 		// Set world size
 		std::cout << "\n\t\t\t\tChoose world size: [5, 10, 15]\n\t\t\t\t";
 		std::string sizeStr;
@@ -130,7 +137,7 @@ namespace TOD {
 			// Search for startposition
 			if (room->GetRoomType() == 1) {
 				// Create new player
-				room->SetPlayer(new Player(name));
+				room->SetPlayer(player);
 
 				// Give random items to player
 				room->GetPlayer()->PickUp(game->GetFactory()->GetRandomWeapon());

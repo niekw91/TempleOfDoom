@@ -11,6 +11,7 @@ namespace TOD {
 		public Character
 	{
 	public:
+		Player(std::string name, int level, int attack, int defense, int xp, int hp, int maxHp, int vigilance);
 		Player(std::string name);
 		virtual ~Player();
 

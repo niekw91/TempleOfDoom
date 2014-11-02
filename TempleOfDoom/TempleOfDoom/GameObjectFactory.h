@@ -28,6 +28,7 @@ namespace TOD {
 		void LoadBossFromFile(std::string fileName);
 		void LoadExitsFromFile(std::string fileName);
 
+		Player* LoadPlayerFromFile(std::string fileName);
 		bool SavePlayerToFile(Player *player);
 
 		Weapon* GetRandomWeapon();

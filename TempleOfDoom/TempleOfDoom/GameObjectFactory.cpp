@@ -263,6 +263,36 @@ namespace TOD {
 		}
 	}
 
+	Player* GameObjectFactory::LoadPlayerFromFile(std::string fileName) {
+		tinyxml2::XMLDocument doc;
+		doc.LoadFile(fileName.c_str());
+		if (doc.ErrorID() == 0)
+		{
+			XMLElement *tod = doc.FirstChildElement("TOD");
+			XMLElement *player = tod->FirstChildElement("Player");
+
+			XMLElement *element = player->FirstChildElement("name");
+			std::string name = element->GetText();
+			element = element->NextSiblingElement("level");
+			int level = atoi(element->GetText());
+			element = element->NextSiblingElement("attack");
+			int attack = atoi(element->GetText());
+			element = element->NextSiblingElement("defense");
+			int defense = atoi(element->GetText());
+			element = element->NextSiblingElement("xp");
+			int xp = atoi(element->GetText());
+			element = element->NextSiblingElement("hp");
+			int hp = atoi(element->GetText());
+			element = element->NextSiblingElement("maxhp");
+			int maxHp = atoi(element->GetText());
+			element = element->NextSiblingElement("vigilance");
+			int vigilance = atoi(element->GetText());
+
+			return new Player(name, level, attack, defense, xp, hp, maxHp, vigilance);
+		}
+		return nullptr;
+	}
+
 	bool GameObjectFactory::SavePlayerToFile(Player *player) {
 		tinyxml2::XMLDocument doc;
 		std::string fileName = "assets/save/savegame.xml";

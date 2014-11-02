@@ -6,8 +6,18 @@
 #include "Trap.h"
 
 namespace TOD {
-	Player::Player(std::string name) : Character(name) 
-	{
+	Player::Player(std::string name, int level, int attack, int defense, int xp, int hp, int maxHp, int vigilance) : Character(name) {
+		this->level = level;
+		this->maxhp = maxHp;
+		this->hp = hp;
+		this->xp = xp;
+		this->attack = attack;
+		this->defense = defense;
+		this->vigilance = vigilance;
+		inventory = new std::vector<Item*>();
+	}
+
+	Player::Player(std::string name) : Character(name) {
 		this->level = 1;
 		this->maxhp = 25;
 		this->hp = maxhp;
