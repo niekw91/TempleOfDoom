@@ -79,13 +79,17 @@ namespace TOD {
 		bool HandleInput = true;
 		while (HandleInput) {
 			// Create options
-			Options *options = new Options("equip;delete;back", true);
-			enum optionsenum { EQUIP, DELETE, BACK };
+			Options *options = new Options("equip;use;delete;back", true);
+			enum optionsenum { EQUIP, USE, DELETE, BACK };
 
 			// Handle choice
 			switch (options->GetChoice()) {
 			case EQUIP:
 				ActionEquip(game);
+				HandleInput = false;
+				break;
+			case USE:
+				ActionUse(game);
 				HandleInput = false;
 				break;
 			case DELETE:
@@ -103,6 +107,23 @@ namespace TOD {
 		}
 	}
 
+	void InventoryState::ActionUse(Game *game) {
+		Player *player = game->GetWorld()->GetCurrentFloor()->GetCurrentRoom()->GetPlayer();
+
+		std::cout << "\n\tWhat item do you want to use? (index)\n\n\t";
+
+		std::string input;
+
+		std::getline(std::cin, input);
+		int index = std::atoi(input.c_str());
+
+		// Heal
+		Medkit *medkit = dynamic_cast<Medkit*>(player->GetInventory()->at(index));
+		player->Heal(medkit);
+
+		RemoveItem(player, index);
+	}
+
 	void InventoryState::ActionDelete(Game *game) {
 		Player *player = game->GetWorld()->GetCurrentFloor()->GetCurrentRoom()->GetPlayer();
 
@@ -113,14 +134,7 @@ namespace TOD {
 		std::getline(std::cin, input);
 		int index = std::atoi(input.c_str());
 
-		// Erase item from inventory
-		if (player->GetInventory()->size() > 0) {
-			if (player->GetInventory()->size() == 1)
-				player->GetInventory()->pop_back();
-			else
-				player->GetInventory()->erase(player->GetInventory()->begin() + index);
-		}
-			
+		RemoveItem(player, index);
 	}
 
 	void InventoryState::ActionEquip(Game *game) {
@@ -162,6 +176,16 @@ namespace TOD {
 				break;
 			}
 		}		
+	}
+
+	void InventoryState::RemoveItem(Player *player, int index) {
+		// Erase item from inventory
+		if (player->GetInventory()->size() > 0) {
+			if (player->GetInventory()->size() == 1)
+				player->GetInventory()->pop_back();
+			else
+				player->GetInventory()->erase(player->GetInventory()->begin() + index);
+		}
 	}
 
 	void InventoryState::Header(){

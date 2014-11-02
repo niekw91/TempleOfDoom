@@ -58,11 +58,12 @@ namespace TOD {
 	void ExploringState::Generate(Game *game){
 		Room *currRoom = game->GetWorld()->GetCurrentFloor()->GetCurrentRoom();
 		Header();
-		std::string room = "\tYou're standing in a room. ";
+		
+		std::string room = "\tYou're standing in a " + RenderSize(currRoom->GetSize()) + " room. ";
 
 		room += RenderScenery(currRoom);
 
-		room += "\tThe room seems to be ";
+		room += "\tThe room looks ";
 		room += currRoom->GetClean() == true ? "clean\n\n" : "dirty\n\n";
 
 		room += currRoom->GetDark() == true ? "\tIt's hard to see anything in the darkness\n\n" : "\tA burning torch makes the room visible\n\n";
@@ -73,6 +74,17 @@ namespace TOD {
 		room += "\tWhat are you going to do? \n\n";
 
 		std::cout << room;
+	}
+
+	std::string ExploringState::RenderSize(Size size) {
+		switch (size) {
+		case SMALL:
+			return "small";
+		case MEDIUM:
+			return "medium sized";
+		case LARGE:
+			return "large";
+		}
 	}
 
 	std::string ExploringState::RenderNPCs(Room* currRoom) {

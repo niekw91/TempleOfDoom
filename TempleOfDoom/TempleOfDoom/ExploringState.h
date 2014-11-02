@@ -37,6 +37,7 @@ namespace TOD {
 		std::string RenderExits(Room* currRoom);
 		std::string RenderNPCs(Room* currRoom);
 		std::string RenderItems(Room* currRoom);
+		std::string RenderSize(Size size);
 
 		std::string SearchTrap(Game *game);
 
