@@ -83,7 +83,7 @@ namespace TOD {
 	}
 
 	void Room::SetTrap() {
-		if (HasObjectType()) {
+		if (Random::Next(1, 10) == 1) {
 			traps->push_back(factory->GetRandomTrap());
 		}
 	}
