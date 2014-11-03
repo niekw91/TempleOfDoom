@@ -5,6 +5,7 @@
 
 namespace TOD {
 	// Forward declaration
+	class Options;
 	class Game;
 
 	class ExploringState : public GameState
@@ -22,6 +23,7 @@ namespace TOD {
 		ExploringState() { }
 
 	private:
+		enum optionsenum { FIGHT, MOVE, SEARCH, REST, INVENTORY, MAP, QUIT, CHEAT };
 		static ExploringState instance;
 
 		void Generate(Game *game);
@@ -40,5 +42,7 @@ namespace TOD {
 		std::string RenderSize(Size size);
 
 		std::string SearchTrap(Game *game);
+
+		Options *options;
 	};
 }

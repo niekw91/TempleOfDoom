@@ -32,7 +32,7 @@ namespace TOD {
 	}
 
 	void ExploringState::Cleanup(Game *game) {
-
+		delete options;
 	}
 
 	void ExploringState::Update(Game *game) {
@@ -181,14 +181,7 @@ namespace TOD {
 		// Handle input
 		bool HandleInput = true;
 		while (HandleInput) {
-			// Create options
-			Options *options = new Options("fight;move;search;rest;inventory;map;quit;cheat", true);
-			enum optionsenum { FIGHT, MOVE, SEARCH, REST, INVENTORY, MAP, QUIT, CHEAT };
-
-			//TODO: remove cheat code 
-			std::vector<Room*> rms = game->GetWorld()->GetCurrentFloor()->GetRooms();
-			Room *currRoom = game->GetWorld()->GetCurrentFloor()->GetCurrentRoom();
-
+			options = new Options("fight;move;search;rest;inventory;map;quit;cheat", true);
 			// Handle choice
 			switch (options->GetChoice()) {
 			case FIGHT:
@@ -235,7 +228,11 @@ namespace TOD {
 				HandleInput = false;
 				break;
 			}
-			case CHEAT:
+			case CHEAT: {
+				//TODO: remove cheat code 
+				std::vector<Room*> rms = game->GetWorld()->GetCurrentFloor()->GetRooms();
+				Room *currRoom = game->GetWorld()->GetCurrentFloor()->GetCurrentRoom();
+
 				for (auto r : rms) {
 					if (r->GetRoomType() == ST_UP) {
 						r->SetPlayer(currRoom->GetPlayer());
@@ -250,6 +247,7 @@ namespace TOD {
 				}
 				HandleInput = false;
 				break;
+			}
 			default:
 				std::cout << "\tThat's not an option...\n";
 				break;
