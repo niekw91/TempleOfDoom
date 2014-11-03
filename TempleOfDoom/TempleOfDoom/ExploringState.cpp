@@ -182,6 +182,7 @@ namespace TOD {
 		bool HandleInput = true;
 		while (HandleInput) {
 			options = new Options("fight;move;search;rest;inventory;map;quit;cheat", true);
+			enum optionsenum { FIGHT = 1, MOVE, SEARCH, REST, INVENTORY, MAP, QUIT, CHEAT };
 			// Handle choice
 			switch (options->GetChoice()) {
 			case FIGHT:
@@ -249,7 +250,7 @@ namespace TOD {
 				break;
 			}
 			default:
-				std::cout << "\tThat's not an option...\n";
+				std::cout << "\tThat's not an option...\n\n";
 				break;
 			}
 		}
@@ -341,8 +342,8 @@ namespace TOD {
 			bool HandleInput = true;
 			while (HandleInput) {
 				// Create options
-				Options *options = new Options("pickup;pass", false);
-				enum optionsenum { PICKUP, PASS };
+				options = new Options("pickup;pass", false);
+				enum optionsenum { PICKUP = 1, PASS };
 
 				std::string input;
 				// Handle choice
@@ -380,8 +381,8 @@ namespace TOD {
 		bool HandleInput = true;
 		while (HandleInput) {
 			// Create options
-			Options *options = new Options("north;east;south;west;up;down", false);
-			enum optionsenum { NORTH, EAST, SOUTH, WEST, UP, DOWN };
+			options = new Options("north;east;south;west;up;down", false);
+			enum optionsenum { NORTH = 1, EAST, SOUTH, WEST, UP, DOWN };
 
 			// Handle choice
 			switch (options->GetChoice()) {

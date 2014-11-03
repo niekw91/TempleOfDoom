@@ -42,7 +42,7 @@ namespace TOD {
 	}
 
 	void MainMenuState::Generate(Game *game){
-		const std::string textfile("MainMenu.txt");
+		const std::string textfile("assets/screens/mainmenu.txt");
 		std::ifstream input_file(textfile);
 
 		std::string line;
@@ -124,12 +124,18 @@ namespace TOD {
 			player = new Player(name);
 		}
 		// Set world size
-		std::cout << "\n\t\t\t\tChoose world size: [5, 10, 15]\n\t\t\t\t";
+		std::cout << "\n\t\t\t\tChoose world size: [5 - 15]\n\t\t\t\t";
 		std::string sizeStr;
 		std::getline(std::cin, sizeStr);
+		int size = std::atoi(sizeStr.c_str()) > 0 ? std::atoi(sizeStr.c_str()) : 0;
+		if (size > 15 || size < 5) {
+			std::cout << "\n\t\t\t\tInvalid size entered, default size set (10)\n\t\t\t\t";
+			size = 10;
+			PauseScreen();
+		}
 
 		// Generate world
-		game->CreateWorld(5, atoi(sizeStr.c_str()));
+		game->CreateWorld(5, size);
 
 		// Add player to world
 		Floor *firstFloor = game->GetWorld()->GetFloor(0);

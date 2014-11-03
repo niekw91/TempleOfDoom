@@ -1,12 +1,12 @@
 <TOD>
     <Player>
-        <name>Este</name>
-        <level>3</level>
-        <attack>72</attack>
-        <defense>72</defense>
-        <xp>77</xp>
+        <name>2</name>
+        <level>1</level>
+        <attack>24</attack>
+        <defense>24</defense>
+        <xp>0</xp>
         <hp>100</hp>
-        <maxhp>300</maxhp>
+        <maxhp>100</maxhp>
         <vigilance>26</vigilance>
     </Player>
 </TOD>

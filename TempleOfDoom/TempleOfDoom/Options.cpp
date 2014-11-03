@@ -56,7 +56,7 @@ namespace TOD
 		
 		for (size_t i = 0, size = options.size(); i < size; i++) {
 			if (options[i] == input) {
-				this->choice = i;
+				this->choice = i + 1;
 				break;
 			}
 		}

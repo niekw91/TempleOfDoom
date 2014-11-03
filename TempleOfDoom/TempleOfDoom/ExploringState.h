@@ -23,7 +23,6 @@ namespace TOD {
 		ExploringState() { }
 
 	private:
-		enum optionsenum { FIGHT, MOVE, SEARCH, REST, INVENTORY, MAP, QUIT, CHEAT };
 		static ExploringState instance;
 
 		void Generate(Game *game);

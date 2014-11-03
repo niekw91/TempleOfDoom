@@ -33,7 +33,7 @@ namespace TOD {
 	}
 
 	void GameOverState::Generate(Game *game) {
-		const std::string textfile("GameOver.txt");
+		const std::string textfile("assets/screens/gameover.txt");
 		std::ifstream input_file(textfile);
 
 		std::string line;

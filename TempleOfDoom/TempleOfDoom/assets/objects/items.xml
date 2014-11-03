@@ -27,7 +27,7 @@
 			<rare>false</rare>
 		</item>
 		<item>
-			<name>Atomic bomb</name>
+			<name>Atomic bomb launcher</name>
 			<damage>1000</damage>
 			<rare>true</rare>
 		</item>

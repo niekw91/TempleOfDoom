@@ -5,6 +5,7 @@ namespace TOD {
 
 	// Forward declaration
 	class Game;
+	class InputHandler;
 
 	class FightingState : public GameState
 	{
@@ -29,6 +30,8 @@ namespace TOD {
 		void Header();
 
 		bool juststarted;
+
+		InputHandler *input;
 	};
 }
 

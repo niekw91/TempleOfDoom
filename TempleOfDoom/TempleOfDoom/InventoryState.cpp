@@ -21,7 +21,7 @@ namespace TOD {
 	}
 
 	void InventoryState::Cleanup(Game *game) {
-
+		delete options;
 	}
 
 	void InventoryState::Update(Game *game) {
@@ -79,8 +79,8 @@ namespace TOD {
 		bool HandleInput = true;
 		while (HandleInput) {
 			// Create options
-			Options *options = new Options("equip;use;delete;back", true);
-			enum optionsenum { EQUIP, USE, DELETE, BACK };
+			options = new Options("equip;use;delete;back", true);
+			enum optionsenum { EQUIP = 1, USE, DELETE, BACK };
 
 			// Handle choice
 			switch (options->GetChoice()) {
@@ -148,8 +148,8 @@ namespace TOD {
 		bool HandleInput = true;
 		while (HandleInput) {
 			// Create options
-			Options *options = new Options("weapon;armor", true);
-			enum optionsenum { WEAPON, ARMOR };
+			options = new Options("weapon;armor", true);
+			enum optionsenum { WEAPON = 1, ARMOR };
 			switch (options->GetChoice()) {
 			case WEAPON: {
 				std::cout << "\n\tWhich weapon do you wish to equip? (index)\n\n\t";

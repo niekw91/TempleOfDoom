@@ -16,7 +16,7 @@ namespace TOD {
 		virtual ~Character();
 
 		int GetLevel() { return level; }
-		int GetMaxHP() { return maxhp * level; }
+		int GetMaxHP() { return maxhp; }
 		int GetHP() { return hp; }
 		int GetXp() { return xp; }
 		int GetAttack() { return attack * level; }

@@ -6,6 +6,7 @@
 namespace TOD {
 	class Game;
 	class Player;
+	class Options;
 
 	class InventoryState :
 		public GameState
@@ -36,6 +37,8 @@ namespace TOD {
 		void RemoveItem(Player *player, int index);
 
 		std::string inventory;
+
+		Options *options;
 	};
 }
 

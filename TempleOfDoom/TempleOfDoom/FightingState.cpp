@@ -25,7 +25,7 @@ namespace TOD {
 	}
 
 	void FightingState::Cleanup(Game *game) {
-
+		delete input;
 	}
 
 	void FightingState::Update(Game *game) {
@@ -98,7 +98,7 @@ namespace TOD {
 
 			// Read input
 			std::cout << "\t";
-			InputHandler *input = new InputHandler();
+			input = new InputHandler();
 			std::cout << "\n";
 
 			// Get commands
