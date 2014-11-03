@@ -19,11 +19,11 @@ namespace TOD {
 
 	Player::Player(std::string name) : Character(name) {
 		this->level = 1;
-		this->maxhp = 25;
+		this->maxhp = 100;
 		this->hp = maxhp;
 		this->xp = 0;
 		this->attack = 24;
-		this->defense = 4;
+		this->defense = 24;
 		this->vigilance = 26;
 		inventory = new std::vector<Item*>();
 	}

@@ -26,7 +26,7 @@ namespace TOD {
 
 		int multiplier = (int)(level - c->GetLevel()) * 0.4; // Damage multiplier
 		int damage = 1;
-		damage += (c->GetDefense() - attack) * -1;
+		damage += (c->GetDefense() - attack) > 0 ? 0 : (c->GetDefense() - attack) * -1;
 		
 		return damage + (damage * multiplier);
 	}

@@ -111,10 +111,12 @@ namespace TOD {
 
 			int target = 0;
 			// Fight
-			if (commands[0] == options[0]) {
-				if (commands.size() > 1 && std::atoi(commands[1].c_str()) > 0) {
+			if (!commands.empty() && commands[0] == options[0]) {
+				// Check if command has valid index parameter
+				if (commands.size() > 1 && std::atoi(commands[1].c_str()) > 0 && std::atoi(commands[1].c_str()) <= npcs->size()) {
 					target = std::stoi(commands[1]);
 				}
+				// Check if command has valid npc name parameter
 				else if (commands.size() > 1) {
 					int i = 0;
 					for (auto npc : *npcs) {
@@ -129,7 +131,7 @@ namespace TOD {
 					std::cout << "\tWho are you going to attack?\n\n\t";
 					std::string targetString;
 					std::getline(std::cin, targetString);
-					if (std::atoi(targetString.c_str()) > 0)
+					if (std::atoi(targetString.c_str()) > 0 && std::atoi(targetString.c_str()) <= npcs->size())
 						target = std::stoi(targetString);
 				}
 				if (target > 0) {
@@ -152,7 +154,6 @@ namespace TOD {
 					// Check if all enemies are defeated
 					if (npcs->empty()) {
 						std::cout << "\tAll the enemies in the room have been defeated.\n\n\t";
-						PauseScreen();
 						game->StateManager()->PopState(game);
 					}
 				}
@@ -161,12 +162,12 @@ namespace TOD {
 				HandleInput = false;
 			}
 			// Run
-			else if (commands[0] == options[1]) {
+			else if (!commands.empty() && commands[0] == options[1]) {
 				game->StateManager()->PopState(game);
 				HandleInput = false;
 			}
 			// Inventory
-			else if (commands[0] == options[2]) {
+			else if (!commands.empty() && commands[0] == options[2]) {
 				game->StateManager()->PushState(game, InventoryState::Instance());
 				HandleInput = false;
 			}

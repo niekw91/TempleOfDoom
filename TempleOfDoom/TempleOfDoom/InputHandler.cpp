@@ -21,10 +21,11 @@ namespace TOD {
 		std::vector<std::string> commands;
 
 		// Create commands
+		if (!input.empty()) {
+
 		std::stringstream ss(input);
 		std::string to;
 
-		if (!input.empty()) {
 			while (std::getline(ss, to, ' ')) {
 				std::transform(to.begin(), to.end(), to.begin(), ::tolower);
 				commands.push_back(to);
