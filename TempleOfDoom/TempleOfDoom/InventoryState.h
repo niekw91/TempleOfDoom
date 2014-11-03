@@ -2,6 +2,7 @@
 #include "GameState.h"
 
 #include <string>
+#include <vector>
 
 namespace TOD {
 	class Game;
@@ -38,7 +39,7 @@ namespace TOD {
 
 		std::string inventory;
 
-		Options *options;
+		std::vector<Options*> options;
 	};
 }
 

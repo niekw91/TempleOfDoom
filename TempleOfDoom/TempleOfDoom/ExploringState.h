@@ -42,6 +42,6 @@ namespace TOD {
 
 		std::string SearchTrap(Game *game);
 
-		Options *options;
+		std::vector<Options*> options;
 	};
 }

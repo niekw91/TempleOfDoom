@@ -15,17 +15,22 @@
 #include "Room.h"
 #include "Player.h"
 #include "GameObjectFactory.h"
+#include "Options.h"
 
 namespace TOD {
 
 	MainMenuState MainMenuState::instance;
 
 	void MainMenuState::Init(Game *game) {
-		
+		options = std::vector<Options*>();
 	}
 
 	void MainMenuState::Cleanup(Game *game) {
-
+		std::vector<Options*>::iterator it;
+		for (it = options.begin(); it != options.end();) {
+			delete *it;
+			it = options.erase(it);
+		}
 	}
 
 	void MainMenuState::Update(Game *game) {
@@ -52,29 +57,17 @@ namespace TOD {
 	}
 
 	void MainMenuState::Do(Game* game){
+		std::cout << "\t\t\t";
 		// Handle input
 		bool HandleInput = true;
 		while (HandleInput)
 		{
-			// Read input
-			std::cout << "\t\t\t\t";
-			std::string action;
-			std::getline(std::cin, action);
-			std::transform(action.begin(), action.end(), action.begin(), ::tolower); // to lowercase
-
-			// Determine choice
-			input choice = INVALID;
-			std::vector<std::string> actions({ "invalid", "new", "load", "credits", "quit"});
-			for (size_t i = 0, size = actions.size(); i < size; i++) {
-				std::size_t found = action.find(actions.at(i));
-				if (found != std::string::npos || action == std::to_string(i)) {
-					choice = input(i);
-					break;
-				}
-			}
+			Options *op = new Options("new game;load game;credits;quit", false);
+			options.push_back(op);
+			enum optionsenum { NEWGAME = 1, LOADGAME, CREDITS, QUIT };
 
 			// Handle choice
-			switch (choice){
+			switch (op->GetChoice()){
 			case NEWGAME:
 				NewGame(game);
 				HandleInput = false;

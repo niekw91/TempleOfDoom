@@ -5,6 +5,7 @@
 namespace TOD {
 	// Forward declaration
 	class Game;
+	class Options;
 
 	class MainMenuState : public GameState
 	{
@@ -34,5 +35,7 @@ namespace TOD {
 		void LoadGame(Game *game);
 		void NewGame(Game *game, Player *player = nullptr, bool skipName = false);
 		void Credits(Game *game);
+
+		std::vector<Options*> options;
 	};
 }
