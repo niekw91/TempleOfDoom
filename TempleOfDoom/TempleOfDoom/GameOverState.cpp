@@ -44,7 +44,10 @@ namespace TOD {
 
 	void GameOverState::Do(Game *game) {
 		std::cout << "\n\t";
-			PauseScreen();
+		PauseScreen();
+
+		// Delete save game
+		game->DeleteSaveGame();
 
 		game->StateManager()->ChangeState(game, MainMenuState::Instance());
 	}
