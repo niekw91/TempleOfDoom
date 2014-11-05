@@ -355,13 +355,15 @@ namespace TOD {
 				// Handle choice
 				switch (op->GetChoice()) {
 				case PICKUP: {
-					std::cout << "\n\tWhich item do you want to pick-up? (index)\n\n\t";
+					//std::cout << "\n\tWhich item do you want to pick-up? (index)\n\n\t";
 
-					std::getline(std::cin, input);
-					int index = std::atoi(input.c_str());
-					Item *item = currRoom->GetItems()->at(index);
-					currRoom->GetPlayer()->PickUp(item);
-					currRoom->GetItems()->erase(currRoom->GetItems()->begin() + index);
+					//std::getline(std::cin, input);
+					//int index = std::atoi(input.c_str());
+					for (int i = 0; i < currRoom->GetItems()->size(); i++) {
+						Item *item = currRoom->GetItems()->at(i);
+						currRoom->GetPlayer()->PickUp(item);
+						currRoom->GetItems()->erase(currRoom->GetItems()->begin() + i);
+					}
 
 					HandleInput = false;
 					break;

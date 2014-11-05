@@ -19,7 +19,7 @@ namespace TOD {
 
 	Player::Player(std::string name) : Character(name) {
 		this->level = 1;
-		this->maxhp = 100;
+		this->maxhp = 1;
 		this->hp = maxhp;
 		this->xp = 0;
 		this->attack = 24;

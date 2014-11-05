@@ -83,4 +83,8 @@ namespace TOD {
 	bool Game::SaveGame(Player *player) {
 		return this->factory->SavePlayerToFile(player);
 	}
+
+	void Game::DeleteSaveGame() {
+		remove("assets/save/savegame.xml");
+	}
 }

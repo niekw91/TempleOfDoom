@@ -36,6 +36,7 @@ namespace TOD {
 		Player *GetPlayer();
 		
 		bool SaveGame(Player *player);
+		void DeleteSaveGame();
 
 		GameObjectFactory *GetFactory() { return factory; }
 
