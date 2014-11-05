@@ -51,11 +51,10 @@ namespace TOD {
 
 		std::vector<Item*> items = *player->GetInventory();
 		
-		int ind = 0;
+		int ind = 1;
 		for (auto i : items) {
-			inventory.append("\t[" + std::to_string(ind));
+			inventory.append("\t[" + std::to_string(ind++));
 			inventory.append("] " + i->ToString() + "\n");
-			ind++;
 		}
 		inventory.append("\n");
 
@@ -120,13 +119,20 @@ namespace TOD {
 		std::string input;
 
 		std::getline(std::cin, input);
-		int index = std::atoi(input.c_str());
+		int index = std::atoi(input.c_str()) == 0 ? 0 : std::atoi(input.c_str());
+		if (index > 0 && index <= player->GetInventory()->size()) {
+			// Heal
+			Medkit *medkit = dynamic_cast<Medkit*>(player->GetInventory()->at(index - 1));
+			if (medkit) {
+				player->Heal(medkit);
 
-		// Heal
-		Medkit *medkit = dynamic_cast<Medkit*>(player->GetInventory()->at(index));
-		player->Heal(medkit);
-
-		RemoveItem(player, index);
+				RemoveItem(player, index);
+			}
+			else
+				std::cout << "\n\tInvalid item chosen\n\n\t";
+		}
+		else
+			std::cout << "\n\tInvalid index entered\n\n\t";
 	}
 
 	void InventoryState::ActionDelete(Game *game) {
@@ -137,9 +143,11 @@ namespace TOD {
 		std::string input;
 
 		std::getline(std::cin, input);
-		int index = std::atoi(input.c_str());
-
-		RemoveItem(player, index);
+		int index = std::atoi(input.c_str()) == 0 ? 0 : std::atoi(input.c_str());
+		if (index > 0 && index <= player->GetInventory()->size())
+			RemoveItem(player, index - 1);
+		else
+			std::cout << "\n\tInvalid index entered\n\n\t";
 	}
 
 	void InventoryState::ActionEquip(Game *game) {
@@ -161,9 +169,14 @@ namespace TOD {
 				std::cout << "\n\tWhich weapon do you wish to equip? (index)\n\n\t";
 
 				std::getline(std::cin, input);
-				int index = std::atoi(input.c_str());
-				Weapon *weapon = dynamic_cast<Weapon*>(player->GetInventory()->at(index));
-				player->Equip(weapon);
+				int index = std::atoi(input.c_str()) == 0 ? 0 : std::atoi(input.c_str());
+				if (index > 0 && index <= player->GetInventory()->size()) {
+					Weapon *weapon = dynamic_cast<Weapon*>(player->GetInventory()->at(index - 1));
+					if (weapon)
+						player->Equip(weapon);
+					else
+						std::cout << "\n\tInvalid item chosen\n\n\t";
+				}
 				HandleInput = false;
 				break;
 			}
@@ -171,9 +184,14 @@ namespace TOD {
 				std::cout << "\n\tWhich armor piece would you like to equip? (index)\n\n\t";
 
 				std::getline(std::cin, input);
-				int index = std::atoi(input.c_str());
-				Armor *armor = dynamic_cast<Armor*>(player->GetInventory()->at(index));
-				player->Equip(armor);
+				int index = std::atoi(input.c_str()) == 0 ? 0 : std::atoi(input.c_str());
+				if (index > 0 && index <= player->GetInventory()->size()) {
+					Armor *armor = dynamic_cast<Armor*>(player->GetInventory()->at(index - 1));
+					if (armor)
+						player->Equip(armor);
+					else
+						std::cout << "\n\tInvalid item chosen\n\n\t";
+				}
 				HandleInput = false;
 				break;
 			}
