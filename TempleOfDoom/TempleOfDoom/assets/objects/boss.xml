@@ -1,7 +1,21 @@
 <?xml version="1.0"?>
 <TOD>
 	<Boss>
-		<name>Hitler</name>
+		<name>Fridtjof Nansen</name>
+		<hp>1000</hp>
+		<level>11</level>
+		<attack>50</attack>
+		<defense>50</defense>
+	</Boss>
+	<Boss>
+		<name>Jedediah Smith</name>
+		<hp>1000</hp>
+		<level>11</level>
+		<attack>50</attack>
+		<defense>50</defense>
+	</Boss>
+	<Boss>
+		<name>JZheng He</name>
 		<hp>1000</hp>
 		<level>11</level>
 		<attack>50</attack>

@@ -36,6 +36,20 @@
 		<defense>7</defense>
 	</NPC>
 	<NPC>
+		<name>panda</name>
+		<hp>38</hp>
+		<level>2</level>
+		<attack>8</attack>
+		<defense>7</defense>
+	</NPC>
+	<NPC>
+		<name>zombie</name>
+		<hp>38</hp>
+		<level>2</level>
+		<attack>8</attack>
+		<defense>7</defense>
+	</NPC>
+	<NPC>
 		<name>chedipe</name>
 		<hp>40</hp>
 		<level>3</level>
@@ -55,6 +69,13 @@
 		<level>4</level>
 		<attack>12</attack>
 		<defense>9</defense>
+	</NPC>
+	<NPC>
+		<name>lion</name>
+		<hp>38</hp>
+		<level>4</level>
+		<attack>11</attack>
+		<defense>10</defense>
 	</NPC>
 	<NPC>
 		<name>dhenuka</name>
@@ -78,6 +99,13 @@
 		<defense>14</defense>
 	</NPC>
 	<NPC>
+		<name>bandit archer</name>
+		<hp>50</hp>
+		<level>5</level>
+		<attack>13</attack>
+		<defense>14</defense>
+	</NPC>
+	<NPC>
 		<name>koka</name>
 		<hp>60</hp>
 		<level>6</level>
@@ -90,6 +118,20 @@
 		<level>6</level>
 		<attack>16</attack>
 		<defense>17</defense>
+	</NPC>
+	<NPC>
+		<name>assassin</name>
+		<hp>58</hp>
+		<level>6</level>
+		<attack>18</attack>
+		<defense>11</defense>
+	</NPC>
+	<NPC>
+		<name>knight</name>
+		<hp>70</hp>
+		<level>7</level>
+		<attack>20</attack>
+		<defense>23</defense>
 	</NPC>
 	<NPC>
 		<name>mada</name>
@@ -120,6 +162,13 @@
 		<defense>30</defense>
 	</NPC>
 	<NPC>
+		<name>wizard</name>
+		<hp>110</hp>
+		<level>9</level>
+		<attack>41</attack>
+		<defense>28</defense>
+	</NPC>
+	<NPC>
 		<name>symbha</name>
 		<hp>100</hp>
 		<level>9</level>
@@ -146,5 +195,19 @@
 		<level>10</level>
 		<attack>48</attack>
 		<defense>55</defense>
+	</NPC>
+	<NPC>
+		<name>goku</name>
+		<hp>150</hp>
+		<level>10</level>
+		<attack>52</attack>
+		<defense>52</defense>
+	</NPC>
+	<NPC>
+		<name>gladiator</name>
+		<hp>160</hp>
+		<level>10</level>
+		<attack>50</attack>
+		<defense>50</defense>
 	</NPC>
 </TOD>
