@@ -1,11 +1,11 @@
 <TOD>
     <Player>
         <name>Este</name>
-        <level>3</level>
-        <attack>648</attack>
-        <defense>648</defense>
-        <xp>84</xp>
-        <hp>98</hp>
+        <level>10</level>
+        <attack>58320</attack>
+        <defense>58320</defense>
+        <xp>364</xp>
+        <hp>895</hp>
         <maxhp>900</maxhp>
         <vigilance>26</vigilance>
     </Player>

@@ -136,7 +136,7 @@ namespace TOD {
 	}
 
 	int Player::Rest() {
-		int gain = 15;
+		int gain = maxhp / 2; // gain = 50% of maxhp
 		return GainHp(gain);
 	}
 
