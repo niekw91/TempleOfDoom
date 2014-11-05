@@ -9,6 +9,7 @@
 #include "ExploringState.h"
 #include "InventoryState.h"
 #include "GameOverState.h"
+#include "VictoryState.h"
 #include "Game.h"
 #include "Options.h"
 #include "NPC.h"
@@ -41,7 +42,6 @@ namespace TOD {
 			Do(game);
 		else {
 			// If player is dead go to GameOverstate
-			PauseScreen();
 			game->StateManager()->ChangeState(game, GameOverState::Instance());
 		}
 	}
@@ -150,11 +150,21 @@ namespace TOD {
 						player->ReceiveXp(npc->GiveXp());
 						npcs->erase(npcs->begin() + (target - 1));
 					}
+					bool finalbattle = false;
+					if (npc->GetLevel() > 10)
+						finalbattle = true;
 
 					// Check if all enemies are defeated
 					if (npcs->empty()) {
-						std::cout << "\tAll the enemies in the room have been defeated.\n\n\t";
-						game->StateManager()->PopState(game);
+						if (finalbattle) {
+							std::cout << "\tAll the enemies in the room have been defeated.\n\n\t";
+							game->StateManager()->PopState(game);
+							game->StateManager()->ChangeState(game, VictoryState::Instance());
+						}
+						else {
+							std::cout << "\tAll the enemies in the room have been defeated.\n\n\t";
+							game->StateManager()->PopState(game);
+						}
 					}
 				}
 				std::cout << "\t";
