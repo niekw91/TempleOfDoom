@@ -2,11 +2,11 @@
     <Player>
         <name>Este</name>
         <level>3</level>
-        <attack>72</attack>
-        <defense>72</defense>
+        <attack>216</attack>
+        <defense>216</defense>
         <xp>77</xp>
         <hp>100</hp>
-        <maxhp>300</maxhp>
+        <maxhp>900</maxhp>
         <vigilance>26</vigilance>
     </Player>
 </TOD>
