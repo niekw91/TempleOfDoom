@@ -157,12 +157,12 @@ namespace TOD {
 					// Check if all enemies are defeated
 					if (npcs->empty()) {
 						if (finalbattle) {
-							std::cout << "\tAll the enemies in the room have been defeated.\n\n\t";
+							std::cout << "\tAll the enemies in the room have been defeated.\n\n";
 							game->StateManager()->PopState(game);
 							game->StateManager()->ChangeState(game, VictoryState::Instance());
 						}
 						else {
-							std::cout << "\tAll the enemies in the room have been defeated.\n\n\t";
+							std::cout << "\tAll the enemies in the room have been defeated.\n\n";
 							game->StateManager()->PopState(game);
 						}
 					}

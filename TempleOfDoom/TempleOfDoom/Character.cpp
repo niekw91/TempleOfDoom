@@ -2,6 +2,7 @@
 #include "Character.h"
 #include "Player.h"
 #include "Item.h"
+#include "Random.h"
 
 #include <vector>
 
@@ -16,19 +17,15 @@ namespace TOD {
 	}
 
 	int Character::Attack(Player* c) {
-		//// Calculate total defense
-		//int totaldefense = defense;
-		//if (c->GetAmor() != nullptr)
-		//	totaldefense += c->GetAmor()->GetDefense();
+		// calculate total defense
+		int totaldefense = defense;
+		if (c->GetAmor() != nullptr)
+			totaldefense += c->GetAmor()->GetDefense();
 
-		//// Calculate damage
-		//int damage = totaldefense - attack < 0 ? (totaldefense - attack) * -1 : 0;
-
-		int multiplier = (int)(level - c->GetLevel()) * 0.4; // Damage multiplier
-		int damage = 1;
-		damage += (c->GetDefense() - attack) > 0 ? 0 : (c->GetDefense() - attack) * -1;
+		// calculate damage
+		int damage = ((((2 * level / 5 + 2) * attack * (attack / 4) / totaldefense) / 50) + 2) * Random::Next(1, 100) / 100;
 		
-		return damage + (damage * multiplier);
+		return damage;
 	}
 
 	int Character::GiveXp() {

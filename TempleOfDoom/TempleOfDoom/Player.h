@@ -43,6 +43,7 @@ namespace TOD {
 
 		int NextLevel();
 		int GainHp(int hp);
+		void GainStats();
 	};
 }
 

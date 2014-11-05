@@ -19,8 +19,8 @@ namespace TOD {
 		int GetMaxHP() { return maxhp; }
 		int GetHP() { return hp; }
 		int GetXp() { return xp; }
-		int GetAttack() { return attack * level; }
-		int GetDefense() { return defense * level; }
+		int GetAttack() { return attack; }
+		int GetDefense() { return defense; }
 		
 		bool IsDead() { return _isDead; }
 		bool TakeDamage(int attack);

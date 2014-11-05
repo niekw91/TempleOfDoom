@@ -19,7 +19,7 @@ namespace TOD {
 
 	Player::Player(std::string name) : Character(name) {
 		this->level = 1;
-		this->maxhp = 1;
+		this->maxhp = 100;
 		this->hp = maxhp;
 		this->xp = 0;
 		this->attack = 24;
@@ -88,20 +88,15 @@ namespace TOD {
 
 	/* Returns integer with the amount of damage done, if 0 attack missed */
 	int Player::Attack(Character *c) {
-		int multiplier = (int)(level - c->GetLevel()) * 0.4; // Damage multiplier
-		int damage = 1; // Damage default
+		// calculate total defense
+		int totalattack = attack;
+		if (GetWeapon() != nullptr)
+			totalattack += GetWeapon()->GetDamage();
 
-		int left = attack - c->GetDefense();
-		if (left <= 0)
-		{
-			// NPC defense is higher than player attack
-			left = Random::Next(0, 1);
-			if (left == 0) return 0;
-		}
+		// calculate damage
+		int damage = ((((2 * level / 5 + 2) * totalattack * (totalattack / 4) / c->GetDefense()) / 50) + 2) * Random::Next(1, 100) / 100;
 
-		if (weapon) // If player has weapon get weapon damage
-			damage = this->weapon->GetDamage() * left;
-		return damage + (damage * multiplier);
+		return damage;
 	}
 
 	/* Returns true if trap found, false if not */
@@ -125,7 +120,14 @@ namespace TOD {
 		this->xp += givenxp; 
 		// Raise level
 		if (xp > NextLevel() && level < 10)
-			this->level++;
+			GainStats();
+	}
+
+	void Player::GainStats() {
+		this->level++;
+		this->maxhp += (maxhp / 5) + (level * 10);
+		this->attack += (attack / 5) + (level * 10);
+		this->defense += (defense / 5) + (level * 10);
 	}
 
 	int Player::NextLevel() {
@@ -136,7 +138,7 @@ namespace TOD {
 	}
 
 	int Player::Rest() {
-		int gain = maxhp / 2; // gain = 50% of maxhp
+		int gain = maxhp / Random::Next(2, 10);
 		return GainHp(gain);
 	}
 
