@@ -35,7 +35,7 @@ namespace TOD {
 	}
 
 	void CreditsState::Generate(Game *game) {
-		const std::string textfile("Credits.txt");
+		const std::string textfile("assets/screens/credits.txt");
 		std::ifstream input_file(textfile);
 
 		std::string line;

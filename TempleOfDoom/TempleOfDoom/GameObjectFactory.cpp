@@ -384,6 +384,12 @@ namespace TOD {
 			mIt = medkitVector.erase(mIt);
 		}
 
+		std::vector<EndBoss*>::iterator bIt;
+		for (bIt = bossVector.begin(); bIt != bossVector.end();) {
+			delete *bIt;
+			bIt = bossVector.erase(bIt);
+		}
+
 		std::vector<ItemType*>::iterator itIt;
 		for (itIt = tempTypes.begin(); itIt != tempTypes.end();) {
 			delete *itIt;

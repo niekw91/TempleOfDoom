@@ -5,6 +5,7 @@
 
 namespace TOD {
 	// Forward declaration
+	class Options;
 	class Game;
 
 	class ExploringState : public GameState
@@ -40,5 +41,7 @@ namespace TOD {
 		std::string RenderSize(Size size);
 
 		std::string SearchTrap(Game *game);
+
+		std::vector<Options*> options;
 	};
 }

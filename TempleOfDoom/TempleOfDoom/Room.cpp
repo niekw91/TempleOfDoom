@@ -83,7 +83,7 @@ namespace TOD {
 	}
 
 	void Room::SetTrap() {
-		if (HasObjectType()) {
+		if (Random::Next(1, 10) == 1) {
 			traps->push_back(factory->GetRandomTrap());
 		}
 	}
@@ -244,10 +244,12 @@ namespace TOD {
 
 	void Room::SetDown(Room *room) {
 		this->down = room;
+		this->directionStrings.insert(std::make_pair(DOWN, factory->GetRandomExitString()));
 	}
 
 	void Room::SetUp(Room *room) {
 		this->up = room;
+		this->directionStrings.insert(std::make_pair(UP, factory->GetRandomExitString()));
 	}
 
 	Room* Room::GetNorth() {

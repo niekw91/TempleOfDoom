@@ -28,11 +28,15 @@ namespace TOD {
 	ExploringState ExploringState::instance;
 
 	void ExploringState::Init(Game *game) {
-
+		options = std::vector<Options*>();
 	}
 
 	void ExploringState::Cleanup(Game *game) {
-
+		std::vector<Options*>::iterator it;
+		for (it = options.begin(); it != options.end();) {
+			delete *it;
+			it = options.erase(it);
+		}
 	}
 
 	void ExploringState::Update(Game *game) {
@@ -181,16 +185,11 @@ namespace TOD {
 		// Handle input
 		bool HandleInput = true;
 		while (HandleInput) {
-			// Create options
-			Options *options = new Options("fight;move;search;rest;inventory;map;quit;cheat", true);
-			enum optionsenum { FIGHT, MOVE, SEARCH, REST, INVENTORY, MAP, QUIT, CHEAT };
-
-			//TODO: remove cheat code 
-			std::vector<Room*> rms = game->GetWorld()->GetCurrentFloor()->GetRooms();
-			Room *currRoom = game->GetWorld()->GetCurrentFloor()->GetCurrentRoom();
-
+			Options *op = new Options("fight;move;search;rest;inventory;map;quit;cheat", true);
+			options.push_back(op);
+			enum optionsenum { FIGHT = 1, MOVE, SEARCH, REST, INVENTORY, MAP, QUIT, CHEAT };
 			// Handle choice
-			switch (options->GetChoice()) {
+			switch (op->GetChoice()) {
 			case FIGHT:
 				// Change to fight state
 				if (!game->GetWorld()->GetCurrentFloor()->GetCurrentRoom()->GetNPC()->empty()) {
@@ -235,7 +234,11 @@ namespace TOD {
 				HandleInput = false;
 				break;
 			}
-			case CHEAT:
+			case CHEAT: {
+				//TODO: remove cheat code 
+				std::vector<Room*> rms = game->GetWorld()->GetCurrentFloor()->GetRooms();
+				Room *currRoom = game->GetWorld()->GetCurrentFloor()->GetCurrentRoom();
+
 				for (auto r : rms) {
 					if (r->GetRoomType() == ST_UP) {
 						r->SetPlayer(currRoom->GetPlayer());
@@ -250,8 +253,9 @@ namespace TOD {
 				}
 				HandleInput = false;
 				break;
+			}
 			default:
-				std::cout << "\tThat's not an option...\n";
+				std::cout << "\tThat's not an option...\n\n";
 				break;
 			}
 		}
@@ -343,12 +347,13 @@ namespace TOD {
 			bool HandleInput = true;
 			while (HandleInput) {
 				// Create options
-				Options *options = new Options("pickup;pass", false);
-				enum optionsenum { PICKUP, PASS };
+				Options *op = new Options("pickup;pass", false); 
+				options.push_back(op);
+				enum optionsenum { PICKUP = 1, PASS };
 
 				std::string input;
 				// Handle choice
-				switch (options->GetChoice()) {
+				switch (op->GetChoice()) {
 				case PICKUP: {
 					std::cout << "\n\tWhich item do you want to pick-up? (index)\n\n\t";
 
@@ -382,11 +387,12 @@ namespace TOD {
 		bool HandleInput = true;
 		while (HandleInput) {
 			// Create options
-			Options *options = new Options("north;east;south;west;up;down", false);
-			enum optionsenum { NORTH, EAST, SOUTH, WEST, UP, DOWN };
+			Options *op = new Options("north;east;south;west;up;down", false);
+			options.push_back(op);
+			enum optionsenum { NORTH = 1, EAST, SOUTH, WEST, UP, DOWN };
 
 			// Handle choice
-			switch (options->GetChoice()) {
+			switch (op->GetChoice()) {
 			case NORTH:
 				if (currRoom->GetNorth()) {
 					MoveTo(currRoom, currRoom->GetNorth());
