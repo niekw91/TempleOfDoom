@@ -18,4 +18,22 @@
 	<Exit>
 		<description>a cracked wall</description>
 	</Exit>
+	<Exit>
+		<description>a creaky gate</description>
+	</Exit>
+	<Exit>
+		<description>a narrow passage</description>
+	</Exit>
+	<Exit>
+		<description>a mouse hole</description>
+	</Exit>
+	<Exit>
+		<description>a waterslide</description>
+	</Exit>
+	<Exit>
+		<description>a not so hidden door</description>
+	</Exit>
+	<Exit>
+		<description>a bookcase that seems to slide out</description>
+	</Exit>
 </TOD>

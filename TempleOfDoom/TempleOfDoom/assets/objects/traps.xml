@@ -12,4 +12,12 @@
 		<name>Mouse trap</name>
 		<damage>1</damage>
 	</trap>
+	<trap>
+		<name>Man eating plant</name>
+		<damage>7</damage>
+	</trap>
+	<trap>
+		<name>Spears</name>
+		<damage>9</damage>
+	</trap>
 </TOD>

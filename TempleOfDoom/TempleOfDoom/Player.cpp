@@ -124,7 +124,7 @@ namespace TOD {
 		// Raise xp
 		this->xp += givenxp; 
 		// Raise level
-		if (xp > NextLevel())
+		if (xp > NextLevel() && level < 10)
 			this->level++;
 	}
 

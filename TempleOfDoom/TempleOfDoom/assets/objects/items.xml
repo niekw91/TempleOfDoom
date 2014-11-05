@@ -56,6 +56,36 @@
 			<damage>10</damage>
 			<rare>false</rare>
 		</item>
+		<item>
+			<name>Broad Sword</name>
+			<damage>6</damage>
+			<rare>false</rare>
+		</item>
+		<item>
+			<name>Spear</name>
+			<damage>5</damage>
+			<rare>false</rare>
+		</item>
+		<item>
+			<name>Axe</name>
+			<damage>8</damage>
+			<rare>false</rare>
+		</item>
+		<item>
+			<name>Combat Knife</name>
+			<damage>6</damage>
+			<rare>false</rare>
+		</item>
+		<item>
+			<name>Desert Eagle</name>
+			<damage>10</damage>
+			<rare>false</rare>
+		</item>
+		<item>
+			<name>Grenade Launcher</name>
+			<damage>20</damage>
+			<rare>false</rare>
+		</item>
 	</weapons>
 	<armor>
 		<item>
@@ -94,6 +124,21 @@
 			<rare>true</rare>
 		</item>
 		<item>
+			<name>Diamond Armor</name>
+			<rating>35</rating>
+			<rare>true</rare>
+		</item>
+		<item>
+			<name>Combat Armor</name>
+			<rating>30</rating>
+			<rare>true</rare>
+		</item>
+		<item>
+			<name>Full Riot Gear</name>
+			<rating>30</rating>
+			<rare>true</rare>
+		</item>
+		<item>
 			<name>Super Saiyan Armor</name>
 			<rating>50</rating>
 			<rare>true</rare>
@@ -113,6 +158,96 @@
 		<item>
 			<name>Bandaid</name>
 			<hp>25</hp>
+			<rare>false</rare>
+		</item>
+		<item>
+			<name>Medicine</name>
+			<hp>30</hp>
+			<rare>false</rare>
+		</item>
+		<item>
+			<name>Tranquilizer</name>
+			<hp>20</hp>
+			<rare>false</rare>
+		</item>
+		<item>
+			<name>Adrenaline Syringe</name>
+			<hp>20</hp>
+			<rare>false</rare>
+		</item>
+		<item>
+			<name>Steroids</name>
+			<hp>30</hp>
+			<rare>false</rare>
+		</item>
+		<item>
+			<name>Herbs</name>
+			<hp>20</hp>
+			<rare>false</rare>
+		</item>
+		<item>
+			<name>Medicinal Marijuana</name>
+			<hp>50</hp>
+			<rare>false</rare>
+		</item>
+		<item>
+			<name>Cocaine</name>
+			<hp>30</hp>
+			<rare>false</rare>
+		</item>
+		<item>
+			<name>Amphetamines</name>
+			<hp>30</hp>
+			<rare>false</rare>
+		</item>
+		<item>
+			<name>Crystal Meth</name>
+			<hp>-20</hp>
+			<rare>false</rare>
+		</item>
+		<item>
+			<name>Magic Mushroom</name>
+			<hp>130</hp>
+			<rare>false</rare>
+		</item>
+		<item>
+			<name>XTC</name>
+			<hp>30</hp>
+			<rare>false</rare>
+		</item>
+		<item>
+			<name>Asperine</name>
+			<hp>30</hp>
+			<rare>false</rare>
+		</item>
+		<item>
+			<name>Cough Medicine</name>
+			<hp>30</hp>
+			<rare>false</rare>
+		</item>
+		<item>
+			<name>Old Dusty Whisky</name>
+			<hp>230</hp>
+			<rare>false</rare>
+		</item>
+		<item>
+			<name>Beer</name>
+			<hp>30</hp>
+			<rare>false</rare>
+		</item>
+		<item>
+			<name>Banana</name>
+			<hp>30</hp>
+			<rare>false</rare>
+		</item>
+		<item>
+			<name>Can of Food</name>
+			<hp>30</hp>
+			<rare>false</rare>
+		</item>
+		<item>
+			<name>Strawberries</name>
+			<hp>30</hp>
 			<rare>false</rare>
 		</item>
 		<item>

@@ -184,6 +184,7 @@
     <ClInclude Include="targetver.h" />
     <ClInclude Include="Trap.h" />
     <ClInclude Include="Usable.h" />
+    <ClInclude Include="VictoryState.h" />
     <ClInclude Include="Weapon.h" />
     <ClInclude Include="Wearable.h" />
     <ClInclude Include="World.h" />
@@ -226,6 +227,7 @@
     <ClCompile Include="TempleOfDoom.cpp" />
     <ClCompile Include="Trap.cpp" />
     <ClCompile Include="Usable.cpp" />
+    <ClCompile Include="VictoryState.cpp" />
     <ClCompile Include="Weapon.cpp" />
     <ClCompile Include="Wearable.cpp" />
     <ClCompile Include="World.cpp" />
