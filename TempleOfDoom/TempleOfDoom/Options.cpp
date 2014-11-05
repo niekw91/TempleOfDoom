@@ -52,10 +52,12 @@ namespace TOD
 		std::cout << "\t";
 		std::string input;
 		std::getline(std::cin, input);
-		std::transform(input.begin(), input.end(), input.begin(), ::toupper);
+		int number = atoi(input.c_str()) == 0 ? 0 : atoi(input.c_str());
+		if (number == 0)
+			std::transform(input.begin(), input.end(), input.begin(), ::toupper);
 		
 		for (size_t i = 0, size = options.size(); i < size; i++) {
-			if (options[i] == input) {
+			if (options[i] == input || number == i + 1) {
 				this->choice = i + 1;
 				break;
 			}
