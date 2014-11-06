@@ -96,7 +96,7 @@ namespace TOD {
 		// calculate damage
 		int damage = ((((2 * level / 5 + 2) * totalattack * (totalattack / 4) / c->GetDefense()) / 50) + 2) * Random::Next(1, 100) / 100;
 
-		return damage;
+		return damage * Random::Next(1, 10);
 	}
 
 	/* Returns true if trap found, false if not */
@@ -124,10 +124,18 @@ namespace TOD {
 	}
 
 	void Player::GainStats() {
-		this->level++;
-		this->maxhp += (maxhp / 5) + (level * 10);
-		this->attack += (attack / 5) + (level * 10);
-		this->defense += (defense / 5) + (level * 10);
+		std::cout << "\n\tYou've ascended to a higher level.\n ";
+		std::cout << "\t----------------------------------------------\n";
+		std::cout << "\tLevel " << level++ << " > " << level << "\n";
+		int gainhp = (maxhp / 5) + (level * 10);
+		std::cout << "\tHP " << maxhp << " + " << gainhp << "\n";
+		this->maxhp += gainhp;
+		int gainattack = (attack / 5) + (level * 10);
+		std::cout << "\tAttack " << attack << " + " << gainattack << "\n";
+		this->attack += gainattack;
+		int gaindefense = (defense / 5) + (level * 10);
+		std::cout << "\tDefense " << defense << " + " << gaindefense << "\n\n";
+		this->defense += gaindefense;
 	}
 
 	int Player::NextLevel() {

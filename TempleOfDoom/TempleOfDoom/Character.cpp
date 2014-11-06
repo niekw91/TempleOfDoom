@@ -25,7 +25,7 @@ namespace TOD {
 		// calculate damage
 		int damage = ((((2 * level / 5 + 2) * attack * (attack / 4) / totaldefense) / 50) + 2) * Random::Next(1, 100) / 100;
 		
-		return damage;
+		return damage * Random::Next(1, 10);
 	}
 
 	int Character::GiveXp() {
