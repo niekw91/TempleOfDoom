@@ -223,8 +223,8 @@ namespace TOD {
 				else
 					std::cout << "Error while saving your game!\n\n\t";
 				PauseScreen();
-				MainMenuState::Instance()->StopGame();
-				game->StateManager()->ChangeState(game, MainMenuState::Instance());
+				//game->StateManager()->ChangeState(game, MainMenuState::Instance());
+				game->Stop();
 				HandleInput = false;
 				break;
 			}

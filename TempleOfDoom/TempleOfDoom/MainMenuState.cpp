@@ -22,13 +22,8 @@ namespace TOD {
 	MainMenuState MainMenuState::instance;
 
 	void MainMenuState::Init(Game *game) {
-		if (MainMenuState::Instance()->IsStopped())
-			game->Stop();
 	}
 
-	void MainMenuState::StopGame() {
-		stopGame = stop;
-	}
 
 	void MainMenuState::Cleanup(Game *game) {
 

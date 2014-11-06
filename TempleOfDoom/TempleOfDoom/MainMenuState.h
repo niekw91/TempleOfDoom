@@ -18,15 +18,11 @@ namespace TOD {
 
 		static MainMenuState *Instance() { return &instance; }
 
-		static void StopGame(bool stop);
-		static bool IsStopped() { return stopGame; }
-
 	protected:
 		MainMenuState() { }
 
 	private:
 		static MainMenuState instance;
-		static bool stopGame;
 
 		void Generate(Game *game);
 		void Do(Game *game);

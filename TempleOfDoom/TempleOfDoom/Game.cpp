@@ -41,7 +41,6 @@ namespace TOD {
 	}
 
 	void Game::Start() {
-		MainMenuState::StopGame(false);
 		Running = true;
 		// Start game
 		while (Running) {
