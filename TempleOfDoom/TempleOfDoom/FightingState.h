@@ -30,8 +30,6 @@ namespace TOD {
 		void Header();
 
 		bool juststarted;
-
-		InputHandler *input;
 	};
 }
 

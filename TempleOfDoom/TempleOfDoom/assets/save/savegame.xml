@@ -1,0 +1,12 @@
+<TOD>
+    <Player>
+        <name>niek</name>
+        <level>1</level>
+        <attack>24</attack>
+        <defense>24</defense>
+        <xp>0</xp>
+        <hp>100</hp>
+        <maxhp>100</maxhp>
+        <vigilance>26</vigilance>
+    </Player>
+</TOD>

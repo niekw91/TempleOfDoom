@@ -22,15 +22,16 @@ namespace TOD {
 	MainMenuState MainMenuState::instance;
 
 	void MainMenuState::Init(Game *game) {
-		options = std::vector<Options*>();
+		if (MainMenuState::Instance()->IsStopped())
+			game->Stop();
+	}
+
+	void MainMenuState::StopGame() {
+		stopGame = stop;
 	}
 
 	void MainMenuState::Cleanup(Game *game) {
-		std::vector<Options*>::iterator it;
-		for (it = options.begin(); it != options.end();) {
-			delete *it;
-			it = options.erase(it);
-		}
+
 	}
 
 	void MainMenuState::Update(Game *game) {
@@ -62,12 +63,11 @@ namespace TOD {
 		bool HandleInput = true;
 		while (HandleInput)
 		{
-			Options *op = new Options("new game;load game;credits;quit", false);
-			options.push_back(op);
+			Options op = Options("new game;load game;credits;quit", false);
 			enum optionsenum { NEWGAME = 1, LOADGAME, CREDITS, QUIT };
 
 			// Handle choice
-			switch (op->GetChoice()){
+			switch (op.GetChoice()){
 			case NEWGAME:
 				NewGame(game);
 				HandleInput = false;

@@ -41,7 +41,5 @@ namespace TOD {
 		std::string RenderSize(Size size);
 
 		std::string SearchTrap(Game *game);
-
-		std::vector<Options*> options;
 	};
 }

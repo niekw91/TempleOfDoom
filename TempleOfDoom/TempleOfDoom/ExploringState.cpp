@@ -28,15 +28,9 @@ namespace TOD {
 	ExploringState ExploringState::instance;
 
 	void ExploringState::Init(Game *game) {
-		options = std::vector<Options*>();
 	}
 
 	void ExploringState::Cleanup(Game *game) {
-		std::vector<Options*>::iterator it;
-		for (it = options.begin(); it != options.end();) {
-			delete *it;
-			it = options.erase(it);
-		}
 	}
 
 	void ExploringState::Update(Game *game) {
@@ -185,11 +179,10 @@ namespace TOD {
 		// Handle input
 		bool HandleInput = true;
 		while (HandleInput) {
-			Options *op = new Options("fight;move;search;rest;inventory;map;quit;cheat", true);
-			options.push_back(op);
+			Options op = Options("fight;move;search;rest;inventory;map;quit;cheat", true);
 			enum optionsenum { FIGHT = 1, MOVE, SEARCH, REST, INVENTORY, MAP, QUIT, CHEAT };
 			// Handle choice
-			switch (op->GetChoice()) {
+			switch (op.GetChoice()) {
 			case FIGHT:
 				// Change to fight state
 				if (!game->GetWorld()->GetCurrentFloor()->GetCurrentRoom()->GetNPC()->empty()) {
@@ -230,6 +223,7 @@ namespace TOD {
 				else
 					std::cout << "Error while saving your game!\n\n\t";
 				PauseScreen();
+				MainMenuState::Instance()->StopGame();
 				game->StateManager()->ChangeState(game, MainMenuState::Instance());
 				HandleInput = false;
 				break;
@@ -347,13 +341,12 @@ namespace TOD {
 			bool HandleInput = true;
 			while (HandleInput) {
 				// Create options
-				Options *op = new Options("pickup;pass", false); 
-				options.push_back(op);
+				Options op = Options("pickup;pass", false); 
 				enum optionsenum { PICKUP = 1, PASS };
 
 				std::string input;
 				// Handle choice
-				switch (op->GetChoice()) {
+				switch (op.GetChoice()) {
 				case PICKUP: {
 					//std::cout << "\n\tWhich item do you want to pick-up? (index)\n\n\t";
 
@@ -389,12 +382,11 @@ namespace TOD {
 		bool HandleInput = true;
 		while (HandleInput) {
 			// Create options
-			Options *op = new Options("north;east;south;west;up;down", false);
-			options.push_back(op);
+			Options op = Options("north;east;south;west;up;down", false);
 			enum optionsenum { NORTH = 1, EAST, SOUTH, WEST, UP, DOWN };
 
 			// Handle choice
-			switch (op->GetChoice()) {
+			switch (op.GetChoice()) {
 			case NORTH:
 				if (currRoom->GetNorth()) {
 					MoveTo(currRoom, currRoom->GetNorth());

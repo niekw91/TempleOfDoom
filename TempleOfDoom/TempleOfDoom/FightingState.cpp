@@ -26,7 +26,6 @@ namespace TOD {
 	}
 
 	void FightingState::Cleanup(Game *game) {
-		delete input;
 	}
 
 	void FightingState::Update(Game *game) {
@@ -98,11 +97,11 @@ namespace TOD {
 
 			// Read input
 			std::cout << "\t";
-			input = new InputHandler();
+			InputHandler input = InputHandler();
 			std::cout << "\n";
 
 			// Get commands
-			std::vector<std::string> commands = input->GetCommands();
+			std::vector<std::string> commands = input.GetCommands();
 
 			auto room = game->GetCurrentRoom();
 			auto player = game->GetPlayer();

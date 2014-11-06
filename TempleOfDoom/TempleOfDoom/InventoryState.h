@@ -38,8 +38,6 @@ namespace TOD {
 		void RemoveItem(Player *player, int index);
 
 		std::string inventory;
-
-		std::vector<Options*> options;
 	};
 }
 

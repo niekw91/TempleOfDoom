@@ -17,15 +17,9 @@ namespace TOD {
 	InventoryState InventoryState::instance;
 
 	void InventoryState::Init(Game *game) {
-		options = std::vector<Options*>();
 	}
 
 	void InventoryState::Cleanup(Game *game) {
-		std::vector<Options*>::iterator it;
-		for (it = options.begin(); it != options.end();) {
-			delete *it;
-			it = options.erase(it);
-		}
 	}
 
 	void InventoryState::Update(Game *game) {
@@ -82,12 +76,11 @@ namespace TOD {
 		bool HandleInput = true;
 		while (HandleInput) {
 			// Create options
-			Options *op = new Options("equip;use;delete;back", true);
-			options.push_back(op);
+			Options op = Options("equip;use;delete;back", true);
 			enum optionsenum { EQUIP = 1, USE, DELETE, BACK };
 
 			// Handle choice
-			switch (op->GetChoice()) {
+			switch (op.GetChoice()) {
 			case EQUIP:
 				ActionEquip(game);
 				HandleInput = false;
@@ -161,10 +154,9 @@ namespace TOD {
 		bool HandleInput = true;
 		while (HandleInput) {
 			// Create options
-			Options *op = new Options("weapon;armor", true);
-			options.push_back(op);
+			Options op = Options("weapon;armor", true);
 			enum optionsenum { WEAPON = 1, ARMOR };
-			switch (op->GetChoice()) {
+			switch (op.GetChoice()) {
 			case WEAPON: {
 				std::cout << "\n\tWhich weapon do you wish to equip? (index)\n\n\t";
 
